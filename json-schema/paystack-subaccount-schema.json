@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-subaccount-schema.json",
+  "title": "Paystack Subaccount",
+  "description": "A subaccount representing a business that receives a share of split payments.",
+  "type": "object",
+  "required": ["subaccount_code", "business_name", "settlement_bank", "account_number", "percentage_charge"],
+  "properties": {
+    "id": { "type": "integer" },
+    "subaccount_code": {
+      "type": "string",
+      "pattern": "^ACCT_[a-zA-Z0-9]+$",
+      "description": "Paystack-issued subaccount code (prefixed with ACCT_)."
+    },
+    "business_name": { "type": "string" },
+    "description": { "type": ["string", "null"] },
+    "primary_contact_email": { "type": ["string", "null"], "format": "email" },
+    "primary_contact_name": { "type": ["string", "null"] },
+    "primary_contact_phone": { "type": ["string", "null"] },
+    "metadata": { "type": ["object", "null"] },
+    "percentage_charge": {
+      "type": "number",
+      "description": "Default percentage of the transaction the subaccount receives."
+    },
+    "settlement_bank": { "type": "string" },
+    "account_number": { "type": "string" },
+    "settlement_schedule": {
+      "type": "string",
+      "enum": ["auto", "weekly", "monthly", "manual"]
+    },
+    "active": { "type": "boolean" },
+    "is_verified": { "type": "boolean" },
+    "currency": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-structure/paystack-customer-structure.json",
+  "name": "PaystackCustomer",
+  "type": "object",
+  "description": "JSON Structure for a Paystack customer profile.",
+  "properties": {
+    "id": { "type": "int64" },
+    "customer_code": { "type": "string", "description": "Paystack code prefixed with CUS_." },
+    "email": { "type": "string", "format": "email" },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "phone": { "type": "string" },
+    "international_format_phone": { "type": "string" },
+    "metadata": { "type": "any" },
+    "risk_action": { "type": "string", "description": "default, allow, or deny." },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["customer_code", "email"]
+}

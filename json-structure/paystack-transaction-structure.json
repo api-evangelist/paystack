@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-structure/paystack-transaction-structure.json",
+  "name": "PaystackTransaction",
+  "type": "object",
+  "description": "JSON Structure representation of a Paystack transaction — the canonical record of a payment processed through Paystack.",
+  "properties": {
+    "id": { "type": "int64", "description": "Unique transaction id." },
+    "reference": { "type": "string", "description": "Merchant or Paystack-generated unique reference." },
+    "amount": { "type": "int64", "description": "Amount in lowest currency denomination (kobo for NGN, pesewas for GHS)." },
+    "currency": { "type": "string", "description": "ISO 4217 currency code." },
+    "status": { "type": "string", "description": "Lifecycle status: success, failed, abandoned, reversed, pending." },
+    "gateway_response": { "type": "string", "description": "Bank/gateway response message." },
+    "channel": { "type": "string", "description": "Payment channel: card, bank, ussd, qr, mobile_money, bank_transfer, eft." },
+    "ip_address": { "type": "string" },
+    "metadata": { "type": "any" },
+    "fees": { "type": "int64" },
+    "paid_at": { "type": "string", "format": "date-time" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "int64" },
+        "customer_code": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    },
+    "authorization": {
+      "type": "object",
+      "properties": {
+        "authorization_code": { "type": "string", "description": "Reusable token for charging the same payment method again." },
+        "bin": { "type": "string" },
+        "last4": { "type": "string" },
+        "exp_month": { "type": "string" },
+        "exp_year": { "type": "string" },
+        "channel": { "type": "string" },
+        "card_type": { "type": "string" },
+        "bank": { "type": "string" },
+        "country_code": { "type": "string" },
+        "brand": { "type": "string" },
+        "reusable": { "type": "boolean" }
+      }
+    }
+  },
+  "required": ["id", "reference", "amount", "currency", "status"]
+}

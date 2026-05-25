@@ -1,0 +1,298 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Customers API \u2014 Customer"
+  description: 'Paystack Customers API. 7 operations. Lead operation: Paystack Create Customer. Self-contained Naftiko capability
+    covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Customer
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: customers-customer
+    baseUri: https://api.paystack.co
+    description: Paystack Customers API business capability. Self-contained, no shared references.
+    resources:
+    - name: customer
+      path: /customer
+      operations:
+      - name: customercreate
+        method: POST
+        description: Paystack Create Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: customerlist
+        method: GET
+        description: Paystack List Customers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: customer
+      path: /customer/{code}
+      operations:
+      - name: customerfetch
+        method: GET
+        description: Paystack Fetch Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: customerupdate
+        method: PUT
+        description: Paystack Update Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: customer-set-risk-action
+      path: /customer/set_risk_action
+      operations:
+      - name: customerriskaction
+        method: POST
+        description: Paystack White/blacklist Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: customer-deactivate-authorization
+      path: /customer/deactivate_authorization
+      operations:
+      - name: customerdeactivateauthorization
+        method: POST
+        description: Paystack Deactivate Authorization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: customer-identification
+      path: /customer/{code}/identification
+      operations:
+      - name: customervalidatte
+        method: POST
+        description: Paystack Validate Customer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: customers-customer-rest
+    port: 8080
+    description: REST adapter for Paystack Customers API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/customer
+      name: customer
+      description: REST surface for customer.
+      operations:
+      - method: POST
+        name: customercreate
+        description: Paystack Create Customer
+        call: customers-customer.customercreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: customerlist
+        description: Paystack List Customers
+        call: customers-customer.customerlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/customer/{code}
+      name: customer
+      description: REST surface for customer.
+      operations:
+      - method: GET
+        name: customerfetch
+        description: Paystack Fetch Customer
+        call: customers-customer.customerfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: customerupdate
+        description: Paystack Update Customer
+        call: customers-customer.customerupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/customer/set_risk_action
+      name: customer-set-risk-action
+      description: REST surface for customer-set-risk-action.
+      operations:
+      - method: POST
+        name: customerriskaction
+        description: Paystack White/blacklist Customer
+        call: customers-customer.customerriskaction
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/customer/deactivate_authorization
+      name: customer-deactivate-authorization
+      description: REST surface for customer-deactivate-authorization.
+      operations:
+      - method: POST
+        name: customerdeactivateauthorization
+        description: Paystack Deactivate Authorization
+        call: customers-customer.customerdeactivateauthorization
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/customer/{code}/identification
+      name: customer-identification
+      description: REST surface for customer-identification.
+      operations:
+      - method: POST
+        name: customervalidatte
+        description: Paystack Validate Customer
+        call: customers-customer.customervalidatte
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+  - type: mcp
+    namespace: customers-customer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Customers API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: paystack-create-customer
+      description: Paystack Create Customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customers-customer.customercreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-customers
+      description: Paystack List Customers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customers-customer.customerlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-customer
+      description: Paystack Fetch Customer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: customers-customer.customerfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-update-customer
+      description: Paystack Update Customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: customers-customer.customerupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-white-blacklist-customer
+      description: Paystack White/blacklist Customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customers-customer.customerriskaction
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-deactivate-authorization
+      description: Paystack Deactivate Authorization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customers-customer.customerdeactivateauthorization
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-validate-customer
+      description: Paystack Validate Customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: customers-customer.customervalidatte
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body

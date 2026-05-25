@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-transaction-schema.json",
+  "title": "Paystack Transaction",
+  "description": "A Paystack transaction representing a payment initiated, processed, or verified through the Paystack API.",
+  "type": "object",
+  "required": ["id", "reference", "amount", "currency", "status"],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique numeric Paystack identifier for the transaction."
+    },
+    "reference": {
+      "type": "string",
+      "description": "Merchant-defined or Paystack-generated unique reference for the transaction."
+    },
+    "amount": {
+      "type": "integer",
+      "description": "Transaction amount in the lowest denomination of the currency (kobo for NGN, pesewas for GHS, cents for USD/ZAR)."
+    },
+    "currency": {
+      "type": "string",
+      "enum": ["NGN", "USD", "GHS", "ZAR", "KES", "XOF", "EGP"],
+      "description": "ISO 4217 currency code of the transaction."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failed", "abandoned", "reversed", "pending", "ongoing"],
+      "description": "Current status of the transaction."
+    },
+    "gateway_response": {
+      "type": "string",
+      "description": "Human-readable response message from the payment gateway or bank."
+    },
+    "paid_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the transaction was paid."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the transaction record was created."
+    },
+    "channel": {
+      "type": "string",
+      "enum": ["card", "bank", "ussd", "qr", "mobile_money", "bank_transfer", "eft"],
+      "description": "Payment channel used for the transaction."
+    },
+    "ip_address": {
+      "type": ["string", "null"],
+      "description": "IP address of the customer when initiating the transaction."
+    },
+    "metadata": {
+      "type": ["object", "string", "null"],
+      "description": "Arbitrary key-value metadata supplied by the merchant when initializing the transaction."
+    },
+    "fees": {
+      "type": ["integer", "null"],
+      "description": "Paystack fees deducted from the amount, in the lowest denomination."
+    },
+    "customer": {
+      "$ref": "paystack-customer-schema.json"
+    },
+    "authorization": {
+      "type": "object",
+      "description": "The reusable authorization object created from this transaction (for card transactions).",
+      "properties": {
+        "authorization_code": { "type": "string" },
+        "bin": { "type": "string" },
+        "last4": { "type": "string" },
+        "exp_month": { "type": "string" },
+        "exp_year": { "type": "string" },
+        "channel": { "type": "string" },
+        "card_type": { "type": "string" },
+        "bank": { "type": ["string", "null"] },
+        "country_code": { "type": "string" },
+        "brand": { "type": "string" },
+        "reusable": { "type": "boolean" },
+        "signature": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

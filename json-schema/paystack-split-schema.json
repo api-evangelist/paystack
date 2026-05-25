@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-split-schema.json",
+  "title": "Paystack Transaction Split",
+  "description": "A multi-party transaction split that routes funds from a single payment to multiple subaccounts.",
+  "type": "object",
+  "required": ["split_code", "name", "type", "currency", "subaccounts"],
+  "properties": {
+    "id": { "type": "integer" },
+    "split_code": {
+      "type": "string",
+      "pattern": "^SPL_[a-zA-Z0-9]+$",
+      "description": "Paystack-issued split code (prefixed with SPL_)."
+    },
+    "name": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["percentage", "flat"]
+    },
+    "currency": { "type": "string" },
+    "bearer_type": {
+      "type": "string",
+      "enum": ["account", "subaccount", "all-proportional", "all"],
+      "description": "Who bears the Paystack fee."
+    },
+    "bearer_subaccount": { "type": ["string", "null"] },
+    "active": { "type": "boolean" },
+    "is_dynamic": { "type": "boolean" },
+    "subaccounts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subaccount": { "$ref": "paystack-subaccount-schema.json" },
+          "share": { "type": "integer" }
+        }
+      }
+    },
+    "total_subaccounts": { "type": "integer" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

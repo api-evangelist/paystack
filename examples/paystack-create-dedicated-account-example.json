@@ -1,0 +1,33 @@
+{
+  "summary": "Create a dedicated virtual account",
+  "description": "Provision a NUBAN dedicated virtual account for a customer so they can pay via bank transfer with automatic reconciliation.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.paystack.co/dedicated_account",
+    "headers": {
+      "Authorization": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "customer": "CUS_xnxdt6s1zg1f4nx",
+      "preferred_bank": "wema-bank"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "message": "Assigned Managed Account",
+      "data": {
+        "bank": { "name": "Wema Bank", "id": 20, "slug": "wema-bank" },
+        "account_name": "JOHN DOE",
+        "account_number": "9930000123",
+        "assigned": true,
+        "currency": "NGN",
+        "active": true,
+        "customer": { "customer_code": "CUS_xnxdt6s1zg1f4nx", "email": "customer@example.com" },
+        "created_at": "2026-05-24T10:45:00.000Z"
+      }
+    }
+  }
+}

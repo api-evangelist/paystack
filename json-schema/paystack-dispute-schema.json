@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-dispute-schema.json",
+  "title": "Paystack Dispute",
+  "description": "A chargeback or pre-arbitration dispute raised by a cardholder against a transaction.",
+  "type": "object",
+  "required": ["id", "transaction", "category", "status"],
+  "properties": {
+    "id": { "type": "integer" },
+    "refund_amount": { "type": ["integer", "null"] },
+    "currency": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["awaiting-merchant-feedback", "awaiting-bank-feedback", "pending", "resolved"]
+    },
+    "resolution": {
+      "type": ["string", "null"],
+      "enum": [null, "merchant-accepted", "declined"]
+    },
+    "domain": { "type": "string", "enum": ["test", "live"] },
+    "transaction": {
+      "type": "object",
+      "description": "The disputed transaction."
+    },
+    "category": { "type": "string" },
+    "merchant_bears_loss": { "type": "boolean" },
+    "evidence": { "type": ["object", "null"] },
+    "due_at": { "type": ["string", "null"], "format": "date-time" },
+    "resolved_at": { "type": ["string", "null"], "format": "date-time" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

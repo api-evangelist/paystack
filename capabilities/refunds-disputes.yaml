@@ -1,0 +1,417 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Refunds and Disputes API \u2014 Dispute"
+  description: 'Paystack Refunds and Disputes API. 11 operations. Lead operation: Paystack Create Refund. Self-contained Naftiko
+    capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Dispute
+  - Refund
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: refunds-disputes-refund
+    baseUri: https://api.paystack.co
+    description: Paystack Refunds and Disputes API business capability. Self-contained, no shared references.
+    resources:
+    - name: refund
+      path: /refund
+      operations:
+      - name: refundcreate
+        method: POST
+        description: Paystack Create Refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: refundlist
+        method: GET
+        description: Paystack List Refunds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: refund
+      path: /refund/{id}
+      operations:
+      - name: refundfetch
+        method: GET
+        description: Paystack Fetch Refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dispute
+      path: /dispute
+      operations:
+      - name: disputelist
+        method: GET
+        description: Paystack List Disputes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dispute
+      path: /dispute/{id}
+      operations:
+      - name: disputefetch
+        method: GET
+        description: Paystack Fetch Dispute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: disputeupdate
+        method: PUT
+        description: Paystack Update Dispute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: dispute-upload-url
+      path: /dispute/{id}/upload_url
+      operations:
+      - name: disputeuploadurl
+        method: GET
+        description: Paystack Get Upload URL
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dispute-export
+      path: /dispute/export
+      operations:
+      - name: disputedownload
+        method: GET
+        description: Paystack Export Disputes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dispute-transaction
+      path: /dispute/transaction/{id}
+      operations:
+      - name: disputetransaction
+        method: GET
+        description: Paystack List Transaction Disputes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dispute-resolve
+      path: /dispute/{id}/resolve
+      operations:
+      - name: disputeresolve
+        method: PUT
+        description: Paystack Resolve a Dispute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: dispute-evidence
+      path: /dispute/{id}/evidence
+      operations:
+      - name: disputeevidence
+        method: POST
+        description: Paystack Add Evidence
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: refunds-disputes-refund-rest
+    port: 8080
+    description: REST adapter for Paystack Refunds and Disputes API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/refund
+      name: refund
+      description: REST surface for refund.
+      operations:
+      - method: POST
+        name: refundcreate
+        description: Paystack Create Refund
+        call: refunds-disputes-refund.refundcreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: refundlist
+        description: Paystack List Refunds
+        call: refunds-disputes-refund.refundlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/refund/{id}
+      name: refund
+      description: REST surface for refund.
+      operations:
+      - method: GET
+        name: refundfetch
+        description: Paystack Fetch Refund
+        call: refunds-disputes-refund.refundfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dispute
+      name: dispute
+      description: REST surface for dispute.
+      operations:
+      - method: GET
+        name: disputelist
+        description: Paystack List Disputes
+        call: refunds-disputes-refund.disputelist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dispute/{id}
+      name: dispute
+      description: REST surface for dispute.
+      operations:
+      - method: GET
+        name: disputefetch
+        description: Paystack Fetch Dispute
+        call: refunds-disputes-refund.disputefetch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: disputeupdate
+        description: Paystack Update Dispute
+        call: refunds-disputes-refund.disputeupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/dispute/{id}/upload_url
+      name: dispute-upload-url
+      description: REST surface for dispute-upload-url.
+      operations:
+      - method: GET
+        name: disputeuploadurl
+        description: Paystack Get Upload URL
+        call: refunds-disputes-refund.disputeuploadurl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dispute/export
+      name: dispute-export
+      description: REST surface for dispute-export.
+      operations:
+      - method: GET
+        name: disputedownload
+        description: Paystack Export Disputes
+        call: refunds-disputes-refund.disputedownload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dispute/transaction/{id}
+      name: dispute-transaction
+      description: REST surface for dispute-transaction.
+      operations:
+      - method: GET
+        name: disputetransaction
+        description: Paystack List Transaction Disputes
+        call: refunds-disputes-refund.disputetransaction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dispute/{id}/resolve
+      name: dispute-resolve
+      description: REST surface for dispute-resolve.
+      operations:
+      - method: PUT
+        name: disputeresolve
+        description: Paystack Resolve a Dispute
+        call: refunds-disputes-refund.disputeresolve
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/dispute/{id}/evidence
+      name: dispute-evidence
+      description: REST surface for dispute-evidence.
+      operations:
+      - method: POST
+        name: disputeevidence
+        description: Paystack Add Evidence
+        call: refunds-disputes-refund.disputeevidence
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+  - type: mcp
+    namespace: refunds-disputes-refund-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Refunds and Disputes API. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: paystack-create-refund
+      description: Paystack Create Refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: refunds-disputes-refund.refundcreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-refunds
+      description: Paystack List Refunds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.refundlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-refund
+      description: Paystack Fetch Refund
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.refundfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-list-disputes
+      description: Paystack List Disputes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputelist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-dispute
+      description: Paystack Fetch Dispute
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputefetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-update-dispute
+      description: Paystack Update Dispute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputeupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-get-upload-url
+      description: Paystack Get Upload URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputeuploadurl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-export-disputes
+      description: Paystack Export Disputes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputedownload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-list-transaction-disputes
+      description: Paystack List Transaction Disputes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputetransaction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-resolve-a-dispute
+      description: Paystack Resolve a Dispute
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: refunds-disputes-refund.disputeresolve
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-add-evidence
+      description: Paystack Add Evidence
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: refunds-disputes-refund.disputeevidence
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body

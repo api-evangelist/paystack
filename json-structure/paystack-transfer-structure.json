@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-structure/paystack-transfer-structure.json",
+  "name": "PaystackTransfer",
+  "type": "object",
+  "description": "JSON Structure for a Paystack transfer payout to a bank or mobile money wallet.",
+  "properties": {
+    "id": { "type": "int64" },
+    "transfer_code": { "type": "string", "description": "Prefixed with TRF_." },
+    "reference": { "type": "string" },
+    "amount": { "type": "int64" },
+    "currency": { "type": "string" },
+    "source": { "type": "string", "description": "Always 'balance'." },
+    "reason": { "type": "string" },
+    "recipient": { "type": "int64", "description": "Recipient id." },
+    "status": { "type": "string", "description": "pending, otp, success, failed, reversed, abandoned." },
+    "transferred_at": { "type": "string", "format": "date-time" },
+    "failures": { "type": "any" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["transfer_code", "amount", "currency", "recipient", "status"]
+}

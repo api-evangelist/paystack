@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-transfer-schema.json",
+  "title": "Paystack Transfer",
+  "description": "A payout from your Paystack balance to a bank account or mobile money wallet via a transfer recipient.",
+  "type": "object",
+  "required": ["transfer_code", "amount", "currency", "recipient", "status"],
+  "properties": {
+    "id": { "type": "integer" },
+    "transfer_code": {
+      "type": "string",
+      "pattern": "^TRF_[a-zA-Z0-9]+$",
+      "description": "Paystack-issued transfer code (prefixed with TRF_)."
+    },
+    "reference": { "type": "string" },
+    "amount": {
+      "type": "integer",
+      "description": "Transfer amount in the lowest denomination of the currency."
+    },
+    "currency": { "type": "string" },
+    "source": {
+      "type": "string",
+      "enum": ["balance"],
+      "description": "Source of funds. Currently always 'balance'."
+    },
+    "reason": { "type": ["string", "null"] },
+    "recipient": {
+      "type": "integer",
+      "description": "Recipient ID being paid out to."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "otp", "success", "failed", "reversed", "abandoned"]
+    },
+    "transferred_at": { "type": ["string", "null"], "format": "date-time" },
+    "failures": { "type": ["object", "null"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

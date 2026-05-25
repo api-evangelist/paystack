@@ -1,0 +1,102 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Settlements API \u2014 Settlement"
+  description: 'Paystack Settlements API. 2 operations. Lead operation: Paystack Fetch Settlements. Self-contained Naftiko
+    capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Settlement
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: settlements-settlement
+    baseUri: https://api.paystack.co
+    description: Paystack Settlements API business capability. Self-contained, no shared references.
+    resources:
+    - name: settlement
+      path: /settlement
+      operations:
+      - name: settlementsfetch
+        method: GET
+        description: Paystack Fetch Settlements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: settlement-transaction
+      path: /settlement/{id}/transaction
+      operations:
+      - name: settlementstransaction
+        method: GET
+        description: Paystack Settlement Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: settlements-settlement-rest
+    port: 8080
+    description: REST adapter for Paystack Settlements API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/settlement
+      name: settlement
+      description: REST surface for settlement.
+      operations:
+      - method: GET
+        name: settlementsfetch
+        description: Paystack Fetch Settlements
+        call: settlements-settlement.settlementsfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/settlement/{id}/transaction
+      name: settlement-transaction
+      description: REST surface for settlement-transaction.
+      operations:
+      - method: GET
+        name: settlementstransaction
+        description: Paystack Settlement Transactions
+        call: settlements-settlement.settlementstransaction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: settlements-settlement-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Settlements API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: paystack-fetch-settlements
+      description: Paystack Fetch Settlements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: settlements-settlement.settlementsfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-settlement-transactions
+      description: Paystack Settlement Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: settlements-settlement.settlementstransaction
+      outputParameters:
+      - type: object
+        mapping: $.

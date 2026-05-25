@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-refund-schema.json",
+  "title": "Paystack Refund",
+  "description": "A refund issued against a successful Paystack transaction.",
+  "type": "object",
+  "required": ["transaction", "amount", "currency", "status"],
+  "properties": {
+    "id": { "type": "integer" },
+    "transaction": { "type": "integer", "description": "ID or reference of the transaction being refunded." },
+    "amount": { "type": "integer", "description": "Refund amount in the lowest denomination." },
+    "currency": { "type": "string" },
+    "channel": { "type": "string" },
+    "merchant_note": { "type": ["string", "null"] },
+    "customer_note": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "processing", "processed", "failed"]
+    },
+    "refunded_by": { "type": ["string", "null"] },
+    "refunded_at": { "type": ["string", "null"], "format": "date-time" },
+    "expected_at": { "type": ["string", "null"], "format": "date-time" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

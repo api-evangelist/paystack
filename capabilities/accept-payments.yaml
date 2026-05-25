@@ -1,0 +1,747 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Accept Payments API \u2014 Charge"
+  description: 'Paystack Accept Payments API. 19 operations. Lead operation: Paystack Initialize Transaction. Self-contained
+    Naftiko capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Charge
+  - Transaction
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: accept-payments-transaction
+    baseUri: https://api.paystack.co
+    description: Paystack Accept Payments API business capability. Self-contained, no shared references.
+    resources:
+    - name: transaction-initialize
+      path: /transaction/initialize
+      operations:
+      - name: transactioninitialize
+        method: POST
+        description: Paystack Initialize Transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transaction-verify
+      path: /transaction/verify/{reference}
+      operations:
+      - name: transactionverify
+        method: GET
+        description: Paystack Verify Transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction
+      path: /transaction
+      operations:
+      - name: transactionlist
+        method: GET
+        description: Paystack List Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction
+      path: /transaction/{id}
+      operations:
+      - name: transactionfetch
+        method: GET
+        description: Paystack Fetch Transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction-timeline
+      path: /transaction/timeline/{id_or_reference}
+      operations:
+      - name: transactiontimeline
+        method: GET
+        description: Paystack Fetch Transaction Timeline
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction-totals
+      path: /transaction/totals
+      operations:
+      - name: transactiontotals
+        method: GET
+        description: Paystack Transaction Totals
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction-export
+      path: /transaction/export
+      operations:
+      - name: transactiondownload
+        method: GET
+        description: Paystack Export Transactions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction-charge-authorization
+      path: /transaction/charge_authorization
+      operations:
+      - name: transactionchargeauthorization
+        method: POST
+        description: Paystack Charge Authorization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transaction-check-authorization
+      path: /transaction/check_authorization
+      operations:
+      - name: transactioncheckauthorization
+        method: POST
+        description: Paystack Check Authorization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transaction-partial-debit
+      path: /transaction/partial_debit
+      operations:
+      - name: transactionpartialdebit
+        method: POST
+        description: Paystack Partial Debit
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transaction-event
+      path: /transaction/{id}/event
+      operations:
+      - name: transactionevent
+        method: GET
+        description: Paystack Get Transaction Event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transaction-session
+      path: /transaction/{id}/session
+      operations:
+      - name: transactionsession
+        method: GET
+        description: Paystack Get Transaction Session
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: charge
+      path: /charge
+      operations:
+      - name: chargecreate
+        method: POST
+        description: Paystack Create Charge
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge-submit-pin
+      path: /charge/submit_pin
+      operations:
+      - name: chargesubmitpin
+        method: POST
+        description: Paystack Submit PIN
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge-submit-otp
+      path: /charge/submit_otp
+      operations:
+      - name: chargesubmitotp
+        method: POST
+        description: Paystack Submit OTP
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge-submit-phone
+      path: /charge/submit_phone
+      operations:
+      - name: chargesubmitphone
+        method: POST
+        description: Paystack Submit Phone
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge-submit-birthday
+      path: /charge/submit_birthday
+      operations:
+      - name: chargesubmitbirthday
+        method: POST
+        description: Paystack Submit Birthday
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge-submit-address
+      path: /charge/submit_address
+      operations:
+      - name: chargesubmitaddress
+        method: POST
+        description: Paystack Submit Address
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: charge
+      path: /charge/{reference}
+      operations:
+      - name: chargecheck
+        method: GET
+        description: Paystack Check Pending Charge
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: accept-payments-transaction-rest
+    port: 8080
+    description: REST adapter for Paystack Accept Payments API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/transaction/initialize
+      name: transaction-initialize
+      description: REST surface for transaction-initialize.
+      operations:
+      - method: POST
+        name: transactioninitialize
+        description: Paystack Initialize Transaction
+        call: accept-payments-transaction.transactioninitialize
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transaction/verify/{reference}
+      name: transaction-verify
+      description: REST surface for transaction-verify.
+      operations:
+      - method: GET
+        name: transactionverify
+        description: Paystack Verify Transaction
+        call: accept-payments-transaction.transactionverify
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction
+      name: transaction
+      description: REST surface for transaction.
+      operations:
+      - method: GET
+        name: transactionlist
+        description: Paystack List Transactions
+        call: accept-payments-transaction.transactionlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/{id}
+      name: transaction
+      description: REST surface for transaction.
+      operations:
+      - method: GET
+        name: transactionfetch
+        description: Paystack Fetch Transaction
+        call: accept-payments-transaction.transactionfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/timeline/{id_or_reference}
+      name: transaction-timeline
+      description: REST surface for transaction-timeline.
+      operations:
+      - method: GET
+        name: transactiontimeline
+        description: Paystack Fetch Transaction Timeline
+        call: accept-payments-transaction.transactiontimeline
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/totals
+      name: transaction-totals
+      description: REST surface for transaction-totals.
+      operations:
+      - method: GET
+        name: transactiontotals
+        description: Paystack Transaction Totals
+        call: accept-payments-transaction.transactiontotals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/export
+      name: transaction-export
+      description: REST surface for transaction-export.
+      operations:
+      - method: GET
+        name: transactiondownload
+        description: Paystack Export Transactions
+        call: accept-payments-transaction.transactiondownload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/charge_authorization
+      name: transaction-charge-authorization
+      description: REST surface for transaction-charge-authorization.
+      operations:
+      - method: POST
+        name: transactionchargeauthorization
+        description: Paystack Charge Authorization
+        call: accept-payments-transaction.transactionchargeauthorization
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transaction/check_authorization
+      name: transaction-check-authorization
+      description: REST surface for transaction-check-authorization.
+      operations:
+      - method: POST
+        name: transactioncheckauthorization
+        description: Paystack Check Authorization
+        call: accept-payments-transaction.transactioncheckauthorization
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transaction/partial_debit
+      name: transaction-partial-debit
+      description: REST surface for transaction-partial-debit.
+      operations:
+      - method: POST
+        name: transactionpartialdebit
+        description: Paystack Partial Debit
+        call: accept-payments-transaction.transactionpartialdebit
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transaction/{id}/event
+      name: transaction-event
+      description: REST surface for transaction-event.
+      operations:
+      - method: GET
+        name: transactionevent
+        description: Paystack Get Transaction Event
+        call: accept-payments-transaction.transactionevent
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transaction/{id}/session
+      name: transaction-session
+      description: REST surface for transaction-session.
+      operations:
+      - method: GET
+        name: transactionsession
+        description: Paystack Get Transaction Session
+        call: accept-payments-transaction.transactionsession
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/charge
+      name: charge
+      description: REST surface for charge.
+      operations:
+      - method: POST
+        name: chargecreate
+        description: Paystack Create Charge
+        call: accept-payments-transaction.chargecreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/submit_pin
+      name: charge-submit-pin
+      description: REST surface for charge-submit-pin.
+      operations:
+      - method: POST
+        name: chargesubmitpin
+        description: Paystack Submit PIN
+        call: accept-payments-transaction.chargesubmitpin
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/submit_otp
+      name: charge-submit-otp
+      description: REST surface for charge-submit-otp.
+      operations:
+      - method: POST
+        name: chargesubmitotp
+        description: Paystack Submit OTP
+        call: accept-payments-transaction.chargesubmitotp
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/submit_phone
+      name: charge-submit-phone
+      description: REST surface for charge-submit-phone.
+      operations:
+      - method: POST
+        name: chargesubmitphone
+        description: Paystack Submit Phone
+        call: accept-payments-transaction.chargesubmitphone
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/submit_birthday
+      name: charge-submit-birthday
+      description: REST surface for charge-submit-birthday.
+      operations:
+      - method: POST
+        name: chargesubmitbirthday
+        description: Paystack Submit Birthday
+        call: accept-payments-transaction.chargesubmitbirthday
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/submit_address
+      name: charge-submit-address
+      description: REST surface for charge-submit-address.
+      operations:
+      - method: POST
+        name: chargesubmitaddress
+        description: Paystack Submit Address
+        call: accept-payments-transaction.chargesubmitaddress
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/charge/{reference}
+      name: charge
+      description: REST surface for charge.
+      operations:
+      - method: GET
+        name: chargecheck
+        description: Paystack Check Pending Charge
+        call: accept-payments-transaction.chargecheck
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: accept-payments-transaction-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Accept Payments API. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: paystack-initialize-transaction
+      description: Paystack Initialize Transaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.transactioninitialize
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-verify-transaction
+      description: Paystack Verify Transaction
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactionverify
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-list-transactions
+      description: Paystack List Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactionlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-transaction
+      description: Paystack Fetch Transaction
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactionfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-transaction-timeline
+      description: Paystack Fetch Transaction Timeline
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactiontimeline
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-transaction-totals
+      description: Paystack Transaction Totals
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactiontotals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-export-transactions
+      description: Paystack Export Transactions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactiondownload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-charge-authorization
+      description: Paystack Charge Authorization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.transactionchargeauthorization
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-check-authorization
+      description: Paystack Check Authorization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.transactioncheckauthorization
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-partial-debit
+      description: Paystack Partial Debit
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.transactionpartialdebit
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-get-transaction-event
+      description: Paystack Get Transaction Event
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactionevent
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-get-transaction-session
+      description: Paystack Get Transaction Session
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.transactionsession
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-create-charge
+      description: Paystack Create Charge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargecreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-submit-pin
+      description: Paystack Submit PIN
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargesubmitpin
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-submit-otp
+      description: Paystack Submit OTP
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargesubmitotp
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-submit-phone
+      description: Paystack Submit Phone
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargesubmitphone
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-submit-birthday
+      description: Paystack Submit Birthday
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargesubmitbirthday
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-submit-address
+      description: Paystack Submit Address
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payments-transaction.chargesubmitaddress
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-check-pending-charge
+      description: Paystack Check Pending Charge
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: accept-payments-transaction.chargecheck
+      outputParameters:
+      - type: object
+        mapping: $.

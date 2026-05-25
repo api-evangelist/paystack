@@ -1,0 +1,195 @@
+name: Paystack Vocabulary
+description: >-
+  Controlled vocabulary covering Paystack's payment, recurring billing, payouts, marketplace
+  splits, dispute, settlement, and verification domain.
+version: '1.0.0'
+modified: '2026-05-24'
+source: https://paystack.com/docs/api
+namespaces:
+  paystack: https://raw.githubusercontent.com/api-evangelist/paystack/main/vocabulary/paystack-vocabulary.yml#
+  schema: https://schema.org/
+concepts:
+  - id: Transaction
+    label: Transaction
+    description: A single charge attempted or completed against a customer's payment method.
+    alignsWith: schema:Order
+  - id: Authorization
+    label: Authorization
+    description: A reusable token representing a customer's previously charged card or wallet.
+  - id: Customer
+    label: Customer
+    description: A person or entity on a merchant's integration who can be charged or paid out.
+    alignsWith: schema:Person
+  - id: Plan
+    label: Plan
+    description: A template defining the price, currency, and interval of a recurring charge.
+  - id: Subscription
+    label: Subscription
+    description: An active recurring billing relationship between a customer and a plan.
+  - id: Transfer
+    label: Transfer
+    description: A payout from a Paystack balance to a bank account or mobile money wallet.
+  - id: TransferRecipient
+    label: Transfer Recipient
+    description: A saved beneficiary account (bank/momo) that can receive transfers.
+  - id: Subaccount
+    label: Subaccount
+    description: A merchant or vendor that receives a share of payment splits.
+  - id: Split
+    label: Transaction Split
+    description: A configuration that routes a single payment to multiple subaccounts.
+  - id: DedicatedVirtualAccount
+    label: Dedicated Virtual Account
+    description: A unique NUBAN bank account assigned to a customer for inbound bank transfer reconciliation.
+  - id: PaymentRequest
+    label: Payment Request
+    description: A merchant-issued invoice sent to a customer for payment by email.
+    alignsWith: schema:Invoice
+  - id: Refund
+    label: Refund
+    description: A partial or full reversal of a successful transaction back to the customer.
+  - id: Dispute
+    label: Dispute
+    description: A chargeback or pre-arbitration challenge raised against a transaction.
+  - id: Settlement
+    label: Settlement
+    description: A payout batch from Paystack to the merchant's settlement bank account.
+  - id: Balance
+    label: Balance
+    description: The merchant's available funds held by Paystack per currency.
+  - id: Page
+    label: Payment Page
+    description: A Paystack-hosted checkout page configured by the merchant.
+  - id: Product
+    label: Product
+    description: A sellable item the merchant exposes through Payment Pages.
+  - id: BulkCharge
+    label: Bulk Charge
+    description: A batch of charges executed against many stored authorizations in one request.
+  - id: Charge
+    label: Charge
+    description: A direct charge initiated against a payment method without the hosted checkout (USSD, bank, OTP flows).
+channels:
+  - id: card
+    label: Card
+  - id: bank
+    label: Bank Account (Direct Debit)
+  - id: bank_transfer
+    label: Bank Transfer
+  - id: ussd
+    label: USSD
+  - id: qr
+    label: QR Code
+  - id: mobile_money
+    label: Mobile Money
+  - id: eft
+    label: EFT
+currencies:
+  - code: NGN
+    label: Nigerian Naira
+    smallestUnit: kobo
+  - code: GHS
+    label: Ghanaian Cedi
+    smallestUnit: pesewas
+  - code: USD
+    label: US Dollar
+    smallestUnit: cents
+  - code: ZAR
+    label: South African Rand
+    smallestUnit: cents
+  - code: KES
+    label: Kenyan Shilling
+    smallestUnit: cents
+  - code: XOF
+    label: West African CFA Franc
+    smallestUnit: centimes
+  - code: EGP
+    label: Egyptian Pound
+    smallestUnit: piastres
+markets:
+  - country: Nigeria
+    iso: NG
+  - country: Ghana
+    iso: GH
+  - country: South Africa
+    iso: ZA
+  - country: Kenya
+    iso: KE
+  - country: Côte d'Ivoire
+    iso: CI
+  - country: Egypt
+    iso: EG
+identifiers:
+  - prefix: CUS_
+    refers_to: Customer
+  - prefix: PLN_
+    refers_to: Plan
+  - prefix: SUB_
+    refers_to: Subscription
+  - prefix: TRF_
+    refers_to: Transfer
+  - prefix: RCP_
+    refers_to: TransferRecipient
+  - prefix: ACCT_
+    refers_to: Subaccount
+  - prefix: SPL_
+    refers_to: Split
+  - prefix: AUTH_
+    refers_to: Authorization
+  - prefix: PRQ_
+    refers_to: PaymentRequest
+  - prefix: PROD_
+    refers_to: Product
+  - prefix: PAGE_
+    refers_to: Page
+  - prefix: DVA_
+    refers_to: DedicatedVirtualAccount
+events:
+  - name: charge.success
+    when: A transaction completes successfully.
+  - name: charge.dispute.create
+    when: A new dispute is raised by a cardholder.
+  - name: charge.dispute.remind
+    when: Reminder for an open dispute.
+  - name: charge.dispute.resolve
+    when: A dispute is resolved.
+  - name: customeridentification.success
+    when: A customer KYC validation succeeds.
+  - name: customeridentification.failed
+    when: A customer KYC validation fails.
+  - name: dedicatedaccount.assign.success
+    when: A dedicated virtual account is provisioned for a customer.
+  - name: dedicatedaccount.assign.failed
+    when: Dedicated virtual account provisioning failed.
+  - name: invoice.create
+    when: A subscription invoice is created.
+  - name: invoice.payment_failed
+    when: A subscription charge failed.
+  - name: invoice.update
+    when: An invoice is updated.
+  - name: paymentrequest.pending
+    when: A payment request is awaiting payment.
+  - name: paymentrequest.success
+    when: A payment request is paid.
+  - name: refund.failed
+    when: A refund attempt failed.
+  - name: refund.pending
+    when: A refund is queued.
+  - name: refund.processed
+    when: A refund settled to the customer.
+  - name: refund.processing
+    when: A refund is being processed.
+  - name: subscription.create
+    when: A new subscription is created.
+  - name: subscription.disable
+    when: A subscription is disabled.
+  - name: subscription.expiring_cards
+    when: Cards for active subscriptions are about to expire.
+  - name: subscription.not_renew
+    when: A subscription is set not to renew.
+  - name: transfer.failed
+    when: A transfer failed.
+  - name: transfer.success
+    when: A transfer succeeded.
+  - name: transfer.reversed
+    when: A transfer was reversed.

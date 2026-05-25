@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "paystack": "https://raw.githubusercontent.com/api-evangelist/paystack/main/vocabulary/paystack-vocabulary.yml#",
+    "schema": "https://schema.org/",
+    "Transaction": "schema:Order",
+    "Customer": "schema:Person",
+    "Subscription": "paystack:Subscription",
+    "Plan": "paystack:Plan",
+    "Transfer": "paystack:Transfer",
+    "Refund": "paystack:Refund",
+    "Dispute": "paystack:Dispute",
+    "Subaccount": "paystack:Subaccount",
+    "Split": "paystack:Split",
+    "DedicatedVirtualAccount": "schema:BankAccount",
+    "PaymentRequest": "schema:Invoice",
+    "Settlement": "paystack:Settlement",
+
+    "reference": "schema:orderNumber",
+    "amount": {
+      "@id": "schema:price",
+      "@type": "xsd:decimal"
+    },
+    "currency": "schema:priceCurrency",
+    "status": "schema:orderStatus",
+    "channel": "paystack:channel",
+    "gateway_response": "paystack:gatewayResponse",
+    "paid_at": {
+      "@id": "schema:datePaid",
+      "@type": "xsd:dateTime"
+    },
+    "created_at": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "customer_code": "paystack:customerCode",
+    "email": "schema:email",
+    "first_name": "schema:givenName",
+    "last_name": "schema:familyName",
+    "phone": "schema:telephone",
+
+    "authorization": "paystack:authorization",
+    "authorization_code": "paystack:authorizationCode",
+    "last4": "paystack:cardLast4",
+    "exp_month": "paystack:cardExpiryMonth",
+    "exp_year": "paystack:cardExpiryYear",
+    "card_type": "paystack:cardType",
+    "bank": "schema:BankOrCreditUnion",
+    "brand": "paystack:cardBrand",
+
+    "subscription_code": "paystack:subscriptionCode",
+    "plan_code": "paystack:planCode",
+    "interval": "schema:duration",
+    "next_payment_date": {
+      "@id": "paystack:nextPaymentDate",
+      "@type": "xsd:dateTime"
+    },
+
+    "transfer_code": "paystack:transferCode",
+    "split_code": "paystack:splitCode",
+    "subaccount_code": "paystack:subaccountCode",
+    "settlement_bank": "paystack:settlementBank",
+    "account_number": "schema:accountId",
+    "percentage_charge": "paystack:percentageCharge",
+
+    "metadata": "schema:additionalProperty",
+    "fees": "paystack:fees"
+  }
+}

@@ -1,0 +1,99 @@
+extends: spectral:oas
+documentationUrl: https://paystack.com/docs/api/
+description: >-
+  Spectral ruleset enforcing the conventions observed across the Paystack API:
+  Title Case operation summaries, descriptive operationIds, bearer auth, kebab-case
+  paths, monetary fields documented in the smallest currency denomination, and a
+  consistent `status` / `message` / `data` response envelope.
+rules:
+  paystack-operation-summary-title-case:
+    description: Operation summaries should use Title Case (matches Paystack API Reference style).
+    message: '{{property}} should be Title Case (e.g. "Initialize Transaction").'
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][A-Za-z0-9]*( [A-Za-z0-9/().,&-]+)*$'
+
+  paystack-operation-id-snake-case:
+    description: operationId should be snake_case prefixed with the resource (e.g. transaction_initialize).
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-z0-9_]+$'
+
+  paystack-operation-description:
+    description: Every operation must have a description.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: description
+      function: truthy
+
+  paystack-operation-tag-required:
+    description: Every operation must have at least one tag (used to group by product API).
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  paystack-server-base-url:
+    description: Paystack production servers should use api.paystack.co.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://api\.paystack\.co'
+
+  paystack-security-bearer-required:
+    description: A global security requirement using bearerAuth must be present.
+    severity: error
+    given: $
+    then:
+      field: security
+      function: truthy
+
+  paystack-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: warn
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(\/[a-zA-Z0-9_{}\-]+)*$'
+    resolved: false
+
+  paystack-response-envelope-status-message-data:
+    description: 2xx JSON responses should expose the `status`, `message`, and `data` envelope used across the Paystack API.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].responses['200','201'].content['application/json'].schema.properties
+    then:
+      - field: status
+        function: truthy
+      - field: message
+        function: truthy
+      - field: data
+        function: truthy
+
+  paystack-amount-integer:
+    description: Monetary `amount` fields must be integers (lowest denomination — kobo/pesewas/cents).
+    severity: warn
+    given: $..properties.amount
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values: [integer, number]
+
+  paystack-currency-enum:
+    description: Currency fields should be constrained to Paystack-supported ISO 4217 codes.
+    severity: hint
+    given: $..properties.currency
+    then:
+      field: enum
+      function: truthy

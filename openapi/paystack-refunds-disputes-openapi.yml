@@ -1,0 +1,522 @@
+openapi: 3.0.1
+info:
+  title: Paystack Refunds and Disputes API
+  description: "Process customer refunds and respond to chargeback disputes \u2014 including evidence upload, resolution,\
+    \ and dispute export workflows."
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+tags:
+- name: Refund
+- name: Dispute
+paths:
+  /refund:
+    post:
+      tags:
+      - Refund
+      summary: Create Refund
+      operationId: refund_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1refund/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - transaction
+              properties:
+                transaction:
+                  description: Transaction reference or id
+                  type: string
+                amount:
+                  description: "Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is\
+                    \ ZAR ) to be refunded to the customer. \nAmount cannot be more than the original transaction amount"
+                  type: integer
+                currency:
+                  description: Three-letter ISO currency
+                  type: string
+                  enum:
+                  - NGN
+                  - GHS
+                  - ZAR
+                  - USD
+                customer_note:
+                  description: Customer reason
+                  type: string
+                merchant_note:
+                  description: Merchant reason
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Refund
+      summary: List Refunds
+      operationId: refund_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /refund/{id}:
+    get:
+      tags:
+      - Refund
+      summary: Fetch Refund
+      operationId: refund_fetch
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute:
+    get:
+      tags:
+      - Dispute
+      summary: List Disputes
+      operationId: dispute_list
+      parameters:
+      - in: query
+        name: perPage
+        description: Number of records to fetch per page
+        schema:
+          type: integer
+      - in: query
+        name: page
+        description: The section to retrieve
+        schema:
+          type: integer
+      - in: query
+        name: status
+        description: Dispute Status.
+        schema:
+          type: string
+          enum:
+          - awaiting-merchant-feedback
+          - awaiting-bank-feedback
+          - pending
+          - resolved
+      - in: query
+        name: transaction
+        description: Transaction ID
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute/{id}:
+    get:
+      tags:
+      - Dispute
+      summary: Fetch Dispute
+      operationId: dispute_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Dispute
+      summary: Update Dispute
+      operationId: dispute_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1dispute~1%7Bid%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - refund_amount
+              properties:
+                refund_amount:
+                  description: The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if
+                    currency is ZAR
+                  type: string
+                uploaded_filename:
+                  description: Filename of attachment returned via response from the Dispute upload URL
+                  type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: id
+      description: Dispute ID
+      in: path
+      required: true
+      schema:
+        type: string
+  /dispute/{id}/upload_url:
+    get:
+      tags:
+      - Dispute
+      summary: Get Upload URL
+      operationId: dispute_uploadUrl
+      parameters:
+      - name: id
+        description: Dispute ID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute/export:
+    get:
+      tags:
+      - Dispute
+      summary: Export Disputes
+      operationId: dispute_download
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute/transaction/{id}:
+    get:
+      tags:
+      - Dispute
+      summary: List Transaction Disputes
+      operationId: dispute_transaction
+      parameters:
+      - name: id
+        description: Transaction ID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute/{id}/resolve:
+    put:
+      tags:
+      - Dispute
+      summary: Resolve a Dispute
+      operationId: dispute_resolve
+      parameters:
+      - name: id
+        description: Dispute ID
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1dispute~1%7Bid%7D~1resolve/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - resolution
+              - message
+              - refund_amount
+              - uploaded_filename
+              properties:
+                resolution:
+                  description: Dispute resolution.
+                  type: string
+                  enum:
+                  - merchant-accepted
+                  - declined
+                message:
+                  description: Reason for resolving
+                  type: string
+                refund_amount:
+                  description: The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if
+                    currency is ZAR
+                  type: string
+                uploaded_filename:
+                  description: Filename of attachment returned via response from the Dispute upload URL
+                  type: string
+                evidence:
+                  description: Evidence Id for fraud claims
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /dispute/{id}/evidence:
+    post:
+      tags:
+      - Dispute
+      summary: Add Evidence
+      operationId: dispute_evidence
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1dispute~1%7Bid%7D~1evidence/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - customer_email
+              - customer_name
+              - customer_phone
+              - service_details
+              properties:
+                customer_email:
+                  description: Customer email
+                  type: string
+                customer_name:
+                  description: Customer name
+                  type: string
+                customer_phone:
+                  description: Customer mobile number
+                  type: string
+                service_details:
+                  description: Details of service offered
+                  type: string
+                delivery_address:
+                  description: Delivery address
+                  type: string
+                delivery_date:
+                  description: ISO 8601 representation of delivery date (YYYY-MM-DD)
+                  type: string
+                  format: date-time
+      parameters:
+      - name: id
+        description: Dispute ID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Customer:
+      allOf:
+      - type: object
+        required:
+        - email
+        properties:
+          email:
+            description: Customer's email address
+            type: string
+      - type: object
+        properties:
+          first_name:
+            description: Customer's first name
+            type: string
+          last_name:
+            description: Customer's last name
+            type: string
+          phone:
+            description: Customer's phone number
+            type: string
+          metadata:
+            description: Stringified JSON object of custom data
+            type: string
+      - type: object
+        required:
+        - authorization_code
+        properties:
+          authorization_code:
+            description: Customer's authorization code to be deactivated
+            type: string
+      - type: object
+        required:
+        - customer
+        properties:
+          customer:
+            description: Customer's code, or email address
+            type: string
+          risk_action:
+            description: "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist.\
+              \ Customers start with a default risk action.\n"
+            type: string
+            enum:
+            - default
+            - allow
+            - deny
+      - type: object
+        required:
+        - type
+        - country
+        - bvn
+        - bank_code
+        - account_number
+        properties:
+          type:
+            description: Predefined types of identification.
+            type: string
+            enum:
+            - bvn
+            - bank_account
+          country:
+            description: Two-letter country code of identification issuer
+            type: string
+          bvn:
+            description: Customer's Bank Verification Number
+            type: string
+          bank_code:
+            description: You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
+            type: string
+          account_number:
+            description: Customer's bank account number.
+            type: string
+          value:
+            description: Customer's identification number. Required if type is bvn
+            type: string
+    Error:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+security:
+- bearerAuth: []

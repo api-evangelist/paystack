@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-structure/paystack-subscription-structure.json",
+  "name": "PaystackSubscription",
+  "type": "object",
+  "description": "JSON Structure for a Paystack recurring subscription.",
+  "properties": {
+    "id": { "type": "int64" },
+    "subscription_code": { "type": "string", "description": "Prefixed with SUB_." },
+    "email_token": { "type": "string", "description": "Token for self-service customer management links." },
+    "amount": { "type": "int64" },
+    "cron_expression": { "type": "string" },
+    "next_payment_date": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "description": "active, non-renewing, attention, completed, cancelled." },
+    "start": { "type": "int64" },
+    "customer": { "type": "object" },
+    "plan": { "type": "object" },
+    "authorization": { "type": "object" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["subscription_code", "customer", "plan", "status"]
+}

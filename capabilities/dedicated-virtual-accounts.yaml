@@ -1,0 +1,237 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Dedicated Virtual Accounts API \u2014 Dedicated Virtual Account"
+  description: 'Paystack Dedicated Virtual Accounts API. 6 operations. Lead operation: Paystack Create Dedicated Account.
+    Self-contained Naftiko capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Dedicated Virtual Account
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dedicated-virtual-accounts-dedicated-virtual-account
+    baseUri: https://api.paystack.co
+    description: Paystack Dedicated Virtual Accounts API business capability. Self-contained, no shared references.
+    resources:
+    - name: dedicated-account
+      path: /dedicated_account
+      operations:
+      - name: dedicatedaccountcreate
+        method: POST
+        description: Paystack Create Dedicated Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: dedicatedaccountlist
+        method: GET
+        description: Paystack List Dedicated Accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dedicated-account
+      path: /dedicated_account/{account_id}
+      operations:
+      - name: dedicatedaccountfetch
+        method: GET
+        description: Paystack Fetch Dedicated Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: dedicatedaccountdeactivate
+        method: DELETE
+        description: Paystack Deactivate Dedicated Account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dedicated-account-available-providers
+      path: /dedicated_account/available_providers
+      operations:
+      - name: dedicatedaccountavailableproviders
+        method: GET
+        description: Paystack Fetch Bank Providers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: dedicated-account-split
+      path: /dedicated_account/split
+      operations:
+      - name: dedicatedaccountaddsplit
+        method: POST
+        description: Paystack Split Dedicated Account Transaction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: dedicated-virtual-accounts-dedicated-virtual-account-rest
+    port: 8080
+    description: REST adapter for Paystack Dedicated Virtual Accounts API. One resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/dedicated_account
+      name: dedicated-account
+      description: REST surface for dedicated-account.
+      operations:
+      - method: POST
+        name: dedicatedaccountcreate
+        description: Paystack Create Dedicated Account
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountcreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: dedicatedaccountlist
+        description: Paystack List Dedicated Accounts
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dedicated_account/{account_id}
+      name: dedicated-account
+      description: REST surface for dedicated-account.
+      operations:
+      - method: GET
+        name: dedicatedaccountfetch
+        description: Paystack Fetch Dedicated Account
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: dedicatedaccountdeactivate
+        description: Paystack Deactivate Dedicated Account
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountdeactivate
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dedicated_account/available_providers
+      name: dedicated-account-available-providers
+      description: REST surface for dedicated-account-available-providers.
+      operations:
+      - method: GET
+        name: dedicatedaccountavailableproviders
+        description: Paystack Fetch Bank Providers
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountavailableproviders
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dedicated_account/split
+      name: dedicated-account-split
+      description: REST surface for dedicated-account-split.
+      operations:
+      - method: POST
+        name: dedicatedaccountaddsplit
+        description: Paystack Split Dedicated Account Transaction
+        call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountaddsplit
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+  - type: mcp
+    namespace: dedicated-virtual-accounts-dedicated-virtual-account-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Dedicated Virtual Accounts API. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: paystack-create-dedicated-account
+      description: Paystack Create Dedicated Account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountcreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-dedicated-accounts
+      description: Paystack List Dedicated Accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-dedicated-account
+      description: Paystack Fetch Dedicated Account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-deactivate-dedicated-account
+      description: Paystack Deactivate Dedicated Account
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountdeactivate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-bank-providers
+      description: Paystack Fetch Bank Providers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountavailableproviders
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-split-dedicated-account-transaction
+      description: Paystack Split Dedicated Account Transaction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: dedicated-virtual-accounts-dedicated-virtual-account.dedicatedaccountaddsplit
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body

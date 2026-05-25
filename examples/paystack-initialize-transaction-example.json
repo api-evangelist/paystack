@@ -1,0 +1,37 @@
+{
+  "summary": "Initialize a transaction",
+  "description": "Initialize a one-time charge for a customer; Paystack returns an authorization URL the customer is redirected to.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.paystack.co/transaction/initialize",
+    "headers": {
+      "Authorization": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "email": "customer@example.com",
+      "amount": 500000,
+      "currency": "NGN",
+      "reference": "order_12345",
+      "callback_url": "https://example.com/paystack/callback",
+      "metadata": {
+        "order_id": "12345",
+        "custom_fields": [
+          { "display_name": "Cart Items", "variable_name": "cart_items", "value": "3" }
+        ]
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "message": "Authorization URL created",
+      "data": {
+        "authorization_url": "https://checkout.paystack.com/0peioxfhpn",
+        "access_code": "0peioxfhpn",
+        "reference": "order_12345"
+      }
+    }
+  }
+}

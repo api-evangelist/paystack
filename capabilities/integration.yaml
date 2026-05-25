@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Integration Settings API \u2014 Integration"
+  description: 'Paystack Integration Settings API. 2 operations. Lead operation: Paystack Fetch Payment Session Timeout. Self-contained
+    Naftiko capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Integration
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: integration-integration
+    baseUri: https://api.paystack.co
+    description: Paystack Integration Settings API business capability. Self-contained, no shared references.
+    resources:
+    - name: integration-payment-session-timeout
+      path: /integration/payment_session_timeout
+      operations:
+      - name: integrationfetchpaymentsessiontimeout
+        method: GET
+        description: Paystack Fetch Payment Session Timeout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: integrationupdatepaymentsessiontimeout
+        method: PUT
+        description: Paystack Update Payment Session Timeout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: integration-integration-rest
+    port: 8080
+    description: REST adapter for Paystack Integration Settings API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/integration/payment_session_timeout
+      name: integration-payment-session-timeout
+      description: REST surface for integration-payment-session-timeout.
+      operations:
+      - method: GET
+        name: integrationfetchpaymentsessiontimeout
+        description: Paystack Fetch Payment Session Timeout
+        call: integration-integration.integrationfetchpaymentsessiontimeout
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: integrationupdatepaymentsessiontimeout
+        description: Paystack Update Payment Session Timeout
+        call: integration-integration.integrationupdatepaymentsessiontimeout
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+  - type: mcp
+    namespace: integration-integration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Integration Settings API. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: paystack-fetch-payment-session-timeout
+      description: Paystack Fetch Payment Session Timeout
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: integration-integration.integrationfetchpaymentsessiontimeout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-update-payment-session-timeout
+      description: Paystack Update Payment Session Timeout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: integration-integration.integrationupdatepaymentsessiontimeout
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body

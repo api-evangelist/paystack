@@ -1,0 +1,51 @@
+{
+  "summary": "Verify a transaction",
+  "description": "After a customer is redirected back from Paystack checkout, verify the transaction by its reference before fulfilling the order.",
+  "request": {
+    "method": "GET",
+    "url": "https://api.paystack.co/transaction/verify/order_12345",
+    "headers": {
+      "Authorization": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "message": "Verification successful",
+      "data": {
+        "id": 4099260516,
+        "domain": "test",
+        "status": "success",
+        "reference": "order_12345",
+        "amount": 500000,
+        "gateway_response": "Successful",
+        "paid_at": "2026-05-24T10:23:11.000Z",
+        "created_at": "2026-05-24T10:22:45.000Z",
+        "channel": "card",
+        "currency": "NGN",
+        "ip_address": "197.210.45.12",
+        "metadata": { "order_id": "12345" },
+        "fees": 7500,
+        "customer": {
+          "id": 92312441,
+          "customer_code": "CUS_xnxdt6s1zg1f4nx",
+          "email": "customer@example.com"
+        },
+        "authorization": {
+          "authorization_code": "AUTH_pmx3mgawyd",
+          "bin": "408408",
+          "last4": "4081",
+          "exp_month": "12",
+          "exp_year": "2030",
+          "channel": "card",
+          "card_type": "visa",
+          "bank": "TEST BANK",
+          "country_code": "NG",
+          "brand": "visa",
+          "reusable": true
+        }
+      }
+    }
+  }
+}

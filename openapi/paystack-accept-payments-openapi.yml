@@ -1,0 +1,878 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API
+    for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+tags:
+- name: Transaction
+- name: Charge
+paths:
+  /transaction/initialize:
+    post:
+      tags:
+      - Transaction
+      summary: Initialize Transaction
+      operationId: transaction_initialize
+      description: Create a new transaction
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transaction~1initialize/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - amount
+              properties:
+                email:
+                  description: Customer's email address
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                currency:
+                  description: The transaction currency
+                  type: string
+                  enum:
+                  - NGN
+                  - GHS
+                  - ZAR
+                  - USD
+                reference:
+                  description: Unique transaction reference. Only -, ., = and alphanumeric characters allowed.
+                  type: string
+                callback_url:
+                  description: Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided
+                    on the dashboard for this transaction
+                  type: string
+                plan:
+                  description: "If transaction is to create a subscription to a predefined plan, provide plan code here. \n\
+                    This would invalidate the value provided in amount"
+                  type: string
+                invoice_limit:
+                  description: Number of times to charge customer during subscription to plan
+                  type: integer
+                metadata:
+                  description: Stringified JSON object of custom data
+                  type: string
+                channels:
+                  description: An array of payment channels to control what channels you want to make available to the user
+                    to make a payment with
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - card
+                    - bank
+                    - ussd
+                    - qr
+                    - eft
+                    - mobile_money
+                    - bank_transfer
+                split_code:
+                  description: The split code of the transaction split
+                  type: string
+                subaccount:
+                  description: The code for the subaccount that owns the payment
+                  type: string
+                transaction_charge:
+                  description: "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage\
+                    \ set when the subaccount was created"
+                  type: string
+                bearer:
+                  description: The beare of the transaction charge
+                  type: string
+                  enum:
+                  - account
+                  - subaccount
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/verify/{reference}:
+    get:
+      tags:
+      - Transaction
+      summary: Verify Transaction
+      operationId: transaction_verify
+      parameters:
+      - name: reference
+        in: path
+        description: The transaction reference to verify
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction:
+    get:
+      tags:
+      - Transaction
+      summary: List Transactions
+      operationId: transaction_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/{id}:
+    get:
+      tags:
+      - Transaction
+      summary: Fetch Transaction
+      operationId: transaction_fetch
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the transaction to fetch
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/timeline/{id_or_reference}:
+    get:
+      tags:
+      - Transaction
+      summary: Fetch Transaction Timeline
+      operationId: transaction_timeline
+      parameters:
+      - name: id_or_reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/totals:
+    get:
+      tags:
+      - Transaction
+      summary: Transaction Totals
+      operationId: transaction_totals
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/export:
+    get:
+      tags:
+      - Transaction
+      summary: Export Transactions
+      operationId: transaction_download
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/charge_authorization:
+    post:
+      tags:
+      - Transaction
+      summary: Charge Authorization
+      operationId: transaction_chargeAuthorization
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transaction~1charge_authorization/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - amount
+              - authorization_code
+              properties:
+                email:
+                  description: Customer's email address
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                authorization_code:
+                  description: Valid authorization code to charge
+                  type: string
+                reference:
+                  description: Unique transaction reference. Only -, ., = and alphanumeric characters allowed.
+                  type: string
+                currency:
+                  description: The transaction currency
+                  type: string
+                  enum:
+                  - NGN
+                  - GHS
+                  - ZAR
+                  - USD
+                metadata:
+                  description: Stringified JSON object of custom data
+                  type: string
+                split_code:
+                  description: The split code of the transaction split
+                  type: string
+                subaccount:
+                  description: The code for the subaccount that owns the payment
+                  type: string
+                transaction_charge:
+                  description: "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage\
+                    \ set when the subaccount was created"
+                  type: string
+                bearer:
+                  description: The beare of the transaction charge
+                  type: string
+                  enum:
+                  - account
+                  - subaccount
+                queue:
+                  description: If you are making a scheduled charge call, it is a good idea to queue them so the processing
+                    system does not get overloaded causing transaction processing errors.
+                  type: boolean
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/check_authorization:
+    post:
+      tags:
+      - Transaction
+      summary: Check Authorization
+      operationId: transaction_checkAuthorization
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transaction~1check_authorization/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - amount
+              properties:
+                email:
+                  description: Customer's email address
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                authorization_code:
+                  description: Valid authorization code to charge
+                  type: string
+                currency:
+                  description: The transaction currency
+                  type: string
+                  enum:
+                  - NGN
+                  - GHS
+                  - ZAR
+                  - USD
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/partial_debit:
+    post:
+      tags:
+      - Transaction
+      summary: Partial Debit
+      operationId: transaction_partialDebit
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transaction~1partial_debit/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - amount
+              - authorization_code
+              - currency
+              properties:
+                email:
+                  description: Customer's email address
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                authorization_code:
+                  description: Valid authorization code to charge
+                  type: string
+                currency:
+                  description: The transaction currency
+                  type: string
+                  enum:
+                  - NGN
+                  - GHS
+                  - ZAR
+                  - USD
+                reference:
+                  description: Unique transaction reference. Only -, ., = and alphanumeric characters allowed.
+                  type: string
+                at_least:
+                  description: Minimum amount to charge
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/{id}/event:
+    get:
+      tags:
+      - Transaction
+      summary: Get Transaction Event
+      operationId: transaction_event
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transaction/{id}/session:
+    get:
+      tags:
+      - Transaction
+      summary: Get Transaction Session
+      operationId: transaction_session
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge:
+    post:
+      tags:
+      - Charge
+      summary: Create Charge
+      operationId: charge_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - email
+                - amount
+                properties:
+                  email:
+                    description: Customer's email address
+                    type: string
+                  amount:
+                    description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                      is ZAR
+                    type: string
+                  authorization_code:
+                    description: An authorization code to charge.
+                    type: string
+                  pin:
+                    description: 4-digit PIN (send with a non-reusable authorization code)
+                    type: string
+                  reference:
+                    description: Unique transaction reference. Only -, .`, = and alphanumeric characters allowed.
+                    type: string
+                  birthday:
+                    description: The customer's birthday in the format YYYY-MM-DD e.g 2017-05-16
+                    type: string
+                    format: date-time
+                  device_id:
+                    description: "This is the unique identifier of the device a user uses in making payment. \nOnly -, .`,\
+                      \ = and alphanumeric characters are allowed."
+                    type: string
+                  metadata:
+                    description: Stringified JSON object of custom data
+                    type: string
+              - type: object
+                properties:
+                  bank:
+                    type: object
+                    properties:
+                      code:
+                        description: Customer's bank code
+                        type: string
+                      account_number:
+                        description: Customer's account number
+                        type: string
+              - type: object
+                properties:
+                  mobile_money:
+                    type: object
+                    properties:
+                      phone:
+                        description: Customer's phone number
+                        type: string
+                      provider:
+                        description: "The telco provider of customer's phone number. \nThis can be fetched from the List Bank\
+                          \ endpoint\n"
+                        type: string
+              - type: object
+                properties:
+                  ussd:
+                    type: object
+                    properties:
+                      type:
+                        description: The three-digit USSD code
+                        type: string
+                        enum:
+                        - 737
+                        - 919
+                        - 822
+                        - 966
+              - type: object
+                properties:
+                  eft:
+                    type: object
+                    properties:
+                      provider:
+                        description: The EFT provider
+                        type: string
+                        enum:
+                        - ozow
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_pin:
+    post:
+      tags:
+      - Charge
+      summary: Submit PIN
+      operationId: charge_submitPin
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_pin/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - pin
+              - reference
+              properties:
+                pin:
+                  description: Customer's PIN
+                  type: string
+                reference:
+                  description: Transaction reference that requires the PIN
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_otp:
+    post:
+      tags:
+      - Charge
+      summary: Submit OTP
+      operationId: charge_submitOtp
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_otp/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - otp
+              - reference
+              properties:
+                otp:
+                  description: Customer's OTP
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_phone:
+    post:
+      tags:
+      - Charge
+      summary: Submit Phone
+      operationId: charge_submitPhone
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_phone/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - phone
+              - reference
+              properties:
+                phone:
+                  description: Customer's mobile number
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_birthday:
+    post:
+      tags:
+      - Charge
+      summary: Submit Birthday
+      operationId: charge_submitBirthday
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_birthday/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - birthday
+              - reference
+              properties:
+                birthday:
+                  description: Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_address:
+    post:
+      tags:
+      - Charge
+      summary: Submit Address
+      operationId: charge_submitAddress
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_address/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - address
+              - reference
+              - city
+              - state
+              - zipcode
+              properties:
+                address:
+                  description: Customer's address
+                  type: string
+                city:
+                  description: Customer's city
+                  type: string
+                state:
+                  description: Customer's state
+                  type: string
+                zipcode:
+                  description: Customer's zipcode
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/{reference}:
+    get:
+      tags:
+      - Charge
+      summary: Check Pending Charge
+      operationId: charge_check
+      parameters:
+      - name: reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Customer:
+      allOf:
+      - type: object
+        required:
+        - email
+        properties:
+          email:
+            description: Customer's email address
+            type: string
+      - type: object
+        properties:
+          first_name:
+            description: Customer's first name
+            type: string
+          last_name:
+            description: Customer's last name
+            type: string
+          phone:
+            description: Customer's phone number
+            type: string
+          metadata:
+            description: Stringified JSON object of custom data
+            type: string
+      - type: object
+        required:
+        - authorization_code
+        properties:
+          authorization_code:
+            description: Customer's authorization code to be deactivated
+            type: string
+      - type: object
+        required:
+        - customer
+        properties:
+          customer:
+            description: Customer's code, or email address
+            type: string
+          risk_action:
+            description: "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist.\
+              \ Customers start with a default risk action.\n"
+            type: string
+            enum:
+            - default
+            - allow
+            - deny
+      - type: object
+        required:
+        - type
+        - country
+        - bvn
+        - bank_code
+        - account_number
+        properties:
+          type:
+            description: Predefined types of identification.
+            type: string
+            enum:
+            - bvn
+            - bank_account
+          country:
+            description: Two-letter country code of identification issuer
+            type: string
+          bvn:
+            description: Customer's Bank Verification Number
+            type: string
+          bank_code:
+            description: You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
+            type: string
+          account_number:
+            description: Customer's bank account number.
+            type: string
+          value:
+            description: Customer's identification number. Required if type is bvn
+            type: string
+    Error:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+security:
+- bearerAuth: []

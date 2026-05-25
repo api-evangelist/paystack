@@ -1,0 +1,66 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Paystack
+providerId: paystack
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - Payments
+  - Rate Limiting
+  - Africa
+description: >-
+  Reconciled rate-limit policy for the Paystack API. Paystack does not publish hard per-second
+  request limits in its public reference; in practice it applies a leaky-bucket policy at the
+  payment-orchestration layer and throttles abusive callers with HTTP 429 plus a Retry-After
+  header. Sensitive write operations (transfer, refund) carry additional OTP and per-day caps.
+sources:
+  - https://paystack.com/docs/api/
+  - https://paystack.com/docs/payments/transfers/
+  - https://paystack.com/docs/api/errors/
+headers:
+  retryAfter: retry-after
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+algorithm: leaky-bucket
+limits:
+  - scope: account
+    surface: General API (read)
+    rpm: 600
+    description: Reads against /transaction, /customer, /balance and similar collections.
+    notes: Observed soft limit; bursts above this trigger 429 responses with Retry-After.
+  - scope: account
+    surface: General API (write)
+    rpm: 300
+    description: Mutating operations across most resources (create/update).
+  - scope: account
+    surface: Transfers
+    rpm: 60
+    description: POST /transfer initiation and POST /transfer/bulk operations.
+    notes: OTP is required by default; an account-wide quota and per-recipient daily cap apply.
+  - scope: account
+    surface: Refunds
+    rpm: 60
+    description: POST /refund operations.
+  - scope: account
+    surface: Verification (Identity / BVN / Account Resolution)
+    rpm: 60
+    description: Per-account throttle on identity-lookup endpoints; abusive use leads to suspension.
+  - scope: customer
+    surface: Hosted Checkout — Initialize
+    rpm: 30
+    description: Initialization attempts per email/customer per minute to defend against card testing.
+otpGuardedOperations:
+  - POST /transfer
+  - POST /transfer/bulk
+  - POST /transfer/disable_otp
+  - POST /transfer/enable_otp
+notes:
+  - Paystack does not document fixed RPM ceilings; values above are empirically observed and
+    represent best-practice defaults to avoid 429s in production integrations.
+  - Card-testing detection runs alongside rate limits — repeated failed authorizations from a
+    single IP or BIN can result in temporary or permanent blocks.
+  - Webhook deliveries retry with exponential backoff over 72 hours if your endpoint returns
+    non-2xx responses.

@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-plan-schema.json",
+  "title": "Paystack Plan",
+  "description": "A recurring billing plan customers can be subscribed to.",
+  "type": "object",
+  "required": ["plan_code", "name", "amount", "interval", "currency"],
+  "properties": {
+    "id": { "type": "integer" },
+    "plan_code": {
+      "type": "string",
+      "pattern": "^PLN_[a-zA-Z0-9]+$",
+      "description": "Paystack-issued plan code (prefixed with PLN_)."
+    },
+    "name": { "type": "string" },
+    "description": { "type": ["string", "null"] },
+    "amount": {
+      "type": "integer",
+      "description": "Plan amount in the lowest denomination of the currency."
+    },
+    "interval": {
+      "type": "string",
+      "enum": ["hourly", "daily", "weekly", "monthly", "quarterly", "biannually", "annually"]
+    },
+    "currency": {
+      "type": "string",
+      "enum": ["NGN", "USD", "GHS", "ZAR", "KES", "XOF", "EGP"]
+    },
+    "send_invoices": { "type": "boolean" },
+    "send_sms": { "type": "boolean" },
+    "hosted_page": { "type": "boolean" },
+    "invoice_limit": { "type": "integer" },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

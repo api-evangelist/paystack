@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-schema/paystack-subscription-schema.json",
+  "title": "Paystack Subscription",
+  "description": "A recurring subscription that charges a customer on a defined plan interval.",
+  "type": "object",
+  "required": ["subscription_code", "customer", "plan", "status"],
+  "properties": {
+    "id": { "type": "integer" },
+    "subscription_code": {
+      "type": "string",
+      "pattern": "^SUB_[a-zA-Z0-9]+$",
+      "description": "Paystack-issued subscription code (prefixed with SUB_)."
+    },
+    "email_token": {
+      "type": "string",
+      "description": "Token used for customer-facing self-service subscription management links."
+    },
+    "amount": { "type": "integer" },
+    "cron_expression": { "type": "string" },
+    "next_payment_date": { "type": ["string", "null"], "format": "date-time" },
+    "status": {
+      "type": "string",
+      "enum": ["active", "non-renewing", "attention", "completed", "cancelled"]
+    },
+    "start": { "type": "integer" },
+    "customer": { "$ref": "paystack-customer-schema.json" },
+    "plan": { "$ref": "paystack-plan-schema.json" },
+    "authorization": {
+      "type": "object",
+      "description": "The reusable card authorization charged on each renewal."
+    },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "summary": "Create a transaction split",
+  "description": "Create a multi-party split that routes shares to multiple subaccounts on every transaction it is attached to.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.paystack.co/split",
+    "headers": {
+      "Authorization": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "Marketplace Vendor Split",
+      "type": "percentage",
+      "currency": "NGN",
+      "subaccounts": [
+        { "subaccount": "ACCT_z3x29l3p9p3a4ld", "share": 80 },
+        { "subaccount": "ACCT_qm2qpb13xkq8m4n", "share": 20 }
+      ],
+      "bearer_type": "account"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "message": "Split created",
+      "data": {
+        "id": 142,
+        "split_code": "SPL_e7jnRLtzla",
+        "name": "Marketplace Vendor Split",
+        "type": "percentage",
+        "currency": "NGN",
+        "active": true,
+        "bearer_type": "account",
+        "total_subaccounts": 2,
+        "created_at": "2026-05-24T10:40:00.000Z"
+      }
+    }
+  }
+}

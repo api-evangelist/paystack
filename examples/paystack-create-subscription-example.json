@@ -1,0 +1,36 @@
+{
+  "summary": "Create a subscription",
+  "description": "Subscribe a customer (by email or code) to an existing plan using a stored card authorization.",
+  "request": {
+    "method": "POST",
+    "url": "https://api.paystack.co/subscription",
+    "headers": {
+      "Authorization": "Bearer sk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "customer": "CUS_xnxdt6s1zg1f4nx",
+      "plan": "PLN_gx2wn530m0i3w3m",
+      "authorization": "AUTH_pmx3mgawyd"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "status": true,
+      "message": "Subscription successfully created",
+      "data": {
+        "id": 9221594,
+        "subscription_code": "SUB_vsyqdmlzble3uii",
+        "email_token": "ctt824k16n34u69",
+        "amount": 500000,
+        "cron_expression": "0 0 24 5 *",
+        "next_payment_date": "2026-06-24T00:00:00.000Z",
+        "status": "active",
+        "customer": { "customer_code": "CUS_xnxdt6s1zg1f4nx", "email": "customer@example.com" },
+        "plan": { "plan_code": "PLN_gx2wn530m0i3w3m", "name": "Monthly retainer", "amount": 500000, "interval": "monthly", "currency": "NGN" },
+        "created_at": "2026-05-24T10:30:00.000Z"
+      }
+    }
+  }
+}

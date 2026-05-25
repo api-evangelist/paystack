@@ -1,0 +1,332 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Payment Requests API \u2014 Payment Request"
+  description: 'Paystack Payment Requests API. 9 operations. Lead operation: Paystack Create Payment Request. Self-contained
+    Naftiko capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Payment Request
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: payment-requests-payment-request
+    baseUri: https://api.paystack.co
+    description: Paystack Payment Requests API business capability. Self-contained, no shared references.
+    resources:
+    - name: paymentrequest
+      path: /paymentrequest
+      operations:
+      - name: paymentrequestcreate
+        method: POST
+        description: Paystack Create Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: paymentrequestlist
+        method: GET
+        description: Paystack List Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: paymentrequest
+      path: /paymentrequest/{id}
+      operations:
+      - name: paymentrequestfetch
+        method: GET
+        description: Paystack Fetch Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: paymentrequestupdate
+        method: PUT
+        description: Paystack Update Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: paymentrequest-verify
+      path: /paymentrequest/verify/{id}
+      operations:
+      - name: paymentrequestverify
+        method: GET
+        description: Paystack Verify Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: paymentrequest-notify
+      path: /paymentrequest/notify/{id}
+      operations:
+      - name: paymentrequestnotify
+        method: POST
+        description: Paystack Send Notification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: paymentrequest-totals
+      path: /paymentrequest/totals
+      operations:
+      - name: paymentrequesttotals
+        method: GET
+        description: Paystack Payment Request Total
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: paymentrequest-finalize
+      path: /paymentrequest/finalize/{id}
+      operations:
+      - name: paymentrequestfinalize
+        method: POST
+        description: Paystack Finalize Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: paymentrequest-archive
+      path: /paymentrequest/archive/{id}
+      operations:
+      - name: paymentrequestarchive
+        method: POST
+        description: Paystack Archive Payment Request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: payment-requests-payment-request-rest
+    port: 8080
+    description: REST adapter for Paystack Payment Requests API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/paymentrequest
+      name: paymentrequest
+      description: REST surface for paymentrequest.
+      operations:
+      - method: POST
+        name: paymentrequestcreate
+        description: Paystack Create Payment Request
+        call: payment-requests-payment-request.paymentrequestcreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: paymentrequestlist
+        description: Paystack List Payment Request
+        call: payment-requests-payment-request.paymentrequestlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/paymentrequest/{id}
+      name: paymentrequest
+      description: REST surface for paymentrequest.
+      operations:
+      - method: GET
+        name: paymentrequestfetch
+        description: Paystack Fetch Payment Request
+        call: payment-requests-payment-request.paymentrequestfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: paymentrequestupdate
+        description: Paystack Update Payment Request
+        call: payment-requests-payment-request.paymentrequestupdate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/paymentrequest/verify/{id}
+      name: paymentrequest-verify
+      description: REST surface for paymentrequest-verify.
+      operations:
+      - method: GET
+        name: paymentrequestverify
+        description: Paystack Verify Payment Request
+        call: payment-requests-payment-request.paymentrequestverify
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/paymentrequest/notify/{id}
+      name: paymentrequest-notify
+      description: REST surface for paymentrequest-notify.
+      operations:
+      - method: POST
+        name: paymentrequestnotify
+        description: Paystack Send Notification
+        call: payment-requests-payment-request.paymentrequestnotify
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/paymentrequest/totals
+      name: paymentrequest-totals
+      description: REST surface for paymentrequest-totals.
+      operations:
+      - method: GET
+        name: paymentrequesttotals
+        description: Paystack Payment Request Total
+        call: payment-requests-payment-request.paymentrequesttotals
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/paymentrequest/finalize/{id}
+      name: paymentrequest-finalize
+      description: REST surface for paymentrequest-finalize.
+      operations:
+      - method: POST
+        name: paymentrequestfinalize
+        description: Paystack Finalize Payment Request
+        call: payment-requests-payment-request.paymentrequestfinalize
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/paymentrequest/archive/{id}
+      name: paymentrequest-archive
+      description: REST surface for paymentrequest-archive.
+      operations:
+      - method: POST
+        name: paymentrequestarchive
+        description: Paystack Archive Payment Request
+        call: payment-requests-payment-request.paymentrequestarchive
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: payment-requests-payment-request-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Payment Requests API. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: paystack-create-payment-request
+      description: Paystack Create Payment Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-requests-payment-request.paymentrequestcreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-payment-request
+      description: Paystack List Payment Request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: payment-requests-payment-request.paymentrequestlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-payment-request
+      description: Paystack Fetch Payment Request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: payment-requests-payment-request.paymentrequestfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-update-payment-request
+      description: Paystack Update Payment Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: payment-requests-payment-request.paymentrequestupdate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-verify-payment-request
+      description: Paystack Verify Payment Request
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: payment-requests-payment-request.paymentrequestverify
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-send-notification
+      description: Paystack Send Notification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-requests-payment-request.paymentrequestnotify
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-payment-request-total
+      description: Paystack Payment Request Total
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: payment-requests-payment-request.paymentrequesttotals
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-finalize-payment-request
+      description: Paystack Finalize Payment Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-requests-payment-request.paymentrequestfinalize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-archive-payment-request
+      description: Paystack Archive Payment Request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payment-requests-payment-request.paymentrequestarchive
+      outputParameters:
+      - type: object
+        mapping: $.

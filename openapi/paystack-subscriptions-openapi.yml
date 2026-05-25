@@ -1,0 +1,499 @@
+openapi: 3.0.1
+info:
+  title: Paystack Subscriptions API
+  description: Create plans and manage recurring subscriptions for ongoing billing. Customers can be subscribed to plans for
+    automatic recurring charges with email notifications and self-service updates.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+tags:
+- name: Plan
+- name: Subscription
+paths:
+  /plan:
+    post:
+      tags:
+      - Plan
+      summary: Create Plan
+      operationId: plan_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1plan/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - amount
+              - interval
+              properties:
+                name:
+                  description: Name of plan
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                interval:
+                  description: Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
+                  type: string
+                description:
+                  description: A description for this plan
+                  type: boolean
+                send_invoices:
+                  description: Set to false if you don't want invoices to be sent to your customers
+                  type: boolean
+                send_sms:
+                  description: Set to false if you don't want text messages to be sent to your customers
+                  type: boolean
+                currency:
+                  description: Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD
+                  type: string
+                invoice_limit:
+                  description: "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying\
+                    \ an invoice_limit while subscribing."
+                  type: integer
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Plan
+      summary: List Plans
+      operationId: plan_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: interval
+        schema:
+          type: string
+        description: Specify interval of the plan
+      - in: query
+        name: amount
+        schema:
+          type: integer
+        description: The amount on the plans to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          description: Resource created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Ok/content/application~1json/schema'
+        '401':
+          description: Unauthorized operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /plan/{code}:
+    get:
+      tags:
+      - Plan
+      summary: Fetch Plan
+      operationId: plan_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Plan
+      summary: Update Plan
+      operationId: plan_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1plan~1%7Bcode%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Name of plan
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                interval:
+                  description: Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
+                  type: string
+                description:
+                  description: A description for this plan
+                  type: boolean
+                send_invoices:
+                  description: Set to false if you don't want invoices to be sent to your customers
+                  type: boolean
+                send_sms:
+                  description: Set to false if you don't want text messages to be sent to your customers
+                  type: boolean
+                currency:
+                  description: Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD
+                  type: string
+                invoice_limit:
+                  description: "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying\
+                    \ an invoice_limit while subscribing."
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: code
+      in: path
+      required: true
+      schema:
+        type: string
+  /subscription:
+    post:
+      tags:
+      - Subscription
+      summary: Create Subscription
+      operationId: subscription_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - customer
+              - plan
+              properties:
+                customer:
+                  description: Customer's email address or customer code
+                  type: string
+                plan:
+                  description: Plan code
+                  type: string
+                authorization:
+                  description: "If customer has multiple authorizations, you can set the desired authorization you wish to\
+                    \ use for this subscription here. \nIf this is not supplied, the customer's most recent authorization\
+                    \ would be used"
+                  type: string
+                start_date:
+                  description: Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00
+                  type: string
+                  format: date-time
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Subscription
+      summary: List Subscriptions
+      operationId: subscription_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: plan
+        schema:
+          type: string
+        description: Plan ID
+      - in: query
+        name: customer
+        schema:
+          type: string
+        description: Customer ID
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}:
+    get:
+      tags:
+      - Subscription
+      summary: Fetch Subscription
+      operationId: subscription_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: code
+      in: path
+      required: true
+      schema:
+        type: string
+  /subscription/disable:
+    post:
+      tags:
+      - Subscription
+      summary: Disable Subscription
+      operationId: subscription_disable
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/enable:
+    post:
+      tags:
+      - Subscription
+      summary: Enable Subscription
+      operationId: subscription_enable
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - code
+              - token
+              - authorization
+              properties:
+                code:
+                  description: Subscription code
+                  type: string
+                token:
+                  description: Email token
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}/manage/link:
+    post:
+      tags:
+      - Subscription
+      summary: Generate Update Subscription Link
+      operationId: subscription_manageLink
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}/manage/email:
+    post:
+      tags:
+      - Subscription
+      summary: Send Update Subscription Link
+      operationId: subscription_manageEmail
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Customer:
+      allOf:
+      - type: object
+        required:
+        - email
+        properties:
+          email:
+            description: Customer's email address
+            type: string
+      - type: object
+        properties:
+          first_name:
+            description: Customer's first name
+            type: string
+          last_name:
+            description: Customer's last name
+            type: string
+          phone:
+            description: Customer's phone number
+            type: string
+          metadata:
+            description: Stringified JSON object of custom data
+            type: string
+      - type: object
+        required:
+        - authorization_code
+        properties:
+          authorization_code:
+            description: Customer's authorization code to be deactivated
+            type: string
+      - type: object
+        required:
+        - customer
+        properties:
+          customer:
+            description: Customer's code, or email address
+            type: string
+          risk_action:
+            description: "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist.\
+              \ Customers start with a default risk action.\n"
+            type: string
+            enum:
+            - default
+            - allow
+            - deny
+      - type: object
+        required:
+        - type
+        - country
+        - bvn
+        - bank_code
+        - account_number
+        properties:
+          type:
+            description: Predefined types of identification.
+            type: string
+            enum:
+            - bvn
+            - bank_account
+          country:
+            description: Two-letter country code of identification issuer
+            type: string
+          bvn:
+            description: Customer's Bank Verification Number
+            type: string
+          bank_code:
+            description: You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
+            type: string
+          account_number:
+            description: Customer's bank account number.
+            type: string
+          value:
+            description: Customer's identification number. Required if type is bvn
+            type: string
+    Error:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+security:
+- bearerAuth: []

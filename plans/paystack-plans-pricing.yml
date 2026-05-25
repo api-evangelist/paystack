@@ -1,0 +1,263 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Paystack
+providerId: paystack
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - Payments
+  - Africa
+  - Recurring Billing
+  - Payouts
+description: >-
+  Reconciled commercial plans and per-transaction pricing for Paystack across its supported African
+  markets. Paystack has no monthly subscription tier — pricing is purely per-transaction, with
+  market- and channel-specific rates and caps. International cards and dollar transactions carry a
+  different rate from local channels.
+sources:
+  - https://paystack.com/ng/pricing
+  - https://paystack.com/gh/pricing
+  - https://paystack.com/za/pricing
+  - https://paystack.com/ke/pricing
+  - https://paystack.com/ci/pricing
+  - https://paystack.com/eg/pricing
+  - https://paystack.com/terms
+plans:
+  - id: paystack-nigeria-local
+    name: Paystack Nigeria — Local Transactions
+    type: usage-based
+    description: Local Nigerian card, bank, USSD, QR, and mobile money transactions denominated in NGN.
+    entries:
+      - label: Local transactions
+        name: local_txn
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '0.015'
+        description: 1.5% of transaction value.
+        userMultiplied: false
+      - label: Local transaction cap
+        name: local_txn_cap
+        type: cap
+        metric: NGN
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '2000'
+        description: Fee capped at NGN 2,000 per transaction.
+        userMultiplied: false
+      - label: Local fee waiver threshold
+        name: local_fee_waiver
+        type: threshold
+        metric: NGN
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '2500'
+        description: Additional NGN 100 is waived on transactions under NGN 2,500.
+        userMultiplied: false
+  - id: paystack-nigeria-international
+    name: Paystack Nigeria — International Cards
+    type: usage-based
+    description: International card transactions and USD payments processed in Nigeria.
+    entries:
+      - label: International cards
+        name: intl_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '0.039'
+        description: 3.9% + NGN 100 per transaction.
+        userMultiplied: false
+      - label: International card flat fee
+        name: intl_card_flat
+        type: metered
+        metric: NGN
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '100'
+        description: NGN 100 fixed component per international card transaction.
+        userMultiplied: false
+  - id: paystack-nigeria-transfers
+    name: Paystack Nigeria — Transfers (Payouts)
+    type: usage-based
+    description: Payouts from Paystack balance to Nigerian bank accounts.
+    entries:
+      - label: Transfer under NGN 5,000
+        name: transfer_under_5k
+        type: metered
+        metric: transfer
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '10'
+        description: NGN 10 per transfer below NGN 5,000.
+        userMultiplied: false
+      - label: Transfer NGN 5,000 to 50,000
+        name: transfer_5k_50k
+        type: metered
+        metric: transfer
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '25'
+        description: NGN 25 per transfer between NGN 5,000 and NGN 50,000.
+        userMultiplied: false
+      - label: Transfer above NGN 50,000
+        name: transfer_above_50k
+        type: metered
+        metric: transfer
+        timeFrame: usage
+        geo: NG
+        unit: 1
+        price: '50'
+        description: NGN 50 per transfer above NGN 50,000.
+        userMultiplied: false
+  - id: paystack-ghana-local
+    name: Paystack Ghana — Local Transactions
+    type: usage-based
+    description: Local Ghanaian card and mobile money transactions in GHS.
+    entries:
+      - label: Local transactions
+        name: local_txn
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: GH
+        unit: 1
+        price: '0.0195'
+        description: 1.95% per local transaction.
+        userMultiplied: false
+      - label: International cards
+        name: intl_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: GH
+        unit: 1
+        price: '0.035'
+        description: 3.5% per international card transaction.
+        userMultiplied: false
+  - id: paystack-south-africa-local
+    name: Paystack South Africa — Local Cards and EFT
+    type: usage-based
+    description: South African card, instant EFT, and Capitec Pay transactions in ZAR.
+    entries:
+      - label: Local cards
+        name: local_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: ZA
+        unit: 1
+        price: '0.029'
+        description: 2.9% per local card transaction.
+        userMultiplied: false
+      - label: Local card flat fee
+        name: local_card_flat
+        type: metered
+        metric: ZAR
+        timeFrame: usage
+        geo: ZA
+        unit: 1
+        price: '1.00'
+        description: ZAR 1.00 flat fee per local card transaction.
+        userMultiplied: false
+      - label: International cards
+        name: intl_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: ZA
+        unit: 1
+        price: '0.039'
+        description: 3.9% per international card transaction.
+        userMultiplied: false
+  - id: paystack-kenya-local
+    name: Paystack Kenya — Local M-Pesa and Cards
+    type: usage-based
+    description: M-Pesa STK Push and local card transactions in KES.
+    entries:
+      - label: M-Pesa STK Push
+        name: mpesa
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: KE
+        unit: 1
+        price: '0.015'
+        description: 1.5% per M-Pesa STK Push transaction.
+        userMultiplied: false
+      - label: Local cards
+        name: local_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: KE
+        unit: 1
+        price: '0.029'
+        description: 2.9% per local card transaction.
+        userMultiplied: false
+  - id: paystack-cote-d-ivoire-local
+    name: Paystack Côte d'Ivoire — Mobile Money and Cards
+    type: usage-based
+    description: Orange Money, MTN MoMo, Wave, and local card transactions in XOF.
+    entries:
+      - label: Mobile money
+        name: momo
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: CI
+        unit: 1
+        price: '0.0195'
+        description: 1.95% per mobile money transaction.
+        userMultiplied: false
+      - label: Local cards
+        name: local_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: CI
+        unit: 1
+        price: '0.029'
+        description: 2.9% per local card transaction.
+        userMultiplied: false
+  - id: paystack-egypt-local
+    name: Paystack Egypt — Local Cards and Wallets
+    type: usage-based
+    description: Local card, Meeza, Fawry, and mobile wallet transactions in EGP.
+    entries:
+      - label: Local cards
+        name: local_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: EG
+        unit: 1
+        price: '0.0275'
+        description: 2.75% per local card transaction.
+        userMultiplied: false
+      - label: International cards
+        name: intl_card
+        type: metered
+        metric: transaction
+        timeFrame: usage
+        geo: EG
+        unit: 1
+        price: '0.039'
+        description: 3.9% per international card transaction.
+        userMultiplied: false
+notes:
+  - Pricing varies by country, channel (card, bank, USSD, mobile money, transfer), and whether the
+    transaction is local or cross-border.
+  - Paystack publishes effective pricing on per-country pricing pages — confirm the latest rates
+    against paystack.com/{country-iso}/pricing before invoicing.
+  - Settlement schedules are T+1 for most local channels in Nigeria; varies elsewhere.

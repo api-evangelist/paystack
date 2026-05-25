@@ -1,0 +1,528 @@
+aid: paystack
+url: https://raw.githubusercontent.com/api-evangelist/paystack/main/apis.yml
+name: Paystack
+tags:
+- Payments
+- Africa
+- Fintech
+- Recurring Billing
+- Marketplaces
+- Payouts
+- Mobile Money
+- Stripe
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+description: >-
+  Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses
+  accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards,
+  bank transfers, USSD, QR, EFT, and mobile money channels. Its single REST API covers
+  one-time charges, recurring subscriptions, marketplace splits, dedicated virtual accounts,
+  invoices, transfers (payouts), refunds, disputes, settlements, and KYC/identity verification —
+  all wrapped in a developer experience that has made it one of the most respected public APIs
+  on the continent.
+apis:
+- aid: paystack:paystack-accept-payments
+  name: Paystack Accept Payments API
+  tags:
+  - Payments
+  - Transactions
+  - Charge
+  humanURL: https://paystack.com/docs/api/transaction/
+  properties:
+  - url: https://paystack.com/docs/api/transaction/
+    type: Documentation
+  - url: https://paystack.com/docs/api/charge/
+    type: Documentation
+  - url: openapi/paystack-accept-payments-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-transaction-schema.json
+    type: JSONSchema
+  - url: json-structure/paystack-transaction-structure.json
+    type: JSONStructure
+  - url: examples/paystack-initialize-transaction-example.json
+    type: Example
+  - url: examples/paystack-verify-transaction-example.json
+    type: Example
+  - url: capabilities/accept-payments.yaml
+    type: NaftikoCapability
+  description: >-
+    Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, QR, and bank
+    transfer payments. The Transaction and Charge resources are the core of Paystack — a hosted
+    checkout flow (initialize + verify) and a direct charge flow that drives the customer through
+    PIN, OTP, phone, birthday, and address challenges as required.
+- aid: paystack:paystack-subscriptions
+  name: Paystack Subscriptions API
+  tags:
+  - Recurring Billing
+  - Subscriptions
+  - Plans
+  humanURL: https://paystack.com/docs/api/subscription/
+  properties:
+  - url: https://paystack.com/docs/api/subscription/
+    type: Documentation
+  - url: https://paystack.com/docs/api/plan/
+    type: Documentation
+  - url: openapi/paystack-subscriptions-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-plan-schema.json
+    type: JSONSchema
+  - url: json-schema/paystack-subscription-schema.json
+    type: JSONSchema
+  - url: json-structure/paystack-subscription-structure.json
+    type: JSONStructure
+  - url: examples/paystack-create-subscription-example.json
+    type: Example
+  - url: capabilities/subscriptions.yaml
+    type: NaftikoCapability
+  description: >-
+    Create plans and run recurring subscriptions against stored card authorizations.
+    Includes plan management, subscription lifecycle (create / disable / enable), customer
+    self-service update links, and automatic invoice notifications.
+- aid: paystack:paystack-customers
+  name: Paystack Customers API
+  tags:
+  - Customers
+  - KYC
+  humanURL: https://paystack.com/docs/api/customer/
+  properties:
+  - url: https://paystack.com/docs/api/customer/
+    type: Documentation
+  - url: openapi/paystack-customers-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-customer-schema.json
+    type: JSONSchema
+  - url: json-structure/paystack-customer-structure.json
+    type: JSONStructure
+  - url: capabilities/customers.yaml
+    type: NaftikoCapability
+  description: >-
+    Create, list, and update customer profiles; whitelist or blacklist customers via risk_action;
+    deactivate stored authorizations; and run KYC validation against customer identities.
+- aid: paystack:paystack-transfers
+  name: Paystack Transfers API
+  tags:
+  - Payouts
+  - Transfers
+  - Bulk
+  humanURL: https://paystack.com/docs/api/transfer/
+  properties:
+  - url: https://paystack.com/docs/api/transfer/
+    type: Documentation
+  - url: https://paystack.com/docs/api/transfer-recipient/
+    type: Documentation
+  - url: https://paystack.com/docs/api/bulk-charge/
+    type: Documentation
+  - url: openapi/paystack-transfers-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-transfer-schema.json
+    type: JSONSchema
+  - url: json-structure/paystack-transfer-structure.json
+    type: JSONStructure
+  - url: examples/paystack-initiate-transfer-example.json
+    type: Example
+  - url: capabilities/transfers.yaml
+    type: NaftikoCapability
+  description: >-
+    Send money out of your Paystack balance to bank accounts and mobile money wallets across
+    supported markets. Covers transfer recipients, single and bulk transfers, OTP workflows,
+    and bulk charges against stored authorizations.
+- aid: paystack:paystack-splits-subaccounts
+  name: Paystack Splits and Subaccounts API
+  tags:
+  - Marketplaces
+  - Splits
+  - Subaccounts
+  humanURL: https://paystack.com/docs/api/split/
+  properties:
+  - url: https://paystack.com/docs/api/split/
+    type: Documentation
+  - url: https://paystack.com/docs/api/subaccount/
+    type: Documentation
+  - url: openapi/paystack-splits-subaccounts-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-split-schema.json
+    type: JSONSchema
+  - url: json-schema/paystack-subaccount-schema.json
+    type: JSONSchema
+  - url: json-structure/paystack-split-structure.json
+    type: JSONStructure
+  - url: examples/paystack-create-split-example.json
+    type: Example
+  - url: capabilities/splits-subaccounts.yaml
+    type: NaftikoCapability
+  description: >-
+    Build marketplaces by automatically splitting a single payment between the main account and
+    multiple subaccounts. Configure percentage or flat splits, set fee-bearers, and manage
+    subaccount business profiles for vendor payouts.
+- aid: paystack:paystack-dedicated-virtual-accounts
+  name: Paystack Dedicated Virtual Accounts API
+  tags:
+  - Bank Transfer
+  - NUBAN
+  - Virtual Accounts
+  humanURL: https://paystack.com/docs/api/dedicated-virtual-account/
+  properties:
+  - url: https://paystack.com/docs/api/dedicated-virtual-account/
+    type: Documentation
+  - url: openapi/paystack-dedicated-virtual-accounts-openapi.yml
+    type: OpenAPI
+  - url: examples/paystack-create-dedicated-account-example.json
+    type: Example
+  - url: capabilities/dedicated-virtual-accounts.yaml
+    type: NaftikoCapability
+  description: >-
+    Provision dedicated NUBAN virtual bank accounts for individual customers so they can pay by
+    bank transfer with automatic reconciliation back to the customer profile. Includes split
+    routing on inbound transfers.
+- aid: paystack:paystack-products-pages
+  name: Paystack Products and Payment Pages API
+  tags:
+  - Hosted Checkout
+  - Products
+  - Pages
+  humanURL: https://paystack.com/docs/api/products/
+  properties:
+  - url: https://paystack.com/docs/api/products/
+    type: Documentation
+  - url: https://paystack.com/docs/api/page/
+    type: Documentation
+  - url: openapi/paystack-products-pages-openapi.yml
+    type: OpenAPI
+  - url: capabilities/products-pages.yaml
+    type: NaftikoCapability
+  description: >-
+    Manage products in your Paystack inventory and assemble them into Paystack-hosted Payment
+    Pages so you can collect payments without operating your own checkout.
+- aid: paystack:paystack-payment-requests
+  name: Paystack Payment Requests API
+  tags:
+  - Invoices
+  - Payment Requests
+  humanURL: https://paystack.com/docs/api/payment-request/
+  properties:
+  - url: https://paystack.com/docs/api/payment-request/
+    type: Documentation
+  - url: openapi/paystack-payment-requests-openapi.yml
+    type: OpenAPI
+  - url: capabilities/payment-requests.yaml
+    type: NaftikoCapability
+  description: >-
+    Issue invoice-style payment requests to customers by email, with verification, notification,
+    finalization, and archival flows.
+- aid: paystack:paystack-refunds-disputes
+  name: Paystack Refunds and Disputes API
+  tags:
+  - Refunds
+  - Disputes
+  - Chargebacks
+  humanURL: https://paystack.com/docs/api/refund/
+  properties:
+  - url: https://paystack.com/docs/api/refund/
+    type: Documentation
+  - url: https://paystack.com/docs/api/dispute/
+    type: Documentation
+  - url: openapi/paystack-refunds-disputes-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paystack-refund-schema.json
+    type: JSONSchema
+  - url: json-schema/paystack-dispute-schema.json
+    type: JSONSchema
+  - url: capabilities/refunds-disputes.yaml
+    type: NaftikoCapability
+  description: >-
+    Process partial and full refunds against successful transactions and respond to cardholder
+    disputes — including evidence upload via signed URL, resolution workflows, and exports.
+- aid: paystack:paystack-settlements
+  name: Paystack Settlements API
+  tags:
+  - Settlements
+  - Treasury
+  humanURL: https://paystack.com/docs/api/settlement/
+  properties:
+  - url: https://paystack.com/docs/api/settlement/
+    type: Documentation
+  - url: openapi/paystack-settlements-openapi.yml
+    type: OpenAPI
+  - url: capabilities/settlements.yaml
+    type: NaftikoCapability
+  description: >-
+    Fetch settlement records and the underlying transactions that comprise each payout to your
+    bank account.
+- aid: paystack:paystack-verification
+  name: Paystack Verification API
+  tags:
+  - Verification
+  - Identity
+  - BVN
+  - KYC
+  humanURL: https://paystack.com/docs/api/verification/
+  properties:
+  - url: https://paystack.com/docs/api/verification/
+    type: Documentation
+  - url: openapi/paystack-verification-openapi.yml
+    type: OpenAPI
+  - url: capabilities/verification.yaml
+    type: NaftikoCapability
+  description: >-
+    Identity, BVN, bank account, card BIN, country, bank, and address-verification lookups used to
+    validate customers, beneficiary accounts, and cards before transacting.
+- aid: paystack:paystack-balance
+  name: Paystack Balance API
+  tags:
+  - Balance
+  - Ledger
+  - Treasury
+  humanURL: https://paystack.com/docs/api/balance/
+  properties:
+  - url: https://paystack.com/docs/api/balance/
+    type: Documentation
+  - url: openapi/paystack-balance-openapi.yml
+    type: OpenAPI
+  - url: capabilities/balance.yaml
+    type: NaftikoCapability
+  description: >-
+    Fetch your Paystack balance per currency and read the balance ledger for treasury operations
+    and reconciliation.
+- aid: paystack:paystack-integration
+  name: Paystack Integration Settings API
+  tags:
+  - Integration
+  - Settings
+  humanURL: https://paystack.com/docs/api/integration/
+  properties:
+  - url: https://paystack.com/docs/api/integration/
+    type: Documentation
+  - url: openapi/paystack-integration-openapi.yml
+    type: OpenAPI
+  - url: capabilities/integration.yaml
+    type: NaftikoCapability
+  description: >-
+    Read and update integration-wide settings such as the payment session timeout for hosted
+    checkout.
+common:
+- type: Portal
+  url: https://paystack.com/
+- type: Documentation
+  url: https://paystack.com/docs/
+- type: APIReference
+  url: https://paystack.com/docs/api/
+- type: Documentation
+  name: Original Paystack OpenAPI specification
+  url: https://github.com/PaystackHQ/openapi
+- type: GettingStarted
+  url: https://paystack.com/docs/payments/accept-payments/
+- type: SignUp
+  url: https://dashboard.paystack.com/#/signup
+- type: Documentation
+  name: Dashboard
+  url: https://dashboard.paystack.com/
+- type: Authentication
+  url: https://paystack.com/docs/api/#authentication
+- type: Documentation
+  name: API Keys
+  url: https://dashboard.paystack.com/#/settings/developers
+- type: Documentation
+  name: Webhooks
+  url: https://paystack.com/docs/payments/webhooks/
+- type: Documentation
+  name: Test Cards
+  url: https://paystack.com/docs/payments/test-payments/
+- type: Documentation
+  name: Errors
+  url: https://paystack.com/docs/api/errors/
+- type: ChangeLog
+  url: https://paystack.com/docs/changelog/api/
+- type: Blog
+  url: https://paystack.com/blog/
+- type: Blog
+  name: Engineering Blog
+  url: https://medium.com/paystack-engineering
+- type: StatusPage
+  url: https://status.paystack.com/
+- type: Support
+  url: https://support.paystack.com/
+- type: Pricing
+  name: Nigeria Pricing
+  url: https://paystack.com/ng/pricing
+- type: Pricing
+  name: Ghana Pricing
+  url: https://paystack.com/gh/pricing
+- type: Pricing
+  name: South Africa Pricing
+  url: https://paystack.com/za/pricing
+- type: Pricing
+  name: Kenya Pricing
+  url: https://paystack.com/ke/pricing
+- type: Pricing
+  name: Côte d'Ivoire Pricing
+  url: https://paystack.com/ci/pricing
+- type: Pricing
+  name: Egypt Pricing
+  url: https://paystack.com/eg/pricing
+- type: TermsOfService
+  url: https://paystack.com/terms
+- type: PrivacyPolicy
+  url: https://paystack.com/privacy
+- type: TrustCenter
+  name: Security and Compliance
+  url: https://paystack.com/security
+- type: GitHubOrganization
+  url: https://github.com/PaystackHQ
+- type: SDK
+  name: Paystack PHP Library
+  url: https://github.com/PaystackHQ/paystack-php
+- type: SDK
+  name: Paystack Android SDK
+  url: https://github.com/PaystackHQ/paystack-android
+- type: SDK
+  name: Paystack iOS SDK (Objective-C)
+  url: https://github.com/PaystackHQ/paystack-ios
+- type: SDK
+  name: Paystack iOS SDK (Swift)
+  url: https://github.com/PaystackHQ/paystack-sdk-ios
+- type: SDK
+  name: Omnipay Paystack Driver
+  url: https://github.com/PaystackHQ/omnipay-paystack
+- type: Plugins
+  name: WooCommerce
+  url: https://github.com/PaystackHQ/plugin-woocommerce
+- type: Plugins
+  name: Magento 2
+  url: https://github.com/PaystackHQ/plugin-magento-2
+- type: Plugins
+  name: PrestaShop 1.7
+  url: https://github.com/PaystackHQ/plugin-prestashop-1.7
+- type: Plugins
+  name: OpenCart
+  url: https://github.com/PaystackHQ/plugin-opencart
+- type: Plugins
+  name: WHMCS
+  url: https://github.com/PaystackHQ/plugin-whmcs
+- type: Plugins
+  name: Moodle Enrolment
+  url: https://github.com/PaystackHQ/moodle-enrol_paystack
+- type: Plugins
+  name: Odoo 14
+  url: https://github.com/PaystackHQ/plugin-odoo
+- type: CodeExamples
+  name: Paystack JS Sample Code
+  url: https://github.com/PaystackHQ/PaystackJS-Sample-code
+- type: CodeExamples
+  name: Sample Charge Card Backend
+  url: https://github.com/PaystackHQ/sample-charge-card-backend
+- type: SpectralRules
+  url: rules/paystack-rules.yml
+- type: Vocabulary
+  url: vocabulary/paystack-vocabulary.yml
+- type: JSONLD
+  url: json-ld/paystack-context.jsonld
+- type: Plans
+  url: plans/paystack-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/paystack-rate-limits.yml
+- type: FinOps
+  url: finops/paystack-finops.yml
+- type: Features
+  data:
+  - name: Hosted Checkout
+    description: Paystack-hosted authorization URL that handles PCI, SCA, OTP, USSD, QR, and 3DS flows for you.
+  - name: Direct Charge API
+    description: Initiate charges programmatically with structured PIN, OTP, phone, birthday, and address challenge steps.
+  - name: Recurring Subscriptions
+    description: Plans plus subscriptions with self-service customer management and email/SMS invoice notifications.
+  - name: Transaction Splits
+    description: Route a single payment to multiple subaccounts on a percentage or flat basis for marketplaces.
+  - name: Subaccounts
+    description: Vendor or merchant profiles with their own settlement bank and percentage charge.
+  - name: Dedicated Virtual Accounts
+    description: NUBAN virtual accounts assigned to individual customers for bank-transfer-based payments with auto-reconciliation.
+  - name: Payment Pages
+    description: No-code Paystack-hosted pages for selling products or accepting donations.
+  - name: Payment Requests
+    description: Email-based invoices with verification, notification, finalization, and archive flows.
+  - name: Single and Bulk Transfers
+    description: Pay out from balance to bank accounts and mobile money wallets, one at a time or as batches.
+  - name: Bulk Charge
+    description: Charge many stored authorizations in a single batch with pause and resume controls.
+  - name: Refunds
+    description: Partial or full refunds with merchant and customer notes.
+  - name: Disputes and Chargebacks
+    description: Programmatic dispute response with signed evidence-upload URLs and resolution workflow.
+  - name: Settlements
+    description: Read net settlement payouts and drill down into the transactions that composed each batch.
+  - name: Identity Verification
+    description: BVN match, BVN resolution, account number resolution, card BIN lookup, country/bank lookup, and AVS state lists.
+  - name: Multi-Currency
+    description: Accept NGN, GHS, ZAR, KES, XOF, EGP, and USD across supported markets.
+  - name: Multi-Channel
+    description: Card, bank transfer, USSD, QR, mobile money (M-Pesa, MTN MoMo, Orange Money, Wave), EFT, Apple Pay, Visa QR.
+  - name: Webhooks
+    description: Signed webhook deliveries for transaction, dispute, refund, transfer, subscription, and invoice events with 72-hour retries.
+  - name: Test Mode
+    description: A complete test environment with test cards covering success, decline, OTP, PIN, and 3DS flows.
+  - name: Dashboard
+    description: First-class merchant dashboard for transactions, customers, subscriptions, transfers, settlements, and disputes.
+- type: UseCases
+  data:
+  - name: E-commerce Checkout
+    description: Drop-in checkout for online stores accepting cards, USSD, bank transfer, and mobile money across Africa.
+  - name: SaaS Recurring Billing
+    description: Subscription-based revenue with plans, automatic renewal, self-service updates, and dunning.
+  - name: Marketplaces and Multi-Vendor Platforms
+    description: Split-payment routing to vendor subaccounts with platform fee retention.
+  - name: Cross-Border Payments
+    description: Accept cards from international customers while settling locally.
+  - name: Mobile Money Acceptance
+    description: M-Pesa, MTN, Orange Money, Wave acceptance in Ghana, Kenya, Côte d'Ivoire.
+  - name: Bank Transfer Acceptance
+    description: Dedicated virtual accounts auto-reconcile inbound NUBAN transfers.
+  - name: Payouts and Vendor Disbursement
+    description: Single and bulk transfers to bank or mobile money for gig platforms and payroll-light apps.
+  - name: Invoicing and B2B Collections
+    description: Issue payment requests by email with verification and reminders.
+  - name: Donations and Crowdfunding
+    description: Payment Pages for one-off donations or product sales without writing checkout code.
+- type: Integrations
+  data:
+  - name: WooCommerce
+    description: Official Paystack payment gateway for WooCommerce stores.
+  - name: Magento and Magento 2
+    description: Official Magento extensions for Paystack acceptance.
+  - name: PrestaShop
+    description: Plugins for PrestaShop 1.6 and 1.7.
+  - name: OpenCart
+    description: OpenCart extensions for Paystack.
+  - name: WHMCS
+    description: Hosting and billing platform integration.
+  - name: Moodle
+    description: Course enrolment via Paystack.
+  - name: Odoo
+    description: Payment gateway integration for Odoo 14.
+  - name: Omnipay
+    description: Paystack gateway driver for the PHP Omnipay payment-abstraction library.
+  - name: Joomla, Drupal, Ghost, Wordpress
+    description: Community and official plugins across major CMS platforms.
+  - name: Stripe
+    description: Paystack is a Stripe subsidiary; merchants can operate in Stripe-aligned multi-region setups.
+- type: Solutions
+  data:
+  - name: Online Businesses
+    description: Hosted checkout for e-commerce and SaaS.
+  - name: Marketplaces
+    description: Splits + subaccounts for multi-vendor platforms.
+  - name: Subscription Businesses
+    description: Plans, subscriptions, and dunning for recurring revenue.
+  - name: Platforms and Apps
+    description: Transfers, dedicated virtual accounts, and identity verification for fintech and platform builds.
+  - name: Education and Nonprofits
+    description: Payment Pages and Payment Requests for donations and tuition collection.
+created: '2026-05-24'
+modified: '2026-05-24'
+position: Consuming
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

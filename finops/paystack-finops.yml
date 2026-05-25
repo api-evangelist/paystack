@@ -1,0 +1,127 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Paystack
+providerId: paystack
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Payments
+  - Africa
+description: >-
+  FOCUS-aligned FinOps definition for the Paystack payment platform. Paystack revenue is
+  transaction-fee based — there is no subscription tier — so cost-of-acceptance is the primary
+  unit of FinOps reporting. Fees are deducted at settlement and reported on per-transaction
+  records via the Transactions, Settlements, and Balance Ledger APIs.
+sources:
+  - https://paystack.com/ng/pricing
+  - https://paystack.com/docs/payments/settlements/
+  - https://paystack.com/docs/api/transaction/
+  - https://paystack.com/docs/api/settlement/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Paystack
+serviceCategory: Financial Services — Payment Processing
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Per-Transaction
+  billingCurrency: Multi-Currency (NGN, GHS, ZAR, KES, XOF, EGP, USD)
+  chargeCategories:
+    - Usage
+    - Adjustment
+    - Refund
+    - Chargeback
+  primaryUnit: transaction
+  secondaryUnits:
+    - transfer
+    - refund
+    - dispute
+focusColumns:
+  ServiceName: Paystack API
+  ServiceCategory: Financial Services
+  ProviderName: Paystack
+  PublisherName: Paystack
+  InvoiceIssuerName: Paystack Payments Limited
+  PricingCategory: Usage-Based
+  PricingUnit: transaction
+  BillingCurrency: NGN
+meters:
+  - name: processing_fee_percent
+    unit: percent_of_transaction
+    aggregation: sum
+    dimensions:
+      - country
+      - channel
+      - local_or_international
+    description: Primary percentage component of acceptance fees per transaction.
+  - name: processing_fee_flat
+    unit: currency
+    aggregation: sum
+    dimensions:
+      - country
+      - channel
+    description: Flat per-transaction component (e.g. NGN 100 on international cards, ZAR 1.00 on local cards).
+  - name: transfer_fee
+    unit: currency
+    aggregation: sum
+    dimensions:
+      - country
+      - destination_bank
+      - amount_band
+    description: Per-payout flat fee charged when initiating transfers.
+  - name: dispute_fee
+    unit: currency
+    aggregation: sum
+    dimensions:
+      - country
+      - card_network
+    description: Per-dispute administrative fee (variable, surfaced on dispute records).
+  - name: chargeback_amount
+    unit: currency
+    aggregation: sum
+    dimensions:
+      - country
+      - reason_category
+    description: Funds reversed via chargeback.
+chargeAttribution:
+  - dimension: subaccount_code
+    description: Split-payment accounting routes a configured share of each transaction to subaccounts; fees are borne per `bearer_type`.
+  - dimension: customer_code
+    description: Customer-level cost-per-acquisition can be derived by joining transactions on customer_code.
+  - dimension: split_code
+    description: Marketplace cost-of-funds reporting across multi-party splits.
+costApis:
+  - name: List Transactions
+    method: GET
+    path: /transaction
+    notes: Provides per-transaction fees field for invoiced fee reporting.
+  - name: Transaction Totals
+    method: GET
+    path: /transaction/totals
+    notes: Aggregated totals over a date range.
+  - name: Export Transactions
+    method: GET
+    path: /transaction/export
+    notes: CSV export of all transactions for the period including fees.
+  - name: Fetch Settlements
+    method: GET
+    path: /settlement
+    notes: Net settlements after fees and refunds.
+  - name: Balance Ledger
+    method: GET
+    path: /balance/ledger
+    notes: Authoritative ledger for inflows and outflows including fee debits.
+notes:
+  - Paystack's pricing model is a clean fit for FinOps because per-transaction `fees` are returned
+    on every transaction record, making it trivial to compute Effective Cost of Acceptance per
+    channel, country, and customer cohort.
+  - For multi-party marketplaces, the `bearer_type` on a Split determines whether the platform or
+    the subaccount absorbs the fee — this is the foundation for marketplace unit economics.

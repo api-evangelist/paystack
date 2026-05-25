@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/paystack/main/json-structure/paystack-split-structure.json",
+  "name": "PaystackSplit",
+  "type": "object",
+  "description": "JSON Structure for a Paystack multi-party transaction split.",
+  "properties": {
+    "id": { "type": "int64" },
+    "split_code": { "type": "string", "description": "Prefixed with SPL_." },
+    "name": { "type": "string" },
+    "type": { "type": "string", "description": "percentage or flat." },
+    "currency": { "type": "string" },
+    "bearer_type": { "type": "string", "description": "Who bears the Paystack fee: account, subaccount, all-proportional, all." },
+    "bearer_subaccount": { "type": "string" },
+    "active": { "type": "boolean" },
+    "is_dynamic": { "type": "boolean" },
+    "subaccounts": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "total_subaccounts": { "type": "int32" },
+    "created_at": { "type": "string", "format": "date-time" }
+  },
+  "required": ["split_code", "name", "type", "currency", "subaccounts"]
+}

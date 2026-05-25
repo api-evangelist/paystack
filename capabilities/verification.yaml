@@ -1,0 +1,272 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Verification API \u2014 Verification"
+  description: 'Paystack Verification API. 7 operations. Lead operation: Paystack Match Service. Self-contained Naftiko capability
+    covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Verification
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: verification-verification
+    baseUri: https://api.paystack.co
+    description: Paystack Verification API business capability. Self-contained, no shared references.
+    resources:
+    - name: bvn-match
+      path: /bvn/match
+      operations:
+      - name: verificationbvnmatch
+        method: POST
+        description: Paystack Match Service
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: bank-resolve-bvn
+      path: /bank/resolve_bvn/{bvn}
+      operations:
+      - name: verificationresolvebvn
+        method: GET
+        description: Paystack Resolve BVN
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bank-resolve
+      path: /bank/resolve
+      operations:
+      - name: verificationresolveaccountnumber
+        method: GET
+        description: Paystack Resolve Account Number
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: decision-bin
+      path: /decision/bin/{bin}
+      operations:
+      - name: verificationresolvecardbin
+        method: GET
+        description: Paystack Resolve Card BIN
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: country
+      path: /country
+      operations:
+      - name: verificationlistcountries
+        method: GET
+        description: Paystack List Countries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bank
+      path: /bank
+      operations:
+      - name: verificationfetchbanks
+        method: GET
+        description: Paystack Fetch Banks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: address-verification-states
+      path: /address_verification/states
+      operations:
+      - name: verificationavs
+        method: GET
+        description: Paystack List States (AVS)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: verification-verification-rest
+    port: 8080
+    description: REST adapter for Paystack Verification API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/bvn/match
+      name: bvn-match
+      description: REST surface for bvn-match.
+      operations:
+      - method: POST
+        name: verificationbvnmatch
+        description: Paystack Match Service
+        call: verification-verification.verificationbvnmatch
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/bank/resolve_bvn/{bvn}
+      name: bank-resolve-bvn
+      description: REST surface for bank-resolve-bvn.
+      operations:
+      - method: GET
+        name: verificationresolvebvn
+        description: Paystack Resolve BVN
+        call: verification-verification.verificationresolvebvn
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank/resolve
+      name: bank-resolve
+      description: REST surface for bank-resolve.
+      operations:
+      - method: GET
+        name: verificationresolveaccountnumber
+        description: Paystack Resolve Account Number
+        call: verification-verification.verificationresolveaccountnumber
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/decision/bin/{bin}
+      name: decision-bin
+      description: REST surface for decision-bin.
+      operations:
+      - method: GET
+        name: verificationresolvecardbin
+        description: Paystack Resolve Card BIN
+        call: verification-verification.verificationresolvecardbin
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/country
+      name: country
+      description: REST surface for country.
+      operations:
+      - method: GET
+        name: verificationlistcountries
+        description: Paystack List Countries
+        call: verification-verification.verificationlistcountries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bank
+      name: bank
+      description: REST surface for bank.
+      operations:
+      - method: GET
+        name: verificationfetchbanks
+        description: Paystack Fetch Banks
+        call: verification-verification.verificationfetchbanks
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/address_verification/states
+      name: address-verification-states
+      description: REST surface for address-verification-states.
+      operations:
+      - method: GET
+        name: verificationavs
+        description: Paystack List States (AVS)
+        call: verification-verification.verificationavs
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: verification-verification-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Verification API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: paystack-match-service
+      description: Paystack Match Service
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: verification-verification.verificationbvnmatch
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-resolve-bvn
+      description: Paystack Resolve BVN
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationresolvebvn
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-resolve-account-number
+      description: Paystack Resolve Account Number
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationresolveaccountnumber
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-resolve-card-bin
+      description: Paystack Resolve Card BIN
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationresolvecardbin
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-list-countries
+      description: Paystack List Countries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationlistcountries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-banks
+      description: Paystack Fetch Banks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationfetchbanks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-list-states-avs
+      description: Paystack List States (AVS)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: verification-verification.verificationavs
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,831 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: "Paystack Transfers API \u2014 Bulk Charge"
+  description: 'Paystack Transfers API. 23 operations. Lead operation: Paystack Create Transfer Recipient. Self-contained
+    Naftiko capability covering one Paystack business surface.'
+  tags:
+  - Paystack
+  - Bulk Charge
+  - Transfer
+  - Transfer Recipient
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYSTACK_SECRET_KEY: PAYSTACK_SECRET_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: transfers-transfer
+    baseUri: https://api.paystack.co
+    description: Paystack Transfers API business capability. Self-contained, no shared references.
+    resources:
+    - name: transferrecipient
+      path: /transferrecipient
+      operations:
+      - name: transferrecipientcreate
+        method: POST
+        description: Paystack Create Transfer Recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: transferrecipientlist
+        method: GET
+        description: Paystack List Transfer Recipients
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transferrecipient-bulk
+      path: /transferrecipient/bulk
+      operations:
+      - name: transferrecipientbulk
+        method: POST
+        description: Paystack Bulk Create Transfer Recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transferrecipient
+      path: /transferrecipient/{code}
+      operations:
+      - name: transferrecipientfetch
+        method: GET
+        description: Paystack Fetch Transfer Recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: puttransferrecipientcode
+        method: PUT
+        description: Paystack Update Transfer Recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: deletetransferrecipientcode
+        method: DELETE
+        description: Paystack Delete Transfer Recipient
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer
+      path: /transfer
+      operations:
+      - name: transferinitiate
+        method: POST
+        description: Paystack Initiate Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: transferlist
+        method: GET
+        description: Paystack List Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer-finalize-transfer
+      path: /transfer/finalize_transfer
+      operations:
+      - name: transferfinalize
+        method: POST
+        description: Paystack Finalize Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transfer-bulk
+      path: /transfer/bulk
+      operations:
+      - name: transferbulk
+        method: POST
+        description: Paystack Initiate Bulk Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transfer
+      path: /transfer/{code}
+      operations:
+      - name: transferfetch
+        method: GET
+        description: Paystack Fetch Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer-verify
+      path: /transfer/verify/{reference}
+      operations:
+      - name: transferverify
+        method: GET
+        description: Paystack Verify Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer-export
+      path: /transfer/export
+      operations:
+      - name: transferdownload
+        method: GET
+        description: Paystack Export Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer-resend-otp
+      path: /transfer/resend_otp
+      operations:
+      - name: transferresendotp
+        method: POST
+        description: Paystack Resend OTP for Transfer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transfer-disable-otp
+      path: /transfer/disable_otp
+      operations:
+      - name: transferdisableotp
+        method: POST
+        description: Paystack Disable OTP Requirement for Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: transfer-disable-otp-finalize
+      path: /transfer/disable_otp_finalize
+      operations:
+      - name: transferdisableotpfinalize
+        method: POST
+        description: Paystack Finalize Disabling of OTP Requirement for Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+    - name: transfer-enable-otp
+      path: /transfer/enable_otp
+      operations:
+      - name: transferenableotp
+        method: POST
+        description: Paystack Enable OTP Requirement for Transfers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bulkcharge
+      path: /bulkcharge
+      operations:
+      - name: bulkchargeinitiate
+        method: POST
+        description: Paystack Initiate Bulk Charge
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body.
+          required: true
+      - name: bulkchargelist
+        method: GET
+        description: Paystack List Bulk Charge Batches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bulkcharge
+      path: /bulkcharge/{code}
+      operations:
+      - name: bulkchargefetch
+        method: GET
+        description: Paystack Fetch Bulk Charge Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bulkcharge-charges
+      path: /bulkcharge/{code}/charges
+      operations:
+      - name: bulkchargecharges
+        method: GET
+        description: Paystack Fetch Charges in a Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bulkcharge-pause
+      path: /bulkcharge/pause/{code}
+      operations:
+      - name: bulkchargepause
+        method: GET
+        description: Paystack Pause Bulk Charge Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: bulkcharge-resume
+      path: /bulkcharge/resume/{code}
+      operations:
+      - name: bulkchargeresume
+        method: GET
+        description: Paystack Resume Bulk Charge Batch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      value: '{{env.PAYSTACK_SECRET_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: transfers-transfer-rest
+    port: 8080
+    description: REST adapter for Paystack Transfers API. One resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/transferrecipient
+      name: transferrecipient
+      description: REST surface for transferrecipient.
+      operations:
+      - method: POST
+        name: transferrecipientcreate
+        description: Paystack Create Transfer Recipient
+        call: transfers-transfer.transferrecipientcreate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: transferrecipientlist
+        description: Paystack List Transfer Recipients
+        call: transfers-transfer.transferrecipientlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transferrecipient/bulk
+      name: transferrecipient-bulk
+      description: REST surface for transferrecipient-bulk.
+      operations:
+      - method: POST
+        name: transferrecipientbulk
+        description: Paystack Bulk Create Transfer Recipient
+        call: transfers-transfer.transferrecipientbulk
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transferrecipient/{code}
+      name: transferrecipient
+      description: REST surface for transferrecipient.
+      operations:
+      - method: GET
+        name: transferrecipientfetch
+        description: Paystack Fetch Transfer Recipient
+        call: transfers-transfer.transferrecipientfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: puttransferrecipientcode
+        description: Paystack Update Transfer Recipient
+        call: transfers-transfer.puttransferrecipientcode
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: DELETE
+        name: deletetransferrecipientcode
+        description: Paystack Delete Transfer Recipient
+        call: transfers-transfer.deletetransferrecipientcode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer
+      name: transfer
+      description: REST surface for transfer.
+      operations:
+      - method: POST
+        name: transferinitiate
+        description: Paystack Initiate Transfer
+        call: transfers-transfer.transferinitiate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: transferlist
+        description: Paystack List Transfers
+        call: transfers-transfer.transferlist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/finalize_transfer
+      name: transfer-finalize-transfer
+      description: REST surface for transfer-finalize-transfer.
+      operations:
+      - method: POST
+        name: transferfinalize
+        description: Paystack Finalize Transfer
+        call: transfers-transfer.transferfinalize
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transfer/bulk
+      name: transfer-bulk
+      description: REST surface for transfer-bulk.
+      operations:
+      - method: POST
+        name: transferbulk
+        description: Paystack Initiate Bulk Transfer
+        call: transfers-transfer.transferbulk
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transfer/{code}
+      name: transfer
+      description: REST surface for transfer.
+      operations:
+      - method: GET
+        name: transferfetch
+        description: Paystack Fetch Transfer
+        call: transfers-transfer.transferfetch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/verify/{reference}
+      name: transfer-verify
+      description: REST surface for transfer-verify.
+      operations:
+      - method: GET
+        name: transferverify
+        description: Paystack Verify Transfer
+        call: transfers-transfer.transferverify
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/export
+      name: transfer-export
+      description: REST surface for transfer-export.
+      operations:
+      - method: GET
+        name: transferdownload
+        description: Paystack Export Transfers
+        call: transfers-transfer.transferdownload
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/resend_otp
+      name: transfer-resend-otp
+      description: REST surface for transfer-resend-otp.
+      operations:
+      - method: POST
+        name: transferresendotp
+        description: Paystack Resend OTP for Transfer
+        call: transfers-transfer.transferresendotp
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transfer/disable_otp
+      name: transfer-disable-otp
+      description: REST surface for transfer-disable-otp.
+      operations:
+      - method: POST
+        name: transferdisableotp
+        description: Paystack Disable OTP Requirement for Transfers
+        call: transfers-transfer.transferdisableotp
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/transfer/disable_otp_finalize
+      name: transfer-disable-otp-finalize
+      description: REST surface for transfer-disable-otp-finalize.
+      operations:
+      - method: POST
+        name: transferdisableotpfinalize
+        description: Paystack Finalize Disabling of OTP Requirement for Transfers
+        call: transfers-transfer.transferdisableotpfinalize
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+    - path: /v1/transfer/enable_otp
+      name: transfer-enable-otp
+      description: REST surface for transfer-enable-otp.
+      operations:
+      - method: POST
+        name: transferenableotp
+        description: Paystack Enable OTP Requirement for Transfers
+        call: transfers-transfer.transferenableotp
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulkcharge
+      name: bulkcharge
+      description: REST surface for bulkcharge.
+      operations:
+      - method: POST
+        name: bulkchargeinitiate
+        description: Paystack Initiate Bulk Charge
+        call: transfers-transfer.bulkchargeinitiate
+        outputParameters:
+        - type: object
+          mapping: $.
+        with:
+          body: rest.body
+      - method: GET
+        name: bulkchargelist
+        description: Paystack List Bulk Charge Batches
+        call: transfers-transfer.bulkchargelist
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulkcharge/{code}
+      name: bulkcharge
+      description: REST surface for bulkcharge.
+      operations:
+      - method: GET
+        name: bulkchargefetch
+        description: Paystack Fetch Bulk Charge Batch
+        call: transfers-transfer.bulkchargefetch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulkcharge/{code}/charges
+      name: bulkcharge-charges
+      description: REST surface for bulkcharge-charges.
+      operations:
+      - method: GET
+        name: bulkchargecharges
+        description: Paystack Fetch Charges in a Batch
+        call: transfers-transfer.bulkchargecharges
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulkcharge/pause/{code}
+      name: bulkcharge-pause
+      description: REST surface for bulkcharge-pause.
+      operations:
+      - method: GET
+        name: bulkchargepause
+        description: Paystack Pause Bulk Charge Batch
+        call: transfers-transfer.bulkchargepause
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/bulkcharge/resume/{code}
+      name: bulkcharge-resume
+      description: REST surface for bulkcharge-resume.
+      operations:
+      - method: GET
+        name: bulkchargeresume
+        description: Paystack Resume Bulk Charge Batch
+        call: transfers-transfer.bulkchargeresume
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: transfers-transfer-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paystack Transfers API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: paystack-create-transfer-recipient
+      description: Paystack Create Transfer Recipient
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferrecipientcreate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-transfer-recipients
+      description: Paystack List Transfer Recipients
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferrecipientlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-bulk-create-transfer-recipient
+      description: Paystack Bulk Create Transfer Recipient
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferrecipientbulk
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-fetch-transfer-recipient
+      description: Paystack Fetch Transfer Recipient
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferrecipientfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-update-transfer-recipient
+      description: Paystack Update Transfer Recipient
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.puttransferrecipientcode
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-delete-transfer-recipient
+      description: Paystack Delete Transfer Recipient
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: transfers-transfer.deletetransferrecipientcode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-initiate-transfer
+      description: Paystack Initiate Transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferinitiate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-transfers
+      description: Paystack List Transfers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferlist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-finalize-transfer
+      description: Paystack Finalize Transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferfinalize
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-initiate-bulk-transfer
+      description: Paystack Initiate Bulk Transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferbulk
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-fetch-transfer
+      description: Paystack Fetch Transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferfetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-verify-transfer
+      description: Paystack Verify Transfer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferverify
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-export-transfers
+      description: Paystack Export Transfers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.transferdownload
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-resend-otp-for-transfer
+      description: Paystack Resend OTP for Transfer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferresendotp
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-disable-otp-requirement-for-transfers
+      description: Paystack Disable OTP Requirement for Transfers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferdisableotp
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-finalize-disabling-of-otp-requirement-for-transfers
+      description: Paystack Finalize Disabling of OTP Requirement for Transfers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferdisableotpfinalize
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-enable-otp-requirement-for-transfers
+      description: Paystack Enable OTP Requirement for Transfers
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.transferenableotp
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-initiate-bulk-charge
+      description: Paystack Initiate Bulk Charge
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: transfers-transfer.bulkchargeinitiate
+      outputParameters:
+      - type: object
+        mapping: $.
+      with:
+        body: tools.body
+    - name: paystack-list-bulk-charge-batches
+      description: Paystack List Bulk Charge Batches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.bulkchargelist
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-bulk-charge-batch
+      description: Paystack Fetch Bulk Charge Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.bulkchargefetch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-fetch-charges-in-a-batch
+      description: Paystack Fetch Charges in a Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.bulkchargecharges
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-pause-bulk-charge-batch
+      description: Paystack Pause Bulk Charge Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.bulkchargepause
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paystack-resume-bulk-charge-batch
+      description: Paystack Resume Bulk Charge Batch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: transfers-transfer.bulkchargeresume
+      outputParameters:
+      - type: object
+        mapping: $.
