@@ -1,0 +1,810 @@
+asyncapi: 2.6.0
+info:
+  title: Paystack Webhooks
+  version: '1.0.0'
+  description: |
+    AsyncAPI 2.6 description of Paystack's outbound webhook surface.
+
+    Paystack notifies a single merchant-configured POST endpoint (the "webhook URL")
+    whenever an event occurs against your integration. Every webhook delivery is a
+    JSON POST with two top-level fields:
+
+    - `event` — a string identifying the event type (for example `charge.success`).
+    - `data`  — an object whose shape depends on the event type and mirrors the
+      corresponding REST resource (Transaction, Dispute, Refund, Transfer, Invoice,
+      Subscription, Customer, Dedicated Virtual Account, Payment Request).
+
+    ## Delivery and retries
+
+    - Your endpoint must return `200 OK`. Anything else is treated as a failed delivery.
+    - Live mode: every 3 minutes for the first 4 attempts, then hourly for up to 72 hours.
+    - Test mode: hourly retries for up to 72 hours.
+    - Acknowledge the event before performing long-running work to avoid timeouts.
+
+    ## Verifying event origin
+
+    Every request carries an `x-paystack-signature` header whose value is the
+    HMAC SHA-512 of the raw request body, signed with your Paystack secret key.
+    Verify it before processing the event. You may additionally IP-allowlist
+    `52.31.139.75`, `52.49.173.169`, and `52.214.14.220` (both test and live).
+
+    Source: https://paystack.com/docs/payments/webhooks/
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com/
+  license:
+    name: Paystack Terms of Service
+    url: https://paystack.com/terms
+  x-source:
+    documentation: https://paystack.com/docs/payments/webhooks/
+    apis-yml: https://raw.githubusercontent.com/api-evangelist/paystack/main/apis.yml
+
+defaultContentType: application/json
+
+servers:
+  merchant-endpoint:
+    url: '{webhookUrl}'
+    protocol: https
+    description: |
+      Merchant-operated HTTPS endpoint registered on the Paystack dashboard.
+      Paystack POSTs JSON webhook events to this URL. The endpoint must be
+      publicly reachable (localhost URLs cannot receive events) and respond
+      with `200 OK`.
+    variables:
+      webhookUrl:
+        default: https://example.com/paystack/webhook
+        description: The fully qualified webhook URL configured in the Paystack dashboard.
+
+channels:
+  paystack/events:
+    description: |
+      The merchant's single webhook URL. Paystack POSTs every event type defined
+      in this document to the same channel; consumers branch on the `event` field
+      of the payload.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receivePaystackEvent
+      summary: Receive a Paystack webhook event
+      description: |
+        Inbound webhook delivered by Paystack. Verify the `x-paystack-signature`
+        header (HMAC-SHA512 of the raw request body keyed by your secret key)
+        before trusting the payload. Respond with `200 OK` to acknowledge.
+      message:
+        oneOf:
+          - $ref: '#/components/messages/ChargeSuccess'
+          - $ref: '#/components/messages/ChargeDisputeCreate'
+          - $ref: '#/components/messages/ChargeDisputeRemind'
+          - $ref: '#/components/messages/ChargeDisputeResolve'
+          - $ref: '#/components/messages/CustomerIdentificationSuccess'
+          - $ref: '#/components/messages/CustomerIdentificationFailed'
+          - $ref: '#/components/messages/DedicatedAccountAssignSuccess'
+          - $ref: '#/components/messages/DedicatedAccountAssignFailed'
+          - $ref: '#/components/messages/InvoiceCreate'
+          - $ref: '#/components/messages/InvoiceUpdate'
+          - $ref: '#/components/messages/InvoicePaymentFailed'
+          - $ref: '#/components/messages/PaymentRequestSuccess'
+          - $ref: '#/components/messages/PaymentRequestPending'
+          - $ref: '#/components/messages/RefundFailed'
+          - $ref: '#/components/messages/RefundPending'
+          - $ref: '#/components/messages/RefundProcessed'
+          - $ref: '#/components/messages/RefundProcessing'
+          - $ref: '#/components/messages/SubscriptionCreate'
+          - $ref: '#/components/messages/SubscriptionDisable'
+          - $ref: '#/components/messages/SubscriptionNotRenew'
+          - $ref: '#/components/messages/SubscriptionExpiringCards'
+          - $ref: '#/components/messages/TransferSuccess'
+          - $ref: '#/components/messages/TransferFailed'
+          - $ref: '#/components/messages/TransferReversed'
+
+components:
+  messageTraits:
+    PaystackSignedDelivery:
+      headers:
+        type: object
+        required:
+          - x-paystack-signature
+          - content-type
+        properties:
+          x-paystack-signature:
+            type: string
+            description: |
+              HMAC-SHA512 hex digest of the raw JSON request body, signed using
+              the merchant's Paystack secret key. The receiver must recompute
+              this value and reject the request on mismatch.
+            example: 'd41d8cd98f00b204e9800998ecf8427e...'
+            pattern: '^[a-f0-9]{128}$'
+          content-type:
+            type: string
+            const: application/json
+          user-agent:
+            type: string
+            description: User agent string sent by Paystack's webhook dispatcher.
+      bindings:
+        http:
+          headers:
+            type: object
+          bindingVersion: '0.3.0'
+
+  messages:
+    ChargeSuccess:
+      name: ChargeSuccess
+      title: charge.success
+      summary: A successful transaction (charge) was completed.
+      description: |
+        Fired when a transaction is successfully charged. The `data` object is the
+        Paystack Transaction resource (see Accept Payments API / Transaction).
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/ChargeSuccessEvent'
+
+    ChargeDisputeCreate:
+      name: ChargeDisputeCreate
+      title: charge.dispute.create
+      summary: A dispute was logged against your business.
+      description: |
+        Fired when a cardholder dispute (chargeback) is opened against a transaction.
+        The `data` object is the Paystack Dispute resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/ChargeDisputeCreateEvent'
+
+    ChargeDisputeRemind:
+      name: ChargeDisputeRemind
+      title: charge.dispute.remind
+      summary: A logged dispute has not yet been resolved.
+      description: |
+        Reminder that an open dispute is still pending merchant action. The `data`
+        object is the Paystack Dispute resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/ChargeDisputeRemindEvent'
+
+    ChargeDisputeResolve:
+      name: ChargeDisputeResolve
+      title: charge.dispute.resolve
+      summary: A dispute has been resolved.
+      description: |
+        Fired when a dispute reaches a final resolution state. The `data` object
+        is the Paystack Dispute resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/ChargeDisputeResolveEvent'
+
+    CustomerIdentificationSuccess:
+      name: CustomerIdentificationSuccess
+      title: customeridentification.success
+      summary: Customer identity validation succeeded.
+      description: |
+        Asynchronous result for a customer KYC validation request that succeeded.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/CustomerIdentificationSuccessEvent'
+
+    CustomerIdentificationFailed:
+      name: CustomerIdentificationFailed
+      title: customeridentification.failed
+      summary: Customer identity validation failed.
+      description: |
+        Asynchronous result for a customer KYC validation request that failed.
+        Example payload taken verbatim from the Paystack webhooks documentation.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/CustomerIdentificationFailedEvent'
+      examples:
+        - name: documentation-example
+          summary: Example from https://paystack.com/docs/payments/webhooks/
+          payload:
+            event: customeridentification.failed
+            data:
+              customer_id: 82796315
+              customer_code: CUS_XXXXXXXXXXXXXXX
+              email: customer@example.com
+              identification:
+                country: NG
+                type: bank_account
+                bvn: '123*****456'
+                account_number: '012****345'
+                bank_code: '999991'
+              reason: Account number or BVN is incorrect
+
+    DedicatedAccountAssignSuccess:
+      name: DedicatedAccountAssignSuccess
+      title: dedicatedaccount.assign.success
+      summary: A Dedicated Virtual Account was assigned to a customer.
+      description: |
+        Fired when a DVA has been successfully created and assigned to a customer.
+        The `data` object is the Paystack Dedicated Virtual Account resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/DedicatedAccountAssignSuccessEvent'
+
+    DedicatedAccountAssignFailed:
+      name: DedicatedAccountAssignFailed
+      title: dedicatedaccount.assign.failed
+      summary: Dedicated Virtual Account assignment failed.
+      description: |
+        Fired when an attempt to create and assign a DVA to a customer fails.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/DedicatedAccountAssignFailedEvent'
+
+    InvoiceCreate:
+      name: InvoiceCreate
+      title: invoice.create
+      summary: A subscription invoice has been created.
+      description: |
+        An invoice has been created for a subscription on your account. This usually
+        happens 3 days before the subscription is due, or whenever the first pending
+        invoice notification is sent to the customer.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/InvoiceCreateEvent'
+
+    InvoiceUpdate:
+      name: InvoiceUpdate
+      title: invoice.update
+      summary: A subscription invoice was updated (typically a successful charge).
+      description: |
+        An invoice has been updated. This usually means the customer was charged
+        successfully. Inspect the invoice object and take any necessary action.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/InvoiceUpdateEvent'
+
+    InvoicePaymentFailed:
+      name: InvoicePaymentFailed
+      title: invoice.payment_failed
+      summary: A subscription invoice payment failed.
+      description: A payment for a subscription invoice failed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/InvoicePaymentFailedEvent'
+
+    PaymentRequestSuccess:
+      name: PaymentRequestSuccess
+      title: paymentrequest.success
+      summary: A payment request was paid.
+      description: |
+        A previously issued payment request has been paid. The `data` object is the
+        Paystack Payment Request resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/PaymentRequestSuccessEvent'
+
+    PaymentRequestPending:
+      name: PaymentRequestPending
+      title: paymentrequest.pending
+      summary: A payment request has been sent to a customer.
+      description: A payment request was issued and is awaiting customer payment.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/PaymentRequestPendingEvent'
+
+    RefundFailed:
+      name: RefundFailed
+      title: refund.failed
+      summary: A refund could not be processed.
+      description: |
+        The refund cannot be processed. Your account will be credited with the
+        refund amount. The `data` object is the Paystack Refund resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/RefundFailedEvent'
+
+    RefundPending:
+      name: RefundPending
+      title: refund.pending
+      summary: A refund was initiated and is awaiting processor response.
+      description: Refund initiated, waiting for response from the processor.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/RefundPendingEvent'
+
+    RefundProcessed:
+      name: RefundProcessed
+      title: refund.processed
+      summary: A refund has been successfully processed.
+      description: Refund has successfully been processed by the processor.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/RefundProcessedEvent'
+
+    RefundProcessing:
+      name: RefundProcessing
+      title: refund.processing
+      summary: A refund has been received by the processor.
+      description: Refund has been received by the processor and is being processed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/RefundProcessingEvent'
+
+    SubscriptionCreate:
+      name: SubscriptionCreate
+      title: subscription.create
+      summary: A subscription has been created.
+      description: |
+        A new subscription was created on your account. The `data` object is the
+        Paystack Subscription resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/SubscriptionCreateEvent'
+
+    SubscriptionDisable:
+      name: SubscriptionDisable
+      title: subscription.disable
+      summary: A subscription has been disabled.
+      description: A subscription on your account has been disabled.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/SubscriptionDisableEvent'
+
+    SubscriptionNotRenew:
+      name: SubscriptionNotRenew
+      title: subscription.not_renew
+      summary: A subscription has been flagged as non-renewing.
+      description: |
+        A subscription's status has changed to non-renewing. The subscription will
+        not be charged on the next payment date.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/SubscriptionNotRenewEvent'
+
+    SubscriptionExpiringCards:
+      name: SubscriptionExpiringCards
+      title: subscription.expiring_cards
+      summary: Monthly report of subscriptions whose cards are expiring.
+      description: |
+        Contains information on all subscriptions with cards that are expiring
+        that month. Sent at the beginning of each month to merchants using
+        Subscriptions.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/SubscriptionExpiringCardsEvent'
+
+    TransferSuccess:
+      name: TransferSuccess
+      title: transfer.success
+      summary: A transfer has completed successfully.
+      description: |
+        A successful transfer has been completed. The `data` object is the Paystack
+        Transfer resource.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/TransferSuccessEvent'
+
+    TransferFailed:
+      name: TransferFailed
+      title: transfer.failed
+      summary: A transfer attempt failed.
+      description: A transfer you attempted has failed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/TransferFailedEvent'
+
+    TransferReversed:
+      name: TransferReversed
+      title: transfer.reversed
+      summary: A transfer was reversed.
+      description: A transfer you attempted has been reversed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/PaystackSignedDelivery'
+      payload:
+        $ref: '#/components/schemas/TransferReversedEvent'
+
+  schemas:
+    EventEnvelope:
+      type: object
+      description: |
+        Base shape of every Paystack webhook delivery. Concrete event payloads
+        narrow `event` to a literal string and refine `data` to the matching
+        resource shape. Field shapes are not exhaustively documented by Paystack;
+        consult the corresponding REST resource (Transaction, Dispute, Refund,
+        Transfer, Subscription, Invoice, Customer, Dedicated Virtual Account,
+        Payment Request) for the full field set.
+      required:
+        - event
+        - data
+      properties:
+        event:
+          type: string
+          description: Event type identifier.
+        data:
+          type: object
+          description: Event-specific resource payload.
+
+    PaystackIdentification:
+      type: object
+      description: |
+        Identification block included on `customeridentification.*` events.
+        Shape taken from the Paystack webhooks documentation example.
+      properties:
+        country:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+          example: NG
+        type:
+          type: string
+          description: Identification type submitted by the merchant.
+          example: bank_account
+        bvn:
+          type: string
+          description: Masked Bank Verification Number, when applicable.
+          example: '123*****456'
+        account_number:
+          type: string
+          description: Masked bank account number, when applicable.
+          example: '012****345'
+        bank_code:
+          type: string
+          description: Paystack bank code, when applicable.
+          example: '999991'
+
+    ChargeSuccessEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: charge.success
+            data:
+              type: object
+              description: |
+                Paystack Transaction resource. See the Accept Payments / Transaction
+                API for the full field set
+                (https://paystack.com/docs/api/transaction/).
+
+    ChargeDisputeCreateEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: charge.dispute.create
+            data:
+              type: object
+              description: |
+                Paystack Dispute resource. See
+                https://paystack.com/docs/api/dispute/ for the full field set.
+
+    ChargeDisputeRemindEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: charge.dispute.remind
+            data:
+              type: object
+              description: Paystack Dispute resource.
+
+    ChargeDisputeResolveEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: charge.dispute.resolve
+            data:
+              type: object
+              description: Paystack Dispute resource.
+
+    CustomerIdentificationSuccessEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: customeridentification.success
+            data:
+              type: object
+              description: |
+                Customer identification result. Mirrors the shape of the
+                documented `customeridentification.failed` payload but without
+                the `reason` field.
+              properties:
+                customer_id:
+                  type: integer
+                customer_code:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                identification:
+                  $ref: '#/components/schemas/PaystackIdentification'
+
+    CustomerIdentificationFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: customeridentification.failed
+            data:
+              type: object
+              description: |
+                Customer identification failure. Shape and field names taken
+                verbatim from the Paystack webhooks documentation.
+              required:
+                - customer_id
+                - customer_code
+                - email
+                - identification
+                - reason
+              properties:
+                customer_id:
+                  type: integer
+                  example: 82796315
+                customer_code:
+                  type: string
+                  example: CUS_XXXXXXXXXXXXXXX
+                email:
+                  type: string
+                  format: email
+                identification:
+                  $ref: '#/components/schemas/PaystackIdentification'
+                reason:
+                  type: string
+                  example: Account number or BVN is incorrect
+
+    DedicatedAccountAssignSuccessEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: dedicatedaccount.assign.success
+            data:
+              type: object
+              description: |
+                Paystack Dedicated Virtual Account resource. See
+                https://paystack.com/docs/api/dedicated-virtual-account/.
+
+    DedicatedAccountAssignFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: dedicatedaccount.assign.failed
+            data:
+              type: object
+              description: Failure context for the DVA assignment attempt.
+
+    InvoiceCreateEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: invoice.create
+            data:
+              type: object
+              description: |
+                Subscription invoice resource. Inspect the invoice object and
+                act on it as documented in the Subscriptions API.
+
+    InvoiceUpdateEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: invoice.update
+            data:
+              type: object
+              description: Updated subscription invoice resource.
+
+    InvoicePaymentFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: invoice.payment_failed
+            data:
+              type: object
+              description: Subscription invoice for which payment failed.
+
+    PaymentRequestSuccessEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: paymentrequest.success
+            data:
+              type: object
+              description: |
+                Paystack Payment Request resource. See
+                https://paystack.com/docs/api/payment-request/.
+
+    PaymentRequestPendingEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: paymentrequest.pending
+            data:
+              type: object
+              description: Paystack Payment Request resource (pending state).
+
+    RefundFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: refund.failed
+            data:
+              type: object
+              description: |
+                Paystack Refund resource. See https://paystack.com/docs/api/refund/.
+
+    RefundPendingEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: refund.pending
+            data:
+              type: object
+              description: Paystack Refund resource (pending processor response).
+
+    RefundProcessedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: refund.processed
+            data:
+              type: object
+              description: Paystack Refund resource (processed by processor).
+
+    RefundProcessingEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: refund.processing
+            data:
+              type: object
+              description: Paystack Refund resource (received by processor).
+
+    SubscriptionCreateEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: subscription.create
+            data:
+              type: object
+              description: |
+                Paystack Subscription resource. See
+                https://paystack.com/docs/api/subscription/.
+
+    SubscriptionDisableEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: subscription.disable
+            data:
+              type: object
+              description: Paystack Subscription resource (disabled state).
+
+    SubscriptionNotRenewEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: subscription.not_renew
+            data:
+              type: object
+              description: Paystack Subscription resource (non-renewing state).
+
+    SubscriptionExpiringCardsEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: subscription.expiring_cards
+            data:
+              type: object
+              description: |
+                Aggregated report of subscriptions whose cards expire in the
+                current month. Field shape is not exhaustively documented by
+                Paystack.
+
+    TransferSuccessEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: transfer.success
+            data:
+              type: object
+              description: |
+                Paystack Transfer resource. See
+                https://paystack.com/docs/api/transfer/.
+
+    TransferFailedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: transfer.failed
+            data:
+              type: object
+              description: Paystack Transfer resource (failed state).
+
+    TransferReversedEvent:
+      allOf:
+        - $ref: '#/components/schemas/EventEnvelope'
+        - type: object
+          properties:
+            event:
+              const: transfer.reversed
+            data:
+              type: object
+              description: Paystack Transfer resource (reversed state).

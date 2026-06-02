@@ -300,6 +300,25 @@ apis:
   description: >-
     Read and update integration-wide settings such as the payment session timeout for hosted
     checkout.
+- aid: paystack:paystack-webhooks
+  name: Paystack Webhooks
+  tags:
+  - Webhooks
+  - Events
+  - AsyncAPI
+  - HMAC
+  humanURL: https://paystack.com/docs/payments/webhooks/
+  properties:
+  - url: https://paystack.com/docs/payments/webhooks/
+    type: Documentation
+  - url: asyncapi/paystack-webhooks-asyncapi.yml
+    type: AsyncAPI
+  description: >-
+    Outbound webhook surface that notifies a single merchant-configured POST endpoint
+    of transaction, dispute, refund, transfer, subscription, invoice, payment request,
+    customer identification, and dedicated virtual account events. Every delivery is
+    signed with an HMAC-SHA512 x-paystack-signature header keyed by the merchant
+    secret key, and Paystack retries non-200 responses for up to 72 hours.
 common:
 - type: Portal
   url: https://paystack.com/
@@ -518,7 +537,7 @@ common:
   - name: Education and Nonprofits
     description: Payment Pages and Payment Requests for donations and tuition collection.
 created: '2026-05-24'
-modified: '2026-05-24'
+modified: '2026-05-30'
 position: Consuming
 maintainers:
 - FN: Kin Lane
