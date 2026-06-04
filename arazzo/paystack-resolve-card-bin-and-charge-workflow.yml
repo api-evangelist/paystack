@@ -1,0 +1,78 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Resolve Card BIN and Charge Authorization
+  summary: Resolve a card BIN to learn the card brand and country, then charge a saved authorization for that card.
+  description: >-
+    A card-aware charging flow. The first six digits of the card are resolved to
+    reveal the card brand, type, and issuing country, and a saved authorization is
+    then charged. Reading the BIN up front lets the integration apply
+    brand-specific or country-specific routing before money moves. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: verificationApi
+  url: ../openapi/paystack-verification-openapi.yml
+  type: openapi
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: resolve-card-bin-and-charge
+  summary: Inspect the card BIN, then charge its saved authorization.
+  description: >-
+    Resolves the card BIN for brand and country, then charges the saved
+    authorization.
+  inputs:
+    type: object
+    required:
+    - bin
+    - email
+    - amount
+    - authorization_code
+    properties:
+      bin:
+        type: string
+        description: First 6 digits of the card to resolve.
+      email:
+        type: string
+        description: Customer's email address.
+      amount:
+        type: integer
+        description: Amount to charge in the smallest currency unit.
+      authorization_code:
+        type: string
+        description: Saved authorization code to charge.
+  steps:
+  - stepId: resolveCardBin
+    description: Resolve the card BIN to learn the card brand, type and country.
+    operationId: verification_resolveCardBin
+    parameters:
+    - name: bin
+      in: path
+      value: $inputs.bin
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      brand: $response.body#/data/brand
+      cardType: $response.body#/data/card_type
+      countryCode: $response.body#/data/country_code
+  - stepId: chargeAuthorization
+    description: Charge the saved authorization for the resolved card.
+    operationId: transaction_chargeAuthorization
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        authorization_code: $inputs.authorization_code
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      chargeStatus: $response.body#/data/status
+  outputs:
+    brand: $steps.resolveCardBin.outputs.brand
+    countryCode: $steps.resolveCardBin.outputs.countryCode
+    reference: $steps.chargeAuthorization.outputs.reference
+    chargeStatus: $steps.chargeAuthorization.outputs.chargeStatus

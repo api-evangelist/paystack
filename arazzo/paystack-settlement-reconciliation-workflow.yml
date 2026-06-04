@@ -1,0 +1,72 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Settlement Reconciliation
+  summary: Fetch settlement records, then list the transactions that make up a chosen settlement payout.
+  description: >-
+    The payout reconciliation flow. Settlement records are fetched to identify a
+    settlement payout, and the underlying transactions that comprise that
+    settlement are then listed so each payout to the bank account can be tied back
+    to its source transactions. The settlement id is supplied as an input because
+    it identifies which settlement to drill into. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: settlementsApi
+  url: ../openapi/paystack-settlements-openapi.yml
+  type: openapi
+workflows:
+- workflowId: settlement-reconciliation
+  summary: List settlements then drill into one settlement's transactions.
+  description: >-
+    Fetches settlements, then lists the transactions for the supplied settlement
+    id.
+  inputs:
+    type: object
+    required:
+    - settlementId
+    properties:
+      settlementId:
+        type: string
+        description: The id of the settlement to drill into for its transactions.
+      perPage:
+        type: integer
+        description: Number of records to fetch per page.
+      page:
+        type: integer
+        description: The page of records to retrieve.
+  steps:
+  - stepId: fetchSettlements
+    description: Fetch the list of settlement payouts to your bank account.
+    operationId: settlements_fetch
+    parameters:
+    - name: perPage
+      in: query
+      value: $inputs.perPage
+    - name: page
+      in: query
+      value: $inputs.page
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      settlements: $response.body#/data
+  - stepId: listSettlementTransactions
+    description: List the transactions that comprise the chosen settlement payout.
+    operationId: settlements_transaction
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.settlementId
+    - name: perPage
+      in: query
+      value: $inputs.perPage
+    - name: page
+      in: query
+      value: $inputs.page
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      transactions: $response.body#/data
+  outputs:
+    settlements: $steps.fetchSettlements.outputs.settlements
+    transactions: $steps.listSettlementTransactions.outputs.transactions

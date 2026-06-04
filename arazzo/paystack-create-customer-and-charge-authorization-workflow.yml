@@ -1,0 +1,107 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Customer and Charge Authorization
+  summary: Create a customer, initialize a first transaction, verify it to obtain an authorization, then charge that authorization for a recurring debit.
+  description: >-
+    Models the recurring-card-charge pattern. A customer profile is created, a
+    first transaction is initialized and verified to obtain a reusable
+    authorization code, and that authorization is then charged for a subsequent
+    debit without the customer re-entering card details. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-customer-and-charge-authorization
+  summary: Onboard a customer, capture an authorization, then charge it again.
+  description: >-
+    Creates the customer, initializes and verifies an initial transaction to
+    obtain an authorization code, then reuses that authorization for a follow-up
+    charge.
+  inputs:
+    type: object
+    required:
+    - email
+    - firstCharge
+    - secondCharge
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      first_name:
+        type: string
+        description: Customer's first name.
+      last_name:
+        type: string
+        description: Customer's last name.
+      firstCharge:
+        type: integer
+        description: Amount for the initial transaction, in the smallest currency unit.
+      secondCharge:
+        type: integer
+        description: Amount for the subsequent authorization charge, in the smallest currency unit.
+  steps:
+  - stepId: createCustomer
+    description: Create the customer profile that will own the captured authorization.
+    operationId: customer_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        first_name: $inputs.first_name
+        last_name: $inputs.last_name
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      customerCode: $response.body#/data/customer_code
+  - stepId: initializeFirstTransaction
+    description: Initialize the customer's first transaction to collect a card payment.
+    operationId: transaction_initialize
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.firstCharge
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+  - stepId: verifyFirstTransaction
+    description: Verify the first transaction to retrieve the reusable authorization code.
+    operationId: transaction_verify
+    parameters:
+    - name: reference
+      in: path
+      value: $steps.initializeFirstTransaction.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      authorizationCode: $response.body#/data/authorization/authorization_code
+      status: $response.body#/data/status
+  - stepId: chargeAuthorization
+    description: >-
+      Charge the captured authorization for the subsequent amount without the
+      customer re-entering their card details.
+    operationId: transaction_chargeAuthorization
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.secondCharge
+        authorization_code: $steps.verifyFirstTransaction.outputs.authorizationCode
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      chargeStatus: $response.body#/data/status
+  outputs:
+    customerCode: $steps.createCustomer.outputs.customerCode
+    authorizationCode: $steps.verifyFirstTransaction.outputs.authorizationCode
+    chargeReference: $steps.chargeAuthorization.outputs.reference
+    chargeStatus: $steps.chargeAuthorization.outputs.chargeStatus

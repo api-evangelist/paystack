@@ -1,0 +1,112 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Recipient and Initiate Transfer
+  summary: Create a transfer recipient from bank details, initiate a transfer to it, then verify the transfer by reference.
+  description: >-
+    The core payout flow. A transfer recipient is created from a bank account,
+    a transfer is initiated from the Paystack balance to that recipient, and the
+    transfer is then verified by its reference. A branch inspects the verified
+    status to separate successful payouts from those still pending or failed.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: transfersApi
+  url: ../openapi/paystack-transfers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-recipient-and-initiate-transfer
+  summary: Register a payout recipient, send a transfer, then verify its status.
+  description: >-
+    Creates a NUBAN transfer recipient, initiates a transfer to its recipient
+    code, and verifies the outcome by reference, branching on success.
+  inputs:
+    type: object
+    required:
+    - name
+    - account_number
+    - bank_code
+    - amount
+    properties:
+      name:
+        type: string
+        description: Recipient's name.
+      account_number:
+        type: string
+        description: Recipient's bank account number.
+      bank_code:
+        type: string
+        description: Recipient's bank code from the List Banks endpoint.
+      currency:
+        type: string
+        description: Currency for the receiving account (defaults to NGN).
+      amount:
+        type: string
+        description: Amount to transfer in the smallest currency unit, as a string.
+      reason:
+        type: string
+        description: Narration shown for the transfer.
+      reference:
+        type: string
+        description: Unique lowercase identifier for the transfer.
+  steps:
+  - stepId: createRecipient
+    description: Create a NUBAN transfer recipient from the supplied bank details.
+    operationId: transferrecipient_create
+    requestBody:
+      contentType: application/json
+      payload:
+        type: nuban
+        name: $inputs.name
+        account_number: $inputs.account_number
+        bank_code: $inputs.bank_code
+        currency: $inputs.currency
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      recipientCode: $response.body#/data/recipient_code
+  - stepId: initiateTransfer
+    description: Initiate a transfer from the Paystack balance to the new recipient.
+    operationId: transfer_initiate
+    requestBody:
+      contentType: application/json
+      payload:
+        source: balance
+        amount: $inputs.amount
+        recipient: $steps.createRecipient.outputs.recipientCode
+        reason: $inputs.reason
+        reference: $inputs.reference
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      transferCode: $response.body#/data/transfer_code
+      reference: $response.body#/data/reference
+      transferStatus: $response.body#/data/status
+  - stepId: verifyTransfer
+    description: Verify the transfer by reference and branch on whether it succeeded.
+    operationId: transfer_verify
+    parameters:
+    - name: reference
+      in: path
+      value: $steps.initiateTransfer.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      verifiedStatus: $response.body#/data/status
+    onSuccess:
+    - name: transferSucceeded
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.status == "success"
+        type: jsonpath
+    - name: transferPending
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.status != "success"
+        type: jsonpath
+  outputs:
+    recipientCode: $steps.createRecipient.outputs.recipientCode
+    transferCode: $steps.initiateTransfer.outputs.transferCode
+    verifiedStatus: $steps.verifyTransfer.outputs.verifiedStatus

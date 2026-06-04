@@ -1,0 +1,89 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Finalize and Archive a Draft Payment Request
+  summary: Create a draft payment request, finalize it to issue the invoice, verify it, then archive it once handled.
+  description: >-
+    The draft-to-issued-to-archived lifecycle for payment requests. A draft
+    request is created, finalized so the invoice is officially issued and the
+    customer is notified, verified to confirm the issued status, and finally
+    archived so it no longer appears in the active list. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: paymentRequestsApi
+  url: ../openapi/paystack-payment-requests-openapi.yml
+  type: openapi
+workflows:
+- workflowId: finalize-and-archive-payment-request
+  summary: Move a draft invoice through finalize, verify and archive.
+  description: >-
+    Creates a draft payment request, finalizes it, verifies the issued status,
+    and archives it.
+  inputs:
+    type: object
+    required:
+    - customer
+    - amount
+    properties:
+      customer:
+        type: string
+        description: Customer id or code the request is raised for.
+      amount:
+        type: integer
+        description: Payment request amount in the smallest currency unit.
+      description:
+        type: string
+        description: Short description shown on the payment request.
+  steps:
+  - stepId: createDraftRequest
+    description: Create the payment request as a draft so it can be finalized explicitly.
+    operationId: paymentRequest_create
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $inputs.customer
+        amount: $inputs.amount
+        description: $inputs.description
+        draft: true
+        has_invoice: true
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      requestId: $response.body#/data/id
+      requestCode: $response.body#/data/request_code
+  - stepId: finalizeRequest
+    description: Finalize the draft so the invoice is issued and the customer notified.
+    operationId: paymentRequest_finalize
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createDraftRequest.outputs.requestId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      finalizedStatus: $response.body#/data/status
+  - stepId: verifyRequest
+    description: Verify the request by code to confirm it is now issued.
+    operationId: paymentRequest_verify
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createDraftRequest.outputs.requestCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      verifiedStatus: $response.body#/data/status
+  - stepId: archiveRequest
+    description: Archive the request so it no longer appears in the active list.
+    operationId: paymentRequest_archive
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createDraftRequest.outputs.requestId
+    successCriteria:
+    - condition: $statusCode == 201
+  outputs:
+    requestId: $steps.createDraftRequest.outputs.requestId
+    requestCode: $steps.createDraftRequest.outputs.requestCode
+    verifiedStatus: $steps.verifyRequest.outputs.verifiedStatus

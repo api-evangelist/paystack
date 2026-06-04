@@ -1,0 +1,95 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Add a Subaccount to an Existing Split
+  summary: Create a new subaccount, add it to an existing transaction split, then fetch the split to confirm membership.
+  description: >-
+    Expands a live marketplace split. A new partner subaccount is created, added
+    to an existing split with a defined share, and the split is fetched to confirm
+    the subaccount now appears among its members. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: splitsSubaccountsApi
+  url: ../openapi/paystack-splits-subaccounts-openapi.yml
+  type: openapi
+workflows:
+- workflowId: add-subaccount-to-split
+  summary: Onboard a new partner into an existing split and confirm membership.
+  description: >-
+    Creates a subaccount, adds it to the given split id, and fetches the split to
+    confirm the updated membership.
+  inputs:
+    type: object
+    required:
+    - splitId
+    - business_name
+    - settlement_bank
+    - account_number
+    - percentage_charge
+    - share
+    properties:
+      splitId:
+        type: string
+        description: Id of the existing split to add the subaccount to.
+      business_name:
+        type: string
+        description: Business name for the new subaccount.
+      settlement_bank:
+        type: string
+        description: Settlement bank code from the List Banks endpoint.
+      account_number:
+        type: string
+        description: Settlement bank account number for the subaccount.
+      percentage_charge:
+        type: number
+        description: Percentage of each transaction the subaccount keeps.
+      share:
+        type: string
+        description: The subaccount's share within the split.
+  steps:
+  - stepId: createSubaccount
+    description: Create the new partner subaccount to be added to the split.
+    operationId: subaccount_create
+    requestBody:
+      contentType: application/json
+      payload:
+        business_name: $inputs.business_name
+        settlement_bank: $inputs.settlement_bank
+        account_number: $inputs.account_number
+        percentage_charge: $inputs.percentage_charge
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      subaccountCode: $response.body#/data/subaccount_code
+  - stepId: addToSplit
+    description: Add the new subaccount to the existing split with the given share.
+    operationId: split_addSubaccount
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.splitId
+    requestBody:
+      contentType: application/json
+      payload:
+        subaccount: $steps.createSubaccount.outputs.subaccountCode
+        share: $inputs.share
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      splitCode: $response.body#/data/split_code
+  - stepId: fetchSplit
+    description: Fetch the split to confirm the subaccount is now a member.
+    operationId: split_fetch
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.splitId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      subaccounts: $response.body#/data/subaccounts
+  outputs:
+    subaccountCode: $steps.createSubaccount.outputs.subaccountCode
+    splitCode: $steps.addToSplit.outputs.splitCode
+    subaccounts: $steps.fetchSplit.outputs.subaccounts

@@ -1,0 +1,91 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Blacklist a Customer After a Dispute
+  summary: List the disputes raised against a transaction, fetch the customer, then blacklist them and deactivate the card authorization.
+  description: >-
+    A fraud-response flow. Disputes raised against a flagged transaction are
+    listed, the customer is fetched to confirm their code, the customer is
+    blacklisted with a deny risk action, and the offending card authorization is
+    deactivated so it can no longer be charged. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: refundsApi
+  url: ../openapi/paystack-refunds-disputes-openapi.yml
+  type: openapi
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: blacklist-customer-after-dispute
+  summary: Investigate a disputed transaction and block the customer and card.
+  description: >-
+    Lists transaction disputes, fetches the customer, blacklists them, and
+    deactivates the card authorization.
+  inputs:
+    type: object
+    required:
+    - transactionId
+    - customerCode
+    - authorization_code
+    properties:
+      transactionId:
+        type: string
+        description: Id of the transaction whose disputes are being reviewed.
+      customerCode:
+        type: string
+        description: Code of the customer to blacklist.
+      authorization_code:
+        type: string
+        description: Card authorization code to deactivate.
+  steps:
+  - stepId: listTransactionDisputes
+    description: List the disputes raised against the flagged transaction.
+    operationId: dispute_transaction
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.transactionId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      disputes: $response.body#/data
+  - stepId: fetchCustomer
+    description: Fetch the customer to confirm their code before taking action.
+    operationId: customer_fetch
+    parameters:
+    - name: code
+      in: path
+      value: $inputs.customerCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      customerEmail: $response.body#/data/email
+  - stepId: blacklistCustomer
+    description: Blacklist the customer by setting a deny risk action.
+    operationId: customer_riskAction
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $inputs.customerCode
+        risk_action: deny
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      riskAction: $response.body#/data/risk_action
+  - stepId: deactivateAuthorization
+    description: Deactivate the offending card authorization so it cannot be charged.
+    operationId: customer_deactivateAuthorization
+    requestBody:
+      contentType: application/json
+      payload:
+        authorization_code: $inputs.authorization_code
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      deactivateMessage: $response.body#/message
+  outputs:
+    disputes: $steps.listTransactionDisputes.outputs.disputes
+    riskAction: $steps.blacklistCustomer.outputs.riskAction
+    deactivateMessage: $steps.deactivateAuthorization.outputs.deactivateMessage

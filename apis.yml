@@ -320,6 +320,84 @@ apis:
     signed with an HMAC-SHA512 x-paystack-signature header keyed by the merchant
     secret key, and Paystack retries non-200 responses for up to 72 hours.
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/paystack-add-subaccount-to-split-workflow.yml
+    name: Paystack Add a Subaccount to an Existing Split
+    summary: Create a new subaccount, add it to an existing transaction split, then fetch the split to confirm membership.
+  - url: arazzo/paystack-blacklist-customer-after-dispute-workflow.yml
+    name: Paystack Blacklist a Customer After a Dispute
+    summary: List the disputes raised against a transaction, fetch the customer, then blacklist them and deactivate the card authorization.
+  - url: arazzo/paystack-bulk-recipients-and-bulk-transfer-workflow.yml
+    name: Paystack Bulk Recipients and Bulk Transfer
+    summary: Bulk-create transfer recipients, list them to confirm registration, then initiate a bulk transfer to pay them all.
+  - url: arazzo/paystack-charge-and-refund-transaction-workflow.yml
+    name: Paystack Charge and Refund a Transaction
+    summary: Initialize and verify a transaction, then create a refund against it and fetch the refund status.
+  - url: arazzo/paystack-charge-and-submit-otp-workflow.yml
+    name: Paystack Create Charge and Submit OTP
+    summary: Create a direct charge, branch when an OTP is required, submit the OTP, then check the final charge status.
+  - url: arazzo/paystack-charge-and-submit-pin-workflow.yml
+    name: Paystack Create Charge and Submit PIN
+    summary: Create a direct card charge, branch when a PIN is required, submit the PIN, then check the final charge status.
+  - url: arazzo/paystack-check-authorization-and-partial-debit-workflow.yml
+    name: Paystack Check Authorization and Partial Debit
+    summary: Check that an authorization can bear a charge, then take a partial debit against it for whatever is available.
+  - url: arazzo/paystack-create-customer-and-charge-authorization-workflow.yml
+    name: Paystack Create Customer and Charge Authorization
+    summary: Create a customer, initialize a first transaction, verify it to obtain an authorization, then charge that authorization for a recurring debit.
+  - url: arazzo/paystack-create-customer-and-payment-request-workflow.yml
+    name: Paystack Create Customer and Send Payment Request
+    summary: Create a customer, raise an invoice-style payment request for them, send the email notification, then verify the request.
+  - url: arazzo/paystack-create-customer-dedicated-virtual-account-workflow.yml
+    name: Paystack Provision a Dedicated Virtual Account
+    summary: Look up an available bank provider, create a customer, assign a dedicated NUBAN virtual account, then fetch its details.
+  - url: arazzo/paystack-create-customer-plan-and-subscription-workflow.yml
+    name: Paystack Create Customer, Plan and Subscription
+    summary: Create a customer, define a billing plan, then subscribe the customer to the plan for recurring charges.
+  - url: arazzo/paystack-create-product-and-payment-page-workflow.yml
+    name: Paystack Create Product and Payment Page
+    summary: Create a product, check a page slug is available, create a hosted payment page, then attach the product to the page.
+  - url: arazzo/paystack-create-recipient-and-initiate-transfer-workflow.yml
+    name: Paystack Create Recipient and Initiate Transfer
+    summary: Create a transfer recipient from bank details, initiate a transfer to it, then verify the transfer by reference.
+  - url: arazzo/paystack-create-subaccount-and-split-workflow.yml
+    name: Paystack Create Subaccount and Transaction Split
+    summary: Create a subaccount, build a transaction split that pays it, then initialize a transaction against the split.
+  - url: arazzo/paystack-disable-and-reenable-subscription-workflow.yml
+    name: Paystack Disable and Re-enable a Subscription
+    summary: Fetch a subscription to read its email token, disable it, then re-enable it using the same code and token.
+  - url: arazzo/paystack-dispute-evidence-and-resolve-workflow.yml
+    name: Paystack Submit Dispute Evidence and Resolve
+    summary: Fetch a dispute, attach evidence to it, request an upload URL for supporting files, then resolve the dispute.
+  - url: arazzo/paystack-finalize-and-archive-payment-request-workflow.yml
+    name: Paystack Finalize and Archive a Draft Payment Request
+    summary: Create a draft payment request, finalize it to issue the invoice, verify it, then archive it once handled.
+  - url: arazzo/paystack-initialize-and-verify-transaction-workflow.yml
+    name: Paystack Initialize and Verify Transaction
+    summary: Initialize a checkout transaction and then verify its final status by reference.
+  - url: arazzo/paystack-initiate-and-finalize-transfer-workflow.yml
+    name: Paystack Initiate and Finalize Transfer with OTP
+    summary: Initiate a transfer, finalize it with the OTP sent to the business phone, then verify the completed transfer.
+  - url: arazzo/paystack-initiate-and-monitor-bulk-charge-workflow.yml
+    name: Paystack Initiate and Monitor a Bulk Charge
+    summary: Initiate a bulk charge batch against saved authorizations, fetch the batch, then list the charges in the batch.
+  - url: arazzo/paystack-resolve-account-and-create-recipient-workflow.yml
+    name: Paystack Resolve Account and Create Transfer Recipient
+    summary: Resolve a bank account number to confirm the account name, then create a transfer recipient and initiate a transfer.
+  - url: arazzo/paystack-resolve-card-bin-and-charge-workflow.yml
+    name: Paystack Resolve Card BIN and Charge Authorization
+    summary: Resolve a card BIN to learn the card brand and country, then charge a saved authorization for that card.
+  - url: arazzo/paystack-settlement-reconciliation-workflow.yml
+    name: Paystack Settlement Reconciliation
+    summary: Fetch settlement records, then list the transactions that make up a chosen settlement payout.
+  - url: arazzo/paystack-subscribe-and-generate-manage-link-workflow.yml
+    name: Paystack Subscribe and Generate a Management Link
+    summary: Create a subscription, fetch it to read its status, then generate a self-service management link for the customer.
+  - url: arazzo/paystack-validate-customer-kyc-workflow.yml
+    name: Paystack Create and Validate Customer (KYC)
+    summary: Create a customer, resolve their BVN, then submit a bank-account identification to validate the customer.
 - type: Portal
   url: https://paystack.com/
 - type: Documentation

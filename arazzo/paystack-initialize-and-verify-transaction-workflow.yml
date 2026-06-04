@@ -1,0 +1,92 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Initialize and Verify Transaction
+  summary: Initialize a checkout transaction and then verify its final status by reference.
+  description: >-
+    The canonical Paystack accept-payments flow. The workflow initializes a new
+    transaction for a customer, captures the authorization URL and reference
+    returned by Paystack, and then verifies the transaction by that reference.
+    A branch inspects the verified status so success and non-success outcomes can
+    be handled distinctly. Every step spells out its request inline so the flow
+    can be read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: initialize-and-verify-transaction
+  summary: Create a transaction, then poll its verification result by reference.
+  description: >-
+    Initializes a transaction with the customer email and amount, then verifies
+    the resulting reference and branches on whether the charge succeeded.
+  inputs:
+    type: object
+    required:
+    - email
+    - amount
+    properties:
+      email:
+        type: string
+        description: Customer's email address the transaction is initialized for.
+      amount:
+        type: integer
+        description: Amount in the smallest currency unit (kobo for NGN, pesewas for GHS, cents for ZAR).
+      currency:
+        type: string
+        description: Transaction currency (NGN, GHS, ZAR or USD).
+      callback_url:
+        type: string
+        description: Optional fully qualified callback URL to override the dashboard default.
+  steps:
+  - stepId: initializeTransaction
+    description: >-
+      Create a new transaction for the supplied customer email and amount and
+      capture the authorization URL and reference Paystack returns.
+    operationId: transaction_initialize
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        currency: $inputs.currency
+        callback_url: $inputs.callback_url
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      authorizationUrl: $response.body#/data/authorization_url
+      accessCode: $response.body#/data/access_code
+  - stepId: verifyTransaction
+    description: >-
+      Verify the transaction using the reference returned at initialization and
+      branch on whether the charge ultimately succeeded.
+    operationId: transaction_verify
+    parameters:
+    - name: reference
+      in: path
+      value: $steps.initializeTransaction.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      transactionStatus: $response.body#/data/status
+      transactionId: $response.body#/data/id
+      authorizationCode: $response.body#/data/authorization/authorization_code
+    onSuccess:
+    - name: paymentSucceeded
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.status == "success"
+        type: jsonpath
+    - name: paymentNotSuccessful
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.status != "success"
+        type: jsonpath
+  outputs:
+    reference: $steps.initializeTransaction.outputs.reference
+    authorizationUrl: $steps.initializeTransaction.outputs.authorizationUrl
+    transactionStatus: $steps.verifyTransaction.outputs.transactionStatus
+    authorizationCode: $steps.verifyTransaction.outputs.authorizationCode

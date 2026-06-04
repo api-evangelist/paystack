@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Charge and Submit OTP
+  summary: Create a direct charge, branch when an OTP is required, submit the OTP, then check the final charge status.
+  description: >-
+    The OTP step of the Charge API's progressive authentication. A direct charge
+    is created with the customer's card authorization; when Paystack responds that
+    an OTP is required the workflow submits the OTP against the same reference and
+    then checks the pending charge for its final status. A branch short-circuits
+    to the status check when no OTP is needed. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: charge-and-submit-otp
+  summary: Charge a card, satisfy an OTP challenge, then read the final status.
+  description: >-
+    Creates a charge, branches on whether an OTP is required, submits the OTP, and
+    checks the pending charge.
+  inputs:
+    type: object
+    required:
+    - email
+    - amount
+    - authorization_code
+    - otp
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      amount:
+        type: string
+        description: Amount to charge in the smallest currency unit, as a string.
+      authorization_code:
+        type: string
+        description: A non-reusable authorization code to charge.
+      otp:
+        type: string
+        description: The one-time password the customer received.
+  steps:
+  - stepId: createCharge
+    description: Create a direct charge against the card authorization.
+    operationId: charge_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        authorization_code: $inputs.authorization_code
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      chargeStatus: $response.body#/data/status
+    onSuccess:
+    - name: otpRequired
+      type: goto
+      stepId: submitOtp
+      criteria:
+      - context: $response.body
+        condition: $.data.status == "send_otp"
+        type: jsonpath
+    - name: noOtpNeeded
+      type: goto
+      stepId: checkCharge
+      criteria:
+      - context: $response.body
+        condition: $.data.status != "send_otp"
+        type: jsonpath
+  - stepId: submitOtp
+    description: Submit the OTP against the ongoing charge reference.
+    operationId: charge_submitOtp
+    requestBody:
+      contentType: application/json
+      payload:
+        otp: $inputs.otp
+        reference: $steps.createCharge.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      status: $response.body#/data/status
+  - stepId: checkCharge
+    description: Check the pending charge to read its final status.
+    operationId: charge_check
+    parameters:
+    - name: reference
+      in: path
+      value: $steps.createCharge.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      finalStatus: $response.body#/data/status
+  outputs:
+    reference: $steps.createCharge.outputs.reference
+    finalStatus: $steps.checkCharge.outputs.finalStatus

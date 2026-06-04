@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Provision a Dedicated Virtual Account
+  summary: Look up an available bank provider, create a customer, assign a dedicated NUBAN virtual account, then fetch its details.
+  description: >-
+    The bank-transfer reconciliation setup. The available dedicated-account
+    providers are listed to pick a preferred bank, a customer profile is created,
+    a dedicated NUBAN account is provisioned for that customer at the chosen bank,
+    and the account is fetched to read back the assigned account number. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+- name: dedicatedAccountsApi
+  url: ../openapi/paystack-dedicated-virtual-accounts-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-customer-dedicated-virtual-account
+  summary: Create a customer and assign them a dedicated NUBAN virtual account.
+  description: >-
+    Lists available providers, creates the customer, provisions a dedicated
+    account at the preferred bank, and fetches the assigned account.
+  inputs:
+    type: object
+    required:
+    - email
+    - preferred_bank
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      first_name:
+        type: string
+        description: Customer's first name.
+      last_name:
+        type: string
+        description: Customer's last name.
+      preferred_bank:
+        type: string
+        description: The bank slug for the preferred provider (from the providers list).
+  steps:
+  - stepId: listProviders
+    description: List the available dedicated-account bank providers to confirm the preferred bank.
+    operationId: dedicatedAccount_availableProviders
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      providers: $response.body#/data
+  - stepId: createCustomer
+    description: Create the customer who will own the dedicated virtual account.
+    operationId: customer_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        first_name: $inputs.first_name
+        last_name: $inputs.last_name
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      customerCode: $response.body#/data/customer_code
+  - stepId: createDedicatedAccount
+    description: Provision a dedicated NUBAN account for the customer at the preferred bank.
+    operationId: dedicatedAccount_create
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $steps.createCustomer.outputs.customerCode
+        preferred_bank: $inputs.preferred_bank
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      accountId: $response.body#/data/id
+      accountNumber: $response.body#/data/account_number
+  - stepId: fetchDedicatedAccount
+    description: Fetch the dedicated account to read back the assigned account details.
+    operationId: dedicatedAccount_fetch
+    parameters:
+    - name: account_id
+      in: path
+      value: $steps.createDedicatedAccount.outputs.accountId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accountNumber: $response.body#/data/account_number
+      bankName: $response.body#/data/bank/name
+  outputs:
+    customerCode: $steps.createCustomer.outputs.customerCode
+    accountId: $steps.createDedicatedAccount.outputs.accountId
+    accountNumber: $steps.fetchDedicatedAccount.outputs.accountNumber

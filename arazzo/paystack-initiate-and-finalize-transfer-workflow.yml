@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Initiate and Finalize Transfer with OTP
+  summary: Initiate a transfer, finalize it with the OTP sent to the business phone, then verify the completed transfer.
+  description: >-
+    The OTP-protected payout flow used when transfer confirmation is enabled on
+    the integration. A transfer is initiated to an existing recipient, finalized
+    with the OTP delivered to the business phone, and then verified by reference.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: transfersApi
+  url: ../openapi/paystack-transfers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: initiate-and-finalize-transfer
+  summary: Send an OTP-guarded transfer, finalize with the OTP, then verify it.
+  description: >-
+    Initiates a transfer to a recipient code, finalizes it with the supplied
+    OTP, and verifies the final status by reference.
+  inputs:
+    type: object
+    required:
+    - amount
+    - recipient
+    - otp
+    properties:
+      amount:
+        type: string
+        description: Amount to transfer in the smallest currency unit, as a string.
+      recipient:
+        type: string
+        description: The transfer recipient's code.
+      reason:
+        type: string
+        description: Narration shown for the transfer.
+      reference:
+        type: string
+        description: Unique lowercase identifier for the transfer.
+      otp:
+        type: string
+        description: OTP sent to the business phone to authorize the transfer.
+  steps:
+  - stepId: initiateTransfer
+    description: Initiate a transfer from the balance to the supplied recipient code.
+    operationId: transfer_initiate
+    requestBody:
+      contentType: application/json
+      payload:
+        source: balance
+        amount: $inputs.amount
+        recipient: $inputs.recipient
+        reason: $inputs.reason
+        reference: $inputs.reference
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      transferCode: $response.body#/data/transfer_code
+      reference: $response.body#/data/reference
+  - stepId: finalizeTransfer
+    description: Finalize the pending transfer using the OTP sent to the business phone.
+    operationId: transfer_finalize
+    requestBody:
+      contentType: application/json
+      payload:
+        transfer_code: $steps.initiateTransfer.outputs.transferCode
+        otp: $inputs.otp
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      finalizedStatus: $response.body#/data/status
+  - stepId: verifyTransfer
+    description: Verify the finalized transfer by reference to confirm completion.
+    operationId: transfer_verify
+    parameters:
+    - name: reference
+      in: path
+      value: $steps.initiateTransfer.outputs.reference
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      verifiedStatus: $response.body#/data/status
+  outputs:
+    transferCode: $steps.initiateTransfer.outputs.transferCode
+    finalizedStatus: $steps.finalizeTransfer.outputs.finalizedStatus
+    verifiedStatus: $steps.verifyTransfer.outputs.verifiedStatus

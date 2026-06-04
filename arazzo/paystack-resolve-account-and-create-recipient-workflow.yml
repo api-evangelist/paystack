@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Resolve Account and Create Transfer Recipient
+  summary: Resolve a bank account number to confirm the account name, then create a transfer recipient and initiate a transfer.
+  description: >-
+    A verification-first payout flow. The bank account number is resolved against
+    the bank code to confirm the real account name before any money moves, a
+    transfer recipient is created from the verified details, and a transfer is
+    initiated to that recipient. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: verificationApi
+  url: ../openapi/paystack-verification-openapi.yml
+  type: openapi
+- name: transfersApi
+  url: ../openapi/paystack-transfers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: resolve-account-and-create-recipient
+  summary: Verify account ownership, register the recipient, then send a transfer.
+  description: >-
+    Resolves the account number to confirm the account holder name, creates a
+    recipient using the verified name, and initiates a transfer to it.
+  inputs:
+    type: object
+    required:
+    - account_number
+    - bank_code
+    - amount
+    properties:
+      account_number:
+        type: integer
+        description: Bank account number to resolve and pay out to.
+      bank_code:
+        type: integer
+        description: Bank code from the List Banks endpoint.
+      amount:
+        type: string
+        description: Amount to transfer in the smallest currency unit, as a string.
+      reason:
+        type: string
+        description: Narration shown for the transfer.
+  steps:
+  - stepId: resolveAccount
+    description: Resolve the account number against the bank code to confirm the account name.
+    operationId: verification_resolveAccountNumber
+    parameters:
+    - name: account_number
+      in: query
+      value: $inputs.account_number
+    - name: bank_code
+      in: query
+      value: $inputs.bank_code
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accountName: $response.body#/data/account_name
+      resolvedNumber: $response.body#/data/account_number
+  - stepId: createRecipient
+    description: Create a NUBAN transfer recipient using the resolved account holder name.
+    operationId: transferrecipient_create
+    requestBody:
+      contentType: application/json
+      payload:
+        type: nuban
+        name: $steps.resolveAccount.outputs.accountName
+        account_number: $inputs.account_number
+        bank_code: $inputs.bank_code
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      recipientCode: $response.body#/data/recipient_code
+  - stepId: initiateTransfer
+    description: Initiate a transfer from the balance to the verified recipient.
+    operationId: transfer_initiate
+    requestBody:
+      contentType: application/json
+      payload:
+        source: balance
+        amount: $inputs.amount
+        recipient: $steps.createRecipient.outputs.recipientCode
+        reason: $inputs.reason
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      transferCode: $response.body#/data/transfer_code
+      transferStatus: $response.body#/data/status
+  outputs:
+    accountName: $steps.resolveAccount.outputs.accountName
+    recipientCode: $steps.createRecipient.outputs.recipientCode
+    transferCode: $steps.initiateTransfer.outputs.transferCode

@@ -1,0 +1,125 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Submit Dispute Evidence and Resolve
+  summary: Fetch a dispute, attach evidence to it, request an upload URL for supporting files, then resolve the dispute.
+  description: >-
+    The chargeback response flow. A dispute is fetched to read its current state,
+    structured evidence is added, an upload URL is requested so a supporting file
+    can be attached, and the dispute is then resolved with the merchant's
+    decision. Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: refundsApi
+  url: ../openapi/paystack-refunds-disputes-openapi.yml
+  type: openapi
+workflows:
+- workflowId: dispute-evidence-and-resolve
+  summary: Respond to a chargeback with evidence and a resolution.
+  description: >-
+    Fetches the dispute, adds evidence, requests an upload URL, and resolves the
+    dispute.
+  inputs:
+    type: object
+    required:
+    - disputeId
+    - customer_email
+    - customer_name
+    - customer_phone
+    - service_details
+    - resolution
+    - message
+    - refund_amount
+    - uploaded_filename
+    properties:
+      disputeId:
+        type: string
+        description: Id of the dispute being responded to.
+      customer_email:
+        type: string
+        description: Customer email for the evidence record.
+      customer_name:
+        type: string
+        description: Customer name for the evidence record.
+      customer_phone:
+        type: string
+        description: Customer mobile number for the evidence record.
+      service_details:
+        type: string
+        description: Details of the service or goods offered.
+      resolution:
+        type: string
+        description: Dispute resolution (merchant-accepted or declined).
+      message:
+        type: string
+        description: Reason for resolving the dispute.
+      refund_amount:
+        type: string
+        description: Amount to refund in the smallest currency unit, as a string.
+      uploaded_filename:
+        type: string
+        description: Filename of the attachment returned by the upload URL response.
+  steps:
+  - stepId: fetchDispute
+    description: Fetch the dispute to read its current status before responding.
+    operationId: dispute_fetch
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.disputeId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      disputeStatus: $response.body#/data/status
+  - stepId: addEvidence
+    description: Attach structured evidence to the dispute.
+    operationId: dispute_evidence
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.disputeId
+    requestBody:
+      contentType: application/json
+      payload:
+        customer_email: $inputs.customer_email
+        customer_name: $inputs.customer_name
+        customer_phone: $inputs.customer_phone
+        service_details: $inputs.service_details
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      evidenceId: $response.body#/data/id
+  - stepId: getUploadUrl
+    description: Request an upload URL so a supporting file can be attached.
+    operationId: dispute_uploadUrl
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.disputeId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      uploadUrl: $response.body#/data/signedUrl
+      fileName: $response.body#/data/fileName
+  - stepId: resolveDispute
+    description: Resolve the dispute with the merchant's decision and supporting attachment.
+    operationId: dispute_resolve
+    parameters:
+    - name: id
+      in: path
+      value: $inputs.disputeId
+    requestBody:
+      contentType: application/json
+      payload:
+        resolution: $inputs.resolution
+        message: $inputs.message
+        refund_amount: $inputs.refund_amount
+        uploaded_filename: $inputs.uploaded_filename
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      resolvedStatus: $response.body#/data/status
+  outputs:
+    evidenceId: $steps.addEvidence.outputs.evidenceId
+    uploadUrl: $steps.getUploadUrl.outputs.uploadUrl
+    resolvedStatus: $steps.resolveDispute.outputs.resolvedStatus

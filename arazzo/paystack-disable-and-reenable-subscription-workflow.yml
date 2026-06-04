@@ -1,0 +1,70 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Disable and Re-enable a Subscription
+  summary: Fetch a subscription to read its email token, disable it, then re-enable it using the same code and token.
+  description: >-
+    The pause-and-resume flow for subscriptions. The subscription is fetched to
+    read its current status and email token, disabled with that code and token to
+    stop recurring charges, and then re-enabled with the same credentials to
+    resume billing. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: subscriptionsApi
+  url: ../openapi/paystack-subscriptions-openapi.yml
+  type: openapi
+workflows:
+- workflowId: disable-and-reenable-subscription
+  summary: Pause a subscription then resume it using its email token.
+  description: >-
+    Fetches the subscription for its token, disables it, then re-enables it with
+    the same code and token.
+  inputs:
+    type: object
+    required:
+    - code
+    properties:
+      code:
+        type: string
+        description: Subscription code to pause and resume.
+  steps:
+  - stepId: fetchSubscription
+    description: Fetch the subscription to read its status and email token.
+    operationId: subscription_fetch
+    parameters:
+    - name: code
+      in: path
+      value: $inputs.code
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      emailToken: $response.body#/data/email_token
+      status: $response.body#/data/status
+  - stepId: disableSubscription
+    description: Disable the subscription with its code and email token to stop charges.
+    operationId: subscription_disable
+    requestBody:
+      contentType: application/json
+      payload:
+        code: $inputs.code
+        token: $steps.fetchSubscription.outputs.emailToken
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      disableMessage: $response.body#/message
+  - stepId: reenableSubscription
+    description: Re-enable the subscription with the same code and token to resume billing.
+    operationId: subscription_enable
+    requestBody:
+      contentType: application/json
+      payload:
+        code: $inputs.code
+        token: $steps.fetchSubscription.outputs.emailToken
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      enableMessage: $response.body#/message
+  outputs:
+    emailToken: $steps.fetchSubscription.outputs.emailToken
+    disableMessage: $steps.disableSubscription.outputs.disableMessage
+    enableMessage: $steps.reenableSubscription.outputs.enableMessage

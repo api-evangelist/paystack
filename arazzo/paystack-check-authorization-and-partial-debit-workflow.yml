@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Check Authorization and Partial Debit
+  summary: Check that an authorization can bear a charge, then take a partial debit against it for whatever is available.
+  description: >-
+    The recover-what-you-can collection flow. The card authorization is checked to
+    confirm it can be charged for the desired amount, and a partial debit is then
+    taken against it with a floor amount so at least the minimum is collected even
+    when full funds are not available. A branch ends the flow early when the
+    authorization cannot bear the charge. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: check-authorization-and-partial-debit
+  summary: Confirm chargeability, then partially debit an authorization.
+  description: >-
+    Checks the authorization for the desired amount and branches; when chargeable
+    it takes a partial debit with an at_least floor.
+  inputs:
+    type: object
+    required:
+    - email
+    - amount
+    - authorization_code
+    - currency
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      amount:
+        type: integer
+        description: Desired amount in the smallest currency unit.
+      authorization_code:
+        type: string
+        description: The authorization code to charge.
+      currency:
+        type: string
+        description: The transaction currency (NGN, GHS, ZAR or USD).
+      at_least:
+        type: string
+        description: Minimum amount to collect on the partial debit.
+  steps:
+  - stepId: checkAuthorization
+    description: Check whether the authorization can bear the desired charge amount.
+    operationId: transaction_checkAuthorization
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        authorization_code: $inputs.authorization_code
+        currency: $inputs.currency
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      chargeable: $response.body#/data/amount
+    onSuccess:
+    - name: cannotCharge
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == false
+        type: jsonpath
+    - name: canCharge
+      type: goto
+      stepId: partialDebit
+      criteria:
+      - context: $response.body
+        condition: $.status == true
+        type: jsonpath
+  - stepId: partialDebit
+    description: Take a partial debit against the authorization with a minimum floor.
+    operationId: transaction_partialDebit
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        authorization_code: $inputs.authorization_code
+        currency: $inputs.currency
+        at_least: $inputs.at_least
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      debitedAmount: $response.body#/data/amount
+      debitStatus: $response.body#/data/status
+  outputs:
+    reference: $steps.partialDebit.outputs.reference
+    debitedAmount: $steps.partialDebit.outputs.debitedAmount
+    debitStatus: $steps.partialDebit.outputs.debitStatus

@@ -1,0 +1,102 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create and Validate Customer (KYC)
+  summary: Create a customer, resolve their BVN, then submit a bank-account identification to validate the customer.
+  description: >-
+    The customer KYC flow. A customer is created, the supplied BVN is resolved to
+    confirm it returns identity details, and a bank-account identification is then
+    submitted against the customer to complete validation. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+- name: verificationApi
+  url: ../openapi/paystack-verification-openapi.yml
+  type: openapi
+workflows:
+- workflowId: validate-customer-kyc
+  summary: Onboard a customer and validate their identity with a bank account.
+  description: >-
+    Creates the customer, resolves the BVN, then validates the customer with
+    bank-account identification.
+  inputs:
+    type: object
+    required:
+    - email
+    - country
+    - bvn
+    - bank_code
+    - account_number
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      first_name:
+        type: string
+        description: Customer's first name.
+      last_name:
+        type: string
+        description: Customer's last name.
+      country:
+        type: string
+        description: Two-letter country code of the identification issuer.
+      bvn:
+        type: string
+        description: Customer's 11-digit Bank Verification Number.
+      bank_code:
+        type: string
+        description: Bank code for the customer's account.
+      account_number:
+        type: string
+        description: Customer's bank account number.
+  steps:
+  - stepId: createCustomer
+    description: Create the customer that will be validated.
+    operationId: customer_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        first_name: $inputs.first_name
+        last_name: $inputs.last_name
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      customerCode: $response.body#/data/customer_code
+  - stepId: resolveBvn
+    description: Resolve the BVN to confirm it returns valid identity details.
+    operationId: verification_resolveBvn
+    parameters:
+    - name: bvn
+      in: path
+      value: $inputs.bvn
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      bvnFirstName: $response.body#/data/first_name
+      bvnLastName: $response.body#/data/last_name
+  - stepId: validateCustomer
+    description: Submit a bank-account identification to validate the customer.
+    operationId: customer_validatte
+    parameters:
+    - name: code
+      in: path
+      value: $steps.createCustomer.outputs.customerCode
+    requestBody:
+      contentType: application/json
+      payload:
+        type: bank_account
+        country: $inputs.country
+        bvn: $inputs.bvn
+        bank_code: $inputs.bank_code
+        account_number: $inputs.account_number
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      validationMessage: $response.body#/message
+  outputs:
+    customerCode: $steps.createCustomer.outputs.customerCode
+    validationMessage: $steps.validateCustomer.outputs.validationMessage

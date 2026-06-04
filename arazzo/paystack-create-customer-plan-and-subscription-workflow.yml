@@ -1,0 +1,101 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Customer, Plan and Subscription
+  summary: Create a customer, define a billing plan, then subscribe the customer to the plan for recurring charges.
+  description: >-
+    The end-to-end recurring-billing setup. A customer profile is created, a
+    plan with an amount and interval is defined, and the customer is then
+    subscribed to that plan so Paystack handles the recurring debits and invoice
+    notifications. Every step spells out its request inline so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+- name: subscriptionsApi
+  url: ../openapi/paystack-subscriptions-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-customer-plan-and-subscription
+  summary: Stand up recurring billing by chaining customer, plan and subscription creation.
+  description: >-
+    Creates the customer, creates the plan, then subscribes the new customer to
+    the new plan using the codes returned by the prior steps.
+  inputs:
+    type: object
+    required:
+    - email
+    - planName
+    - amount
+    - interval
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      first_name:
+        type: string
+        description: Customer's first name.
+      last_name:
+        type: string
+        description: Customer's last name.
+      planName:
+        type: string
+        description: Name of the billing plan.
+      amount:
+        type: integer
+        description: Plan amount in the smallest currency unit (kobo/pesewas/cents).
+      interval:
+        type: string
+        description: Billing interval (daily, weekly, monthly, biannually, annually).
+      currency:
+        type: string
+        description: Currency in which the plan amount is set (NGN, GHS, ZAR or USD).
+  steps:
+  - stepId: createCustomer
+    description: Create the customer who will be subscribed to the plan.
+    operationId: customer_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        first_name: $inputs.first_name
+        last_name: $inputs.last_name
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      customerCode: $response.body#/data/customer_code
+  - stepId: createPlan
+    description: Create the recurring plan with the supplied amount and interval.
+    operationId: plan_create
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.planName
+        amount: $inputs.amount
+        interval: $inputs.interval
+        currency: $inputs.currency
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      planCode: $response.body#/data/plan_code
+  - stepId: createSubscription
+    description: >-
+      Subscribe the newly created customer to the newly created plan so Paystack
+      manages the recurring charges.
+    operationId: subscription_create
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $steps.createCustomer.outputs.customerCode
+        plan: $steps.createPlan.outputs.planCode
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      subscriptionCode: $response.body#/data/subscription_code
+      emailToken: $response.body#/data/email_token
+  outputs:
+    customerCode: $steps.createCustomer.outputs.customerCode
+    planCode: $steps.createPlan.outputs.planCode
+    subscriptionCode: $steps.createSubscription.outputs.subscriptionCode
+    emailToken: $steps.createSubscription.outputs.emailToken

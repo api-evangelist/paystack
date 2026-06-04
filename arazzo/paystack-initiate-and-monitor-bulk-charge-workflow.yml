@@ -1,0 +1,80 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Initiate and Monitor a Bulk Charge
+  summary: Initiate a bulk charge batch against saved authorizations, fetch the batch, then list the charges in the batch.
+  description: >-
+    The recurring batch-billing flow. A bulk charge batch is initiated against a
+    list of saved card authorizations, the batch is fetched to read its status and
+    totals, and the individual charges in the batch are listed so per-customer
+    outcomes can be reconciled. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: transfersApi
+  url: ../openapi/paystack-transfers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: initiate-and-monitor-bulk-charge
+  summary: Run a bulk charge batch and reconcile its individual charges.
+  description: >-
+    Initiates a bulk charge, fetches the resulting batch by code, and lists the
+    charges within it.
+  inputs:
+    type: object
+    required:
+    - charges
+    properties:
+      charges:
+        type: array
+        description: List of charge objects, each with an authorization code and amount.
+        items:
+          type: object
+          properties:
+            authorization:
+              type: string
+              description: Customer's card authorization code.
+            amount:
+              type: string
+              description: Amount to charge on the authorization.
+            reference:
+              type: string
+              description: Unique transaction reference.
+  steps:
+  - stepId: initiateBulkCharge
+    description: Initiate the bulk charge batch against the supplied authorizations.
+    operationId: bulkCharge_initiate
+    requestBody:
+      contentType: application/json
+      payload: $inputs.charges
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      batchCode: $response.body#/data/batch_code
+  - stepId: fetchBatch
+    description: Fetch the bulk charge batch to read its status and totals.
+    operationId: bulkCharge_fetch
+    parameters:
+    - name: code
+      in: path
+      value: $steps.initiateBulkCharge.outputs.batchCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      batchStatus: $response.body#/data/status
+      totalCharges: $response.body#/data/total_charges
+  - stepId: listBatchCharges
+    description: List the individual charges in the batch for per-customer reconciliation.
+    operationId: bulkCharge_charges
+    parameters:
+    - name: code
+      in: path
+      value: $steps.initiateBulkCharge.outputs.batchCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      charges: $response.body#/data
+  outputs:
+    batchCode: $steps.initiateBulkCharge.outputs.batchCode
+    batchStatus: $steps.fetchBatch.outputs.batchStatus
+    charges: $steps.listBatchCharges.outputs.charges

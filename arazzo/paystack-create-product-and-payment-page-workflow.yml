@@ -1,0 +1,108 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Product and Payment Page
+  summary: Create a product, check a page slug is available, create a hosted payment page, then attach the product to the page.
+  description: >-
+    The no-code checkout setup. A product is added to the inventory, a desired
+    page slug is checked for availability, a Paystack-hosted payment page is
+    created at that slug, and the product is attached to the page so customers can
+    buy it without custom checkout code. Every step spells out its request inline
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: productsPagesApi
+  url: ../openapi/paystack-products-pages-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-product-and-payment-page
+  summary: Build a hosted checkout page and attach a product to it.
+  description: >-
+    Creates a product, checks slug availability, creates a payment page, and adds
+    the product to the page.
+  inputs:
+    type: object
+    required:
+    - productName
+    - description
+    - price
+    - currency
+    - pageName
+    - slug
+    properties:
+      productName:
+        type: string
+        description: Name of the product.
+      description:
+        type: string
+        description: Description of the product and page.
+      price:
+        type: integer
+        description: Product price in the smallest currency unit.
+      currency:
+        type: string
+        description: Currency for the product price (NGN, GHS, ZAR or USD).
+      pageName:
+        type: string
+        description: Name of the hosted payment page.
+      slug:
+        type: string
+        description: Desired URL slug for the payment page.
+  steps:
+  - stepId: createProduct
+    description: Create the product that will be sold through the hosted page.
+    operationId: product_create
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.productName
+        description: $inputs.description
+        price: $inputs.price
+        currency: $inputs.currency
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      productId: $response.body#/data/id
+  - stepId: checkSlug
+    description: Check that the desired payment page slug is still available.
+    operationId: page_checkSlugAvailability
+    parameters:
+    - name: slug
+      in: path
+      value: $inputs.slug
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      slugStatus: $response.body#/status
+  - stepId: createPage
+    description: Create the hosted payment page at the chosen slug.
+    operationId: page_create
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.pageName
+        description: $inputs.description
+        slug: $inputs.slug
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      pageId: $response.body#/data/id
+      pageSlug: $response.body#/data/slug
+  - stepId: addProductToPage
+    description: Attach the created product to the payment page.
+    operationId: page_addProducts
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createPage.outputs.pageId
+    requestBody:
+      contentType: application/json
+      payload:
+        product:
+        - $steps.createProduct.outputs.productId
+    successCriteria:
+    - condition: $statusCode == 201
+  outputs:
+    productId: $steps.createProduct.outputs.productId
+    pageId: $steps.createPage.outputs.pageId
+    pageSlug: $steps.createPage.outputs.pageSlug

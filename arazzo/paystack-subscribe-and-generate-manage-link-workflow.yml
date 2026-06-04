@@ -1,0 +1,77 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Subscribe and Generate a Management Link
+  summary: Create a subscription, fetch it to read its status, then generate a self-service management link for the customer.
+  description: >-
+    The subscription self-service flow. A subscription is created tying a customer
+    to a plan, the subscription is fetched to read back its status and code, and a
+    management link is generated so the customer can update their card or cancel
+    without merchant intervention. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: subscriptionsApi
+  url: ../openapi/paystack-subscriptions-openapi.yml
+  type: openapi
+workflows:
+- workflowId: subscribe-and-generate-manage-link
+  summary: Create a subscription and hand the customer a self-service management link.
+  description: >-
+    Creates a subscription, fetches it to confirm the status, and generates a
+    management link the customer can use.
+  inputs:
+    type: object
+    required:
+    - customer
+    - plan
+    properties:
+      customer:
+        type: string
+        description: Customer's email address or customer code.
+      plan:
+        type: string
+        description: Plan code to subscribe the customer to.
+      start_date:
+        type: string
+        description: ISO 8601 date for the first debit.
+  steps:
+  - stepId: createSubscription
+    description: Subscribe the customer to the plan.
+    operationId: subscription_create
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $inputs.customer
+        plan: $inputs.plan
+        start_date: $inputs.start_date
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      subscriptionCode: $response.body#/data/subscription_code
+  - stepId: fetchSubscription
+    description: Fetch the subscription to read back its current status.
+    operationId: subscription_fetch
+    parameters:
+    - name: code
+      in: path
+      value: $steps.createSubscription.outputs.subscriptionCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      subscriptionStatus: $response.body#/data/status
+  - stepId: generateManageLink
+    description: Generate a self-service management link for the subscription.
+    operationId: subscription_manageLink
+    parameters:
+    - name: code
+      in: path
+      value: $steps.createSubscription.outputs.subscriptionCode
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      manageLink: $response.body#/data/link
+  outputs:
+    subscriptionCode: $steps.createSubscription.outputs.subscriptionCode
+    subscriptionStatus: $steps.fetchSubscription.outputs.subscriptionStatus
+    manageLink: $steps.generateManageLink.outputs.manageLink

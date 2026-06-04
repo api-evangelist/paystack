@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Subaccount and Transaction Split
+  summary: Create a subaccount, build a transaction split that pays it, then initialize a transaction against the split.
+  description: >-
+    The marketplace payout setup. A subaccount is created for a partner, a
+    percentage transaction split is created that routes a share to that
+    subaccount, and a transaction is initialized against the split code so the
+    incoming payment is automatically divided. Every step spells out its request
+    inline so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: splitsSubaccountsApi
+  url: ../openapi/paystack-splits-subaccounts-openapi.yml
+  type: openapi
+- name: acceptPaymentsApi
+  url: ../openapi/paystack-accept-payments-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-subaccount-and-split
+  summary: Stand up a marketplace split and take a payment against it.
+  description: >-
+    Creates a subaccount, creates a split that pays the subaccount, and
+    initializes a transaction using the split code.
+  inputs:
+    type: object
+    required:
+    - business_name
+    - settlement_bank
+    - account_number
+    - percentage_charge
+    - splitName
+    - share
+    - email
+    - amount
+    properties:
+      business_name:
+        type: string
+        description: Business name for the subaccount.
+      settlement_bank:
+        type: string
+        description: Settlement bank code from the List Banks endpoint.
+      account_number:
+        type: string
+        description: Settlement bank account number for the subaccount.
+      percentage_charge:
+        type: number
+        description: Percentage of each transaction the subaccount keeps.
+      splitName:
+        type: string
+        description: Name of the transaction split.
+      share:
+        type: string
+        description: The subaccount's share within the split.
+      email:
+        type: string
+        description: Customer's email for the test transaction.
+      amount:
+        type: integer
+        description: Transaction amount in the smallest currency unit.
+  steps:
+  - stepId: createSubaccount
+    description: Create the partner subaccount that will receive a share of payments.
+    operationId: subaccount_create
+    requestBody:
+      contentType: application/json
+      payload:
+        business_name: $inputs.business_name
+        settlement_bank: $inputs.settlement_bank
+        account_number: $inputs.account_number
+        percentage_charge: $inputs.percentage_charge
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      subaccountCode: $response.body#/data/subaccount_code
+  - stepId: createSplit
+    description: Create a percentage split routing a share to the new subaccount.
+    operationId: split_create
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.splitName
+        type: percentage
+        currency: NGN
+        subaccounts:
+        - subaccount: $steps.createSubaccount.outputs.subaccountCode
+          share: $inputs.share
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      splitCode: $response.body#/data/split_code
+  - stepId: initializeSplitTransaction
+    description: Initialize a transaction against the split so the payment is auto-divided.
+    operationId: transaction_initialize
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        amount: $inputs.amount
+        split_code: $steps.createSplit.outputs.splitCode
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      reference: $response.body#/data/reference
+      authorizationUrl: $response.body#/data/authorization_url
+  outputs:
+    subaccountCode: $steps.createSubaccount.outputs.subaccountCode
+    splitCode: $steps.createSplit.outputs.splitCode
+    reference: $steps.initializeSplitTransaction.outputs.reference

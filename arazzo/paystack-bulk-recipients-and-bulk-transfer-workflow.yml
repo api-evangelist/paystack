@@ -1,0 +1,71 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Bulk Recipients and Bulk Transfer
+  summary: Bulk-create transfer recipients, list them to confirm registration, then initiate a bulk transfer to pay them all.
+  description: >-
+    The mass-payout flow. A batch of transfer recipients is created in one call,
+    the recipient list is read to confirm they were registered, and a bulk
+    transfer is initiated from the balance to pay multiple recipients at once.
+    Every step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: transfersApi
+  url: ../openapi/paystack-transfers-openapi.yml
+  type: openapi
+workflows:
+- workflowId: bulk-recipients-and-bulk-transfer
+  summary: Register many recipients at once and pay them in a single bulk transfer.
+  description: >-
+    Bulk-creates recipients, lists them, then initiates a bulk transfer carrying
+    per-recipient amounts.
+  inputs:
+    type: object
+    required:
+    - batch
+    - transfers
+    properties:
+      batch:
+        type: array
+        description: List of recipient objects, each with type, name, account_number and bank_code.
+        items:
+          type: object
+      transfers:
+        type: array
+        description: List of transfer objects, each with amount, recipient and reference.
+        items:
+          type: object
+  steps:
+  - stepId: bulkCreateRecipients
+    description: Create the batch of transfer recipients in a single call.
+    operationId: transferrecipient_bulk
+    requestBody:
+      contentType: application/json
+      payload:
+        batch: $inputs.batch
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      successes: $response.body#/data/success
+  - stepId: listRecipients
+    description: List transfer recipients to confirm the batch was registered.
+    operationId: transferrecipient_list
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      recipients: $response.body#/data
+  - stepId: initiateBulkTransfer
+    description: Initiate a bulk transfer from the balance to the registered recipients.
+    operationId: transfer_bulk
+    requestBody:
+      contentType: application/json
+      payload:
+        source: balance
+        transfers: $inputs.transfers
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      transfers: $response.body#/data
+  outputs:
+    successes: $steps.bulkCreateRecipients.outputs.successes
+    transfers: $steps.initiateBulkTransfer.outputs.transfers

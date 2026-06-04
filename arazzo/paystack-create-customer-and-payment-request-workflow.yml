@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Paystack Create Customer and Send Payment Request
+  summary: Create a customer, raise an invoice-style payment request for them, send the email notification, then verify the request.
+  description: >-
+    The invoicing flow built on Paystack payment requests. A customer is created,
+    a payment request (invoice) is raised against the customer with an amount and
+    due date, the email notification is sent, and the request is then verified to
+    read back its computed status. Every step spells out its request inline so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: customersApi
+  url: ../openapi/paystack-customers-openapi.yml
+  type: openapi
+- name: paymentRequestsApi
+  url: ../openapi/paystack-payment-requests-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-customer-and-payment-request
+  summary: Onboard a customer and send them an invoice-style payment request.
+  description: >-
+    Creates the customer, raises a payment request for that customer, sends the
+    notification email, and verifies the request to read its status.
+  inputs:
+    type: object
+    required:
+    - email
+    - amount
+    properties:
+      email:
+        type: string
+        description: Customer's email address.
+      first_name:
+        type: string
+        description: Customer's first name.
+      amount:
+        type: integer
+        description: Payment request amount in the smallest currency unit.
+      due_date:
+        type: string
+        description: ISO 8601 due date for the payment request.
+      description:
+        type: string
+        description: Short description shown on the payment request.
+  steps:
+  - stepId: createCustomer
+    description: Create the customer the payment request will be addressed to.
+    operationId: customer_create
+    requestBody:
+      contentType: application/json
+      payload:
+        email: $inputs.email
+        first_name: $inputs.first_name
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      customerCode: $response.body#/data/customer_code
+  - stepId: createPaymentRequest
+    description: Raise a payment request for the new customer with the supplied amount.
+    operationId: paymentRequest_create
+    requestBody:
+      contentType: application/json
+      payload:
+        customer: $steps.createCustomer.outputs.customerCode
+        amount: $inputs.amount
+        due_date: $inputs.due_date
+        description: $inputs.description
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      requestId: $response.body#/data/id
+      requestCode: $response.body#/data/request_code
+  - stepId: sendNotification
+    description: Send the email notification for the payment request to the customer.
+    operationId: paymentRequest_notify
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createPaymentRequest.outputs.requestId
+    successCriteria:
+    - condition: $statusCode == 201
+  - stepId: verifyPaymentRequest
+    description: Verify the payment request by its code to read back its status.
+    operationId: paymentRequest_verify
+    parameters:
+    - name: id
+      in: path
+      value: $steps.createPaymentRequest.outputs.requestCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      requestStatus: $response.body#/data/status
+  outputs:
+    customerCode: $steps.createCustomer.outputs.customerCode
+    requestCode: $steps.createPaymentRequest.outputs.requestCode
+    requestStatus: $steps.verifyPaymentRequest.outputs.requestStatus
