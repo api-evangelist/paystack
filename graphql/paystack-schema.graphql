@@ -1,0 +1,1939 @@
+# Paystack GraphQL Schema
+#
+# This is a GraphQL representation of the Paystack REST API domain model.
+# Paystack does not publish a native GraphQL API. This schema is a faithful
+# translation of the Paystack REST API surface for use in GraphQL gateways
+# or federation layers.
+#
+# Source REST API: https://paystack.com/docs/api/
+# GitHub: https://github.com/PaystackHQ
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+"""ISO 8601 date-time string."""
+scalar DateTime
+
+"""Free-form JSON metadata object stored as a JSON string."""
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Enumerations
+# ---------------------------------------------------------------------------
+
+"""Supported Paystack currencies."""
+enum Currency {
+  NGN
+  GHS
+  ZAR
+  KES
+  XOF
+  EGP
+  USD
+}
+
+"""Payment channels available on Paystack."""
+enum PaymentChannel {
+  card
+  bank
+  ussd
+  qr
+  mobile_money
+  bank_transfer
+  eft
+  apple_pay
+}
+
+"""Possible statuses of a transaction."""
+enum TransactionStatus {
+  success
+  failed
+  abandoned
+  pending
+}
+
+"""Possible statuses of a transfer."""
+enum TransferStatus {
+  otp
+  pending
+  success
+  failed
+  reversed
+}
+
+"""Possible statuses of a dispute."""
+enum DisputeStatus {
+  pending
+  resolved
+  declined
+  awaiting_bank_feedback
+  awaiting_merchant_feedback
+}
+
+"""Possible statuses of a subscription."""
+enum SubscriptionStatus {
+  active
+  cancelled
+  non_renewing
+  attention
+  completed
+}
+
+"""Risk action applied to a customer."""
+enum RiskAction {
+  allow
+  deny
+  default
+}
+
+"""Supported billing plan intervals."""
+enum PlanInterval {
+  hourly
+  daily
+  weekly
+  monthly
+  quarterly
+  biannually
+  annually
+}
+
+"""Transfer recipient types."""
+enum RecipientType {
+  nuban
+  mobile_money
+  basa
+  authorization
+  ghipss
+}
+
+"""Transaction split share types."""
+enum SplitType {
+  percentage
+  flat
+}
+
+"""Bearer of transaction fees in a split."""
+enum BearerType {
+  account
+  subaccount
+  all
+  all-proportional
+}
+
+"""Possible statuses of a payment request / invoice."""
+enum PaymentRequestStatus {
+  draft
+  pending
+  success
+  cancelled
+}
+
+"""Possible statuses of a refund."""
+enum RefundStatus {
+  pending
+  success
+  failed
+}
+
+"""Possible statuses of a bulk charge batch."""
+enum BulkChargeStatus {
+  active
+  paused
+  complete
+}
+
+"""Charge status at each step of the direct charge flow."""
+enum ChargeStatus {
+  pending
+  timeout
+  failed
+  success
+  send_pin
+  send_phone
+  send_birthday
+  send_otp
+  send_address
+  open_url
+  pay_offline
+}
+
+"""Possible statuses of a dedicated virtual account."""
+enum DedicatedAccountStatus {
+  active
+  deactivated
+}
+
+"""Possible statuses of a dispute upload."""
+enum DisputeResolution {
+  merchant_accepted
+  declined
+}
+
+# ---------------------------------------------------------------------------
+# Core payment types
+# ---------------------------------------------------------------------------
+
+"""
+A Paystack transaction representing a single payment event. Transactions
+can be in pending, success, failed, or abandoned states.
+"""
+type Transaction {
+  id: ID!
+  domain: String!
+  status: TransactionStatus!
+  reference: String!
+  receiptNumber: String
+  amount: Int!
+  message: String
+  gatewayResponse: String
+  helpdesk_link: String
+  paidAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime
+  channel: PaymentChannel!
+  currency: Currency!
+  ipAddress: String
+  metadata: JSON
+  log: TransactionLog
+  fees: Int
+  feesDetails: FeesBreakdown
+  customer: Customer
+  authorization: Authorization
+  plan: Plan
+  subaccount: Subaccount
+  split: Split
+  orderID: String
+  posTransactionData: JSON
+  source: String
+  feesSplit: FeesSplit
+  requestedAmount: Int
+  transactionDate: DateTime
+}
+
+"""Detailed log of events that occurred during a transaction."""
+type TransactionLog {
+  trxRef: String
+  action: String
+  startTime: Int
+  timeSpent: Int
+  attempts: Int
+  authentication: String
+  errors: Int
+  success: Boolean!
+  mobile: Boolean!
+  input: [JSON]
+  history: [TransactionLogEntry!]
+}
+
+"""A single step in the transaction log history."""
+type TransactionLogEntry {
+  type: String!
+  message: String!
+  time: Int!
+}
+
+"""Breakdown of fees applied to a transaction."""
+type FeesBreakdown {
+  paystack: Int
+  integration: Int
+  subaccount: Int
+  params: JSON
+}
+
+"""Split of fees between parties."""
+type FeesSplit {
+  paystack: Int
+  integration: Int
+  subaccount: Int
+}
+
+"""Aggregate totals for a set of transactions."""
+type TransactionTotals {
+  totalTransactions: Int!
+  totalVolume: Int!
+  totalVolumeByCurrency: [CurrencyAmount!]!
+  pendingTransfers: Int!
+  pendingTransfersByCurrency: [CurrencyAmount!]!
+}
+
+"""An amount value in a specific currency."""
+type CurrencyAmount {
+  currency: Currency!
+  amount: Int!
+}
+
+# ---------------------------------------------------------------------------
+# Charge types
+# ---------------------------------------------------------------------------
+
+"""
+A direct Paystack charge initiated programmatically. Tracks the current
+step in the challenge flow (PIN, OTP, phone, birthday, address).
+"""
+type Charge {
+  reference: String!
+  status: ChargeStatus!
+  displayText: String
+  transaction: Transaction
+  paymentsPageUrl: String
+}
+
+# ---------------------------------------------------------------------------
+# Authorization types
+# ---------------------------------------------------------------------------
+
+"""
+A stored card authorization that can be reused for future charges without
+requiring the customer to re-enter payment details.
+"""
+type Authorization {
+  authorizationCode: String!
+  bin: String!
+  last4: String!
+  expMonth: String!
+  expYear: String!
+  channel: PaymentChannel!
+  cardType: String
+  bank: String
+  countryCode: String
+  brand: String
+  reusable: Boolean!
+  signature: String!
+  accountName: String
+}
+
+# ---------------------------------------------------------------------------
+# Customer and identity types
+# ---------------------------------------------------------------------------
+
+"""
+A Paystack customer profile. Customers have associated transaction history,
+stored authorizations, and a risk action controlling whether they can pay.
+"""
+type Customer {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String!
+  customerCode: String!
+  phone: String
+  metadata: JSON
+  riskAction: RiskAction!
+  internationalFormatPhone: String
+  identifications: [Identification!]
+  authorizations: [Authorization!]
+  transactions: [Transaction!]
+  subscriptions: [Subscription!]
+  dedicatedAccount: DedicatedAccount
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A KYC identification record attached to a customer."""
+type Identification {
+  country: String!
+  type: String!
+  value: String!
+}
+
+"""Result of a BVN (Bank Verification Number) lookup."""
+type BvnResolution {
+  firstName: String!
+  lastName: String!
+  dob: String
+  mobile: String
+  bvn: String!
+  isBlacklisted: Boolean
+}
+
+"""Result of resolving a bank account number to a name."""
+type AccountNumberResolution {
+  accountName: String!
+  accountNumber: String!
+  bankId: Int
+}
+
+"""Card BIN lookup result."""
+type CardBin {
+  bin: String!
+  brand: String!
+  subBrand: String
+  countryCode: String!
+  countryName: String!
+  cardType: String!
+  bank: String!
+  linkedBankId: Int
+}
+
+# ---------------------------------------------------------------------------
+# Subscription and billing types
+# ---------------------------------------------------------------------------
+
+"""
+A recurring billing plan that customers can subscribe to. Defines the
+billing interval, amount, and currency.
+"""
+type Plan {
+  id: ID!
+  name: String!
+  planCode: String!
+  description: String
+  amount: Int!
+  interval: PlanInterval!
+  currency: Currency!
+  invoiceLimit: Int
+  sendInvoices: Boolean!
+  sendSms: Boolean!
+  hostedPage: Boolean!
+  hostedPageUrl: String
+  hostedPageSummary: String
+  migrate: Boolean
+  isArchived: Boolean
+  subscriptions: [Subscription!]
+  pages: [PaymentPage!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A customer's active subscription to a plan. Tracks the next charge date,
+the stored authorization used for renewal, and the subscription's lifecycle state.
+"""
+type Subscription {
+  id: ID!
+  customer: Customer!
+  plan: Plan!
+  integration: Int
+  domain: String
+  start: Int
+  status: SubscriptionStatus!
+  quantity: Int
+  amount: Int!
+  subscriptionCode: String!
+  emailToken: String!
+  authorization: Authorization
+  cronExpression: String
+  nextPaymentDate: DateTime
+  openInvoice: String
+  invoices: [Invoice!]
+  invoicesHistory: [Invoice!]
+  paymentPageId: Int
+  cancelledAt: DateTime
+  updatedAt: DateTime
+  createdAt: DateTime!
+}
+
+"""
+An invoice generated by a subscription renewal cycle or a payment request.
+"""
+type Invoice {
+  id: ID!
+  subscription: Subscription
+  integration: Int
+  domain: String
+  invoiceCode: String!
+  customer: Customer!
+  transaction: Transaction
+  amount: Int!
+  periodStart: DateTime
+  periodEnd: DateTime
+  status: PaymentRequestStatus!
+  paid: Boolean!
+  paidAt: DateTime
+  description: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+An email-based payment request sent to a customer — equivalent to an
+invoice with an online payment link.
+"""
+type PaymentRequest {
+  id: ID!
+  integration: Int
+  domain: String
+  amount: Int!
+  currency: Currency!
+  dueDate: DateTime
+  hasInvoice: Boolean!
+  invoiceNumber: Int
+  description: String
+  pdfUrl: String
+  lineItems: [PaymentRequestLineItem!]
+  tax: [PaymentRequestTax!]
+  requestCode: String!
+  status: PaymentRequestStatus!
+  paid: Boolean!
+  paidAt: DateTime
+  metadata: JSON
+  notifications: [PaymentRequestNotification!]
+  offlineReference: String
+  customer: Customer!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A line item on a payment request."""
+type PaymentRequestLineItem {
+  name: String!
+  amount: Int!
+  quantity: Int!
+}
+
+"""A tax entry on a payment request."""
+type PaymentRequestTax {
+  name: String!
+  amount: Int!
+}
+
+"""A notification record for a payment request email."""
+type PaymentRequestNotification {
+  sentAt: DateTime!
+  channel: String!
+}
+
+# ---------------------------------------------------------------------------
+# Marketplace and split types
+# ---------------------------------------------------------------------------
+
+"""
+A vendor or merchant subaccount with its own settlement bank details and
+percentage charge configuration.
+"""
+type Subaccount {
+  id: ID!
+  subaccountCode: String!
+  businessName: String!
+  description: String
+  primaryContactEmail: String
+  primaryContactName: String
+  primaryContactPhone: String
+  metadata: JSON
+  percentageCharge: Float!
+  isVerified: Boolean
+  settlementBank: String!
+  accountNumber: String!
+  settlementSchedule: String
+  active: Boolean!
+  migrate: Boolean
+  currency: Currency
+  bank: Bank
+  integration: Int
+  domain: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A transaction split that routes a single payment to multiple subaccounts
+on a percentage or flat basis.
+"""
+type Split {
+  id: ID!
+  name: String!
+  type: SplitType!
+  currency: Currency!
+  integration: Int
+  domain: String
+  splitCode: String!
+  active: Boolean!
+  bearerType: BearerType!
+  bearerSubaccount: Subaccount
+  subaccounts: [SplitSubaccount!]!
+  totalCount: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A join type linking a subaccount to a split with its configured share value.
+"""
+type SplitSubaccount {
+  subaccount: Subaccount!
+  share: Float!
+}
+
+# ---------------------------------------------------------------------------
+# Transfer and payout types
+# ---------------------------------------------------------------------------
+
+"""
+An outbound transfer from Paystack balance to a bank account or mobile
+money wallet.
+"""
+type Transfer {
+  id: ID!
+  integration: Int
+  domain: String
+  amount: Int!
+  currency: Currency!
+  source: String!
+  sourceDetails: JSON
+  reason: String
+  status: TransferStatus!
+  transferCode: String!
+  reference: String
+  recipient: TransferRecipient!
+  failureReason: String
+  titanCode: String
+  transferred_at: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A named recipient for transfers — wraps a bank account or mobile money
+wallet with a reusable recipient code.
+"""
+type TransferRecipient {
+  id: ID!
+  type: RecipientType!
+  name: String!
+  description: String
+  metadata: JSON
+  domain: String
+  recipientCode: String!
+  active: Boolean!
+  currency: Currency!
+  email: String
+  details: RecipientDetails!
+  isDeleted: Boolean
+  integration: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Bank or mobile money details for a transfer recipient."""
+type RecipientDetails {
+  authorizationCode: String
+  accountNumber: String!
+  accountName: String
+  bankCode: String
+  bankName: String
+}
+
+"""A batch of transfers submitted in a single API call."""
+type BulkTransfer {
+  bulkChargeCode: String
+  transfers: [Transfer!]!
+}
+
+"""
+The current Paystack account balance, broken down by currency.
+"""
+type Balance {
+  currency: Currency!
+  balance: Int!
+}
+
+"""A single entry in the account balance ledger."""
+type BalanceLedgerEntry {
+  integration: Int
+  domain: String
+  balance: Int!
+  currency: Currency!
+  difference: Int!
+  reason: String
+  modelResponsible: String
+  modelRow: Int
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Product and payment page types
+# ---------------------------------------------------------------------------
+
+"""
+An inventory product that can be attached to a Paystack-hosted Payment Page.
+"""
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  currency: Currency!
+  price: Int!
+  quantity: Int
+  quantitySold: Int
+  isShippable: Boolean
+  shippingFields: [ShippingField!]
+  integration: Int
+  domain: String
+  active: Boolean!
+  inStock: Boolean
+  unlimited: Boolean
+  slug: String!
+  metadata: JSON
+  files: [ProductFile!]
+  successMessage: String
+  redirectUrl: String
+  splitCode: String
+  notificationEmails: [String!]
+  minimumOrderable: Int
+  maximumOrderable: Int
+  lowStockAlert: Boolean
+  productCode: String!
+  type: String
+  paymentPageId: Int
+  paymentPage: PaymentPage
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A shipping field configuration for a physical product."""
+type ShippingField {
+  name: String!
+  required: Boolean!
+}
+
+"""A downloadable file attached to a digital product."""
+type ProductFile {
+  id: ID!
+  fileName: String!
+  path: String!
+  mime: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A Paystack-hosted Payment Page for collecting payments without writing
+checkout code.
+"""
+type PaymentPage {
+  id: ID!
+  integration: Int
+  plan: Plan
+  domain: String
+  name: String!
+  description: String
+  amount: Int
+  currency: Currency
+  splitCode: String
+  type: String
+  customFields: [CustomField!]
+  customFilters: JSON
+  slug: String!
+  redirectUrl: String
+  successMessage: String
+  collectPhone: Boolean
+  active: Boolean!
+  published: Boolean
+  migrate: Boolean
+  pageCode: String!
+  metadata: JSON
+  products: [PaymentPageProduct!]
+  notifications: [String!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A custom field definition on a payment page."""
+type CustomField {
+  displayName: String!
+  variableName: String!
+  required: Boolean!
+  type: String!
+}
+
+"""Join type linking a product to a payment page."""
+type PaymentPageProduct {
+  product: Product!
+  quantity: Int
+}
+
+# ---------------------------------------------------------------------------
+# Settlement and financial types
+# ---------------------------------------------------------------------------
+
+"""
+A net payout batch transferred from Paystack to the merchant's settlement
+bank account.
+"""
+type Settlement {
+  id: ID!
+  domain: String
+  status: String!
+  currency: Currency!
+  integration: Int
+  totalAmount: Int!
+  effectiveAmount: Int!
+  totalFees: Int!
+  totalFiltered: Int
+  settlementDate: DateTime!
+  invoiceReference: String
+  subaccount: Subaccount
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A transaction record that makes up part of a settlement batch."""
+type SettlementTransaction {
+  id: ID!
+  domain: String
+  status: TransactionStatus!
+  reference: String!
+  amount: Int!
+  message: String
+  channel: PaymentChannel!
+  currency: Currency!
+  metadata: JSON
+  customer: Customer
+  paidAt: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""
+A chargeback or dispute raised by a cardholder against a Paystack transaction.
+"""
+type Dispute {
+  id: ID!
+  refundAmount: Int
+  currency: Currency
+  status: DisputeStatus!
+  resolution: DisputeResolution
+  domain: String
+  transaction: Transaction!
+  transactionReference: String
+  category: String
+  customer: Customer!
+  bin: String
+  last4: String
+  dueAt: DateTime
+  resolvedAt: DateTime
+  evidence: DisputeEvidence
+  history: [DisputeHistoryEntry!]
+  messages: [DisputeMessage!]
+  merchantKyc: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""Evidence submitted by the merchant in response to a dispute."""
+type DisputeEvidence {
+  customerEmail: String
+  customerName: String
+  customerPhone: String
+  serviceDetails: String
+  deliveryAddress: String
+  deliveryDate: DateTime
+  attachments: String
+  id: ID!
+  dispute: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A history entry for dispute state changes."""
+type DisputeHistoryEntry {
+  status: DisputeStatus!
+  by: String
+  createdAt: DateTime!
+}
+
+"""A message on a dispute thread."""
+type DisputeMessage {
+  sender: String
+  body: String!
+  createdAt: DateTime!
+}
+
+"""A refund applied to a successful transaction."""
+type Refund {
+  id: ID!
+  integration: Int
+  transaction: Transaction!
+  dispute: ID
+  amount: Int!
+  deductedAmount: Int
+  currency: Currency!
+  channel: String
+  fullyDeducted: Boolean
+  refundedAt: DateTime
+  expectedAt: DateTime
+  settlementId: Int
+  customerNote: String
+  merchantNote: String
+  status: RefundStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Bulk charge types
+# ---------------------------------------------------------------------------
+
+"""A batch of charges initiated against multiple stored authorizations."""
+type BulkCharge {
+  id: ID!
+  integration: Int
+  domain: String
+  batchCode: String!
+  status: BulkChargeStatus!
+  totalCharges: Int!
+  pendingCharges: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""An individual charge item within a bulk charge batch."""
+type BulkChargeItem {
+  integration: Int
+  bulkCharge: BulkCharge!
+  transaction: Transaction
+  authorization: Authorization!
+  amount: Int!
+  currency: Currency!
+  status: TransactionStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Banking and configuration types
+# ---------------------------------------------------------------------------
+
+"""
+A bank entry from the Paystack bank directory for a supported country.
+"""
+type Bank {
+  id: ID!
+  name: String!
+  slug: String!
+  code: String!
+  longCode: String
+  gateway: String
+  payWithBank: Boolean
+  supportsTransfer: Boolean
+  active: Boolean!
+  country: String!
+  currency: Currency!
+  type: String
+  isDeleted: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+"""A country supported by Paystack with payment channel and currency metadata."""
+type Country {
+  id: ID!
+  name: String!
+  isoCode: String!
+  defaultCurrencyCode: Currency!
+  integrationDefaults: JSON
+  callingCode: String
+  pilot: Boolean
+  relationships: CountryRelationships
+}
+
+"""Payment channels and payment method types available in a country."""
+type CountryRelationships {
+  currency: [Currency!]!
+  integration_feature: [String!]
+  integration_type: [String!]
+  payment_method: [String!]
+}
+
+# ---------------------------------------------------------------------------
+# Dedicated virtual account types
+# ---------------------------------------------------------------------------
+
+"""
+A dedicated NUBAN virtual bank account assigned to a specific Paystack
+customer for reconciled bank-transfer payments.
+"""
+type DedicatedAccount {
+  id: ID!
+  customer: Customer!
+  accountName: String!
+  accountNumber: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  currency: Currency!
+  active: Boolean!
+  id2: Int
+  bank: DedicatedAccountProvider!
+  assignment: DedicatedAccountAssignment
+  split: DedicatedAccountSplit
+}
+
+"""A bank provider available for dedicated virtual account creation."""
+type DedicatedAccountProvider {
+  id: ID!
+  name: String!
+  slug: String!
+  bankId: Int!
+}
+
+"""Metadata about how the dedicated account was assigned."""
+type DedicatedAccountAssignment {
+  integration: Int
+  assignee_id: Int
+  assignee_type: String
+  expired: Boolean
+  account_type: String
+  assigned_at: DateTime
+}
+
+"""A split routing rule applied to inbound transfers on a dedicated account."""
+type DedicatedAccountSplit {
+  split: Split
+  subaccount: Subaccount
+}
+
+# ---------------------------------------------------------------------------
+# Terminal and POS types
+# ---------------------------------------------------------------------------
+
+"""A Paystack Terminal (POS) device."""
+type Terminal {
+  id: ID!
+  serialNumber: String!
+  availableAlerts: [String!]
+  defaultSplitCode: String
+  name: String!
+  address: String
+  integrationId: Int
+  deviceModel: String
+  terminalId: String!
+  currency: Currency!
+  type: String
+  status: String
+  errors: [String!]
+  isActive: Boolean!
+  updatedAt: DateTime
+  createdAt: DateTime!
+}
+
+"""A physical merchant outlet associated with a terminal."""
+type Outlet {
+  id: ID!
+  name: String!
+  slug: String!
+  integration: Int
+  domain: String
+  currency: Currency
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Integration type
+# ---------------------------------------------------------------------------
+
+"""Integration-level settings for a Paystack merchant account."""
+type Integration {
+  id: ID!
+  key: String!
+  business_name: String
+  integration_type: String
+  timeout: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Subscription link type
+# ---------------------------------------------------------------------------
+
+"""A management link allowing a customer to self-service their subscription."""
+type SubscriptionLink {
+  link: String!
+}
+
+"""A signed upload URL for attaching files to a dispute."""
+type DisputeUploadUrl {
+  signedUrl: String!
+  fileName: String!
+}
+
+"""Result of verifying a transaction's current status."""
+type VerificationResponse {
+  status: Boolean!
+  message: String!
+  data: Transaction
+}
+
+# ---------------------------------------------------------------------------
+# Input types
+# ---------------------------------------------------------------------------
+
+"""Input for initializing a hosted checkout transaction."""
+input InitializeTransactionInput {
+  email: String!
+  amount: Int!
+  currency: Currency
+  reference: String
+  callbackUrl: String
+  plan: String
+  invoiceLimit: Int
+  metadata: JSON
+  channels: [PaymentChannel!]
+  splitCode: String
+  subaccount: String
+  transactionCharge: Int
+  bearer: BearerType
+}
+
+"""Input for a direct charge."""
+input CreateChargeInput {
+  email: String!
+  amount: Int!
+  authorizationCode: String
+  pin: String
+  reference: String
+  birthday: String
+  address: JSON
+  metadata: JSON
+  bank: BankInput
+  mobileMoney: MobileMoneyInput
+  ussd: UssdInput
+  qr: JSON
+}
+
+"""Bank details for a direct bank charge."""
+input BankInput {
+  code: String!
+  accountNumber: String!
+}
+
+"""Mobile money details for a direct mobile money charge."""
+input MobileMoneyInput {
+  phone: String!
+  provider: String!
+}
+
+"""USSD details for a direct USSD charge."""
+input UssdInput {
+  type: String!
+}
+
+"""Input for an item in a bulk charge batch."""
+input BulkChargeItemInput {
+  authorization: String!
+  amount: Int!
+  reference: String
+}
+
+"""Input for a subaccount's share within a split."""
+input SplitSubaccountInput {
+  subaccount: String!
+  share: Float!
+}
+
+"""Input for a single transfer in a bulk transfer request."""
+input BulkTransferItemInput {
+  amount: Int!
+  recipient: String!
+  reference: String
+  reason: String
+}
+
+# ---------------------------------------------------------------------------
+# Pagination types
+# ---------------------------------------------------------------------------
+
+"""Standard Paystack pagination metadata."""
+type PageInfo {
+  total: Int!
+  skipped: Int!
+  perPage: Int!
+  page: Int!
+  pageCount: Int!
+  hasPreviousPage: Boolean!
+  hasNextPage: Boolean!
+}
+
+"""A paginated list of transactions."""
+type TransactionConnection {
+  data: [Transaction!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of customers."""
+type CustomerConnection {
+  data: [Customer!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of plans."""
+type PlanConnection {
+  data: [Plan!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of subscriptions."""
+type SubscriptionConnection {
+  data: [Subscription!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of subaccounts."""
+type SubaccountConnection {
+  data: [Subaccount!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of splits."""
+type SplitConnection {
+  data: [Split!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of transfers."""
+type TransferConnection {
+  data: [Transfer!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of transfer recipients."""
+type TransferRecipientConnection {
+  data: [TransferRecipient!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of balance ledger entries."""
+type BalanceLedgerConnection {
+  data: [BalanceLedgerEntry!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of settlements."""
+type SettlementConnection {
+  data: [Settlement!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of settlement transactions."""
+type SettlementTransactionConnection {
+  data: [SettlementTransaction!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of disputes."""
+type DisputeConnection {
+  data: [Dispute!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of refunds."""
+type RefundConnection {
+  data: [Refund!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of products."""
+type ProductConnection {
+  data: [Product!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of payment pages."""
+type PaymentPageConnection {
+  data: [PaymentPage!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of payment requests."""
+type PaymentRequestConnection {
+  data: [PaymentRequest!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of dedicated accounts."""
+type DedicatedAccountConnection {
+  data: [DedicatedAccount!]!
+}
+
+"""A paginated list of banks."""
+type BankConnection {
+  data: [Bank!]!
+}
+
+"""A paginated list of bulk charges."""
+type BulkChargeConnection {
+  data: [BulkCharge!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of bulk charge items."""
+type BulkChargeItemConnection {
+  data: [BulkChargeItem!]!
+  meta: PageInfo!
+}
+
+"""A paginated list of terminals."""
+type TerminalConnection {
+  data: [Terminal!]!
+}
+
+# ---------------------------------------------------------------------------
+# Query root
+# ---------------------------------------------------------------------------
+
+type Query {
+  """Fetch a single transaction by ID."""
+  transaction(id: ID!): Transaction
+
+  """List transactions with optional filtering."""
+  transactions(
+    perPage: Int
+    page: Int
+    customer: ID
+    status: TransactionStatus
+    from: DateTime
+    to: DateTime
+    amount: Int
+  ): TransactionConnection!
+
+  """Verify a transaction by reference."""
+  verifyTransaction(reference: String!): Transaction
+
+  """Aggregate totals for transactions in a date range."""
+  transactionTotals(from: DateTime, to: DateTime): TransactionTotals!
+
+  """Export transactions to a CSV download URL."""
+  exportTransactions(
+    from: DateTime
+    to: DateTime
+    customer: ID
+    status: TransactionStatus
+    currency: Currency
+    amount: Int
+    settled: Boolean
+    settlement: ID
+    paymentPage: ID
+  ): String
+
+  """Fetch a customer by email address or customer code."""
+  customer(emailOrCode: String!): Customer
+
+  """List customers."""
+  customers(perPage: Int, page: Int, from: DateTime, to: DateTime): CustomerConnection!
+
+  """Fetch a billing plan by ID or plan code."""
+  plan(idOrCode: String!): Plan
+
+  """List billing plans."""
+  plans(perPage: Int, page: Int, interval: PlanInterval, amount: Int): PlanConnection!
+
+  """Fetch a subscription by ID or subscription code."""
+  subscription(idOrToken: String!): Subscription
+
+  """List subscriptions."""
+  subscriptions(perPage: Int, page: Int, customer: ID, plan: ID): SubscriptionConnection!
+
+  """Fetch a subaccount by ID or subaccount code."""
+  subaccount(idOrCode: String!): Subaccount
+
+  """List subaccounts."""
+  subaccounts(perPage: Int, page: Int, from: DateTime, to: DateTime): SubaccountConnection!
+
+  """Fetch a transaction split by ID."""
+  split(id: ID!): Split
+
+  """List transaction splits."""
+  splits(perPage: Int, page: Int, name: String, active: Boolean, sortBy: String): SplitConnection!
+
+  """Fetch a transfer by ID or transfer code."""
+  transfer(idOrCode: String!): Transfer
+
+  """List transfers."""
+  transfers(perPage: Int, page: Int, customer: ID, from: DateTime, to: DateTime): TransferConnection!
+
+  """Verify a transfer by reference."""
+  verifyTransfer(reference: String!): Transfer
+
+  """Fetch a transfer recipient by ID or recipient code."""
+  transferRecipient(idOrCode: String!): TransferRecipient
+
+  """List transfer recipients."""
+  transferRecipients(perPage: Int, page: Int, from: DateTime, to: DateTime): TransferRecipientConnection!
+
+  """Fetch current account balance(s)."""
+  balance: [Balance!]!
+
+  """List balance ledger entries."""
+  balanceLedger(perPage: Int, page: Int, from: DateTime, to: DateTime): BalanceLedgerConnection!
+
+  """Fetch a settlement by ID."""
+  settlement(id: ID!): Settlement
+
+  """List settlements."""
+  settlements(perPage: Int, page: Int, from: DateTime, to: DateTime, subaccount: String): SettlementConnection!
+
+  """List the transactions that make up a settlement."""
+  settlementTransactions(id: ID!, perPage: Int, page: Int, from: DateTime, to: DateTime): SettlementTransactionConnection!
+
+  """Fetch a dispute by ID."""
+  dispute(id: ID!): Dispute
+
+  """List disputes."""
+  disputes(
+    perPage: Int
+    page: Int
+    from: DateTime
+    to: DateTime
+    transaction: ID
+    status: DisputeStatus
+  ): DisputeConnection!
+
+  """Export disputes to a CSV download URL."""
+  exportDisputes(from: DateTime!, to: DateTime!, transaction: ID, status: DisputeStatus): String
+
+  """Fetch a refund by reference."""
+  refund(reference: String!): Refund
+
+  """List refunds."""
+  refunds(
+    perPage: Int
+    page: Int
+    reference: String
+    currency: Currency
+    from: DateTime
+    to: DateTime
+    transaction: ID
+  ): RefundConnection!
+
+  """Fetch a product by ID."""
+  product(id: ID!): Product
+
+  """List products."""
+  products(perPage: Int, page: Int): ProductConnection!
+
+  """Fetch a payment page by ID or slug."""
+  paymentPage(idOrSlug: String!): PaymentPage
+
+  """Check whether a payment page slug is available."""
+  checkSlugAvailability(slug: String!): Boolean!
+
+  """List payment pages."""
+  paymentPages(perPage: Int, page: Int): PaymentPageConnection!
+
+  """Fetch a payment request by ID or code."""
+  paymentRequest(idOrCode: String!): PaymentRequest
+
+  """List payment requests."""
+  paymentRequests(
+    perPage: Int
+    page: Int
+    customer: ID
+    status: PaymentRequestStatus
+    currency: Currency
+    from: DateTime
+    to: DateTime
+  ): PaymentRequestConnection!
+
+  """Fetch a dedicated virtual account by ID."""
+  dedicatedAccount(id: ID!): DedicatedAccount
+
+  """List dedicated virtual accounts."""
+  dedicatedAccounts(
+    active: Boolean
+    currency: Currency
+    providerSlug: String
+    bankId: String
+    customer: ID
+  ): DedicatedAccountConnection!
+
+  """List bank providers available for dedicated account creation."""
+  dedicatedAccountProviders: [DedicatedAccountProvider!]!
+
+  """List supported banks for a given country."""
+  banks(
+    country: String!
+    useCursor: Boolean
+    perPage: Int
+    next: String
+    previous: String
+    gateway: String
+    type: String
+    currency: Currency
+  ): BankConnection!
+
+  """List countries supported by Paystack."""
+  countries: [Country!]!
+
+  """List states for a country (used for AVS address verification)."""
+  states(country: String!): [JSON!]!
+
+  """Resolve a bank account number to an account name."""
+  verifyAccountNumber(accountNumber: String!, bankCode: String!): AccountNumberResolution
+
+  """Resolve a BVN to customer identity metadata."""
+  resolveBvn(bvn: String!): BvnResolution
+
+  """Match a BVN against a customer's stored data."""
+  matchBvn(bvn: String!, accountNumber: String!, bankCode: String!, firstName: String!, lastName: String!): JSON
+
+  """Look up a card BIN."""
+  cardBin(bin: String!): CardBin
+
+  """Fetch a bulk charge batch by ID or batch code."""
+  bulkCharge(idOrCode: String!): BulkCharge
+
+  """List bulk charge batches."""
+  bulkCharges(perPage: Int, page: Int, from: DateTime, to: DateTime): BulkChargeConnection!
+
+  """List the charge items within a bulk charge batch."""
+  bulkChargeItems(idOrCode: String!, status: TransactionStatus, perPage: Int, page: Int): BulkChargeItemConnection!
+
+  """Fetch a terminal by terminal ID."""
+  terminal(terminalId: String!): Terminal
+
+  """Check whether a terminal is online and available."""
+  terminalStatus(terminalId: String!): JSON
+
+  """List terminals."""
+  terminals(perPage: Int, next: String, previous: String): TerminalConnection!
+
+  """Fetch integration-level settings."""
+  integration: Integration
+}
+
+# ---------------------------------------------------------------------------
+# Mutation root
+# ---------------------------------------------------------------------------
+
+type Mutation {
+  # --- Transactions ---
+
+  """Initialize a hosted checkout transaction. Returns an authorization URL."""
+  initializeTransaction(input: InitializeTransactionInput!): JSON!
+
+  """Charge a previously stored authorization."""
+  chargeAuthorization(
+    email: String!
+    amount: Int!
+    authorizationCode: String!
+    reference: String
+    currency: Currency
+    metadata: JSON
+    channels: [PaymentChannel!]
+    subaccount: String
+    transactionCharge: Int
+    bearer: BearerType
+    queue: Boolean
+  ): Transaction
+
+  """Check whether an authorization can bear a given charge amount."""
+  checkAuthorization(
+    email: String!
+    amount: Int!
+    authorizationCode: String!
+    currency: Currency
+  ): JSON
+
+  """Perform a partial debit against an authorization."""
+  partialDebit(
+    authorizationCode: String!
+    currency: Currency!
+    amount: Int!
+    email: String!
+    at_least: Int
+  ): Transaction
+
+  # --- Direct charge flow ---
+
+  """Create a direct charge and receive the first challenge step."""
+  createCharge(input: CreateChargeInput!): Charge
+
+  """Submit a PIN to satisfy a pending charge challenge."""
+  submitPin(pin: String!, reference: String!): Charge
+
+  """Submit an OTP to satisfy a pending charge challenge."""
+  submitOtp(otp: String!, reference: String!): Charge
+
+  """Submit a phone number to satisfy a pending charge challenge."""
+  submitPhone(phone: String!, reference: String!): Charge
+
+  """Submit a birthday to satisfy a pending charge challenge."""
+  submitBirthday(birthday: String!, reference: String!): Charge
+
+  """Submit an address to satisfy a pending charge challenge."""
+  submitAddress(
+    address: String!
+    city: String!
+    state: String!
+    zipcode: String!
+    reference: String!
+  ): Charge
+
+  # --- Refunds ---
+
+  """Create a full or partial refund against a successful transaction."""
+  createRefund(
+    transaction: String!
+    amount: Int
+    currency: Currency
+    customerNote: String
+    merchantNote: String
+  ): Refund
+
+  # --- Customers ---
+
+  """Create a new customer profile."""
+  createCustomer(
+    email: String!
+    firstName: String
+    lastName: String
+    phone: String
+    metadata: JSON
+  ): Customer
+
+  """Update an existing customer profile."""
+  updateCustomer(
+    code: String!
+    firstName: String
+    lastName: String
+    phone: String
+    metadata: JSON
+  ): Customer
+
+  """Submit a KYC validation request for a customer."""
+  validateCustomer(
+    customerCode: String!
+    country: String!
+    type: String!
+    value: String!
+    firstName: String!
+    lastName: String!
+    value2: String
+  ): Boolean
+
+  """Set the risk action on a customer (allow, deny, default)."""
+  setRiskAction(customer: String!, riskAction: RiskAction!): Customer
+
+  """Deactivate a stored card authorization so it cannot be reused."""
+  deactivateAuthorization(authorizationCode: String!): Boolean
+
+  # --- Plans ---
+
+  """Create a new recurring billing plan."""
+  createPlan(
+    name: String!
+    interval: PlanInterval!
+    amount: Int!
+    currency: Currency
+    invoiceLimit: Int
+    sendInvoices: Boolean
+    sendSms: Boolean
+    description: String
+  ): Plan
+
+  """Update an existing billing plan."""
+  updatePlan(
+    idOrCode: String!
+    name: String
+    interval: PlanInterval
+    amount: Int
+    currency: Currency
+    invoiceLimit: Int
+    sendInvoices: Boolean
+    sendSms: Boolean
+    description: String
+  ): Boolean
+
+  # --- Subscriptions ---
+
+  """Subscribe a customer to a billing plan."""
+  createSubscription(
+    customer: String!
+    plan: String!
+    authorization: String
+    startDate: DateTime
+  ): Subscription
+
+  """Enable a previously disabled subscription."""
+  enableSubscription(code: String!, token: String!): Boolean
+
+  """Disable an active subscription."""
+  disableSubscription(code: String!, token: String!): Boolean
+
+  """Generate a self-service management link for a subscription."""
+  generateSubscriptionLink(code: String!): SubscriptionLink
+
+  """Send the management link email to the subscriber."""
+  sendSubscriptionLink(code: String!): Boolean
+
+  # --- Subaccounts ---
+
+  """Create a vendor subaccount with settlement bank details."""
+  createSubaccount(
+    businessName: String!
+    settlementBank: String!
+    accountNumber: String!
+    percentageCharge: Float!
+    description: String
+    primaryContactEmail: String
+    primaryContactName: String
+    primaryContactPhone: String
+    metadata: JSON
+  ): Subaccount
+
+  """Update an existing subaccount."""
+  updateSubaccount(
+    idOrCode: String!
+    businessName: String
+    settlementBank: String
+    accountNumber: String
+    percentageCharge: Float
+    description: String
+    primaryContactEmail: String
+    primaryContactName: String
+    primaryContactPhone: String
+    settlementSchedule: String
+    metadata: JSON
+  ): Subaccount
+
+  # --- Splits ---
+
+  """Create a transaction split configuration."""
+  createSplit(
+    name: String!
+    type: SplitType!
+    currency: Currency!
+    subaccounts: [SplitSubaccountInput!]!
+    bearerType: BearerType!
+    bearerSubaccount: String!
+  ): Split
+
+  """Update an existing transaction split."""
+  updateSplit(
+    id: ID!
+    name: String
+    active: Boolean
+    bearerType: BearerType
+    bearerSubaccount: String
+  ): Split
+
+  """Add or update a subaccount on a transaction split."""
+  addSplitSubaccount(id: ID!, subaccount: String!, share: Float!): Split
+
+  """Remove a subaccount from a transaction split."""
+  removeSplitSubaccount(id: ID!, subaccount: String!): Boolean
+
+  # --- Transfer recipients ---
+
+  """Create a transfer recipient for payouts."""
+  createTransferRecipient(
+    type: RecipientType!
+    name: String!
+    accountNumber: String!
+    bankCode: String
+    currency: Currency
+    description: String
+    metadata: JSON
+    email: String
+    authorizationCode: String
+  ): TransferRecipient
+
+  """Bulk-create transfer recipients."""
+  bulkCreateTransferRecipients(batch: [JSON!]!): JSON
+
+  """Update a transfer recipient's name or email."""
+  updateTransferRecipient(idOrCode: String!, name: String!, email: String): TransferRecipient
+
+  """Delete a transfer recipient."""
+  deleteTransferRecipient(idOrCode: String!): Boolean
+
+  # --- Transfers ---
+
+  """Initiate a single transfer from Paystack balance."""
+  initiateTransfer(
+    source: String!
+    amount: Int!
+    recipient: String!
+    reason: String
+    currency: Currency
+    reference: String
+  ): Transfer
+
+  """Finalize a transfer pending OTP verification."""
+  finalizeTransfer(transferCode: String!, otp: String!): Transfer
+
+  """Initiate a bulk transfer."""
+  bulkTransfer(source: String!, transfers: [BulkTransferItemInput!]!): BulkTransfer
+
+  # --- Products ---
+
+  """Create a product."""
+  createProduct(
+    name: String!
+    description: String!
+    price: Int!
+    currency: Currency!
+    unlimited: Boolean
+    quantity: Int
+  ): Product
+
+  """Update a product."""
+  updateProduct(
+    id: ID!
+    name: String
+    description: String
+    price: Int
+    currency: Currency
+    unlimited: Boolean
+    quantity: Int
+  ): Product
+
+  # --- Payment pages ---
+
+  """Create a hosted payment page."""
+  createPaymentPage(
+    name: String!
+    description: String
+    amount: Int
+    splitCode: String
+    slug: String
+    metadata: JSON
+    redirectUrl: String
+    customFields: [JSON!]
+    collectPhone: Boolean
+  ): PaymentPage
+
+  """Update a payment page."""
+  updatePaymentPage(
+    idOrSlug: String!
+    name: String
+    description: String
+    amount: Int
+    active: Boolean
+    redirectUrl: String
+  ): PaymentPage
+
+  """Add products to a payment page."""
+  addProductsToPage(id: ID!, products: [Int!]!): Boolean
+
+  # --- Payment requests ---
+
+  """Create a payment request (invoice)."""
+  createPaymentRequest(
+    customer: String!
+    amount: Int!
+    currency: Currency
+    dueDate: DateTime
+    description: String
+    lineItems: [JSON!]
+    tax: [JSON!]
+    sendNotification: Boolean
+    draft: Boolean
+    hasInvoice: Boolean
+    invoiceNumber: Int
+    splitCode: String
+  ): PaymentRequest
+
+  """Send or resend the notification email for a payment request."""
+  sendPaymentRequestNotification(idOrCode: String!): Boolean
+
+  """Finalize a draft payment request."""
+  finalizePaymentRequest(idOrCode: String!): PaymentRequest
+
+  """Update a payment request."""
+  updatePaymentRequest(
+    idOrCode: String!
+    customer: String
+    amount: Int
+    currency: Currency
+    dueDate: DateTime
+    description: String
+    lineItems: [JSON!]
+    tax: [JSON!]
+    sendNotification: Boolean
+    draft: Boolean
+  ): PaymentRequest
+
+  """Archive a handled payment request."""
+  archivePaymentRequest(idOrCode: String!): Boolean
+
+  # --- Dedicated accounts ---
+
+  """Create a dedicated NUBAN virtual account for a customer."""
+  createDedicatedAccount(
+    customer: String!
+    preferredBank: String
+    subaccount: String
+    splitCode: String
+    firstName: String
+    lastName: String
+    phone: String
+  ): DedicatedAccount
+
+  """Assign a dedicated account to a customer by their identity details."""
+  assignDedicatedAccount(
+    email: String!
+    firstName: String!
+    lastName: String!
+    phone: String!
+    preferredBank: String!
+    country: String!
+  ): Boolean
+
+  """Configure a split on a dedicated account."""
+  splitDedicatedAccount(
+    customer: String!
+    subaccount: String
+    splitCode: String
+    preferredBank: String
+  ): DedicatedAccount
+
+  """Remove a split from a dedicated account."""
+  removeSplitFromDedicatedAccount(account: String!): DedicatedAccount
+
+  """Deactivate a dedicated account."""
+  deactivateDedicatedAccount(dedicatedAccountId: Int!): DedicatedAccount
+
+  # --- Bulk charges ---
+
+  """Initiate a bulk charge batch against stored authorizations."""
+  initiateBulkCharge(objects: [BulkChargeItemInput!]!): BulkCharge
+
+  """Pause a running bulk charge batch."""
+  pauseBulkCharge(batchCode: String!): Boolean
+
+  """Resume a paused bulk charge batch."""
+  resumeBulkCharge(batchCode: String!): Boolean
+
+  # --- Disputes ---
+
+  """Add evidence to a dispute."""
+  addDisputeEvidence(
+    id: ID!
+    customerEmail: String!
+    customerName: String!
+    customerPhone: String
+    serviceDetails: String!
+    deliveryAddress: String
+    deliveryDate: DateTime
+  ): DisputeEvidence
+
+  """Get a signed URL to upload dispute evidence files."""
+  getDisputeUploadUrl(id: ID!): DisputeUploadUrl
+
+  """Resolve a dispute."""
+  resolveDispute(id: ID!, resolution: DisputeResolution!): Dispute
+
+  # --- Terminals ---
+
+  """Send an event to a Paystack Terminal for POS display."""
+  sendTerminalEvent(terminalId: String!, type: String!, action: String!, data: JSON!): JSON
+
+  """Update terminal metadata."""
+  updateTerminal(terminalId: String!, name: String!, address: String!): Terminal
+
+  """Commission a new terminal device."""
+  commissionTerminal(serialNumber: String!): Boolean
+
+  """Decommission a terminal."""
+  decommissionTerminal(terminalId: String!): Boolean
+
+  # --- Integration ---
+
+  """Update integration-level settings."""
+  updateIntegration(sessionTimeout: Int!): Integration
+}
