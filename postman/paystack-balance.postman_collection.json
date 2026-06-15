@@ -1,0 +1,478 @@
+{
+  "info": {
+    "_postman_id": "7d911411-fbea-4e6c-9f0c-1af4a8255d31",
+    "name": "Paystack Balance API",
+    "description": "Fetch your Paystack balance and ledger history per currency for treasury operations and reconciliation.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:02:01.000Z",
+    "updatedAt": "2026-06-05T15:02:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7d911411-fbea-4e6c-9f0c-1af4a8255d31"
+  },
+  "item": [
+    {
+      "name": "balance",
+      "item": [
+        {
+          "name": "ledger",
+          "item": [
+            {
+              "name": "Balance Ledger",
+              "id": "2ca30a33-d936-4932-9677-236aeeed2a74",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/balance/ledger?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "balance",
+                    "ledger"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b95a5d75-922f-406d-b6f5-80b06e962bf2",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/balance/ledger?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "balance",
+                        "ledger"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:02.000Z",
+                  "updatedAt": "2026-06-05T15:02:02.000Z",
+                  "uid": "35240-b95a5d75-922f-406d-b6f5-80b06e962bf2"
+                },
+                {
+                  "id": "f95f0e03-d25a-4562-a1d1-f61fb68dd908",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/balance/ledger?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "balance",
+                        "ledger"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:02.000Z",
+                  "updatedAt": "2026-06-05T15:02:02.000Z",
+                  "uid": "35240-f95f0e03-d25a-4562-a1d1-f61fb68dd908"
+                },
+                {
+                  "id": "6b7c7555-39d7-4a52-a5c8-c25dd3d73371",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/balance/ledger?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "balance",
+                        "ledger"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:02.000Z",
+                  "updatedAt": "2026-06-05T15:02:02.000Z",
+                  "uid": "35240-6b7c7555-39d7-4a52-a5c8-c25dd3d73371"
+                },
+                {
+                  "id": "e25f8b01-9a78-4110-9ce9-89a51d81ff81",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/balance/ledger?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "balance",
+                        "ledger"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:02.000Z",
+                  "updatedAt": "2026-06-05T15:02:02.000Z",
+                  "uid": "35240-e25f8b01-9a78-4110-9ce9-89a51d81ff81"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:02.000Z",
+              "updatedAt": "2026-06-05T15:02:02.000Z",
+              "uid": "35240-2ca30a33-d936-4932-9677-236aeeed2a74"
+            }
+          ],
+          "id": "a153d94f-1172-472d-b31c-54ae302bda00",
+          "createdAt": "2026-06-05T15:02:02.000Z",
+          "updatedAt": "2026-06-05T15:02:02.000Z",
+          "uid": "35240-a153d94f-1172-472d-b31c-54ae302bda00"
+        },
+        {
+          "name": "Fetch Balance",
+          "id": "d78ffd5f-25a2-4f4a-b045-00dd34db6082",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/balance",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "balance"
+              ]
+            },
+            "description": "Check your Paystack account balance"
+          },
+          "response": [
+            {
+              "id": "2b09c2ae-39e4-4b83-96a1-2ce23f6fbd34",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "balance"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:02.000Z",
+              "updatedAt": "2026-06-05T15:02:02.000Z",
+              "uid": "35240-2b09c2ae-39e4-4b83-96a1-2ce23f6fbd34"
+            },
+            {
+              "id": "a49b6e18-a0d9-4c0c-8733-9d2807949952",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "balance"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:02.000Z",
+              "updatedAt": "2026-06-05T15:02:02.000Z",
+              "uid": "35240-a49b6e18-a0d9-4c0c-8733-9d2807949952"
+            },
+            {
+              "id": "49ce115c-a9ca-4b27-8396-b1f2ad3312fb",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "balance"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:02.000Z",
+              "updatedAt": "2026-06-05T15:02:02.000Z",
+              "uid": "35240-49ce115c-a9ca-4b27-8396-b1f2ad3312fb"
+            },
+            {
+              "id": "77a4b0d4-d25a-4e67-90b5-fbc1ae87d6d7",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "balance"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:02.000Z",
+              "updatedAt": "2026-06-05T15:02:02.000Z",
+              "uid": "35240-77a4b0d4-d25a-4e67-90b5-fbc1ae87d6d7"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:02.000Z",
+          "updatedAt": "2026-06-05T15:02:02.000Z",
+          "uid": "35240-d78ffd5f-25a2-4f4a-b045-00dd34db6082"
+        }
+      ],
+      "id": "f38ea04e-7424-429f-b53e-d2f2e8e2de08",
+      "createdAt": "2026-06-05T15:02:02.000Z",
+      "updatedAt": "2026-06-05T15:02:02.000Z",
+      "uid": "35240-f38ea04e-7424-429f-b53e-d2f2e8e2de08"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

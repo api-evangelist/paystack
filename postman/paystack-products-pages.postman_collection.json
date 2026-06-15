@@ -1,0 +1,2918 @@
+{
+  "info": {
+    "_postman_id": "40d4e4e9-34ff-4be7-b8ac-d6ffee1fda8c",
+    "name": "Paystack Products and Payment Pages API",
+    "description": "Create and manage products in your inventory and Paystack-hosted Payment Pages so you can collect payments without writing custom checkout code.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:55.000Z",
+    "updatedAt": "2026-06-05T15:01:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-40d4e4e9-34ff-4be7-b8ac-d6ffee1fda8c"
+  },
+  "item": [
+    {
+      "name": "product",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Fetch Product",
+              "id": "6d5f5417-b250-43b7-997e-3291c06da07d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/product/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fafc2219-e273-46d6-894b-dbd5e1b64be2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "18aa4bdd-d83a-4d03-8966-8dfac930d347",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-18aa4bdd-d83a-4d03-8966-8dfac930d347"
+                },
+                {
+                  "id": "abfab14e-07d2-4968-9f40-90c2c75d3f38",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-abfab14e-07d2-4968-9f40-90c2c75d3f38"
+                },
+                {
+                  "id": "bd0aae5b-5a69-4103-9294-a9a4c58deb32",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-bd0aae5b-5a69-4103-9294-a9a4c58deb32"
+                },
+                {
+                  "id": "167039ad-0695-4a30-a06a-a4c8248f351c",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-167039ad-0695-4a30-a06a-a4c8248f351c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-6d5f5417-b250-43b7-997e-3291c06da07d"
+            },
+            {
+              "name": "Update Product",
+              "id": "7b704106-b222-45ed-b4e4-1aa87cebfda6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Name of product",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The description of the product",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Number of products in stock. Use if limited is true",
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "df1ec9f4-f92f-4e9e-90ef-be5d45fed0a4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "06bef985-f1b5-4a85-a2e0-a6b542a00f2e",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of product",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the product",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "price",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                          "key": "limited",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Number of products in stock. Use if limited is true",
+                          "key": "quantity",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-06bef985-f1b5-4a85-a2e0-a6b542a00f2e"
+                },
+                {
+                  "id": "b758983f-1070-4129-8266-2b374d52c78e",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of product",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the product",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "price",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                          "key": "limited",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Number of products in stock. Use if limited is true",
+                          "key": "quantity",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-b758983f-1070-4129-8266-2b374d52c78e"
+                },
+                {
+                  "id": "05a10bfe-9ecc-49fc-9669-f5784ea371e7",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of product",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the product",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "price",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                          "key": "limited",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Number of products in stock. Use if limited is true",
+                          "key": "quantity",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-05a10bfe-9ecc-49fc-9669-f5784ea371e7"
+                },
+                {
+                  "id": "6493bcd6-b732-475b-b7cb-9183d277751b",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of product",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the product",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "price",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                          "key": "limited",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Number of products in stock. Use if limited is true",
+                          "key": "quantity",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-6493bcd6-b732-475b-b7cb-9183d277751b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-7b704106-b222-45ed-b4e4-1aa87cebfda6"
+            },
+            {
+              "name": "Delete Product",
+              "id": "e3264b64-4b5d-45e5-ab54-4c5ff0a87f9d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/product/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "30ac2f46-70e1-426d-b55b-3452d2a87e0b",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "43df1842-833e-426f-814f-03ad7864bfb7",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-43df1842-833e-426f-814f-03ad7864bfb7"
+                },
+                {
+                  "id": "472499fa-fd1e-421d-bd11-0b042657bf13",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-472499fa-fd1e-421d-bd11-0b042657bf13"
+                },
+                {
+                  "id": "a441b8b3-dcec-4a98-9d9a-3262c0be4743",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-a441b8b3-dcec-4a98-9d9a-3262c0be4743"
+                },
+                {
+                  "id": "eb0e47ad-a1f1-43b7-9560-1b4664350d64",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/product/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "product",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-eb0e47ad-a1f1-43b7-9560-1b4664350d64"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-e3264b64-4b5d-45e5-ab54-4c5ff0a87f9d"
+            }
+          ],
+          "id": "dfef51c0-7b97-44a9-a874-35327f79cd26",
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-dfef51c0-7b97-44a9-a874-35327f79cd26"
+        },
+        {
+          "name": "Create Product",
+          "id": "6ed14e89-ae92-4b2e-adce-9cc206c181c4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Name of product",
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The description of the product",
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                  "key": "price",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                  "key": "limited",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Number of products in stock. Use if limited is true",
+                  "key": "quantity",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/product",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9765f8bb-e42e-4967-b81c-de08d3b9c614",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of product",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The description of the product",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Number of products in stock. Use if limited is true",
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-9765f8bb-e42e-4967-b81c-de08d3b9c614"
+            },
+            {
+              "id": "1458f1db-8c30-4e30-8aa1-2b5209bb3bed",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of product",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The description of the product",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Number of products in stock. Use if limited is true",
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-1458f1db-8c30-4e30-8aa1-2b5209bb3bed"
+            },
+            {
+              "id": "2dbd4ff5-17c7-4d12-80ae-0970a37341e4",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of product",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The description of the product",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Number of products in stock. Use if limited is true",
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/product",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-2dbd4ff5-17c7-4d12-80ae-0970a37341e4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-6ed14e89-ae92-4b2e-adce-9cc206c181c4"
+        },
+        {
+          "name": "List Products",
+          "id": "def80e60-6d7f-4d69-8904-de8c9053fa0f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/product?perPage=<integer>&page=<integer>&active=<boolean>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "product"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf499048-a004-49eb-b8f1-c19ecf8c204f",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/product?perPage=<integer>&page=<integer>&active=<boolean>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-cf499048-a004-49eb-b8f1-c19ecf8c204f"
+            },
+            {
+              "id": "97926949-bfd9-4135-9e34-fe1ddb02af4e",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/product?perPage=<integer>&page=<integer>&active=<boolean>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-97926949-bfd9-4135-9e34-fe1ddb02af4e"
+            },
+            {
+              "id": "8d6e98a6-dae5-4cae-8f05-d85ad1617d4b",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/product?perPage=<integer>&page=<integer>&active=<boolean>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-8d6e98a6-dae5-4cae-8f05-d85ad1617d4b"
+            },
+            {
+              "id": "4b3ef4e5-03a5-4436-90c5-9acbee685e22",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/product?perPage=<integer>&page=<integer>&active=<boolean>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "product"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-4b3ef4e5-03a5-4436-90c5-9acbee685e22"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-def80e60-6d7f-4d69-8904-de8c9053fa0f"
+        }
+      ],
+      "id": "fb0028e6-4174-49ec-ab90-3c5efb2ea2a9",
+      "createdAt": "2026-06-05T15:01:55.000Z",
+      "updatedAt": "2026-06-05T15:01:55.000Z",
+      "uid": "35240-fb0028e6-4174-49ec-ab90-3c5efb2ea2a9"
+    },
+    {
+      "name": "page",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "product",
+              "item": [
+                {
+                  "name": "Add Products",
+                  "id": "29b25230-3d61-4abb-89f4-716bd1fbbb67",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) IDs of all products to add to a page",
+                          "key": "product",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) IDs of all products to add to a page",
+                          "key": "product",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id/product",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id",
+                        "product"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7207028-41ef-4611-8d7c-cb6bd3983f2c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "696e7839-4a48-4b07-b266-b2a9f82f573d",
+                      "name": "201 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/page/:id/product",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            ":id",
+                            "product"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-696e7839-4a48-4b07-b266-b2a9f82f573d"
+                    },
+                    {
+                      "id": "3e9ef43c-bf7b-43c2-a4ee-e0178c542ea7",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/page/:id/product",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            ":id",
+                            "product"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-3e9ef43c-bf7b-43c2-a4ee-e0178c542ea7"
+                    },
+                    {
+                      "id": "8caf3840-4d0d-4e96-b50d-fec087775088",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) IDs of all products to add to a page",
+                              "key": "product",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/page/:id/product",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            ":id",
+                            "product"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-8caf3840-4d0d-4e96-b50d-fec087775088"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-29b25230-3d61-4abb-89f4-716bd1fbbb67"
+                }
+              ],
+              "id": "d63a3d07-3873-4535-82e8-4275dd9dd237",
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-d63a3d07-3873-4535-82e8-4275dd9dd237"
+            },
+            {
+              "name": "Fetch Page",
+              "id": "d5328f77-a14b-4295-9b28-be1ec2320c6d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/page/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1c57cb5a-477d-4399-b40f-099891babf8e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "37b63ac1-16c8-4509-a930-7a659061e670",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-37b63ac1-16c8-4509-a930-7a659061e670"
+                },
+                {
+                  "id": "b8a1ce55-f7ce-462c-a30f-0625660d7f8d",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-b8a1ce55-f7ce-462c-a30f-0625660d7f8d"
+                },
+                {
+                  "id": "106318c2-4980-43a3-a5d3-27439b5ea105",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-106318c2-4980-43a3-a5d3-27439b5ea105"
+                },
+                {
+                  "id": "b17cc951-9d69-4186-a3fb-fd1439626394",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-b17cc951-9d69-4186-a3fb-fd1439626394"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-d5328f77-a14b-4295-9b28-be1ec2320c6d"
+            },
+            {
+              "name": "Update Page",
+              "id": "9d458a24-647e-414e-91d6-27ac949fb90b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Name of page",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The description of the page",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Set to false to deactivate page url",
+                      "key": "active",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/page/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5bfdff4a-6b5c-480f-814a-3bca963c78d2",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "14f807bc-c6d7-48bf-a4f3-0851fab89c03",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of page",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the page",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to false to deactivate page url",
+                          "key": "active",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-14f807bc-c6d7-48bf-a4f3-0851fab89c03"
+                },
+                {
+                  "id": "931f4e63-cbea-44bf-944f-4e88170c99d3",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of page",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the page",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to false to deactivate page url",
+                          "key": "active",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-931f4e63-cbea-44bf-944f-4e88170c99d3"
+                },
+                {
+                  "id": "bc5f9b40-da46-478a-8fa6-5f3f2161b095",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of page",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the page",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to false to deactivate page url",
+                          "key": "active",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-bc5f9b40-da46-478a-8fa6-5f3f2161b095"
+                },
+                {
+                  "id": "370ea230-380a-4508-a033-9ed445b9ae39",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of page",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The description of the page",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Set to false to deactivate page url",
+                          "key": "active",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/page/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-370ea230-380a-4508-a033-9ed445b9ae39"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-9d458a24-647e-414e-91d6-27ac949fb90b"
+            }
+          ],
+          "id": "e2aff27c-9d7a-4242-a6d9-743ec145401e",
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-e2aff27c-9d7a-4242-a6d9-743ec145401e"
+        },
+        {
+          "name": "check_slug_availability",
+          "item": [
+            {
+              "name": "{slug}",
+              "item": [
+                {
+                  "name": "Check Slug Availability",
+                  "id": "29040cd4-6385-4698-829e-c1fbc1ff8805",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/page/check_slug_availability/:slug",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "page",
+                        "check_slug_availability",
+                        ":slug"
+                      ],
+                      "variable": [
+                        {
+                          "id": "468d6234-4591-4a47-9d25-1edd636ceb2c",
+                          "key": "slug",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8b5cb275-dd85-4af2-aff7-8215276062c7",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/page/check_slug_availability/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            "check_slug_availability",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-8b5cb275-dd85-4af2-aff7-8215276062c7"
+                    },
+                    {
+                      "id": "f59e6452-b137-47e3-8c2c-00e0aef91f90",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/page/check_slug_availability/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            "check_slug_availability",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-f59e6452-b137-47e3-8c2c-00e0aef91f90"
+                    },
+                    {
+                      "id": "95b17bb5-ceaa-4b67-9d93-5b3f9cfa1c54",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/page/check_slug_availability/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            "check_slug_availability",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-95b17bb5-ceaa-4b67-9d93-5b3f9cfa1c54"
+                    },
+                    {
+                      "id": "9a8cd677-bf1c-4652-9074-9ff4720373a3",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/page/check_slug_availability/:slug",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "page",
+                            "check_slug_availability",
+                            ":slug"
+                          ],
+                          "variable": [
+                            {
+                              "key": "slug"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:55.000Z",
+                      "updatedAt": "2026-06-05T15:01:55.000Z",
+                      "uid": "35240-9a8cd677-bf1c-4652-9074-9ff4720373a3"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:55.000Z",
+                  "updatedAt": "2026-06-05T15:01:55.000Z",
+                  "uid": "35240-29040cd4-6385-4698-829e-c1fbc1ff8805"
+                }
+              ],
+              "id": "85f11b46-0461-42d5-91bb-921b0964651c",
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-85f11b46-0461-42d5-91bb-921b0964651c"
+            }
+          ],
+          "id": "f1ecbaa0-051a-4ee9-8cb8-355b8f835d69",
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-f1ecbaa0-051a-4ee9-8cb8-355b8f835d69"
+        },
+        {
+          "name": "Create Page",
+          "id": "ea6bba47-808f-45f5-8b95-b77d9e80d0f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Name of page",
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The description of the page",
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                  "key": "amount",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug]",
+                  "key": "slug",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Stringified JSON object of custom data",
+                  "key": "metadata",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If you would like Paystack to redirect to a URL upon successful payment, specify the URL here.",
+                  "key": "redirect_url",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/page",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "page"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf04bbfd-0757-4987-8329-bfdb7feb465f",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of page",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The description of the page",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug]",
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If you would like Paystack to redirect to a URL upon successful payment, specify the URL here.",
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/page",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-cf04bbfd-0757-4987-8329-bfdb7feb465f"
+            },
+            {
+              "id": "813c2d87-b617-47b8-ae0f-3122d48692a2",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of page",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The description of the page",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug]",
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If you would like Paystack to redirect to a URL upon successful payment, specify the URL here.",
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/page",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-813c2d87-b617-47b8-ae0f-3122d48692a2"
+            },
+            {
+              "id": "a4f3f860-b4ad-430c-a8fc-b13714fdfaee",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of page",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The description of the page",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug]",
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If you would like Paystack to redirect to a URL upon successful payment, specify the URL here.",
+                      "key": "redirect_url",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/page",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-a4f3f860-b4ad-430c-a8fc-b13714fdfaee"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-ea6bba47-808f-45f5-8b95-b77d9e80d0f5"
+        },
+        {
+          "name": "List Pages",
+          "id": "79a6d12b-1c53-43cb-ac6b-70df61dbad99",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/page?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "page"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "443e5b8f-3505-4923-8e05-f7b883dde594",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/page?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-443e5b8f-3505-4923-8e05-f7b883dde594"
+            },
+            {
+              "id": "fb1b71de-c1e4-4bb3-8b3d-9dd5e2e1e2ad",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/page?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-fb1b71de-c1e4-4bb3-8b3d-9dd5e2e1e2ad"
+            },
+            {
+              "id": "497a37aa-6b8c-43ea-9401-48b098aaf96b",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/page?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-497a37aa-6b8c-43ea-9401-48b098aaf96b"
+            },
+            {
+              "id": "1c233202-a034-405b-8c37-2ea5f6be422d",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/page?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "page"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:55.000Z",
+              "updatedAt": "2026-06-05T15:01:55.000Z",
+              "uid": "35240-1c233202-a034-405b-8c37-2ea5f6be422d"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:55.000Z",
+          "updatedAt": "2026-06-05T15:01:55.000Z",
+          "uid": "35240-79a6d12b-1c53-43cb-ac6b-70df61dbad99"
+        }
+      ],
+      "id": "b89e8828-c141-4e91-a70a-6281e41a296b",
+      "createdAt": "2026-06-05T15:01:55.000Z",
+      "updatedAt": "2026-06-05T15:01:55.000Z",
+      "uid": "35240-b89e8828-c141-4e91-a70a-6281e41a296b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

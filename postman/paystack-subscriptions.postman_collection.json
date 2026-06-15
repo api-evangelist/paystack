@@ -1,0 +1,3184 @@
+{
+  "info": {
+    "_postman_id": "679a7e3d-cb36-4ca5-9726-5e5a31aa3dbf",
+    "name": "Paystack Subscriptions API",
+    "description": "Create plans and manage recurring subscriptions for ongoing billing. Customers can be subscribed to plans for automatic recurring charges with email notifications and self-service updates.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:45.000Z",
+    "updatedAt": "2026-06-05T15:01:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-679a7e3d-cb36-4ca5-9726-5e5a31aa3dbf"
+  },
+  "item": [
+    {
+      "name": "plan",
+      "item": [
+        {
+          "name": "{code}",
+          "item": [
+            {
+              "name": "Fetch Plan",
+              "id": "10432a08-9dd8-4e57-88b7-8ff21e394ca5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plan/:code",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f58de240-ef8b-4fd0-bfec-d0b95af6f245",
+                      "key": "code",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c435f2fe-72cf-4bff-aed6-8cf45c3dec44",
+                  "name": "Resource created",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-c435f2fe-72cf-4bff-aed6-8cf45c3dec44"
+                },
+                {
+                  "id": "cd1071b1-fa43-4a2d-884c-30bf6ce55be0",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-cd1071b1-fa43-4a2d-884c-30bf6ce55be0"
+                },
+                {
+                  "id": "e27acace-cd2d-4826-915b-5c11d008225a",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-e27acace-cd2d-4826-915b-5c11d008225a"
+                },
+                {
+                  "id": "fbdbf27a-bd33-4f63-a9b4-d0ee1ef1e944",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-fbdbf27a-bd33-4f63-a9b4-d0ee1ef1e944"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-10432a08-9dd8-4e57-88b7-8ff21e394ca5"
+            },
+            {
+              "name": "Update Plan",
+              "id": "fcaf2c1a-4e72-4c79-a9a9-b6b2c1e9405e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Name of plan",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for this plan",
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want invoices to be sent to your customers",
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want text messages to be sent to your customers",
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/plan/:code",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f4527baf-a667-4d6d-a6a2-cf20964b6b77",
+                      "key": "code",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5172b7b1-eac6-4712-92db-3661b871b701",
+                  "name": "Resource created",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of plan",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                          "key": "interval",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A description for this plan",
+                          "key": "description",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want invoices to be sent to your customers",
+                          "key": "send_invoices",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want text messages to be sent to your customers",
+                          "key": "send_sms",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                          "key": "invoice_limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-5172b7b1-eac6-4712-92db-3661b871b701"
+                },
+                {
+                  "id": "f7dc63ef-995b-4142-ad0b-7eb76aa3db5b",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of plan",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                          "key": "interval",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A description for this plan",
+                          "key": "description",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want invoices to be sent to your customers",
+                          "key": "send_invoices",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want text messages to be sent to your customers",
+                          "key": "send_sms",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                          "key": "invoice_limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-f7dc63ef-995b-4142-ad0b-7eb76aa3db5b"
+                },
+                {
+                  "id": "c3dc7dce-d5de-4c0c-8ebf-ee5dd53c1b14",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of plan",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                          "key": "interval",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A description for this plan",
+                          "key": "description",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want invoices to be sent to your customers",
+                          "key": "send_invoices",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want text messages to be sent to your customers",
+                          "key": "send_sms",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                          "key": "invoice_limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-c3dc7dce-d5de-4c0c-8ebf-ee5dd53c1b14"
+                },
+                {
+                  "id": "5f67bf97-3465-4604-92ff-3498d35bda83",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of plan",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                          "key": "interval",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A description for this plan",
+                          "key": "description",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want invoices to be sent to your customers",
+                          "key": "send_invoices",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to false if you don't want text messages to be sent to your customers",
+                          "key": "send_sms",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                          "key": "invoice_limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/plan/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plan",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-5f67bf97-3465-4604-92ff-3498d35bda83"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-fcaf2c1a-4e72-4c79-a9a9-b6b2c1e9405e"
+            }
+          ],
+          "id": "f1b00e60-2c6f-4ec4-8284-e47706992dcf",
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-f1b00e60-2c6f-4ec4-8284-e47706992dcf"
+        },
+        {
+          "name": "Create Plan",
+          "id": "0a31b429-931a-4bb5-88e3-7e596e3f75bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Name of plan",
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                  "key": "amount",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A description for this plan",
+                  "key": "description",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Set to false if you don't want invoices to be sent to your customers",
+                  "key": "send_invoices",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Set to false if you don't want text messages to be sent to your customers",
+                  "key": "send_sms",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                  "key": "invoice_limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/plan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plan"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d25cab6b-adb5-4d61-9f19-e71fddfd17d4",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of plan",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for this plan",
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want invoices to be sent to your customers",
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want text messages to be sent to your customers",
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/plan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-d25cab6b-adb5-4d61-9f19-e71fddfd17d4"
+            },
+            {
+              "id": "6e43f891-47ac-45dc-88be-de3d75d32561",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of plan",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for this plan",
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want invoices to be sent to your customers",
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want text messages to be sent to your customers",
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/plan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-6e43f891-47ac-45dc-88be-de3d75d32561"
+            },
+            {
+              "id": "4b1ed4d9-bf43-4fd6-8809-531fbb3aac80",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of plan",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A description for this plan",
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want invoices to be sent to your customers",
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to false if you don't want text messages to be sent to your customers",
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/plan",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-4b1ed4d9-bf43-4fd6-8809-531fbb3aac80"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-0a31b429-931a-4bb5-88e3-7e596e3f75bc"
+        },
+        {
+          "name": "List Plans",
+          "id": "d8527246-eae0-4189-aad4-883653e80a56",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/plan?perPage=<integer>&page=<integer>&interval=<string>&amount=<integer>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "plan"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify interval of the plan",
+                  "key": "interval",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The amount on the plans to retrieve",
+                  "key": "amount",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "938a2ad2-03f2-4445-b116-9ca9266d98e9",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plan?perPage=<integer>&page=<integer>&interval=<string>&amount=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify interval of the plan",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount on the plans to retrieve",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-938a2ad2-03f2-4445-b116-9ca9266d98e9"
+            },
+            {
+              "id": "536b7f64-92f9-4832-a09a-32aec89258da",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plan?perPage=<integer>&page=<integer>&interval=<string>&amount=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify interval of the plan",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount on the plans to retrieve",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-536b7f64-92f9-4832-a09a-32aec89258da"
+            },
+            {
+              "id": "a66da312-d76e-4577-be15-b9617d5d6dbd",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plan?perPage=<integer>&page=<integer>&interval=<string>&amount=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify interval of the plan",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount on the plans to retrieve",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-a66da312-d76e-4577-be15-b9617d5d6dbd"
+            },
+            {
+              "id": "1c07e7dc-bd1f-4352-84e1-9a78b8ba36f9",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plan?perPage=<integer>&page=<integer>&interval=<string>&amount=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plan"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify interval of the plan",
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The amount on the plans to retrieve",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-1c07e7dc-bd1f-4352-84e1-9a78b8ba36f9"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-d8527246-eae0-4189-aad4-883653e80a56"
+        }
+      ],
+      "id": "efcb843b-67fb-42f3-b0c4-f4e0e1322f46",
+      "createdAt": "2026-06-05T15:01:46.000Z",
+      "updatedAt": "2026-06-05T15:01:46.000Z",
+      "uid": "35240-efcb843b-67fb-42f3-b0c4-f4e0e1322f46"
+    },
+    {
+      "name": "subscription",
+      "item": [
+        {
+          "name": "{code}",
+          "item": [
+            {
+              "name": "manage",
+              "item": [
+                {
+                  "name": "link",
+                  "item": [
+                    {
+                      "name": "Generate Update Subscription Link",
+                      "id": "04cc1d91-7bad-4c6e-890a-d1784ba48717",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/subscription/:code/manage/link",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "subscription",
+                            ":code",
+                            "manage",
+                            "link"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a7064552-b265-48b4-8e30-ef2c58c68c3d",
+                              "key": "code",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8ea44790-691b-41df-ac70-e6d1d9a5b411",
+                          "name": "Resource created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-8ea44790-691b-41df-ac70-e6d1d9a5b411"
+                        },
+                        {
+                          "id": "2431269d-ead6-40c2-a5b0-8ff72d352918",
+                          "name": "Unauthorized operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-2431269d-ead6-40c2-a5b0-8ff72d352918"
+                        },
+                        {
+                          "id": "b37e5939-54ba-446a-8d1f-d46640f4f152",
+                          "name": "Server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/link",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "link"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-b37e5939-54ba-446a-8d1f-d46640f4f152"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:01:46.000Z",
+                      "updatedAt": "2026-06-05T15:01:46.000Z",
+                      "uid": "35240-04cc1d91-7bad-4c6e-890a-d1784ba48717"
+                    }
+                  ],
+                  "id": "6ecba614-4e56-4229-b1dc-cfd5e3a92516",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-6ecba614-4e56-4229-b1dc-cfd5e3a92516"
+                },
+                {
+                  "name": "email",
+                  "item": [
+                    {
+                      "name": "Send Update Subscription Link",
+                      "id": "bfabedee-d79b-45de-850a-505df5c77472",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/subscription/:code/manage/email",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "subscription",
+                            ":code",
+                            "manage",
+                            "email"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1db7ee28-318d-450b-80bc-8c26966c3f90",
+                              "key": "code",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4b57c703-01c2-4468-82a3-f8f41683f05c",
+                          "name": "Resource created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "email"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-4b57c703-01c2-4468-82a3-f8f41683f05c"
+                        },
+                        {
+                          "id": "91f8057c-7d1a-4436-a947-772acbbf2847",
+                          "name": "Unauthorized operation",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "email"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-91f8057c-7d1a-4436-a947-772acbbf2847"
+                        },
+                        {
+                          "id": "fc977acf-8df1-4a27-9eaf-4ec3367113e5",
+                          "name": "Server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscription/:code/manage/email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscription",
+                                ":code",
+                                "manage",
+                                "email"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:46.000Z",
+                          "updatedAt": "2026-06-05T15:01:46.000Z",
+                          "uid": "35240-fc977acf-8df1-4a27-9eaf-4ec3367113e5"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:01:46.000Z",
+                      "updatedAt": "2026-06-05T15:01:46.000Z",
+                      "uid": "35240-bfabedee-d79b-45de-850a-505df5c77472"
+                    }
+                  ],
+                  "id": "5237a8ca-3c23-43c3-9404-ee4ac493cf23",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-5237a8ca-3c23-43c3-9404-ee4ac493cf23"
+                }
+              ],
+              "id": "53ae27a0-53d6-4207-bdfe-d3aa2458b590",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-53ae27a0-53d6-4207-bdfe-d3aa2458b590"
+            },
+            {
+              "name": "Fetch Subscription",
+              "id": "0749a594-3c3b-415b-90fa-317298b5dc7d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subscription/:code",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    ":code"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2d031418-1b3e-4c57-9774-1fe50923d350",
+                      "key": "code",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "305b5c0b-6776-401a-b38c-9363b1abd842",
+                  "name": "Resource created",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-305b5c0b-6776-401a-b38c-9363b1abd842"
+                },
+                {
+                  "id": "491a38b3-f99a-415c-a525-343596b4e003",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-491a38b3-f99a-415c-a525-343596b4e003"
+                },
+                {
+                  "id": "35d65e28-1a65-401b-b7cf-25c7a92b0fe5",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-35d65e28-1a65-401b-b7cf-25c7a92b0fe5"
+                },
+                {
+                  "id": "83753b05-c5f6-43fc-801f-44905ff16b3d",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-83753b05-c5f6-43fc-801f-44905ff16b3d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-0749a594-3c3b-415b-90fa-317298b5dc7d"
+            }
+          ],
+          "id": "56495b96-dc20-431c-b733-01693b2d1bef",
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-56495b96-dc20-431c-b733-01693b2d1bef"
+        },
+        {
+          "name": "disable",
+          "item": [
+            {
+              "name": "Disable Subscription",
+              "id": "74ad073c-c408-4316-bad7-823659e62f38",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Subscription code",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Email token",
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "authorization",
+                      "value": "19824892.884944886"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subscription/disable",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "disable"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b047ed52-95ad-4640-8606-979faeda2b83",
+                  "name": "Resource created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/disable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "disable"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-b047ed52-95ad-4640-8606-979faeda2b83"
+                },
+                {
+                  "id": "0a281add-ddf2-4215-95a1-df740984e11f",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/disable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "disable"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-0a281add-ddf2-4215-95a1-df740984e11f"
+                },
+                {
+                  "id": "722c0484-21b0-4bfa-a77f-307088d8b3be",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/disable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "disable"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-722c0484-21b0-4bfa-a77f-307088d8b3be"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-74ad073c-c408-4316-bad7-823659e62f38"
+            }
+          ],
+          "id": "232caf2f-cae6-479a-8348-902e41737a9e",
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-232caf2f-cae6-479a-8348-902e41737a9e"
+        },
+        {
+          "name": "enable",
+          "item": [
+            {
+              "name": "Enable Subscription",
+              "id": "6d314640-a5fe-454f-8c15-08e0575634f1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Subscription code",
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Email token",
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "authorization",
+                      "value": "19824892.884944886"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subscription/enable",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription",
+                    "enable"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "148b854c-36f5-49f4-8c41-881364070082",
+                  "name": "Resource created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/enable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "enable"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-148b854c-36f5-49f4-8c41-881364070082"
+                },
+                {
+                  "id": "2657e48b-a6f3-4f40-84b2-38dbdf872df5",
+                  "name": "Unauthorized operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/enable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "enable"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-2657e48b-a6f3-4f40-84b2-38dbdf872df5"
+                },
+                {
+                  "id": "9316eecb-ad9b-4c88-8f46-dd7da00ab0c0",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Subscription code",
+                          "key": "code",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Email token",
+                          "key": "token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "authorization",
+                          "value": "19824892.884944886"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subscription/enable",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subscription",
+                        "enable"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:46.000Z",
+                  "updatedAt": "2026-06-05T15:01:46.000Z",
+                  "uid": "35240-9316eecb-ad9b-4c88-8f46-dd7da00ab0c0"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-6d314640-a5fe-454f-8c15-08e0575634f1"
+            }
+          ],
+          "id": "162ec536-55ec-4094-8abd-40fff5cef3f8",
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-162ec536-55ec-4094-8abd-40fff5cef3f8"
+        },
+        {
+          "name": "Create Subscription",
+          "id": "03975a5b-5b68-46f1-aa3f-0b25d6996d88",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Customer's email address or customer code",
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Plan code",
+                  "key": "plan",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here. \nIf this is not supplied, the customer's most recent authorization would be used",
+                  "key": "authorization",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00",
+                  "key": "start_date",
+                  "value": "<dateTime>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/subscription",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "subscription"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "13b0fc1b-b96d-42e2-a635-0013efcbab55",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer's email address or customer code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Plan code",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here. \nIf this is not supplied, the customer's most recent authorization would be used",
+                      "key": "authorization",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00",
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subscription",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-13b0fc1b-b96d-42e2-a635-0013efcbab55"
+            },
+            {
+              "id": "a3b1604e-2d63-4ee3-80f1-a7da96134337",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer's email address or customer code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Plan code",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here. \nIf this is not supplied, the customer's most recent authorization would be used",
+                      "key": "authorization",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00",
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subscription",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-a3b1604e-2d63-4ee3-80f1-a7da96134337"
+            },
+            {
+              "id": "a66c6c36-5b75-4970-9cd9-088576e681a4",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer's email address or customer code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Plan code",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here. \nIf this is not supplied, the customer's most recent authorization would be used",
+                      "key": "authorization",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00",
+                      "key": "start_date",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subscription",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-a66c6c36-5b75-4970-9cd9-088576e681a4"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-03975a5b-5b68-46f1-aa3f-0b25d6996d88"
+        },
+        {
+          "name": "List Subscriptions",
+          "id": "34ff55b5-cc1e-4832-966b-d511b6e8ba78",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/subscription?perPage=<integer>&page=<integer>&plan=<string>&customer=<string>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "subscription"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Plan ID",
+                  "key": "plan",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Customer ID",
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "897165d1-f1b9-4848-9a36-8a3930b40d48",
+              "name": "Resource created",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subscription?perPage=<integer>&page=<integer>&plan=<string>&customer=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Plan ID",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"reference #/components/responses/Ok/content/application~1json/schema not found in the OpenAPI spec\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-897165d1-f1b9-4848-9a36-8a3930b40d48"
+            },
+            {
+              "id": "d6759a40-04ab-4cf6-962d-e2e54c8e8f7c",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subscription?perPage=<integer>&page=<integer>&plan=<string>&customer=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Plan ID",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-d6759a40-04ab-4cf6-962d-e2e54c8e8f7c"
+            },
+            {
+              "id": "a68a181d-c4c5-4489-894e-1f1b086d56fc",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subscription?perPage=<integer>&page=<integer>&plan=<string>&customer=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Plan ID",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<boolean>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-a68a181d-c4c5-4489-894e-1f1b086d56fc"
+            },
+            {
+              "id": "fa5e6e59-731b-476f-9027-93df2dda2cac",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subscription?perPage=<integer>&page=<integer>&plan=<string>&customer=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subscription"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Plan ID",
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:46.000Z",
+              "updatedAt": "2026-06-05T15:01:46.000Z",
+              "uid": "35240-fa5e6e59-731b-476f-9027-93df2dda2cac"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:46.000Z",
+          "updatedAt": "2026-06-05T15:01:46.000Z",
+          "uid": "35240-34ff55b5-cc1e-4832-966b-d511b6e8ba78"
+        }
+      ],
+      "id": "fc306e15-fa46-44f2-ad33-8a02aa75400d",
+      "createdAt": "2026-06-05T15:01:46.000Z",
+      "updatedAt": "2026-06-05T15:01:46.000Z",
+      "uid": "35240-fc306e15-fa46-44f2-ad33-8a02aa75400d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

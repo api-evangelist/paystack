@@ -1,0 +1,154 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Dedicated Virtual Accounts API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dedicated Virtual Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Dedicated Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/dedicated_account",
+            "params": [
+              {
+                "name": "account_number",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "customer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "provider_slug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bank_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Dedicated Accounts"
+        },
+        {
+          "info": {
+            "name": "Create Dedicated Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/dedicated_account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Dedicated Account"
+        },
+        {
+          "info": {
+            "name": "Fetch Dedicated Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/dedicated_account/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Dedicated Account"
+        },
+        {
+          "info": {
+            "name": "Deactivate Dedicated Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paystack.co/dedicated_account/:account_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivate Dedicated Account"
+        },
+        {
+          "info": {
+            "name": "Fetch Bank Providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/dedicated_account/available_providers"
+          },
+          "docs": "Fetch Bank Providers"
+        },
+        {
+          "info": {
+            "name": "Split Dedicated Account Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/dedicated_account/split",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Split Dedicated Account Transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

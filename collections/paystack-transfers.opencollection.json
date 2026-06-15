@@ -1,0 +1,514 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Transfers API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transfer Recipient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Transfer Recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transferrecipient",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Transfer Recipients"
+        },
+        {
+          "info": {
+            "name": "Create Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transferrecipient",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Bulk Create Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transferrecipient/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Create Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Fetch Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ]
+          },
+          "docs": "Fetch Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Update Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Delete Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ]
+          },
+          "docs": "Delete Transfer Recipient"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transfer",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transfer",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Transfers"
+        },
+        {
+          "info": {
+            "name": "Initiate Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate Transfer"
+        },
+        {
+          "info": {
+            "name": "Finalize Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/finalize_transfer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Finalize Transfer"
+        },
+        {
+          "info": {
+            "name": "Initiate Bulk Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate Bulk Transfer"
+        },
+        {
+          "info": {
+            "name": "Fetch Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transfer/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer code"
+              }
+            ]
+          },
+          "docs": "Fetch Transfer"
+        },
+        {
+          "info": {
+            "name": "Verify Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transfer/verify/:reference",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Verify Transfer"
+        },
+        {
+          "info": {
+            "name": "Export Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transfer/export",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "Export Transfers"
+        },
+        {
+          "info": {
+            "name": "Resend OTP for Transfer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/resend_otp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resend OTP for Transfer"
+        },
+        {
+          "info": {
+            "name": "Disable OTP Requirement for Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/disable_otp"
+          },
+          "docs": "Disable OTP Requirement for Transfers"
+        },
+        {
+          "info": {
+            "name": "Finalize Disabling of OTP Requirement for Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/disable_otp_finalize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Finalize Disabling of OTP Requirement for Transfers"
+        },
+        {
+          "info": {
+            "name": "Enable OTP Requirement for Transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transfer/enable_otp"
+          },
+          "docs": "Enable OTP Requirement for Transfers"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Charge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Bulk Charge Batches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bulkcharge",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Bulk Charge Batches"
+        },
+        {
+          "info": {
+            "name": "Initiate Bulk Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/bulkcharge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate Bulk Charge"
+        },
+        {
+          "info": {
+            "name": "Fetch Bulk Charge Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bulkcharge/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Batch code"
+              }
+            ]
+          },
+          "docs": "Fetch Bulk Charge Batch"
+        },
+        {
+          "info": {
+            "name": "Fetch Charges in a Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bulkcharge/:code/charges",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Batch code"
+              }
+            ]
+          },
+          "docs": "Fetch Charges in a Batch"
+        },
+        {
+          "info": {
+            "name": "Pause Bulk Charge Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bulkcharge/pause/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Batch code"
+              }
+            ]
+          },
+          "docs": "Pause Bulk Charge Batch"
+        },
+        {
+          "info": {
+            "name": "Resume Bulk Charge Batch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bulkcharge/resume/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Batch code"
+              }
+            ]
+          },
+          "docs": "Resume Bulk Charge Batch"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

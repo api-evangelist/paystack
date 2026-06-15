@@ -1,0 +1,185 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Verification API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Match Service",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/bvn/match",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Match Service"
+        },
+        {
+          "info": {
+            "name": "Resolve BVN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bank/resolve_bvn/:bvn",
+            "params": [
+              {
+                "name": "bvn",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resolve BVN"
+        },
+        {
+          "info": {
+            "name": "Resolve Account Number",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bank/resolve",
+            "params": [
+              {
+                "name": "account_number",
+                "value": "22728151",
+                "type": "query"
+              },
+              {
+                "name": "bank_code",
+                "value": "063",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Resolve Account Number"
+        },
+        {
+          "info": {
+            "name": "Resolve Card BIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/decision/bin/:bin",
+            "params": [
+              {
+                "name": "bin",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resolve Card BIN"
+        },
+        {
+          "info": {
+            "name": "List Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/country"
+          },
+          "docs": "List Countries"
+        },
+        {
+          "info": {
+            "name": "Fetch Banks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/bank",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pay_with_bank_transfer",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "use_cursor",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "next",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "previous",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gateway",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch Banks"
+        },
+        {
+          "info": {
+            "name": "List States (AVS)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/address_verification/states",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List States (AVS)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

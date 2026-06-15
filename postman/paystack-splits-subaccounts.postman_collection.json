@@ -1,0 +1,2983 @@
+{
+  "info": {
+    "_postman_id": "611a9c4f-5e69-421c-880c-90c53b4d6955",
+    "name": "Paystack Splits and Subaccounts API",
+    "description": "Build marketplaces by automatically splitting payments between multiple parties (the integration and one or more subaccounts) using transaction split groups and subaccount profiles.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:50.000Z",
+    "updatedAt": "2026-06-05T15:01:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-611a9c4f-5e69-421c-880c-90c53b4d6955"
+  },
+  "item": [
+    {
+      "name": "split",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "subaccount",
+              "item": [
+                {
+                  "name": "add",
+                  "item": [
+                    {
+                      "name": "Add Subaccount to Split",
+                      "id": "2d130e3e-0a1d-46c2-8938-84634d245806",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "Subaccount code of the customer or partner",
+                              "key": "subaccount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The percentage or flat quota of the customer or partner",
+                              "key": "share",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/split/:id/subaccount/add",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "split",
+                            ":id",
+                            "subaccount",
+                            "add"
+                          ],
+                          "variable": [
+                            {
+                              "id": "088826b8-4a05-4fb1-a68b-18862320453d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "edd6dfd4-66b7-4602-891d-b0b44728f9f9",
+                          "name": "201 response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "add"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-edd6dfd4-66b7-4602-891d-b0b44728f9f9"
+                        },
+                        {
+                          "id": "7a56975d-d499-43ac-ab2f-12717bfba272",
+                          "name": "401 response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "add"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-7a56975d-d499-43ac-ab2f-12717bfba272"
+                        },
+                        {
+                          "id": "2719d899-7fa7-42d2-8402-782b3af34527",
+                          "name": "Server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/add",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "add"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-2719d899-7fa7-42d2-8402-782b3af34527"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:01:51.000Z",
+                      "updatedAt": "2026-06-05T15:01:51.000Z",
+                      "uid": "35240-2d130e3e-0a1d-46c2-8938-84634d245806"
+                    }
+                  ],
+                  "id": "36b29ea4-0f4b-4dcf-b66d-3cf3588beb21",
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-36b29ea4-0f4b-4dcf-b66d-3cf3588beb21"
+                },
+                {
+                  "name": "remove",
+                  "item": [
+                    {
+                      "name": "Remove Subaccount From Split",
+                      "id": "deac1560-9fca-4ed2-9eda-e5e6ff72e447",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "Subaccount code of the customer or partner",
+                              "key": "subaccount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The percentage or flat quota of the customer or partner",
+                              "key": "share",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/split/:id/subaccount/remove",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "split",
+                            ":id",
+                            "subaccount",
+                            "remove"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a860206d-dc18-42db-94ef-6635d98e0c69",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "3e96068f-5a03-4c7f-a18c-dd7e3cbd8ef5",
+                          "name": "201 response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/remove",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "remove"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-3e96068f-5a03-4c7f-a18c-dd7e3cbd8ef5"
+                        },
+                        {
+                          "id": "f2c9d7e9-bf21-4057-a394-42061a1d4be7",
+                          "name": "401 response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/remove",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "remove"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-f2c9d7e9-bf21-4057-a394-42061a1d4be7"
+                        },
+                        {
+                          "id": "a25e07a1-64f0-4ed5-8cb5-754f6330ad3f",
+                          "name": "Server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/x-www-form-urlencoded"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "urlencoded",
+                              "urlencoded": [
+                                {
+                                  "description": "Subaccount code of the customer or partner",
+                                  "key": "subaccount",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "The percentage or flat quota of the customer or partner",
+                                  "key": "share",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/split/:id/subaccount/remove",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "split",
+                                ":id",
+                                "subaccount",
+                                "remove"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-06-05T15:01:51.000Z",
+                          "updatedAt": "2026-06-05T15:01:51.000Z",
+                          "uid": "35240-a25e07a1-64f0-4ed5-8cb5-754f6330ad3f"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T15:01:51.000Z",
+                      "updatedAt": "2026-06-05T15:01:51.000Z",
+                      "uid": "35240-deac1560-9fca-4ed2-9eda-e5e6ff72e447"
+                    }
+                  ],
+                  "id": "e2d2b4bb-5d1e-4122-b8fe-0fb76fe30711",
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-e2d2b4bb-5d1e-4122-b8fe-0fb76fe30711"
+                }
+              ],
+              "id": "02912049-7b7e-47ce-b3f8-13df97ce0d31",
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-02912049-7b7e-47ce-b3f8-13df97ce0d31"
+            },
+            {
+              "name": "Fetch Split",
+              "id": "23917ffe-e5ec-4acb-a15f-25de1aaeaf82",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/split/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3416946b-fc65-424e-a4a6-7cf8e92fbc6e",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "735b585a-140e-4fbc-bec1-1d1abb61a218",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-735b585a-140e-4fbc-bec1-1d1abb61a218"
+                },
+                {
+                  "id": "10e5fb4f-77f7-468f-a837-11ee1fdc46ba",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-10e5fb4f-77f7-468f-a837-11ee1fdc46ba"
+                },
+                {
+                  "id": "3285e113-ce2e-4968-9eff-0cea2dee48b8",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-3285e113-ce2e-4968-9eff-0cea2dee48b8"
+                },
+                {
+                  "id": "043e5b2c-d267-45fb-a439-99f39ca17c71",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-043e5b2c-d267-45fb-a439-99f39ca17c71"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-23917ffe-e5ec-4acb-a15f-25de1aaeaf82"
+            },
+            {
+              "name": "Update Split",
+              "id": "3c2a2529-32be-4d79-89f6-29e155b6c087",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Name of the transaction split",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Toggle status of split. When true, the split is active, else it's inactive",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "This allows you specify how the transaction charge should be processed",
+                      "key": "bearer_type",
+                      "value": "account"
+                    },
+                    {
+                      "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/split/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2f35da72-d79b-422d-8ee3-a4141279158d",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a4350589-2c12-4f8d-85a3-b7204aeda2e8",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of the transaction split",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Toggle status of split. When true, the split is active, else it's inactive",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This allows you specify how the transaction charge should be processed",
+                          "key": "bearer_type",
+                          "value": "account"
+                        },
+                        {
+                          "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                          "key": "bearer_subaccount",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-a4350589-2c12-4f8d-85a3-b7204aeda2e8"
+                },
+                {
+                  "id": "f34ce1d2-de6a-4535-8904-62b282d349d9",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of the transaction split",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Toggle status of split. When true, the split is active, else it's inactive",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This allows you specify how the transaction charge should be processed",
+                          "key": "bearer_type",
+                          "value": "account"
+                        },
+                        {
+                          "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                          "key": "bearer_subaccount",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-f34ce1d2-de6a-4535-8904-62b282d349d9"
+                },
+                {
+                  "id": "c5932d1b-cf9b-4a14-a803-76f6e7d05d30",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of the transaction split",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Toggle status of split. When true, the split is active, else it's inactive",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This allows you specify how the transaction charge should be processed",
+                          "key": "bearer_type",
+                          "value": "account"
+                        },
+                        {
+                          "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                          "key": "bearer_subaccount",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-c5932d1b-cf9b-4a14-a803-76f6e7d05d30"
+                },
+                {
+                  "id": "915a3fdd-cfd2-40b1-8271-6186965fa182",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of the transaction split",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Toggle status of split. When true, the split is active, else it's inactive",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "This allows you specify how the transaction charge should be processed",
+                          "key": "bearer_type",
+                          "value": "account"
+                        },
+                        {
+                          "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                          "key": "bearer_subaccount",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/split/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "split",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-915a3fdd-cfd2-40b1-8271-6186965fa182"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-3c2a2529-32be-4d79-89f6-29e155b6c087"
+            }
+          ],
+          "id": "cfdf29c6-d80d-4bf8-96fc-45a11cc27ec7",
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-cfdf29c6-d80d-4bf8-96fc-45a11cc27ec7"
+        },
+        {
+          "name": "Create Split",
+          "id": "a3161629-5903-4925-9466-429257348824",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Name of the transaction split",
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The type of transaction split you want to create.",
+                  "key": "type",
+                  "value": "percentage"
+                },
+                {
+                  "description": "(Required) A list of object containing subaccount code and number of shares",
+                  "key": "subaccounts",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "(Required) A list of object containing subaccount code and number of shares",
+                  "key": "subaccounts",
+                  "value": "[object Object]"
+                },
+                {
+                  "description": "(Required) The transaction currency",
+                  "key": "currency",
+                  "value": "USD"
+                },
+                {
+                  "description": "This allows you specify how the transaction charge should be processed",
+                  "key": "bearer_type",
+                  "value": "account"
+                },
+                {
+                  "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                  "key": "bearer_subaccount",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/split",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "split"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a54294f7-0d9a-4a10-851b-9b259d57c713",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of the transaction split",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of transaction split you want to create.",
+                      "key": "type",
+                      "value": "percentage"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) The transaction currency",
+                      "key": "currency",
+                      "value": "USD"
+                    },
+                    {
+                      "description": "This allows you specify how the transaction charge should be processed",
+                      "key": "bearer_type",
+                      "value": "account"
+                    },
+                    {
+                      "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/split",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-a54294f7-0d9a-4a10-851b-9b259d57c713"
+            },
+            {
+              "id": "d8819621-2126-49bc-86f7-398b41559643",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of the transaction split",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of transaction split you want to create.",
+                      "key": "type",
+                      "value": "percentage"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) The transaction currency",
+                      "key": "currency",
+                      "value": "USD"
+                    },
+                    {
+                      "description": "This allows you specify how the transaction charge should be processed",
+                      "key": "bearer_type",
+                      "value": "account"
+                    },
+                    {
+                      "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/split",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-d8819621-2126-49bc-86f7-398b41559643"
+            },
+            {
+              "id": "618159eb-64df-4d89-ae7b-f3bf97d819eb",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of the transaction split",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The type of transaction split you want to create.",
+                      "key": "type",
+                      "value": "percentage"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) A list of object containing subaccount code and number of shares",
+                      "key": "subaccounts",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "description": "(Required) The transaction currency",
+                      "key": "currency",
+                      "value": "USD"
+                    },
+                    {
+                      "description": "This allows you specify how the transaction charge should be processed",
+                      "key": "bearer_type",
+                      "value": "account"
+                    },
+                    {
+                      "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/split",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-618159eb-64df-4d89-ae7b-f3bf97d819eb"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-a3161629-5903-4925-9466-429257348824"
+        },
+        {
+          "name": "List Splits",
+          "id": "e6c2101c-f606-49fa-87bd-cd74425df7f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/split?name=<string>&active=<string>&sort_by=<string>&from=<string>&to=<string>&perPage=<string>&page=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "split"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "key": "perPage",
+                  "value": "<string>"
+                },
+                {
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83949728-1bcc-4d76-89db-688a859c271c",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/split?name=<string>&active=<string>&sort_by=<string>&from=<string>&to=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-83949728-1bcc-4d76-89db-688a859c271c"
+            },
+            {
+              "id": "670c4227-da9b-4ad5-bd6d-532be336f465",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/split?name=<string>&active=<string>&sort_by=<string>&from=<string>&to=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-670c4227-da9b-4ad5-bd6d-532be336f465"
+            },
+            {
+              "id": "4bd60a56-85a3-447f-bd09-b5257dd65072",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/split?name=<string>&active=<string>&sort_by=<string>&from=<string>&to=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-4bd60a56-85a3-447f-bd09-b5257dd65072"
+            },
+            {
+              "id": "d0f4a6df-a444-4704-9fcd-ad609a544428",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/split?name=<string>&active=<string>&sort_by=<string>&from=<string>&to=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "split"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-d0f4a6df-a444-4704-9fcd-ad609a544428"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-e6c2101c-f606-49fa-87bd-cd74425df7f9"
+        }
+      ],
+      "id": "8d47d5c2-6d3b-414d-a225-1c48207ed8d1",
+      "createdAt": "2026-06-05T15:01:51.000Z",
+      "updatedAt": "2026-06-05T15:01:51.000Z",
+      "uid": "35240-8d47d5c2-6d3b-414d-a225-1c48207ed8d1"
+    },
+    {
+      "name": "subaccount",
+      "item": [
+        {
+          "name": "{code}",
+          "item": [
+            {
+              "name": "Fetch Subaccount",
+              "id": "01002a4f-b31c-4674-a645-07e9c5df35f8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount/:code",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "variable": [
+                    {
+                      "id": "326bbed4-9e49-4eb4-8620-b54be3c9fbe3",
+                      "key": "code",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "310bbec0-2db5-4335-ade7-73fa1f03f235",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-310bbec0-2db5-4335-ade7-73fa1f03f235"
+                },
+                {
+                  "id": "e08ca66e-2aea-4f5e-be6d-e770bb9b2e0c",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-e08ca66e-2aea-4f5e-be6d-e770bb9b2e0c"
+                },
+                {
+                  "id": "10f306c6-b94e-405f-8f79-864b105bd533",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-10f306c6-b94e-405f-8f79-864b105bd533"
+                },
+                {
+                  "id": "9bc9c8f9-e8bd-4231-a12e-8f6ce821d8a7",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-9bc9c8f9-e8bd-4231-a12e-8f6ce821d8a7"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-01002a4f-b31c-4674-a645-07e9c5df35f8"
+            },
+            {
+              "name": "Update Subaccount",
+              "id": "41ae2a7b-315f-4a0b-93db-f04d545519aa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Name of business for subaccount",
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Bank account number",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Activate or deactivate a subaccount",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Customer's phone number",
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "A description for this subaccount",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A contact email for the subaccount",
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the contact person for this subaccount",
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A phone number to call for this subaccount",
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount/:code",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "variable": [
+                    {
+                      "id": "126345f6-dc7d-4bc2-992c-cd4e52fcd7f9",
+                      "key": "code",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c5d473a1-ac66-445e-a8fb-5dfb71ae2e26",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of business for subaccount",
+                          "key": "business_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                          "key": "settlement_bank",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank account number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Activate or deactivate a subaccount",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Customer's phone number",
+                          "key": "percentage_charge",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "A description for this subaccount",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A contact email for the subaccount",
+                          "key": "primary_contact_email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the contact person for this subaccount",
+                          "key": "primary_contact_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A phone number to call for this subaccount",
+                          "key": "primary_contact_phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Stringified JSON object of custom data",
+                          "key": "metadata",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-c5d473a1-ac66-445e-a8fb-5dfb71ae2e26"
+                },
+                {
+                  "id": "a6856a33-b13c-45da-a40c-500a43f2021c",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of business for subaccount",
+                          "key": "business_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                          "key": "settlement_bank",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank account number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Activate or deactivate a subaccount",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Customer's phone number",
+                          "key": "percentage_charge",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "A description for this subaccount",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A contact email for the subaccount",
+                          "key": "primary_contact_email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the contact person for this subaccount",
+                          "key": "primary_contact_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A phone number to call for this subaccount",
+                          "key": "primary_contact_phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Stringified JSON object of custom data",
+                          "key": "metadata",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-a6856a33-b13c-45da-a40c-500a43f2021c"
+                },
+                {
+                  "id": "a42d35b3-4087-4425-a91e-764954e97645",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of business for subaccount",
+                          "key": "business_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                          "key": "settlement_bank",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank account number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Activate or deactivate a subaccount",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Customer's phone number",
+                          "key": "percentage_charge",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "A description for this subaccount",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A contact email for the subaccount",
+                          "key": "primary_contact_email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the contact person for this subaccount",
+                          "key": "primary_contact_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A phone number to call for this subaccount",
+                          "key": "primary_contact_phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Stringified JSON object of custom data",
+                          "key": "metadata",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-a42d35b3-4087-4425-a91e-764954e97645"
+                },
+                {
+                  "id": "d0636574-eb46-4a59-b86a-4a01c10ae33c",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Name of business for subaccount",
+                          "key": "business_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                          "key": "settlement_bank",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Bank account number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Activate or deactivate a subaccount",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Customer's phone number",
+                          "key": "percentage_charge",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "A description for this subaccount",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A contact email for the subaccount",
+                          "key": "primary_contact_email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The name of the contact person for this subaccount",
+                          "key": "primary_contact_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A phone number to call for this subaccount",
+                          "key": "primary_contact_phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Stringified JSON object of custom data",
+                          "key": "metadata",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/subaccount/:code",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "subaccount",
+                        ":code"
+                      ],
+                      "variable": [
+                        {
+                          "key": "code"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:51.000Z",
+                  "updatedAt": "2026-06-05T15:01:51.000Z",
+                  "uid": "35240-d0636574-eb46-4a59-b86a-4a01c10ae33c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-41ae2a7b-315f-4a0b-93db-f04d545519aa"
+            }
+          ],
+          "id": "5b950e97-1e68-47f3-b09b-cc91d66740d0",
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-5b950e97-1e68-47f3-b09b-cc91d66740d0"
+        },
+        {
+          "name": "Create Subaccount",
+          "id": "a6b5c121-fbd0-4b1f-88c6-f4abc7c4f6fa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Name of business for subaccount",
+                  "key": "business_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                  "key": "settlement_bank",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Bank account number",
+                  "key": "account_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) Customer's phone number",
+                  "key": "percentage_charge",
+                  "value": "<float>"
+                },
+                {
+                  "description": "A description for this subaccount",
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A contact email for the subaccount",
+                  "key": "primary_contact_email",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name of the contact person for this subaccount",
+                  "key": "primary_contact_name",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A phone number to call for this subaccount",
+                  "key": "primary_contact_phone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Stringified JSON object of custom data",
+                  "key": "metadata",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/subaccount",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "subaccount"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c51d8406-bcae-4654-8609-446c47248b75",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of business for subaccount",
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank account number",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's phone number",
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "A description for this subaccount",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A contact email for the subaccount",
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the contact person for this subaccount",
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A phone number to call for this subaccount",
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-c51d8406-bcae-4654-8609-446c47248b75"
+            },
+            {
+              "id": "8bc52e00-5289-447d-b21a-d0f76bcaeee6",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of business for subaccount",
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank account number",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's phone number",
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "A description for this subaccount",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A contact email for the subaccount",
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the contact person for this subaccount",
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A phone number to call for this subaccount",
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-8bc52e00-5289-447d-b21a-d0f76bcaeee6"
+            },
+            {
+              "id": "197b54a5-ac77-44ac-b68f-3d5caa70dc87",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Name of business for subaccount",
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Bank account number",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Customer's phone number",
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "A description for this subaccount",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A contact email for the subaccount",
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name of the contact person for this subaccount",
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A phone number to call for this subaccount",
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stringified JSON object of custom data",
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-197b54a5-ac77-44ac-b68f-3d5caa70dc87"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-a6b5c121-fbd0-4b1f-88c6-f4abc7c4f6fa"
+        },
+        {
+          "name": "List Subaccounts",
+          "id": "7b032944-ba92-41e1-991e-ac26f2616056",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/subaccount?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "subaccount"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b10e15ac-ed82-4382-bc92-d2a36ca5ff33",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-b10e15ac-ed82-4382-bc92-d2a36ca5ff33"
+            },
+            {
+              "id": "58b06bff-0d7d-4423-b8db-a695fbde0556",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-58b06bff-0d7d-4423-b8db-a695fbde0556"
+            },
+            {
+              "id": "5b28578e-adce-42f3-9068-c3063351a0d4",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-5b28578e-adce-42f3-9068-c3063351a0d4"
+            },
+            {
+              "id": "865be8b2-e031-48c6-b61f-a1569d5bc7fb",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/subaccount?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "subaccount"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:51.000Z",
+              "updatedAt": "2026-06-05T15:01:51.000Z",
+              "uid": "35240-865be8b2-e031-48c6-b61f-a1569d5bc7fb"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:51.000Z",
+          "updatedAt": "2026-06-05T15:01:51.000Z",
+          "uid": "35240-7b032944-ba92-41e1-991e-ac26f2616056"
+        }
+      ],
+      "id": "bbb4a2eb-c4c6-4c7f-a284-4e41cb3ebbdc",
+      "createdAt": "2026-06-05T15:01:51.000Z",
+      "updatedAt": "2026-06-05T15:01:51.000Z",
+      "uid": "35240-bbb4a2eb-c4c6-4c7f-a284-4e41cb3ebbdc"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

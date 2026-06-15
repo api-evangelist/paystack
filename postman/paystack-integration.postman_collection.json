@@ -1,0 +1,443 @@
+{
+  "info": {
+    "_postman_id": "d8b3836a-e12c-4565-9f25-f529a5196e4f",
+    "name": "Paystack Integration Settings API",
+    "description": "Read and update integration-wide settings such as the payment session timeout for hosted checkout.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:02:17.000Z",
+    "updatedAt": "2026-06-05T15:02:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8b3836a-e12c-4565-9f25-f529a5196e4f"
+  },
+  "item": [
+    {
+      "name": "integration",
+      "item": [
+        {
+          "name": "payment_session_timeout",
+          "item": [
+            {
+              "name": "Fetch Payment Session Timeout",
+              "id": "a52da0f5-dc5e-4419-b136-15aa0a451703",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "integration",
+                    "payment_session_timeout"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "97709f39-880d-48ab-bd88-75681b050025",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-97709f39-880d-48ab-bd88-75681b050025"
+                },
+                {
+                  "id": "4b8b2730-a334-4d0b-9c8f-a3c639283873",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-4b8b2730-a334-4d0b-9c8f-a3c639283873"
+                },
+                {
+                  "id": "f29d86dc-1934-4467-b100-41a35712099f",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-f29d86dc-1934-4467-b100-41a35712099f"
+                },
+                {
+                  "id": "1870199c-99c0-4b25-840b-748c38e143ab",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-1870199c-99c0-4b25-840b-748c38e143ab"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:18.000Z",
+              "updatedAt": "2026-06-05T15:02:18.000Z",
+              "uid": "35240-a52da0f5-dc5e-4419-b136-15aa0a451703"
+            },
+            {
+              "name": "Update Payment Session Timeout",
+              "id": "9b055c2e-ad99-4287-a980-9703dfdcb652",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Time in seconds before a transaction becomes invalid",
+                      "key": "timeout",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "integration",
+                    "payment_session_timeout"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5ad178c3-f0ab-4ac4-a066-4ccdfbacd3e1",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Time in seconds before a transaction becomes invalid",
+                          "key": "timeout",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-5ad178c3-f0ab-4ac4-a066-4ccdfbacd3e1"
+                },
+                {
+                  "id": "08c050e7-e3de-4105-afa8-27fad3fd6c41",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Time in seconds before a transaction becomes invalid",
+                          "key": "timeout",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-08c050e7-e3de-4105-afa8-27fad3fd6c41"
+                },
+                {
+                  "id": "9c6b7d1b-d143-492d-b079-e4eee7418e3d",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Time in seconds before a transaction becomes invalid",
+                          "key": "timeout",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-9c6b7d1b-d143-492d-b079-e4eee7418e3d"
+                },
+                {
+                  "id": "987fdb24-e971-4ff9-8bd2-855bc0627186",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Time in seconds before a transaction becomes invalid",
+                          "key": "timeout",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/integration/payment_session_timeout",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "integration",
+                        "payment_session_timeout"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:18.000Z",
+                  "updatedAt": "2026-06-05T15:02:18.000Z",
+                  "uid": "35240-987fdb24-e971-4ff9-8bd2-855bc0627186"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:18.000Z",
+              "updatedAt": "2026-06-05T15:02:18.000Z",
+              "uid": "35240-9b055c2e-ad99-4287-a980-9703dfdcb652"
+            }
+          ],
+          "id": "be0abb91-187a-4ef5-b3ef-251cc023b6cd",
+          "createdAt": "2026-06-05T15:02:18.000Z",
+          "updatedAt": "2026-06-05T15:02:18.000Z",
+          "uid": "35240-be0abb91-187a-4ef5-b3ef-251cc023b6cd"
+        }
+      ],
+      "id": "46e3ce07-1016-4956-b493-3b22994137de",
+      "createdAt": "2026-06-05T15:02:18.000Z",
+      "updatedAt": "2026-06-05T15:02:18.000Z",
+      "uid": "35240-46e3ce07-1016-4956-b493-3b22994137de"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

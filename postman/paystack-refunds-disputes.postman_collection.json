@@ -1,0 +1,2991 @@
+{
+  "info": {
+    "_postman_id": "50566956-16e8-415f-8d88-748183872916",
+    "name": "Paystack Refunds and Disputes API",
+    "description": "Process customer refunds and respond to chargeback disputes \u2014 including evidence upload, resolution, and dispute export workflows.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:57.000Z",
+    "updatedAt": "2026-06-05T15:01:57.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-50566956-16e8-415f-8d88-748183872916"
+  },
+  "item": [
+    {
+      "name": "refund",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Fetch Refund",
+              "id": "60753e70-a91f-4278-be1a-280cf722f325",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/refund/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f368d457-f0d6-4790-bd1d-7acb293f1e16",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b869547c-ca09-4091-8724-a1cd2f5b2ebc",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refund/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refund",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-b869547c-ca09-4091-8724-a1cd2f5b2ebc"
+                },
+                {
+                  "id": "4b323618-cd60-44c1-aa0e-0b7a5e521206",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refund/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refund",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-4b323618-cd60-44c1-aa0e-0b7a5e521206"
+                },
+                {
+                  "id": "998148e9-0832-457a-8c71-215bf8a54a2b",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refund/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refund",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-998148e9-0832-457a-8c71-215bf8a54a2b"
+                },
+                {
+                  "id": "dfb09e5e-e41b-4eab-a7d5-c2829c04796a",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/refund/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "refund",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-dfb09e5e-e41b-4eab-a7d5-c2829c04796a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-60753e70-a91f-4278-be1a-280cf722f325"
+            }
+          ],
+          "id": "09e9827b-a14e-4165-9ba9-ad3a09d1e769",
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-09e9827b-a14e-4165-9ba9-ad3a09d1e769"
+        },
+        {
+          "name": "Create Refund",
+          "id": "1c7d2ce1-0887-43c9-b534-48a730c07f56",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Transaction reference or id",
+                  "key": "transaction",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer. \nAmount cannot be more than the original transaction amount",
+                  "key": "amount",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Three-letter ISO currency",
+                  "key": "currency",
+                  "value": "ZAR"
+                },
+                {
+                  "description": "Customer reason",
+                  "key": "customer_note",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Merchant reason",
+                  "key": "merchant_note",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/refund",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refund"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca1fff63-7fbd-4913-881d-0c3df4453514",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Transaction reference or id",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer. \nAmount cannot be more than the original transaction amount",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Three-letter ISO currency",
+                      "key": "currency",
+                      "value": "ZAR"
+                    },
+                    {
+                      "description": "Customer reason",
+                      "key": "customer_note",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Merchant reason",
+                      "key": "merchant_note",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-ca1fff63-7fbd-4913-881d-0c3df4453514"
+            },
+            {
+              "id": "043444cc-d66b-4d13-8985-1b1522a13b1e",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Transaction reference or id",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer. \nAmount cannot be more than the original transaction amount",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Three-letter ISO currency",
+                      "key": "currency",
+                      "value": "ZAR"
+                    },
+                    {
+                      "description": "Customer reason",
+                      "key": "customer_note",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Merchant reason",
+                      "key": "merchant_note",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-043444cc-d66b-4d13-8985-1b1522a13b1e"
+            },
+            {
+              "id": "bda88c2b-c4f8-4e74-bf3d-e52ecc29a7aa",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Transaction reference or id",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Amount ( in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR ) to be refunded to the customer. \nAmount cannot be more than the original transaction amount",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Three-letter ISO currency",
+                      "key": "currency",
+                      "value": "ZAR"
+                    },
+                    {
+                      "description": "Customer reason",
+                      "key": "customer_note",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Merchant reason",
+                      "key": "merchant_note",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/refund",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-bda88c2b-c4f8-4e74-bf3d-e52ecc29a7aa"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-1c7d2ce1-0887-43c9-b534-48a730c07f56"
+        },
+        {
+          "name": "List Refunds",
+          "id": "9730be85-47a0-4d48-9d4a-e5f37a6814eb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/refund?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "refund"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "38aac9c3-b921-4e4a-83f1-4c585b8c60e8",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refund?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-38aac9c3-b921-4e4a-83f1-4c585b8c60e8"
+            },
+            {
+              "id": "322cd77c-a3fc-491c-8d56-a4dee4dd4a32",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refund?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-322cd77c-a3fc-491c-8d56-a4dee4dd4a32"
+            },
+            {
+              "id": "2d24310e-d126-40d6-8ab5-0732437c5e8b",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refund?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-2d24310e-d126-40d6-8ab5-0732437c5e8b"
+            },
+            {
+              "id": "dc82bf83-9291-4f4e-be36-d9d362c4e9e2",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/refund?perPage=<integer>&page=<integer>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "refund"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-dc82bf83-9291-4f4e-be36-d9d362c4e9e2"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-9730be85-47a0-4d48-9d4a-e5f37a6814eb"
+        }
+      ],
+      "id": "9dac8a31-92d0-4faa-98c5-79e0a15c5cae",
+      "createdAt": "2026-06-05T15:01:58.000Z",
+      "updatedAt": "2026-06-05T15:01:58.000Z",
+      "uid": "35240-9dac8a31-92d0-4faa-98c5-79e0a15c5cae"
+    },
+    {
+      "name": "dispute",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "upload_url",
+              "item": [
+                {
+                  "name": "Get Upload URL",
+                  "id": "6be692c3-9ad0-4e9a-a54a-f7ebb04b523a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id/upload_url",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id",
+                        "upload_url"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b7254fa8-c085-41e3-b47a-46dd114a56a0",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Dispute ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d8dfbc8f-aa8b-402c-ab6a-90fc52f89ec9",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/upload_url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "upload_url"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-d8dfbc8f-aa8b-402c-ab6a-90fc52f89ec9"
+                    },
+                    {
+                      "id": "5f0ab56c-1a2c-44a4-ae03-e53eaa16b987",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/upload_url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "upload_url"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-5f0ab56c-1a2c-44a4-ae03-e53eaa16b987"
+                    },
+                    {
+                      "id": "dc72a720-7510-4bdd-b1db-b496486f7736",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/upload_url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "upload_url"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-dc72a720-7510-4bdd-b1db-b496486f7736"
+                    },
+                    {
+                      "id": "0b875b59-fb1e-4798-bd9f-08c23ab76aed",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/upload_url",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "upload_url"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-0b875b59-fb1e-4798-bd9f-08c23ab76aed"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-6be692c3-9ad0-4e9a-a54a-f7ebb04b523a"
+                }
+              ],
+              "id": "5688aea8-f43b-48bf-bad2-9509603bf8a1",
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-5688aea8-f43b-48bf-bad2-9509603bf8a1"
+            },
+            {
+              "name": "resolve",
+              "item": [
+                {
+                  "name": "Resolve a Dispute",
+                  "id": "cef295e9-68a0-4dd2-9fc3-b8aca7c68e9e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Dispute resolution.",
+                          "key": "resolution",
+                          "value": "merchant-accepted"
+                        },
+                        {
+                          "description": "(Required) Reason for resolving",
+                          "key": "message",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "refund_amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Filename of attachment returned via response from the Dispute upload URL",
+                          "key": "uploaded_filename",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Evidence Id for fraud claims",
+                          "key": "evidence",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id/resolve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id",
+                        "resolve"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b4c8f930-c0ca-4719-b1ad-1e7ed82d6922",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Dispute ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e5efb8c6-87f5-4d5d-a6fd-ea777bb1f230",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Dispute resolution.",
+                              "key": "resolution",
+                              "value": "merchant-accepted"
+                            },
+                            {
+                              "description": "(Required) Reason for resolving",
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                              "key": "refund_amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Filename of attachment returned via response from the Dispute upload URL",
+                              "key": "uploaded_filename",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Evidence Id for fraud claims",
+                              "key": "evidence",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/resolve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "resolve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-e5efb8c6-87f5-4d5d-a6fd-ea777bb1f230"
+                    },
+                    {
+                      "id": "842e6bfb-504c-407b-a27e-4fcfcb4baa34",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Dispute resolution.",
+                              "key": "resolution",
+                              "value": "merchant-accepted"
+                            },
+                            {
+                              "description": "(Required) Reason for resolving",
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                              "key": "refund_amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Filename of attachment returned via response from the Dispute upload URL",
+                              "key": "uploaded_filename",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Evidence Id for fraud claims",
+                              "key": "evidence",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/resolve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "resolve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-842e6bfb-504c-407b-a27e-4fcfcb4baa34"
+                    },
+                    {
+                      "id": "2667cc4b-ac32-47eb-a045-a98cc7f1fd08",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Dispute resolution.",
+                              "key": "resolution",
+                              "value": "merchant-accepted"
+                            },
+                            {
+                              "description": "(Required) Reason for resolving",
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                              "key": "refund_amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Filename of attachment returned via response from the Dispute upload URL",
+                              "key": "uploaded_filename",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Evidence Id for fraud claims",
+                              "key": "evidence",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/resolve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "resolve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-2667cc4b-ac32-47eb-a045-a98cc7f1fd08"
+                    },
+                    {
+                      "id": "778240bc-91fa-4da4-80ac-4452e7055906",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Dispute resolution.",
+                              "key": "resolution",
+                              "value": "merchant-accepted"
+                            },
+                            {
+                              "description": "(Required) Reason for resolving",
+                              "key": "message",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                              "key": "refund_amount",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Filename of attachment returned via response from the Dispute upload URL",
+                              "key": "uploaded_filename",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Evidence Id for fraud claims",
+                              "key": "evidence",
+                              "value": "<integer>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/resolve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "resolve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-778240bc-91fa-4da4-80ac-4452e7055906"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-cef295e9-68a0-4dd2-9fc3-b8aca7c68e9e"
+                }
+              ],
+              "id": "7a463b2d-3747-49dd-836c-9f356f6f2548",
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-7a463b2d-3747-49dd-836c-9f356f6f2548"
+            },
+            {
+              "name": "evidence",
+              "item": [
+                {
+                  "name": "Add Evidence",
+                  "id": "74e7d434-96d6-47c9-a8d9-9b6c5874973b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Customer email",
+                          "key": "customer_email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer name",
+                          "key": "customer_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Customer mobile number",
+                          "key": "customer_phone",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Details of service offered",
+                          "key": "service_details",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Delivery address",
+                          "key": "delivery_address",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 8601 representation of delivery date (YYYY-MM-DD)",
+                          "key": "delivery_date",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id/evidence",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id",
+                        "evidence"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6ede56e0-e289-47c9-9f44-4346ac5b04ab",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Dispute ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "def7869a-87c4-4891-91e7-d0eb96a098bc",
+                      "name": "201 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Customer email",
+                              "key": "customer_email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer name",
+                              "key": "customer_name",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer mobile number",
+                              "key": "customer_phone",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Details of service offered",
+                              "key": "service_details",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Delivery address",
+                              "key": "delivery_address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ISO 8601 representation of delivery date (YYYY-MM-DD)",
+                              "key": "delivery_date",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/evidence",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "evidence"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-def7869a-87c4-4891-91e7-d0eb96a098bc"
+                    },
+                    {
+                      "id": "b9913338-a654-444e-8bf3-e1a37bfa6647",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Customer email",
+                              "key": "customer_email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer name",
+                              "key": "customer_name",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer mobile number",
+                              "key": "customer_phone",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Details of service offered",
+                              "key": "service_details",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Delivery address",
+                              "key": "delivery_address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ISO 8601 representation of delivery date (YYYY-MM-DD)",
+                              "key": "delivery_date",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/evidence",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "evidence"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-b9913338-a654-444e-8bf3-e1a37bfa6647"
+                    },
+                    {
+                      "id": "9a69f5df-696d-4c55-a895-d6fdbcb55132",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) Customer email",
+                              "key": "customer_email",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer name",
+                              "key": "customer_name",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Customer mobile number",
+                              "key": "customer_phone",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) Details of service offered",
+                              "key": "service_details",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Delivery address",
+                              "key": "delivery_address",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "ISO 8601 representation of delivery date (YYYY-MM-DD)",
+                              "key": "delivery_date",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/:id/evidence",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            ":id",
+                            "evidence"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-9a69f5df-696d-4c55-a895-d6fdbcb55132"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-74e7d434-96d6-47c9-a8d9-9b6c5874973b"
+                }
+              ],
+              "id": "c9fffb0f-7003-4190-a741-829bbd69c3df",
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-c9fffb0f-7003-4190-a741-829bbd69c3df"
+            },
+            {
+              "name": "Fetch Dispute",
+              "id": "866ec6d9-b6db-4c31-96c8-f828f20720a8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "27e63a3a-e117-416e-884e-47b84f8eb8f3",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Dispute ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "65ed2956-9491-4346-825e-8e0496ed5ef2",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-65ed2956-9491-4346-825e-8e0496ed5ef2"
+                },
+                {
+                  "id": "a3bae3a6-7da1-4145-8584-a5879f7abcd1",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-a3bae3a6-7da1-4145-8584-a5879f7abcd1"
+                },
+                {
+                  "id": "62c7fa65-4e9e-49d1-b796-c5fa08f62d42",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-62c7fa65-4e9e-49d1-b796-c5fa08f62d42"
+                },
+                {
+                  "id": "588d1237-4db5-4768-b88c-c4d7cfd42d3a",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-588d1237-4db5-4768-b88c-c4d7cfd42d3a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-866ec6d9-b6db-4c31-96c8-f828f20720a8"
+            },
+            {
+              "name": "Update Dispute",
+              "id": "7b330ee4-0914-43ec-aea7-9fb23dab2b96",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                      "key": "refund_amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filename of attachment returned via response from the Dispute upload URL",
+                      "key": "uploaded_filename",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dispute/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "be372572-50ac-4415-ab00-16cd6e933daa",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) Dispute ID"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "33a1165d-4800-4675-91fc-1dec31e63d8d",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "refund_amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filename of attachment returned via response from the Dispute upload URL",
+                          "key": "uploaded_filename",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-33a1165d-4800-4675-91fc-1dec31e63d8d"
+                },
+                {
+                  "id": "d64eddba-86da-4fc8-a46f-58dce2de5b0c",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "refund_amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filename of attachment returned via response from the Dispute upload URL",
+                          "key": "uploaded_filename",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-d64eddba-86da-4fc8-a46f-58dce2de5b0c"
+                },
+                {
+                  "id": "63a5f73d-a66c-4974-9190-40ea91e15cda",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "refund_amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filename of attachment returned via response from the Dispute upload URL",
+                          "key": "uploaded_filename",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-63a5f73d-a66c-4974-9190-40ea91e15cda"
+                },
+                {
+                  "id": "dacd85cf-c71d-4e69-bc09-cc0405e0fb45",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The amount to refund, in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                          "key": "refund_amount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filename of attachment returned via response from the Dispute upload URL",
+                          "key": "uploaded_filename",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-dacd85cf-c71d-4e69-bc09-cc0405e0fb45"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-7b330ee4-0914-43ec-aea7-9fb23dab2b96"
+            }
+          ],
+          "id": "371985ee-ddbb-4856-afc0-18a671a74e2e",
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-371985ee-ddbb-4856-afc0-18a671a74e2e"
+        },
+        {
+          "name": "export",
+          "item": [
+            {
+              "name": "Export Disputes",
+              "id": "e37f046a-3288-4d74-ae13-ca8da47e98b7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute/export?perPage=<integer>&page=<integer>&status=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute",
+                    "export"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9c64051c-defb-466a-b03a-7f3a5879d10e",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/export?perPage=<integer>&page=<integer>&status=<string>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-9c64051c-defb-466a-b03a-7f3a5879d10e"
+                },
+                {
+                  "id": "37da7069-cd00-4d0c-9071-3951604039e6",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/export?perPage=<integer>&page=<integer>&status=<string>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-37da7069-cd00-4d0c-9071-3951604039e6"
+                },
+                {
+                  "id": "dfc2437e-b964-4bc7-bdd4-1a41e445566e",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/export?perPage=<integer>&page=<integer>&status=<string>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-dfc2437e-b964-4bc7-bdd4-1a41e445566e"
+                },
+                {
+                  "id": "db5d6375-6f2c-488c-bd53-71850052a77f",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/export?perPage=<integer>&page=<integer>&status=<string>&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        "export"
+                      ],
+                      "query": [
+                        {
+                          "description": "Number of records to fetch per page",
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The section to retrieve",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "status",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The start date",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "The end date",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-db5d6375-6f2c-488c-bd53-71850052a77f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-e37f046a-3288-4d74-ae13-ca8da47e98b7"
+            }
+          ],
+          "id": "f2fe9b96-d456-4b27-8433-ec16dcd3ddef",
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-f2fe9b96-d456-4b27-8433-ec16dcd3ddef"
+        },
+        {
+          "name": "transaction",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "List Transaction Disputes",
+                  "id": "cb7af533-a963-4929-a671-627426e51856",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dispute/transaction/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dispute",
+                        "transaction",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "edbd2344-c8b5-4eee-ae1d-3f3caf0f60ec",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) Transaction ID"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b0a1b6fa-9e4d-473c-80ff-0541cc802d10",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/transaction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            "transaction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-b0a1b6fa-9e4d-473c-80ff-0541cc802d10"
+                    },
+                    {
+                      "id": "b082c65a-5d69-48e7-9229-22e961f3966e",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/transaction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            "transaction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-b082c65a-5d69-48e7-9229-22e961f3966e"
+                    },
+                    {
+                      "id": "ca037f6b-fff0-4dd9-bcfd-399ec4277012",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/transaction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            "transaction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-ca037f6b-fff0-4dd9-bcfd-399ec4277012"
+                    },
+                    {
+                      "id": "c53ae7d4-c780-4fbf-aeaa-c14fb46ce326",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dispute/transaction/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dispute",
+                            "transaction",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:58.000Z",
+                      "updatedAt": "2026-06-05T15:01:58.000Z",
+                      "uid": "35240-c53ae7d4-c780-4fbf-aeaa-c14fb46ce326"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:58.000Z",
+                  "updatedAt": "2026-06-05T15:01:58.000Z",
+                  "uid": "35240-cb7af533-a963-4929-a671-627426e51856"
+                }
+              ],
+              "id": "1f35d7e7-2bdf-4024-a21f-5d4970dcd153",
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-1f35d7e7-2bdf-4024-a21f-5d4970dcd153"
+            }
+          ],
+          "id": "fde78f8e-49fb-40fc-9cfe-a828c8f66168",
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-fde78f8e-49fb-40fc-9cfe-a828c8f66168"
+        },
+        {
+          "name": "List Disputes",
+          "id": "0f644cee-30e3-4aae-b77d-9c27c48c67bc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dispute?perPage=<integer>&page=<integer>&status=resolved&transaction=<string>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dispute"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Dispute Status.",
+                  "key": "status",
+                  "value": "resolved"
+                },
+                {
+                  "description": "Transaction ID",
+                  "key": "transaction",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a27c41c0-fb59-45de-8603-480474316c40",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute?perPage=<integer>&page=<integer>&status=resolved&transaction=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Dispute Status.",
+                      "key": "status",
+                      "value": "resolved"
+                    },
+                    {
+                      "description": "Transaction ID",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-a27c41c0-fb59-45de-8603-480474316c40"
+            },
+            {
+              "id": "12d15b0f-1ade-4c01-89dc-0f6906c519f5",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute?perPage=<integer>&page=<integer>&status=resolved&transaction=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Dispute Status.",
+                      "key": "status",
+                      "value": "resolved"
+                    },
+                    {
+                      "description": "Transaction ID",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-12d15b0f-1ade-4c01-89dc-0f6906c519f5"
+            },
+            {
+              "id": "ac4d5923-a5c0-41e8-a97f-a73485c942b1",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute?perPage=<integer>&page=<integer>&status=resolved&transaction=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Dispute Status.",
+                      "key": "status",
+                      "value": "resolved"
+                    },
+                    {
+                      "description": "Transaction ID",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-ac4d5923-a5c0-41e8-a97f-a73485c942b1"
+            },
+            {
+              "id": "dfceec2a-d161-47ae-a1c2-7fbd4b9c2aa8",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dispute?perPage=<integer>&page=<integer>&status=resolved&transaction=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dispute"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Dispute Status.",
+                      "key": "status",
+                      "value": "resolved"
+                    },
+                    {
+                      "description": "Transaction ID",
+                      "key": "transaction",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:58.000Z",
+              "updatedAt": "2026-06-05T15:01:58.000Z",
+              "uid": "35240-dfceec2a-d161-47ae-a1c2-7fbd4b9c2aa8"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:58.000Z",
+          "updatedAt": "2026-06-05T15:01:58.000Z",
+          "uid": "35240-0f644cee-30e3-4aae-b77d-9c27c48c67bc"
+        }
+      ],
+      "id": "498d9379-f0cd-460f-a114-adbd3b9888cb",
+      "createdAt": "2026-06-05T15:01:58.000Z",
+      "updatedAt": "2026-06-05T15:01:58.000Z",
+      "uid": "35240-498d9379-f0cd-460f-a114-adbd3b9888cb"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

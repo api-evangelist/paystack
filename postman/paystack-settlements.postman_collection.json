@@ -1,0 +1,507 @@
+{
+  "info": {
+    "_postman_id": "480d61fd-6bd4-429d-a451-7dbc6f052fdf",
+    "name": "Paystack Settlements API",
+    "description": "Fetch settlement records and the underlying transactions that comprise each settlement payout to your bank account.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:58.000Z",
+    "updatedAt": "2026-06-05T15:01:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-480d61fd-6bd4-429d-a451-7dbc6f052fdf"
+  },
+  "item": [
+    {
+      "name": "settlement",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "Settlement Transactions",
+                  "id": "2f02ecbd-2dc3-4f9a-8c0b-2945e55cbd38",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/settlement/:id/transaction?perPage=<integer>&page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "settlement",
+                        ":id",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "key": "perPage",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a912c6f8-2abe-4b42-b665-af9c08b2b17a",
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a1856d4e-b3e7-48cb-b6c1-202adb80007c",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settlement/:id/transaction?perPage=<integer>&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settlement",
+                            ":id",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "key": "perPage",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:59.000Z",
+                      "updatedAt": "2026-06-05T15:01:59.000Z",
+                      "uid": "35240-a1856d4e-b3e7-48cb-b6c1-202adb80007c"
+                    },
+                    {
+                      "id": "be7d69f6-0fee-4ede-8aba-5b748ff75edd",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settlement/:id/transaction?perPage=<integer>&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settlement",
+                            ":id",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "key": "perPage",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:59.000Z",
+                      "updatedAt": "2026-06-05T15:01:59.000Z",
+                      "uid": "35240-be7d69f6-0fee-4ede-8aba-5b748ff75edd"
+                    },
+                    {
+                      "id": "3c471b1b-95ec-4205-8e6e-fbf7db54f757",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settlement/:id/transaction?perPage=<integer>&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settlement",
+                            ":id",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "key": "perPage",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:59.000Z",
+                      "updatedAt": "2026-06-05T15:01:59.000Z",
+                      "uid": "35240-3c471b1b-95ec-4205-8e6e-fbf7db54f757"
+                    },
+                    {
+                      "id": "b1578667-af4d-492e-a7ed-5e3fa72d15ef",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/settlement/:id/transaction?perPage=<integer>&page=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "settlement",
+                            ":id",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "key": "perPage",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "page",
+                              "value": "<integer>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:59.000Z",
+                      "updatedAt": "2026-06-05T15:01:59.000Z",
+                      "uid": "35240-b1578667-af4d-492e-a7ed-5e3fa72d15ef"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:59.000Z",
+                  "updatedAt": "2026-06-05T15:01:59.000Z",
+                  "uid": "35240-2f02ecbd-2dc3-4f9a-8c0b-2945e55cbd38"
+                }
+              ],
+              "id": "a474064d-cb3d-486a-a4f1-389783c72dc8",
+              "createdAt": "2026-06-05T15:01:59.000Z",
+              "updatedAt": "2026-06-05T15:01:59.000Z",
+              "uid": "35240-a474064d-cb3d-486a-a4f1-389783c72dc8"
+            }
+          ],
+          "id": "c4776348-5e29-4906-8324-2b270161debb",
+          "createdAt": "2026-06-05T15:01:59.000Z",
+          "updatedAt": "2026-06-05T15:01:59.000Z",
+          "uid": "35240-c4776348-5e29-4906-8324-2b270161debb"
+        },
+        {
+          "name": "Fetch Settlements",
+          "id": "82b0acb0-726b-4a67-afe2-40f5e9f83164",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/settlement?perPage=<integer>&page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "settlement"
+              ],
+              "query": [
+                {
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "146090f4-a858-4f6c-b9d4-bfd0a170fcbc",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settlement?perPage=<integer>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settlement"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:59.000Z",
+              "updatedAt": "2026-06-05T15:01:59.000Z",
+              "uid": "35240-146090f4-a858-4f6c-b9d4-bfd0a170fcbc"
+            },
+            {
+              "id": "8cdf7cd6-d550-4887-b13a-d0b923d097a9",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settlement?perPage=<integer>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settlement"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:59.000Z",
+              "updatedAt": "2026-06-05T15:01:59.000Z",
+              "uid": "35240-8cdf7cd6-d550-4887-b13a-d0b923d097a9"
+            },
+            {
+              "id": "eada61b7-1e78-4432-aeb1-025e017562d6",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settlement?perPage=<integer>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settlement"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:59.000Z",
+              "updatedAt": "2026-06-05T15:01:59.000Z",
+              "uid": "35240-eada61b7-1e78-4432-aeb1-025e017562d6"
+            },
+            {
+              "id": "edb1b95d-2690-4d4b-8e6f-2020036e824a",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/settlement?perPage=<integer>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "settlement"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:59.000Z",
+              "updatedAt": "2026-06-05T15:01:59.000Z",
+              "uid": "35240-edb1b95d-2690-4d4b-8e6f-2020036e824a"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:59.000Z",
+          "updatedAt": "2026-06-05T15:01:59.000Z",
+          "uid": "35240-82b0acb0-726b-4a67-afe2-40f5e9f83164"
+        }
+      ],
+      "id": "35db48b7-762d-40cd-a3ba-4819a31a73b6",
+      "createdAt": "2026-06-05T15:01:59.000Z",
+      "updatedAt": "2026-06-05T15:01:59.000Z",
+      "uid": "35240-35db48b7-762d-40cd-a3ba-4819a31a73b6"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

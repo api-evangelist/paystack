@@ -1,0 +1,2330 @@
+{
+  "info": {
+    "_postman_id": "40c443f5-e5d5-464d-b838-81ab16242dd6",
+    "name": "Paystack Payment Requests API",
+    "description": "Create and send invoice-like payment requests to customers via email with verification, notifications, finalize, and archive flows.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:56.000Z",
+    "updatedAt": "2026-06-05T15:01:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-40c443f5-e5d5-464d-b838-81ab16242dd6"
+  },
+  "item": [
+    {
+      "name": "paymentrequest",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Fetch Payment Request",
+              "id": "1ae10146-f29a-45a1-9e76-a9ee5391147e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "544bf86b-8704-4bc3-abe3-1463cd56c4dc",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "512a684f-c33e-48ce-a9ae-7c0294bc287f",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-512a684f-c33e-48ce-a9ae-7c0294bc287f"
+                },
+                {
+                  "id": "eef02b89-5b31-4474-b22c-21d8a208f9c8",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-eef02b89-5b31-4474-b22c-21d8a208f9c8"
+                },
+                {
+                  "id": "18ef30f4-af59-490c-bf99-eae34ffc90da",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-18ef30f4-af59-490c-bf99-eae34ffc90da"
+                },
+                {
+                  "id": "798bc1f7-ef97-4190-9a3c-e1d33df841b6",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-798bc1f7-ef97-4190-9a3c-e1d33df841b6"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-1ae10146-f29a-45a1-9e76-a9ee5391147e"
+            },
+            {
+              "name": "Update Payment Request",
+              "id": "a0f3ef02-1c95-4a37-8477-afe9ce80fca3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "Customer id or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ISO 8601 representation of request due date",
+                      "key": "due_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A short description of the payment request",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                      "key": "send_notification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                      "key": "has_invoice",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                      "key": "invoice_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The split code of the transaction split.",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c33302aa-23e8-4266-9cb5-df23e24c81d4",
+                      "key": "id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "17d39dc2-e573-4f9d-b33c-f7c5c928101e",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Customer id or code",
+                          "key": "customer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 8601 representation of request due date",
+                          "key": "due_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "A short description of the payment request",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                          "key": "send_notification",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                          "key": "draft",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                          "key": "has_invoice",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                          "key": "invoice_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The split code of the transaction split.",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-17d39dc2-e573-4f9d-b33c-f7c5c928101e"
+                },
+                {
+                  "id": "dd70f6ca-a457-4e63-9a55-5cf236835012",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Customer id or code",
+                          "key": "customer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 8601 representation of request due date",
+                          "key": "due_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "A short description of the payment request",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                          "key": "send_notification",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                          "key": "draft",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                          "key": "has_invoice",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                          "key": "invoice_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The split code of the transaction split.",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-dd70f6ca-a457-4e63-9a55-5cf236835012"
+                },
+                {
+                  "id": "90ce8c10-40a9-40c5-ae55-1e9a81cdbf51",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Customer id or code",
+                          "key": "customer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 8601 representation of request due date",
+                          "key": "due_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "A short description of the payment request",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                          "key": "send_notification",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                          "key": "draft",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                          "key": "has_invoice",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                          "key": "invoice_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The split code of the transaction split.",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-90ce8c10-40a9-40c5-ae55-1e9a81cdbf51"
+                },
+                {
+                  "id": "a6f7e3b7-cafc-4488-949d-ce53142d0c11",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "Customer id or code",
+                          "key": "customer",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                          "key": "amount",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                          "key": "currency",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "ISO 8601 representation of request due date",
+                          "key": "due_date",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "A short description of the payment request",
+                          "key": "description",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                          "key": "send_notification",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                          "key": "draft",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                          "key": "has_invoice",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                          "key": "invoice_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The split code of the transaction split.",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-a6f7e3b7-cafc-4488-949d-ce53142d0c11"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-a0f3ef02-1c95-4a37-8477-afe9ce80fca3"
+            }
+          ],
+          "id": "2ad33614-4e28-46d4-a1c8-a4271879f564",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-2ad33614-4e28-46d4-a1c8-a4271879f564"
+        },
+        {
+          "name": "verify",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Verify Payment Request",
+                  "id": "2c6e25ca-1b33-4b1a-aa82-1f6923b277cc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/verify/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "verify",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b2f22ce3-5c02-4e5b-8fb3-3113f688d3d7",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "eef562f6-c3ca-4c1d-9508-e25331556842",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/verify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "verify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-eef562f6-c3ca-4c1d-9508-e25331556842"
+                    },
+                    {
+                      "id": "da44076c-bbd9-4995-a391-c97ba8603c31",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/verify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "verify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-da44076c-bbd9-4995-a391-c97ba8603c31"
+                    },
+                    {
+                      "id": "e54e8cf8-9779-4949-adc9-8753c9f37f1f",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/verify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "verify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-e54e8cf8-9779-4949-adc9-8753c9f37f1f"
+                    },
+                    {
+                      "id": "60580289-3601-47f5-831d-dbdeadce908c",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/verify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "verify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-60580289-3601-47f5-831d-dbdeadce908c"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:56.000Z",
+                  "updatedAt": "2026-06-05T15:01:56.000Z",
+                  "uid": "35240-2c6e25ca-1b33-4b1a-aa82-1f6923b277cc"
+                }
+              ],
+              "id": "18d29d88-49b5-4193-8396-6916e779cfc1",
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-18d29d88-49b5-4193-8396-6916e779cfc1"
+            }
+          ],
+          "id": "58bfd901-d58c-420a-b3f1-4093aeefa452",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-58bfd901-d58c-420a-b3f1-4093aeefa452"
+        },
+        {
+          "name": "notify",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Send Notification",
+                  "id": "5b601ca0-0bc3-4d29-8af2-8c5655a38190",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/notify/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "notify",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7e66d47f-908d-4d9b-b54d-8ec915e25ce6",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "4e180025-08f3-4be4-9c2e-3d303e3286f9",
+                      "name": "201 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/notify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "notify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-4e180025-08f3-4be4-9c2e-3d303e3286f9"
+                    },
+                    {
+                      "id": "b32325df-907e-4c19-933d-b6317cf8b31f",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/notify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "notify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-b32325df-907e-4c19-933d-b6317cf8b31f"
+                    },
+                    {
+                      "id": "64556fca-cd85-4044-85e0-9097b24408b2",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/notify/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "notify",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-64556fca-cd85-4044-85e0-9097b24408b2"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:56.000Z",
+                  "updatedAt": "2026-06-05T15:01:56.000Z",
+                  "uid": "35240-5b601ca0-0bc3-4d29-8af2-8c5655a38190"
+                }
+              ],
+              "id": "93caa0fa-20a4-4b60-a9fa-b97d913619cc",
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-93caa0fa-20a4-4b60-a9fa-b97d913619cc"
+            }
+          ],
+          "id": "b26565e5-d332-447f-9b07-f180b47f7dab",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-b26565e5-d332-447f-9b07-f180b47f7dab"
+        },
+        {
+          "name": "totals",
+          "item": [
+            {
+              "name": "Payment Request Total",
+              "id": "ea3aaf4a-cab0-486f-9f1a-84466ca6a87b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest/totals",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest",
+                    "totals"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9fc995c4-a838-44d8-85e2-a7417e46535b",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/totals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "totals"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-9fc995c4-a838-44d8-85e2-a7417e46535b"
+                },
+                {
+                  "id": "f8eaf33a-b20b-4655-ab1a-db2bb4101db1",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/totals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "totals"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-f8eaf33a-b20b-4655-ab1a-db2bb4101db1"
+                },
+                {
+                  "id": "47de1c13-53e4-450e-bc68-493063dcd6c8",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/totals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "totals"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-47de1c13-53e4-450e-bc68-493063dcd6c8"
+                },
+                {
+                  "id": "a43b7f0d-d1c3-427e-8266-003dd067ba00",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/totals",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "totals"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:57.000Z",
+                  "updatedAt": "2026-06-05T15:01:57.000Z",
+                  "uid": "35240-a43b7f0d-d1c3-427e-8266-003dd067ba00"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-ea3aaf4a-cab0-486f-9f1a-84466ca6a87b"
+            }
+          ],
+          "id": "29460e94-a0ea-4461-8663-2c53249e514f",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-29460e94-a0ea-4461-8663-2c53249e514f"
+        },
+        {
+          "name": "finalize",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Finalize Payment Request",
+                  "id": "a3b29aa8-7840-4bc8-ba63-d3e1dcd121d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/finalize/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "finalize",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9e7f8e01-a13b-4be3-98bb-7422136c9c21",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b5965c8a-0334-47a8-ae05-658067c4cbe2",
+                      "name": "201 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/finalize/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "finalize",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-b5965c8a-0334-47a8-ae05-658067c4cbe2"
+                    },
+                    {
+                      "id": "ca189a2e-08ef-4d61-9c3f-6fe734e579e6",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/finalize/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "finalize",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-ca189a2e-08ef-4d61-9c3f-6fe734e579e6"
+                    },
+                    {
+                      "id": "7305cfb0-9e6b-476c-9c10-79be7ded4a45",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/finalize/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "finalize",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-7305cfb0-9e6b-476c-9c10-79be7ded4a45"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:56.000Z",
+                  "updatedAt": "2026-06-05T15:01:56.000Z",
+                  "uid": "35240-a3b29aa8-7840-4bc8-ba63-d3e1dcd121d9"
+                }
+              ],
+              "id": "83f6ba96-3b31-47a6-8021-355a43cc1f09",
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-83f6ba96-3b31-47a6-8021-355a43cc1f09"
+            }
+          ],
+          "id": "52b21e19-b336-4e4a-b7ef-2b027fc7109a",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-52b21e19-b336-4e4a-b7ef-2b027fc7109a"
+        },
+        {
+          "name": "archive",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "Archive Payment Request",
+                  "id": "2fd41581-f5e3-480d-a002-b279d08611fc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/paymentrequest/archive/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "paymentrequest",
+                        "archive",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bca39450-4e91-4be6-9a4e-b6717b5bf883",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "78b1312d-216d-40cb-b4c0-0fdf93ba5c00",
+                      "name": "201 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/archive/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "archive",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-78b1312d-216d-40cb-b4c0-0fdf93ba5c00"
+                    },
+                    {
+                      "id": "417bd1a8-aad1-46f2-8c63-0a0e0c46cb5e",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/archive/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "archive",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-417bd1a8-aad1-46f2-8c63-0a0e0c46cb5e"
+                    },
+                    {
+                      "id": "820cc02a-6b63-480f-9013-89047498e09d",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/paymentrequest/archive/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "paymentrequest",
+                            "archive",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:01:57.000Z",
+                      "updatedAt": "2026-06-05T15:01:57.000Z",
+                      "uid": "35240-820cc02a-6b63-480f-9013-89047498e09d"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:01:56.000Z",
+                  "updatedAt": "2026-06-05T15:01:56.000Z",
+                  "uid": "35240-2fd41581-f5e3-480d-a002-b279d08611fc"
+                }
+              ],
+              "id": "2a957194-c52c-4be7-aee1-88573263382c",
+              "createdAt": "2026-06-05T15:01:56.000Z",
+              "updatedAt": "2026-06-05T15:01:56.000Z",
+              "uid": "35240-2a957194-c52c-4be7-aee1-88573263382c"
+            }
+          ],
+          "id": "2350baa3-fbda-4569-8d6e-3fd41500a605",
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-2350baa3-fbda-4569-8d6e-3fd41500a605"
+        },
+        {
+          "name": "Create Payment Request",
+          "id": "bfb1dbd9-b39a-4425-8e72-63ab1a8cc72e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Customer id or code",
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                  "key": "amount",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ISO 8601 representation of request due date",
+                  "key": "due_date",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "A short description of the payment request",
+                  "key": "description",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                  "key": "send_notification",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                  "key": "draft",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                  "key": "has_invoice",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                  "key": "invoice_number",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The split code of the transaction split.",
+                  "key": "split_code",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/paymentrequest",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentrequest"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a2baaa7-1ec7-4a38-a60b-79945aa92b48",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer id or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ISO 8601 representation of request due date",
+                      "key": "due_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A short description of the payment request",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                      "key": "send_notification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                      "key": "has_invoice",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                      "key": "invoice_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The split code of the transaction split.",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-8a2baaa7-1ec7-4a38-a60b-79945aa92b48"
+            },
+            {
+              "id": "86cce0b2-15e5-4113-ac2d-b9f37e551e1f",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer id or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ISO 8601 representation of request due date",
+                      "key": "due_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A short description of the payment request",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                      "key": "send_notification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                      "key": "has_invoice",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                      "key": "invoice_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The split code of the transaction split.",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-86cce0b2-15e5-4113-ac2d-b9f37e551e1f"
+            },
+            {
+              "id": "be5c2077-9f35-4f3f-b4ff-8460a6a56c32",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer id or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available.",
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ISO 8601 representation of request due date",
+                      "key": "due_date",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "A short description of the payment request",
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether Paystack sends an email notification to customer. Defaults to true",
+                      "key": "send_notification",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicate if request should be saved as draft. Defaults to false and overrides send_notification",
+                      "key": "draft",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed",
+                      "key": "has_invoice",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point.",
+                      "key": "invoice_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The split code of the transaction split.",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-be5c2077-9f35-4f3f-b4ff-8460a6a56c32"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-bfb1dbd9-b39a-4425-8e72-63ab1a8cc72e"
+        },
+        {
+          "name": "List Payment Request",
+          "id": "71986b94-be4b-451c-9bc8-1184e00ac5ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/paymentrequest?perPage=<integer>&page=<integer>&customer=<string>&status=<string>&currency=<string>&from=<dateTime>&to=<dateTime>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "paymentrequest"
+              ],
+              "query": [
+                {
+                  "description": "Number of records to fetch per page",
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "The section to retrieve",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Customer ID",
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Invoice status to filter",
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If your integration supports more than one currency, choose the one to filter",
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The start date",
+                  "key": "from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "The end date",
+                  "key": "to",
+                  "value": "<dateTime>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4ba577f4-6cc5-4a20-9836-38dda59dbd13",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest?perPage=<integer>&page=<integer>&customer=<string>&status=<string>&currency=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Invoice status to filter",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If your integration supports more than one currency, choose the one to filter",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-4ba577f4-6cc5-4a20-9836-38dda59dbd13"
+            },
+            {
+              "id": "4b6b349f-ce53-4f94-b224-27a1d2ef3382",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest?perPage=<integer>&page=<integer>&customer=<string>&status=<string>&currency=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Invoice status to filter",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If your integration supports more than one currency, choose the one to filter",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-4b6b349f-ce53-4f94-b224-27a1d2ef3382"
+            },
+            {
+              "id": "aeef597b-976e-492f-a492-319d4cd8ecb7",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest?perPage=<integer>&page=<integer>&customer=<string>&status=<string>&currency=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Invoice status to filter",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If your integration supports more than one currency, choose the one to filter",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-aeef597b-976e-492f-a492-319d4cd8ecb7"
+            },
+            {
+              "id": "a1aacbef-4642-4fd3-8e58-63b55d13c7e6",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/paymentrequest?perPage=<integer>&page=<integer>&customer=<string>&status=<string>&currency=<string>&from=<dateTime>&to=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "paymentrequest"
+                  ],
+                  "query": [
+                    {
+                      "description": "Number of records to fetch per page",
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The section to retrieve",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Customer ID",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Invoice status to filter",
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If your integration supports more than one currency, choose the one to filter",
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The start date",
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "The end date",
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:57.000Z",
+              "updatedAt": "2026-06-05T15:01:57.000Z",
+              "uid": "35240-a1aacbef-4642-4fd3-8e58-63b55d13c7e6"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:56.000Z",
+          "updatedAt": "2026-06-05T15:01:56.000Z",
+          "uid": "35240-71986b94-be4b-451c-9bc8-1184e00ac5ff"
+        }
+      ],
+      "id": "d9c5b2f7-82c4-4253-948c-efef1c397dee",
+      "createdAt": "2026-06-05T15:01:56.000Z",
+      "updatedAt": "2026-06-05T15:01:56.000Z",
+      "uid": "35240-d9c5b2f7-82c4-4253-948c-efef1c397dee"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

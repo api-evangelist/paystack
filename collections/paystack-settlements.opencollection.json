@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Settlements API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Settlement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Settlements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/settlement",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "50",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetch Settlements"
+        },
+        {
+          "info": {
+            "name": "Settlement Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/settlement/:id/transaction",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "50",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "2",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Settlement Transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

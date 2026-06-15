@@ -1,0 +1,1401 @@
+{
+  "info": {
+    "_postman_id": "8bd02aef-aaab-4898-83d3-ab98db8d675c",
+    "name": "Paystack Dedicated Virtual Accounts API",
+    "description": "Create and manage dedicated NUBAN virtual bank accounts for customers so they can receive payments via bank transfer with automatic reconciliation.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:53.000Z",
+    "updatedAt": "2026-06-05T15:01:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8bd02aef-aaab-4898-83d3-ab98db8d675c"
+  },
+  "item": [
+    {
+      "name": "dedicated_account",
+      "item": [
+        {
+          "name": "{account_id}",
+          "item": [
+            {
+              "name": "Fetch Dedicated Account",
+              "id": "8fd650e5-66cd-4aac-a88d-ae2247bc131f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account",
+                    ":account_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f56ae37b-ed07-4f9b-9294-18cfaae5cea2",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "95c4be45-e1e3-4488-b24e-a9fdef97d15f",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-95c4be45-e1e3-4488-b24e-a9fdef97d15f"
+                },
+                {
+                  "id": "dad10dff-6595-47b1-abc7-92c44f6318d7",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-dad10dff-6595-47b1-abc7-92c44f6318d7"
+                },
+                {
+                  "id": "b320e899-09a8-4768-9520-99bc784ea99d",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-b320e899-09a8-4768-9520-99bc784ea99d"
+                },
+                {
+                  "id": "0979b904-436f-4306-b72b-cb42ade42e95",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-0979b904-436f-4306-b72b-cb42ade42e95"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-8fd650e5-66cd-4aac-a88d-ae2247bc131f"
+            },
+            {
+              "name": "Deactivate Dedicated Account",
+              "id": "44281c48-5917-4c9c-a748-b59a5fa00a35",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account",
+                    ":account_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3cda93b6-7278-46a0-a3b1-374abddbc89c",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "31c7cd27-0449-401a-a7c9-4c05b1c5c80f",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-31c7cd27-0449-401a-a7c9-4c05b1c5c80f"
+                },
+                {
+                  "id": "752fb085-78af-4df3-9d0d-eba331966de3",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-752fb085-78af-4df3-9d0d-eba331966de3"
+                },
+                {
+                  "id": "d2615f12-9863-41ae-879e-62bcec38e422",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-d2615f12-9863-41ae-879e-62bcec38e422"
+                },
+                {
+                  "id": "b147d116-5064-4652-a6ce-4806eea154e2",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/:account_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        ":account_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-b147d116-5064-4652-a6ce-4806eea154e2"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-44281c48-5917-4c9c-a748-b59a5fa00a35"
+            }
+          ],
+          "id": "cb8f51ce-2c6b-4249-9f89-d2abd5070bc3",
+          "createdAt": "2026-06-05T15:01:54.000Z",
+          "updatedAt": "2026-06-05T15:01:54.000Z",
+          "uid": "35240-cb8f51ce-2c6b-4249-9f89-d2abd5070bc3"
+        },
+        {
+          "name": "available_providers",
+          "item": [
+            {
+              "name": "Fetch Bank Providers",
+              "id": "d4664b1e-e677-479a-b067-244d503580ea",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account/available_providers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account",
+                    "available_providers"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a3509c06-3604-48d1-8af9-d44200d69fa7",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/available_providers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "available_providers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-a3509c06-3604-48d1-8af9-d44200d69fa7"
+                },
+                {
+                  "id": "626ba1c7-364b-4e43-b4fa-a68aa6792e94",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/available_providers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "available_providers"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-626ba1c7-364b-4e43-b4fa-a68aa6792e94"
+                },
+                {
+                  "id": "5b778328-0298-4e5f-94fb-0642a6ac0490",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/available_providers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "available_providers"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-5b778328-0298-4e5f-94fb-0642a6ac0490"
+                },
+                {
+                  "id": "ed69d269-da6a-4ce1-a586-06c387588e2d",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/available_providers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "available_providers"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-ed69d269-da6a-4ce1-a586-06c387588e2d"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-d4664b1e-e677-479a-b067-244d503580ea"
+            }
+          ],
+          "id": "f5df3c3d-4541-4a9f-ab74-acc958ddb55e",
+          "createdAt": "2026-06-05T15:01:54.000Z",
+          "updatedAt": "2026-06-05T15:01:54.000Z",
+          "uid": "35240-f5df3c3d-4541-4a9f-ab74-acc958ddb55e"
+        },
+        {
+          "name": "split",
+          "item": [
+            {
+              "name": "Split Dedicated Account Transaction",
+              "id": "b5d2222f-7e9f-416c-8017-8dfb47e46411",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Valid Dedicated virtual account",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Subaccount code of the account you want to split the transaction with",
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account/split",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account",
+                    "split"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "51f71571-4f3b-44c1-b2d3-bf6b860ad951",
+                  "name": "201 response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Valid Dedicated virtual account",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Subaccount code of the account you want to split the transaction with",
+                          "key": "subaccount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/split",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "split"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-51f71571-4f3b-44c1-b2d3-bf6b860ad951"
+                },
+                {
+                  "id": "64329eca-d050-4988-813a-107929ddd293",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Valid Dedicated virtual account",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Subaccount code of the account you want to split the transaction with",
+                          "key": "subaccount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/split",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "split"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-64329eca-d050-4988-813a-107929ddd293"
+                },
+                {
+                  "id": "55e79970-edd1-483a-9d82-72a0e57b0c36",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Valid Dedicated virtual account",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Subaccount code of the account you want to split the transaction with",
+                          "key": "subaccount",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                          "key": "split_code",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dedicated_account/split",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dedicated_account",
+                        "split"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:01:54.000Z",
+                  "updatedAt": "2026-06-05T15:01:54.000Z",
+                  "uid": "35240-55e79970-edd1-483a-9d82-72a0e57b0c36"
+                }
+              ],
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-b5d2222f-7e9f-416c-8017-8dfb47e46411"
+            }
+          ],
+          "id": "4b1fab5f-3a95-4826-8824-e9612139f3c7",
+          "createdAt": "2026-06-05T15:01:54.000Z",
+          "updatedAt": "2026-06-05T15:01:54.000Z",
+          "uid": "35240-4b1fab5f-3a95-4826-8824-e9612139f3c7"
+        },
+        {
+          "name": "Create Dedicated Account",
+          "id": "b295f96d-ec3c-443f-9d4f-24896dfddadb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) Customer ID or code",
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint",
+                  "key": "preferred_bank",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Subaccount code of the account you want to split the transaction with",
+                  "key": "subaccount",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                  "key": "split_code",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dedicated_account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dedicated_account"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a45dd01-64d2-4483-bb75-73e74d34bd36",
+              "name": "201 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer ID or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint",
+                      "key": "preferred_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Subaccount code of the account you want to split the transaction with",
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-8a45dd01-64d2-4483-bb75-73e74d34bd36"
+            },
+            {
+              "id": "985a12c1-b6a0-482c-99e4-e85c3a2f084a",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer ID or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint",
+                      "key": "preferred_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Subaccount code of the account you want to split the transaction with",
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-985a12c1-b6a0-482c-99e4-e85c3a2f084a"
+            },
+            {
+              "id": "3a77c584-42bf-405c-b0df-92d0903f9d51",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Customer ID or code",
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The bank slug for preferred bank. To get a list of available banks, use the List Providers endpoint",
+                      "key": "preferred_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Subaccount code of the account you want to split the transaction with",
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Split code consisting of the lists of accounts you want to split the transaction with",
+                      "key": "split_code",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-3a77c584-42bf-405c-b0df-92d0903f9d51"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:54.000Z",
+          "updatedAt": "2026-06-05T15:01:54.000Z",
+          "uid": "35240-b295f96d-ec3c-443f-9d4f-24896dfddadb"
+        },
+        {
+          "name": "List Dedicated Accounts",
+          "id": "d5c36d21-2d37-499f-a033-6d5661534bf5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/dedicated_account?account_number=<string>&customer=<string>&active=<boolean>&currency=<string>&provider_slug=<string>&bank_id=<string>&perPage=<string>&page=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dedicated_account"
+              ],
+              "query": [
+                {
+                  "key": "account_number",
+                  "value": "<string>"
+                },
+                {
+                  "key": "customer",
+                  "value": "<string>"
+                },
+                {
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "currency",
+                  "value": "<string>"
+                },
+                {
+                  "key": "provider_slug",
+                  "value": "<string>"
+                },
+                {
+                  "key": "bank_id",
+                  "value": "<string>"
+                },
+                {
+                  "key": "perPage",
+                  "value": "<string>"
+                },
+                {
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e401a884-179b-43cc-95dd-0c7c93c2a201",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account?account_number=<string>&customer=<string>&active=<boolean>&currency=<string>&provider_slug=<string>&bank_id=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bank_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-e401a884-179b-43cc-95dd-0c7c93c2a201"
+            },
+            {
+              "id": "5fafde62-5848-4164-9e91-f92c14ed7ffd",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account?account_number=<string>&customer=<string>&active=<boolean>&currency=<string>&provider_slug=<string>&bank_id=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bank_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-5fafde62-5848-4164-9e91-f92c14ed7ffd"
+            },
+            {
+              "id": "46b2b9ec-5178-4ad7-b710-4efba9034ff0",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account?account_number=<string>&customer=<string>&active=<boolean>&currency=<string>&provider_slug=<string>&bank_id=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bank_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-46b2b9ec-5178-4ad7-b710-4efba9034ff0"
+            },
+            {
+              "id": "9d4df1d4-ba43-46ae-8a7b-9cba301878ca",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dedicated_account?account_number=<string>&customer=<string>&active=<boolean>&currency=<string>&provider_slug=<string>&bank_id=<string>&perPage=<string>&page=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dedicated_account"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider_slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bank_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:01:54.000Z",
+              "updatedAt": "2026-06-05T15:01:54.000Z",
+              "uid": "35240-9d4df1d4-ba43-46ae-8a7b-9cba301878ca"
+            }
+          ],
+          "createdAt": "2026-06-05T15:01:54.000Z",
+          "updatedAt": "2026-06-05T15:01:54.000Z",
+          "uid": "35240-d5c36d21-2d37-499f-a033-6d5661534bf5"
+        }
+      ],
+      "id": "c6be86d2-e2c4-4b63-8ab3-7cfedac0d00e",
+      "createdAt": "2026-06-05T15:01:54.000Z",
+      "updatedAt": "2026-06-05T15:01:54.000Z",
+      "uid": "35240-c6be86d2-e2c4-4b63-8ab3-7cfedac0d00e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}

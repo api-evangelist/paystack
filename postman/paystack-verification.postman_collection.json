@@ -1,0 +1,1721 @@
+{
+  "info": {
+    "_postman_id": "7d65b811-9343-4626-a2f6-ad2fed3e740c",
+    "name": "Paystack Verification API",
+    "description": "Identity, BVN, account number, card BIN, country, bank, and address-verification lookups used to validate customers, banks, and cards before transacting.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:01:59.000Z",
+    "updatedAt": "2026-06-05T15:02:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7d65b811-9343-4626-a2f6-ad2fed3e740c"
+  },
+  "item": [
+    {
+      "name": "bvn",
+      "item": [
+        {
+          "name": "match",
+          "item": [
+            {
+              "name": "Match Service",
+              "id": "477a3114-2421-4a45-b8f8-4a62adf504cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) Bank Account Number",
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) You can get the list of banks codes by calling the List Bank endpoint",
+                      "key": "bank_code",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "(Required) 11 digits Bank Verification Number",
+                      "key": "bvn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's first name",
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's middle name",
+                      "key": "middle_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Customer's last name",
+                      "key": "last_name",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/bvn/match",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bvn",
+                    "match"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ebd3c5ca-46a8-4447-8f10-eb34e718eee5",
+                  "name": "201 response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Bank Account Number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) You can get the list of banks codes by calling the List Bank endpoint",
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) 11 digits Bank Verification Number",
+                          "key": "bvn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's first name",
+                          "key": "first_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's middle name",
+                          "key": "middle_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's last name",
+                          "key": "last_name",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bvn/match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bvn",
+                        "match"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-ebd3c5ca-46a8-4447-8f10-eb34e718eee5"
+                },
+                {
+                  "id": "ec735102-a846-4c99-882e-bee3fc21e8ae",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Bank Account Number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) You can get the list of banks codes by calling the List Bank endpoint",
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) 11 digits Bank Verification Number",
+                          "key": "bvn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's first name",
+                          "key": "first_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's middle name",
+                          "key": "middle_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's last name",
+                          "key": "last_name",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bvn/match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bvn",
+                        "match"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-ec735102-a846-4c99-882e-bee3fc21e8ae"
+                },
+                {
+                  "id": "c73f5e35-0c24-4d71-863b-83360c2ae176",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) Bank Account Number",
+                          "key": "account_number",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) You can get the list of banks codes by calling the List Bank endpoint",
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "(Required) 11 digits Bank Verification Number",
+                          "key": "bvn",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's first name",
+                          "key": "first_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's middle name",
+                          "key": "middle_name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Customer's last name",
+                          "key": "last_name",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/bvn/match",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bvn",
+                        "match"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-c73f5e35-0c24-4d71-863b-83360c2ae176"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-477a3114-2421-4a45-b8f8-4a62adf504cb"
+            }
+          ],
+          "id": "e5964b61-bb3d-4934-99f5-513fbc832bdc",
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-e5964b61-bb3d-4934-99f5-513fbc832bdc"
+        }
+      ],
+      "id": "6b6dddf0-5d0e-4469-8e26-29ca99dec604",
+      "createdAt": "2026-06-05T15:02:00.000Z",
+      "updatedAt": "2026-06-05T15:02:00.000Z",
+      "uid": "35240-6b6dddf0-5d0e-4469-8e26-29ca99dec604"
+    },
+    {
+      "name": "bank",
+      "item": [
+        {
+          "name": "resolve_bvn",
+          "item": [
+            {
+              "name": "{bvn}",
+              "item": [
+                {
+                  "name": "Resolve BVN",
+                  "id": "4ab6994a-3a35-4e39-b22e-7e4b5002af02",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank/resolve_bvn/:bvn",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank",
+                        "resolve_bvn",
+                        ":bvn"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5754da3e-6071-49ab-aabd-3a1a03e6de17",
+                          "key": "bvn",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "62e63baa-0a51-42c0-85e4-2f0a81ea155a",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bank/resolve_bvn/:bvn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank",
+                            "resolve_bvn",
+                            ":bvn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bvn"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-62e63baa-0a51-42c0-85e4-2f0a81ea155a"
+                    },
+                    {
+                      "id": "ed95b6ad-17d5-4f2c-8e4f-ee19d9ec400e",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bank/resolve_bvn/:bvn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank",
+                            "resolve_bvn",
+                            ":bvn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bvn"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-ed95b6ad-17d5-4f2c-8e4f-ee19d9ec400e"
+                    },
+                    {
+                      "id": "a495f770-aebf-4990-8bca-ca7c360496a0",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bank/resolve_bvn/:bvn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank",
+                            "resolve_bvn",
+                            ":bvn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bvn"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-a495f770-aebf-4990-8bca-ca7c360496a0"
+                    },
+                    {
+                      "id": "19cdd453-9a28-4bb1-9d99-1e258153d7ec",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/bank/resolve_bvn/:bvn",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "bank",
+                            "resolve_bvn",
+                            ":bvn"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bvn"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-19cdd453-9a28-4bb1-9d99-1e258153d7ec"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-4ab6994a-3a35-4e39-b22e-7e4b5002af02"
+                }
+              ],
+              "id": "994e38d2-fe03-48e1-98c5-e569d10daf43",
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-994e38d2-fe03-48e1-98c5-e569d10daf43"
+            }
+          ],
+          "id": "e42bab96-9be6-4cfc-8e91-c30dcf1eb1ce",
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-e42bab96-9be6-4cfc-8e91-c30dcf1eb1ce"
+        },
+        {
+          "name": "resolve",
+          "item": [
+            {
+              "name": "Resolve Account Number",
+              "id": "b8a3bd27-3dc1-4f90-af41-15e76a3a44fd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/bank/resolve?account_number=<integer>&bank_code=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank",
+                    "resolve"
+                  ],
+                  "query": [
+                    {
+                      "key": "account_number",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "bank_code",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e71698c7-e234-4efe-9c03-15a8f9fb61d8",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank/resolve?account_number=<integer>&bank_code=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank",
+                        "resolve"
+                      ],
+                      "query": [
+                        {
+                          "key": "account_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-e71698c7-e234-4efe-9c03-15a8f9fb61d8"
+                },
+                {
+                  "id": "4d8c1f4a-ab37-4f14-9bec-93206c90e5e3",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank/resolve?account_number=<integer>&bank_code=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank",
+                        "resolve"
+                      ],
+                      "query": [
+                        {
+                          "key": "account_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-4d8c1f4a-ab37-4f14-9bec-93206c90e5e3"
+                },
+                {
+                  "id": "73b0ebd4-f8ac-4812-a5ef-93571cd4c19e",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank/resolve?account_number=<integer>&bank_code=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank",
+                        "resolve"
+                      ],
+                      "query": [
+                        {
+                          "key": "account_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-73b0ebd4-f8ac-4812-a5ef-93571cd4c19e"
+                },
+                {
+                  "id": "512cb7e3-ad75-4adf-850e-4584f3d03e03",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/bank/resolve?account_number=<integer>&bank_code=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "bank",
+                        "resolve"
+                      ],
+                      "query": [
+                        {
+                          "key": "account_number",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "bank_code",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-512cb7e3-ad75-4adf-850e-4584f3d03e03"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-b8a3bd27-3dc1-4f90-af41-15e76a3a44fd"
+            }
+          ],
+          "id": "98a063a1-8b38-495d-b4cc-7aa5c50379a3",
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-98a063a1-8b38-495d-b4cc-7aa5c50379a3"
+        },
+        {
+          "name": "Fetch Banks",
+          "id": "3fb059fa-4778-49c3-91ae-d6f3dab8f8a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/bank?country=<string>&pay_with_bank_transfer=<boolean>&use_cursor=<boolean>&perPage=<integer>&next=<string>&previous=<string>&gateway=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "bank"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "<string>"
+                },
+                {
+                  "key": "pay_with_bank_transfer",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "use_cursor",
+                  "value": "<boolean>"
+                },
+                {
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "next",
+                  "value": "<string>"
+                },
+                {
+                  "key": "previous",
+                  "value": "<string>"
+                },
+                {
+                  "key": "gateway",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "031a9a79-369b-4b6c-aac7-7a6051e31b71",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank?country=<string>&pay_with_bank_transfer=<boolean>&use_cursor=<boolean>&perPage=<integer>&next=<string>&previous=<string>&gateway=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pay_with_bank_transfer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-031a9a79-369b-4b6c-aac7-7a6051e31b71"
+            },
+            {
+              "id": "52a8a332-c007-4cb0-a685-ca59d7cd7428",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank?country=<string>&pay_with_bank_transfer=<boolean>&use_cursor=<boolean>&perPage=<integer>&next=<string>&previous=<string>&gateway=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pay_with_bank_transfer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-52a8a332-c007-4cb0-a685-ca59d7cd7428"
+            },
+            {
+              "id": "20a652d2-08a9-4af9-b06d-5c770cd1c54e",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank?country=<string>&pay_with_bank_transfer=<boolean>&use_cursor=<boolean>&perPage=<integer>&next=<string>&previous=<string>&gateway=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pay_with_bank_transfer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-20a652d2-08a9-4af9-b06d-5c770cd1c54e"
+            },
+            {
+              "id": "0201947c-8695-4646-b836-0a0cdc144286",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/bank?country=<string>&pay_with_bank_transfer=<boolean>&use_cursor=<boolean>&perPage=<integer>&next=<string>&previous=<string>&gateway=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "bank"
+                  ],
+                  "query": [
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pay_with_bank_transfer",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gateway",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-0201947c-8695-4646-b836-0a0cdc144286"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-3fb059fa-4778-49c3-91ae-d6f3dab8f8a6"
+        }
+      ],
+      "id": "01a527a1-f937-410d-bf4f-d142788c6a94",
+      "createdAt": "2026-06-05T15:02:00.000Z",
+      "updatedAt": "2026-06-05T15:02:00.000Z",
+      "uid": "35240-01a527a1-f937-410d-bf4f-d142788c6a94"
+    },
+    {
+      "name": "decision",
+      "item": [
+        {
+          "name": "bin",
+          "item": [
+            {
+              "name": "{bin}",
+              "item": [
+                {
+                  "name": "Resolve Card BIN",
+                  "id": "e93321cb-6663-4399-b5a6-6d2339c41c02",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/decision/bin/:bin",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "decision",
+                        "bin",
+                        ":bin"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6cbbca4b-6b23-4d46-a664-1ea2a2ca2f04",
+                          "key": "bin",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "917c7795-4176-49f3-ad12-22a3e67184ba",
+                      "name": "200 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/decision/bin/:bin",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "decision",
+                            "bin",
+                            ":bin"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-917c7795-4176-49f3-ad12-22a3e67184ba"
+                    },
+                    {
+                      "id": "870e47c3-83d8-4647-a4de-e2874e370b6c",
+                      "name": "401 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/decision/bin/:bin",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "decision",
+                            "bin",
+                            ":bin"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-870e47c3-83d8-4647-a4de-e2874e370b6c"
+                    },
+                    {
+                      "id": "6c507616-e090-43ac-8ce5-40a7beb261e9",
+                      "name": "404 response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/decision/bin/:bin",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "decision",
+                            "bin",
+                            ":bin"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-6c507616-e090-43ac-8ce5-40a7beb261e9"
+                    },
+                    {
+                      "id": "aadd9b40-d85b-45ae-8098-739ed56a33a1",
+                      "name": "Server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/decision/bin/:bin",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "decision",
+                            "bin",
+                            ":bin"
+                          ],
+                          "variable": [
+                            {
+                              "key": "bin"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:02:00.000Z",
+                      "updatedAt": "2026-06-05T15:02:00.000Z",
+                      "uid": "35240-aadd9b40-d85b-45ae-8098-739ed56a33a1"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-e93321cb-6663-4399-b5a6-6d2339c41c02"
+                }
+              ],
+              "id": "873db73a-bfc0-4e83-938e-be20bc1f01cb",
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-873db73a-bfc0-4e83-938e-be20bc1f01cb"
+            }
+          ],
+          "id": "b8d49379-dafc-4939-92c8-e5cd6d113f4c",
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-b8d49379-dafc-4939-92c8-e5cd6d113f4c"
+        }
+      ],
+      "id": "b82c89ae-9e4b-4cfb-8a1b-3af67131af36",
+      "createdAt": "2026-06-05T15:02:00.000Z",
+      "updatedAt": "2026-06-05T15:02:00.000Z",
+      "uid": "35240-b82c89ae-9e4b-4cfb-8a1b-3af67131af36"
+    },
+    {
+      "name": "country",
+      "item": [
+        {
+          "name": "List Countries",
+          "id": "0d6e518c-591f-43b8-bc9d-4b73d5ace102",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/country",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "country"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6a77fe8-32ed-4af5-9340-0bb6062a0544",
+              "name": "200 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/country",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "country"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-d6a77fe8-32ed-4af5-9340-0bb6062a0544"
+            },
+            {
+              "id": "2f6a57f5-cc5e-4273-9269-c820d384db85",
+              "name": "401 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/country",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "country"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-2f6a57f5-cc5e-4273-9269-c820d384db85"
+            },
+            {
+              "id": "051fcf8b-a8f8-4dd3-ab8b-05fbf6a4e273",
+              "name": "404 response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/country",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "country"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-051fcf8b-a8f8-4dd3-ab8b-05fbf6a4e273"
+            },
+            {
+              "id": "e05bd7a6-bbc8-4e9e-bae0-aa81b8e09eeb",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/country",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "country"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-e05bd7a6-bbc8-4e9e-bae0-aa81b8e09eeb"
+            }
+          ],
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-0d6e518c-591f-43b8-bc9d-4b73d5ace102"
+        }
+      ],
+      "id": "9851ea7c-11ee-4396-9591-e497f2eb3732",
+      "createdAt": "2026-06-05T15:02:00.000Z",
+      "updatedAt": "2026-06-05T15:02:00.000Z",
+      "uid": "35240-9851ea7c-11ee-4396-9591-e497f2eb3732"
+    },
+    {
+      "name": "address_verification",
+      "item": [
+        {
+          "name": "states",
+          "item": [
+            {
+              "name": "List States (AVS)",
+              "id": "f66d0d72-f34d-4c5b-8c5c-159dea71cbad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/address_verification/states?type=<string>&country=<string>&currency=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "address_verification",
+                    "states"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d75af837-3a3c-48df-8da9-22528fd3e59a",
+                  "name": "200 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/address_verification/states?type=<string>&country=<string>&currency=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "address_verification",
+                        "states"
+                      ],
+                      "query": [
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-d75af837-3a3c-48df-8da9-22528fd3e59a"
+                },
+                {
+                  "id": "4edcb126-ce9e-443c-b00c-7114620ac5a5",
+                  "name": "401 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/address_verification/states?type=<string>&country=<string>&currency=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "address_verification",
+                        "states"
+                      ],
+                      "query": [
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-4edcb126-ce9e-443c-b00c-7114620ac5a5"
+                },
+                {
+                  "id": "ab83e19e-bc21-4df6-a9bb-a6c97cd7a056",
+                  "name": "404 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/address_verification/states?type=<string>&country=<string>&currency=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "address_verification",
+                        "states"
+                      ],
+                      "query": [
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-ab83e19e-bc21-4df6-a9bb-a6c97cd7a056"
+                },
+                {
+                  "id": "1c9ec7b5-e7e9-487b-afd3-a8211d9f747a",
+                  "name": "Server error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/address_verification/states?type=<string>&country=<string>&currency=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "address_verification",
+                        "states"
+                      ],
+                      "query": [
+                        {
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "country",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "currency",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:02:00.000Z",
+                  "updatedAt": "2026-06-05T15:02:00.000Z",
+                  "uid": "35240-1c9ec7b5-e7e9-487b-afd3-a8211d9f747a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:02:00.000Z",
+              "updatedAt": "2026-06-05T15:02:00.000Z",
+              "uid": "35240-f66d0d72-f34d-4c5b-8c5c-159dea71cbad"
+            }
+          ],
+          "id": "e9fb8eb3-1054-43df-a3de-cb334f14e8f0",
+          "createdAt": "2026-06-05T15:02:00.000Z",
+          "updatedAt": "2026-06-05T15:02:00.000Z",
+          "uid": "35240-e9fb8eb3-1054-43df-a3de-cb334f14e8f0"
+        }
+      ],
+      "id": "5a1e5d8b-1d7b-4dc7-ba00-df2674bbf922",
+      "createdAt": "2026-06-05T15:02:00.000Z",
+      "updatedAt": "2026-06-05T15:02:00.000Z",
+      "uid": "35240-5a1e5d8b-1d7b-4dc7-ba00-df2674bbf922"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.paystack.co"
+    }
+  ]
+}
