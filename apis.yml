@@ -11,7 +11,7 @@ tags:
 - Mobile Money
 - Stripe
 kind: contract
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 description: Paystack is an African payment processor (acquired by Stripe in 2020)
   that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte
