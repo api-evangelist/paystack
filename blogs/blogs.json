@@ -3,20 +3,15 @@
   "feeds": [
     {
       "source": "https://paystack.com/blog/",
-      "error": "HTTPError"
-    },
-    {
-      "source": "https://medium.com/paystack-engineering/feed",
-      "feed_url": "https://medium.com/paystack-engineering/feed",
-      "title": "",
       "saved": 0,
-      "method": "none"
+      "error": "403 Forbidden"
     },
     {
-      "source": "https://paystack.com/docs/changelog/api/",
-      "error": "HTTPError"
+      "source": "https://medium.com/paystack-engineering",
+      "saved": 0,
+      "error": "404 Not Found"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T13:00:49Z"
 }
