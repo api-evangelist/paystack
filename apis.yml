@@ -285,6 +285,12 @@ apis:
     by the merchant secret key, and Paystack retries non-200 responses for up to 72
     hours.
 common:
+- type: TrustCenter
+  url: security/paystack-trust-center.yml
+- type: DomainSecurity
+  url: security/paystack-domain-security.yml
+- type: Authentication
+  url: authentication/paystack-authentication.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/paystack/overview
 - type: Arazzo

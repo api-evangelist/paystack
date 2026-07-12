@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paystack-accept-payments-openapi.yml, openapi/paystack-balance-openapi.yml,
+  openapi/paystack-customers-openapi.yml, openapi/paystack-dedicated-virtual-accounts-openapi.yml,
+  openapi/paystack-integration-openapi.yml, openapi/paystack-openapi-original.yml, openapi/paystack-payment-requests-openapi.yml,
+  openapi/paystack-products-pages-openapi.yml, openapi/paystack-refunds-disputes-openapi.yml,
+  openapi/paystack-settlements-openapi.yml, openapi/paystack-splits-subaccounts-openapi.yml,
+  openapi/paystack-subscriptions-openapi.yml ...
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  sources:
+  - openapi/paystack-accept-payments-openapi.yml
+  - openapi/paystack-balance-openapi.yml
+  - openapi/paystack-customers-openapi.yml
+  - openapi/paystack-dedicated-virtual-accounts-openapi.yml
+  - openapi/paystack-integration-openapi.yml
+  - openapi/paystack-openapi-original.yml
+  - openapi/paystack-payment-requests-openapi.yml
+  - openapi/paystack-products-pages-openapi.yml
+  - openapi/paystack-refunds-disputes-openapi.yml
+  - openapi/paystack-settlements-openapi.yml
+  - openapi/paystack-splits-subaccounts-openapi.yml
+  - openapi/paystack-subscriptions-openapi.yml
+  - openapi/paystack-transfers-openapi.yml
+  - openapi/paystack-verification-openapi.yml

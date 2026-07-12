@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://paystack.com/security
+url: https://paystack.com/security
+certifications:
+- ISO 27001
+evidence:
+- source: https://paystack.com/security
+  keywords:
+  - iso 27001
+  - iso/iec 27001
