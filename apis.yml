@@ -285,6 +285,8 @@ apis:
     by the merchant secret key, and Paystack retries non-200 responses for up to 72
     hours.
 common:
+- type: AgenticAccess
+  url: agentic-access/paystack-agentic-access.yml
 - type: TrustCenter
   url: security/paystack-trust-center.yml
 - type: DomainSecurity
