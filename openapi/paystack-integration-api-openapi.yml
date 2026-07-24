@@ -1,0 +1,68 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Integration API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Integration
+paths:
+  /integration/payment_session_timeout:
+    get:
+      tags:
+      - Integration
+      summary: Fetch Payment Session Timeout
+      operationId: integration_fetchPaymentSessionTimeout
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Integration
+      summary: Update Payment Session Timeout
+      operationId: integration_updatePaymentSessionTimeout
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1integration~1payment_session_timeout/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - timeout
+              properties:
+                timeout:
+                  description: Time in seconds before a transaction becomes invalid
+                  type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

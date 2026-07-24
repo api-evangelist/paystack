@@ -1,0 +1,222 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Subscription API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Subscription
+paths:
+  /subscription:
+    post:
+      tags:
+      - Subscription
+      summary: Create Subscription
+      operationId: subscription_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - customer
+              - plan
+              properties:
+                customer:
+                  description: Customer's email address or customer code
+                  type: string
+                plan:
+                  description: Plan code
+                  type: string
+                authorization:
+                  description: "If customer has multiple authorizations, you can set the desired authorization you wish to use for this subscription here. \nIf this is not supplied, the customer's most recent authorization would be used"
+                  type: string
+                start_date:
+                  description: Set the date for the first debit. (ISO 8601 format) e.g. 2017-05-16T00:30:13+01:00
+                  type: string
+                  format: date-time
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Subscription
+      summary: List Subscriptions
+      operationId: subscription_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: plan
+        schema:
+          type: string
+        description: Plan ID
+      - in: query
+        name: customer
+        schema:
+          type: string
+        description: Customer ID
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}:
+    parameters:
+    - name: code
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Subscription
+      summary: Fetch Subscription
+      operationId: subscription_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/disable:
+    post:
+      tags:
+      - Subscription
+      summary: Disable Subscription
+      operationId: subscription_disable
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/enable:
+    post:
+      tags:
+      - Subscription
+      summary: Enable Subscription
+      operationId: subscription_enable
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subscription~1enable/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - code
+              - token
+              - authorization
+              properties:
+                code:
+                  description: Subscription code
+                  type: string
+                token:
+                  description: Email token
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}/manage/link:
+    post:
+      tags:
+      - Subscription
+      summary: Generate Update Subscription Link
+      operationId: subscription_manageLink
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subscription/{code}/manage/email:
+    post:
+      tags:
+      - Subscription
+      summary: Send Update Subscription Link
+      operationId: subscription_manageEmail
+      parameters:
+      - name: code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

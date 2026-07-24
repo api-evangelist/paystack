@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Settlement API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Settlement
+paths:
+  /settlement:
+    get:
+      tags:
+      - Settlement
+      summary: Fetch Settlements
+      operationId: settlements_fetch
+      parameters:
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+        example: '50'
+      - name: page
+        in: query
+        schema:
+          type: integer
+        example: '2'
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /settlement/{id}/transaction:
+    get:
+      tags:
+      - Settlement
+      summary: Settlement Transactions
+      operationId: settlements_transaction
+      parameters:
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+        example: '50'
+      - name: page
+        in: query
+        schema:
+          type: integer
+        example: '2'
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

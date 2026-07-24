@@ -1,0 +1,185 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Product API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Product
+paths:
+  /product:
+    post:
+      tags:
+      - Product
+      summary: Create Product
+      operationId: product_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1product/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - description
+              - price
+              - currency
+              properties:
+                name:
+                  description: Name of product
+                  type: string
+                description:
+                  description: The description of the product
+                  type: string
+                price:
+                  description: Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
+                  type: integer
+                currency:
+                  description: 'Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD'
+                  type: string
+                limited:
+                  description: Set to true if the product has limited stock. Leave as false if the product has unlimited stock
+                  type: boolean
+                quantity:
+                  description: Number of products in stock. Use if limited is true
+                  type: integer
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Product
+      summary: List Products
+      operationId: product_list
+      parameters:
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: active
+        in: query
+        schema:
+          type: boolean
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /product/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Product
+      summary: Fetch Product
+      operationId: product_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Product
+      summary: Update product
+      operationId: product_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1product~1%7Bid%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Name of product
+                  type: string
+                description:
+                  description: The description of the product
+                  type: string
+                price:
+                  description: Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
+                  type: integer
+                currency:
+                  description: 'Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD'
+                  type: string
+                limited:
+                  description: Set to true if the product has limited stock. Leave as false if the product has unlimited stock
+                  type: boolean
+                quantity:
+                  description: Number of products in stock. Use if limited is true
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    delete:
+      tags:
+      - Product
+      summary: Delete Product
+      operationId: product_delete
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

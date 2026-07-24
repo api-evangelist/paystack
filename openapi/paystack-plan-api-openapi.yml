@@ -1,0 +1,177 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Plan API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Plan
+paths:
+  /plan:
+    get:
+      responses:
+        '200':
+          description: Resource created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Ok/content/application~1json/schema'
+        '401':
+          description: Unauthorized operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+      tags:
+      - Plan
+    post:
+      tags:
+      - Plan
+      summary: Create Plan
+      operationId: plan_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1plan/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - amount
+              - interval
+              properties:
+                name:
+                  description: Name of plan
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
+                  type: integer
+                interval:
+                  description: Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
+                  type: string
+                description:
+                  description: A description for this plan
+                  type: boolean
+                send_invoices:
+                  description: Set to false if you don't want invoices to be sent to your customers
+                  type: boolean
+                send_sms:
+                  description: Set to false if you don't want text messages to be sent to your customers
+                  type: boolean
+                currency:
+                  description: Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD
+                  type: string
+                invoice_limit:
+                  description: "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing."
+                  type: integer
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /plan/{code}:
+    parameters:
+    - name: code
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Plan
+      summary: Fetch Plan
+      operationId: plan_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Plan
+      summary: Update Plan
+      operationId: plan_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1plan~1%7Bcode%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Name of plan
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
+                  type: integer
+                interval:
+                  description: Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually
+                  type: string
+                description:
+                  description: A description for this plan
+                  type: boolean
+                send_invoices:
+                  description: Set to false if you don't want invoices to be sent to your customers
+                  type: boolean
+                send_sms:
+                  description: Set to false if you don't want text messages to be sent to your customers
+                  type: boolean
+                currency:
+                  description: Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD
+                  type: string
+                invoice_limit:
+                  description: "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing."
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  responses:
+    Ok:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              message:
+                type: string
+              data:
+                type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

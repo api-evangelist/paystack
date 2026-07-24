@@ -1,0 +1,342 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Transfer API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Transfer
+paths:
+  /transfer:
+    post:
+      tags:
+      - Transfer
+      summary: Initiate Transfer
+      operationId: transfer_initiate
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transfer/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - source
+              - amount
+              - recipient
+              properties:
+                source:
+                  description: Where should we transfer from? Only balance is allowed for now
+                  type: string
+                amount:
+                  description: Amount to transfer in kobo if currency is NGN and pesewas if currency is GHS.
+                  type: string
+                recipient:
+                  description: The transfer recipient's code
+                  type: string
+                reason:
+                  description: The reason or narration for the transfer.
+                  type: string
+                currency:
+                  description: Specify the currency of the transfer. Defaults to NGN.
+                  type: string
+                reference:
+                  description: "If specified, the field should be a unique identifier (in lowercase) for the object. \nOnly -,_ and alphanumeric characters are allowed."
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Transfer
+      summary: List Transfers
+      operationId: transfer_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/finalize_transfer:
+    post:
+      tags:
+      - Transfer
+      summary: Finalize Transfer
+      operationId: transfer_finalize
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transfer~1finalize_transfer/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - transfer_code
+              - otp
+              properties:
+                transfer_code:
+                  description: The transfer code you want to finalize
+                  type: string
+                otp:
+                  description: OTP sent to business phone to verify transfer
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/bulk:
+    post:
+      tags:
+      - Transfer
+      summary: Initiate Bulk Transfer
+      operationId: transfer_bulk
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transfer~1bulk/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - batch
+              properties:
+                source:
+                  description: Where should we transfer from? Only balance is allowed for now
+                  type: string
+                transfers:
+                  description: A list of transfer object. Each object should contain amount, recipient, and reference
+                  type: array
+                  items:
+                    $ref: '#/paths/~1transfer/post/requestBody/content/application~1json/schema'
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/{code}:
+    parameters:
+    - name: code
+      description: Transfer code
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Transfer
+      summary: Fetch Transfer
+      operationId: transfer_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/verify/{reference}:
+    parameters:
+    - name: reference
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Transfer
+      summary: Verify Transfer
+      operationId: transfer_verify
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/export:
+    get:
+      tags:
+      - Transfer
+      summary: Export Transfers
+      operationId: transfer_download
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/resend_otp:
+    post:
+      tags:
+      - Transfer
+      summary: Resend OTP for Transfer
+      operationId: transfer_resendOtp
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transfer~1resend_otp/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - transfer_code
+              - reason
+              properties:
+                transfer_code:
+                  description: The transfer code that requires an OTP validation
+                  type: string
+                reason:
+                  description: Either resend_otp or transfer
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/disable_otp:
+    post:
+      tags:
+      - Transfer
+      summary: Disable OTP requirement for Transfers
+      operationId: transfer_disableOtp
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/disable_otp_finalize:
+    post:
+      tags:
+      - Transfer
+      summary: Finalize Disabling of OTP requirement for Transfers
+      operationId: transfer_disableOtpFinalize
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1transfer~1disable_otp_finalize/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - otp
+              properties:
+                otp:
+                  description: OTP sent to business phone to verify disabling OTP requirement
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /transfer/enable_otp:
+    post:
+      tags:
+      - Transfer
+      summary: Enable OTP requirement for Transfers
+      operationId: transfer_enableOtp
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

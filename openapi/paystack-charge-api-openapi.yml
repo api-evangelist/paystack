@@ -1,0 +1,309 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Charge API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Charge
+paths:
+  /charge:
+    post:
+      tags:
+      - Charge
+      summary: Create Charge
+      operationId: charge_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              allOf:
+              - type: object
+                required:
+                - email
+                - amount
+                properties:
+                  email:
+                    description: Customer's email address
+                    type: string
+                  amount:
+                    description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR
+                    type: string
+                  authorization_code:
+                    description: An authorization code to charge.
+                    type: string
+                  pin:
+                    description: 4-digit PIN (send with a non-reusable authorization code)
+                    type: string
+                  reference:
+                    description: Unique transaction reference. Only -, .`, = and alphanumeric characters allowed.
+                    type: string
+                  birthday:
+                    description: The customer's birthday in the format YYYY-MM-DD e.g 2017-05-16
+                    type: string
+                    format: date-time
+                  device_id:
+                    description: "This is the unique identifier of the device a user uses in making payment. \nOnly -, .`, = and alphanumeric characters are allowed."
+                    type: string
+                  metadata:
+                    description: Stringified JSON object of custom data
+                    type: string
+              - type: object
+                properties:
+                  bank:
+                    type: object
+                    properties:
+                      code:
+                        description: Customer's bank code
+                        type: string
+                      account_number:
+                        description: Customer's account number
+                        type: string
+              - type: object
+                properties:
+                  mobile_money:
+                    type: object
+                    properties:
+                      phone:
+                        description: Customer's phone number
+                        type: string
+                      provider:
+                        description: "The telco provider of customer's phone number. \nThis can be fetched from the List Bank endpoint\n"
+                        type: string
+              - type: object
+                properties:
+                  ussd:
+                    type: object
+                    properties:
+                      type:
+                        description: The three-digit USSD code
+                        type: string
+                        enum:
+                        - 737
+                        - 919
+                        - 822
+                        - 966
+              - type: object
+                properties:
+                  eft:
+                    type: object
+                    properties:
+                      provider:
+                        description: The EFT provider
+                        type: string
+                        enum:
+                        - ozow
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_pin:
+    post:
+      tags:
+      - Charge
+      summary: Submit PIN
+      operationId: charge_submitPin
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_pin/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - pin
+              - reference
+              properties:
+                pin:
+                  description: Customer's PIN
+                  type: string
+                reference:
+                  description: Transaction reference that requires the PIN
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_otp:
+    post:
+      tags:
+      - Charge
+      summary: Submit OTP
+      operationId: charge_submitOtp
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_otp/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - otp
+              - reference
+              properties:
+                otp:
+                  description: Customer's OTP
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_phone:
+    post:
+      tags:
+      - Charge
+      summary: Submit Phone
+      operationId: charge_submitPhone
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_phone/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - phone
+              - reference
+              properties:
+                phone:
+                  description: Customer's mobile number
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_birthday:
+    post:
+      tags:
+      - Charge
+      summary: Submit Birthday
+      operationId: charge_submitBirthday
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_birthday/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - birthday
+              - reference
+              properties:
+                birthday:
+                  description: Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/submit_address:
+    post:
+      tags:
+      - Charge
+      summary: Submit Address
+      operationId: charge_submitAddress
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1charge~1submit_address/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - address
+              - reference
+              - city
+              - state
+              - zipcode
+              properties:
+                address:
+                  description: Customer's address
+                  type: string
+                city:
+                  description: Customer's city
+                  type: string
+                state:
+                  description: Customer's state
+                  type: string
+                zipcode:
+                  description: Customer's zipcode
+                  type: string
+                reference:
+                  description: The reference of the ongoing transaction
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /charge/{reference}:
+    get:
+      tags:
+      - Charge
+      summary: Check Pending Charge
+      operationId: charge_check
+      parameters:
+      - name: reference
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

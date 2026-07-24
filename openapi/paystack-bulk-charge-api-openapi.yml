@@ -1,0 +1,193 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Bulk Charge API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Bulk Charge
+paths:
+  /bulkcharge:
+    post:
+      tags:
+      - Bulk Charge
+      summary: Initiate Bulk Charge
+      operationId: bulkCharge_initiate
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: array
+              items:
+                type: object
+                required:
+                - authorization
+                - amount
+                properties:
+                  authorization:
+                    description: Customer's card authorization code
+                    type: string
+                  amount:
+                    description: Amount to charge on the authorization
+                    type: string
+                  reference:
+                    description: Unique transaction reference. Only -, ., = and alphanumeric characters allowed.
+                    type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                properties:
+                  charges:
+                    title: charges
+                    type: object
+                    items:
+                      $ref: '#/paths/~1bulkcharge/post/requestBody/content/application~1x-www-form-urlencoded/schema/items'
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Bulk Charge
+      summary: List Bulk Charge Batches
+      operationId: bulkCharge_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /bulkcharge/{code}:
+    parameters:
+    - name: code
+      description: Batch code
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Bulk Charge
+      summary: Fetch Bulk Charge Batch
+      operationId: bulkCharge_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /bulkcharge/{code}/charges:
+    get:
+      tags:
+      - Bulk Charge
+      summary: Fetch Charges in a Batch
+      operationId: bulkCharge_charges
+      parameters:
+      - name: code
+        description: Batch code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /bulkcharge/pause/{code}:
+    get:
+      tags:
+      - Bulk Charge
+      summary: Pause Bulk Charge Batch
+      operationId: bulkCharge_pause
+      parameters:
+      - name: code
+        description: Batch code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /bulkcharge/resume/{code}:
+    get:
+      tags:
+      - Bulk Charge
+      summary: Resume Bulk Charge Batch
+      operationId: bulkCharge_resume
+      parameters:
+      - name: code
+        description: Batch code
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

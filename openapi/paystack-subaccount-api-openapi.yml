@@ -1,0 +1,192 @@
+openapi: 3.0.1
+info:
+  title: Paystack Accept Payments Balance Subaccount API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+security:
+- bearerAuth: []
+tags:
+- name: Subaccount
+paths:
+  /subaccount:
+    post:
+      tags:
+      - Subaccount
+      summary: Create Subaccount
+      operationId: subaccount_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subaccount/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - business_name
+              - settlement_bank
+              - account_number
+              - percentage_charge
+              properties:
+                business_name:
+                  description: Name of business for subaccount
+                  type: string
+                settlement_bank:
+                  description: Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.
+                  type: string
+                account_number:
+                  description: Bank account number
+                  type: string
+                percentage_charge:
+                  description: Customer's phone number
+                  type: number
+                  format: float
+                description:
+                  description: A description for this subaccount
+                  type: string
+                primary_contact_email:
+                  description: A contact email for the subaccount
+                  type: string
+                primary_contact_name:
+                  description: The name of the contact person for this subaccount
+                  type: string
+                primary_contact_phone:
+                  description: A phone number to call for this subaccount
+                  type: string
+                metadata:
+                  description: Stringified JSON object of custom data
+                  type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Subaccount
+      summary: List Subaccounts
+      operationId: subaccount_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /subaccount/{code}:
+    parameters:
+    - name: code
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Subaccount
+      summary: Fetch Subaccount
+      operationId: subaccount_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Subaccount
+      summary: Update Subaccount
+      operationId: subaccount_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1subaccount~1%7Bcode%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                business_name:
+                  description: Name of business for subaccount
+                  type: string
+                settlement_bank:
+                  description: Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.
+                  type: string
+                account_number:
+                  description: Bank account number
+                  type: string
+                active:
+                  description: Activate or deactivate a subaccount
+                  type: boolean
+                percentage_charge:
+                  description: Customer's phone number
+                  type: number
+                  format: float
+                description:
+                  description: A description for this subaccount
+                  type: string
+                primary_contact_email:
+                  description: A contact email for the subaccount
+                  type: string
+                primary_contact_name:
+                  description: The name of the contact person for this subaccount
+                  type: string
+                primary_contact_phone:
+                  description: A phone number to call for this subaccount
+                  type: string
+                metadata:
+                  description: Stringified JSON object of custom data
+                  type: string
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

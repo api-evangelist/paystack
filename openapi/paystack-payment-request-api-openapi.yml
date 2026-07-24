@@ -1,8 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Paystack Payment Requests API
-  description: Create and send invoice-like payment requests to customers via email with verification, notifications, finalize,
-    and archive flows.
+  title: Paystack Accept Payments Balance Payment Request API
+  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
   version: 1.0.0
   contact:
     name: Paystack Support
@@ -14,6 +13,8 @@ info:
 servers:
 - url: https://api.paystack.co
   description: Base API endpoint
+security:
+- bearerAuth: []
 tags:
 - name: Payment Request
 paths:
@@ -38,12 +39,10 @@ paths:
                   description: Customer id or code
                   type: string
                 amount:
-                  description: "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint\
-                    \ will throw a friendly warning if neither is available."
+                  description: "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available."
                   type: integer
                 currency:
-                  description: Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to
-                    NGN
+                  description: Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN
                   type: string
                 due_date:
                   description: ISO 8601 representation of request due date
@@ -73,15 +72,12 @@ paths:
                   items:
                     type: object
                 has_invoice:
-                  description: "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is\
-                    \ provided) \neven if there are no line_items or tax passed"
+                  description: "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed"
                   type: boolean
                   items:
                     type: object
                 invoice_number:
-                  description: "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field\
-                    \ is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue\
-                    \ from this point."
+                  description: "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point."
                   type: integer
                 split_code:
                   description: The split code of the transaction split.
@@ -146,6 +142,12 @@ paths:
         default:
           description: Server error
   /paymentrequest/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
       tags:
       - Payment Request
@@ -178,12 +180,10 @@ paths:
                   description: Customer id or code
                   type: string
                 amount:
-                  description: "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint\
-                    \ will throw a friendly warning if neither is available."
+                  description: "Payment request amount. Only useful if line items and tax values are ignored. \nThe endpoint will throw a friendly warning if neither is available."
                   type: integer
                 currency:
-                  description: Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to
-                    NGN
+                  description: Specify the currency of the invoice. Allowed values are NGN, GHS, ZAR and USD. Defaults to NGN
                   type: string
                 due_date:
                   description: ISO 8601 representation of request due date
@@ -213,15 +213,12 @@ paths:
                   items:
                     type: object
                 has_invoice:
-                  description: "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is\
-                    \ provided) \neven if there are no line_items or tax passed"
+                  description: "Set to true to create a draft invoice (adds an auto incrementing invoice number if none is provided) \neven if there are no line_items or tax passed"
                   type: boolean
                   items:
                     type: object
                 invoice_number:
-                  description: "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field\
-                    \ is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue\
-                    \ from this point."
+                  description: "Numeric value of invoice. Invoice will start from 1 and auto increment from there. This field is to help \noverride whatever value Paystack decides. Auto increment for subsequent invoices continue from this point."
                   type: integer
                 split_code:
                   description: The split code of the transaction split.
@@ -235,13 +232,13 @@ paths:
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
+  /paymentrequest/verify/{id}:
     parameters:
     - name: id
       in: path
       required: true
       schema:
         type: string
-  /paymentrequest/verify/{id}:
     get:
       tags:
       - Payment Request
@@ -256,13 +253,13 @@ paths:
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
+  /paymentrequest/notify/{id}:
     parameters:
     - name: id
       in: path
       required: true
       schema:
         type: string
-  /paymentrequest/notify/{id}:
     post:
       tags:
       - Payment Request
@@ -275,12 +272,6 @@ paths:
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
   /paymentrequest/totals:
     get:
       tags:
@@ -297,6 +288,12 @@ paths:
         default:
           description: Server error
   /paymentrequest/finalize/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
     post:
       tags:
       - Payment Request
@@ -309,13 +306,13 @@ paths:
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
+  /paymentrequest/archive/{id}:
     parameters:
     - name: id
       in: path
       required: true
       schema:
         type: string
-  /paymentrequest/archive/{id}:
     post:
       tags:
       - Payment Request
@@ -328,107 +325,8 @@ paths:
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
-    parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: string
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
-  schemas:
-    Customer:
-      allOf:
-      - type: object
-        required:
-        - email
-        properties:
-          email:
-            description: Customer's email address
-            type: string
-      - type: object
-        properties:
-          first_name:
-            description: Customer's first name
-            type: string
-          last_name:
-            description: Customer's last name
-            type: string
-          phone:
-            description: Customer's phone number
-            type: string
-          metadata:
-            description: Stringified JSON object of custom data
-            type: string
-      - type: object
-        required:
-        - authorization_code
-        properties:
-          authorization_code:
-            description: Customer's authorization code to be deactivated
-            type: string
-      - type: object
-        required:
-        - customer
-        properties:
-          customer:
-            description: Customer's code, or email address
-            type: string
-          risk_action:
-            description: "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist.\
-              \ Customers start with a default risk action.\n"
-            type: string
-            enum:
-            - default
-            - allow
-            - deny
-      - type: object
-        required:
-        - type
-        - country
-        - bvn
-        - bank_code
-        - account_number
-        properties:
-          type:
-            description: Predefined types of identification.
-            type: string
-            enum:
-            - bvn
-            - bank_account
-          country:
-            description: Two-letter country code of identification issuer
-            type: string
-          bvn:
-            description: Customer's Bank Verification Number
-            type: string
-          bank_code:
-            description: You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
-            type: string
-          account_number:
-            description: Customer's bank account number.
-            type: string
-          value:
-            description: Customer's identification number. Required if type is bvn
-            type: string
-    Error:
-      type: object
-      properties:
-        status:
-          type: boolean
-        message:
-          type: string
-    Response:
-      type: object
-      properties:
-        status:
-          type: boolean
-        message:
-          type: string
-        data:
-          type: object
-security:
-- bearerAuth: []
