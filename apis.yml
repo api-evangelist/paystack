@@ -11,7 +11,20 @@ tags:
 - Mobile Money
 - Stripe
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paystack.png
 access: 3rd-Party
 description: Paystack is an African payment processor (acquired by Stripe in 2020)
   that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte
@@ -21,250 +34,6 @@ description: Paystack is an African payment processor (acquired by Stripe in 202
   disputes, settlements, and KYC/identity verification — all wrapped in a developer
   experience that has made it one of the most respected public APIs on the continent.
 apis:
-- aid: paystack:paystack-accept-payments
-  name: Paystack Accept Payments API
-  tags:
-  - Payments
-  - Transactions
-  - Charge
-  humanURL: https://paystack.com/docs/api/transaction/
-  properties:
-  - url: https://paystack.com/docs/api/transaction/
-    type: Documentation
-  - url: https://paystack.com/docs/api/charge/
-    type: Documentation
-  - url: openapi/paystack-accept-payments-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-transaction-schema.json
-    type: JSONSchema
-  - url: json-structure/paystack-transaction-structure.json
-    type: JSONStructure
-  - url: examples/paystack-initialize-transaction-example.json
-    type: Examples
-  - url: examples/paystack-verify-transaction-example.json
-    type: Examples
-  - url: graphql/paystack-graphql.md
-    type: GraphQL
-  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile
-    money, QR, and bank transfer payments. The Transaction and Charge resources are
-    the core of Paystack — a hosted checkout flow (initialize + verify) and a direct
-    charge flow that drives the customer through PIN, OTP, phone, birthday, and address
-    challenges as required.
-- aid: paystack:paystack-subscriptions
-  name: Paystack Subscriptions API
-  tags:
-  - Recurring Billing
-  - Subscriptions
-  - Plans
-  humanURL: https://paystack.com/docs/api/subscription/
-  properties:
-  - url: https://paystack.com/docs/api/subscription/
-    type: Documentation
-  - url: https://paystack.com/docs/api/plan/
-    type: Documentation
-  - url: openapi/paystack-subscriptions-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-plan-schema.json
-    type: JSONSchema
-  - url: json-schema/paystack-subscription-schema.json
-    type: JSONSchema
-  - url: json-structure/paystack-subscription-structure.json
-    type: JSONStructure
-  - url: examples/paystack-create-subscription-example.json
-    type: Examples
-  description: Create plans and run recurring subscriptions against stored card authorizations.
-    Includes plan management, subscription lifecycle (create / disable / enable),
-    customer self-service update links, and automatic invoice notifications.
-- aid: paystack:paystack-customers
-  name: Paystack Customers API
-  tags:
-  - Customers
-  - KYC
-  humanURL: https://paystack.com/docs/api/customer/
-  properties:
-  - url: https://paystack.com/docs/api/customer/
-    type: Documentation
-  - url: openapi/paystack-customers-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-customer-schema.json
-    type: JSONSchema
-  - url: json-structure/paystack-customer-structure.json
-    type: JSONStructure
-  description: Create, list, and update customer profiles; whitelist or blacklist
-    customers via risk_action; deactivate stored authorizations; and run KYC validation
-    against customer identities.
-- aid: paystack:paystack-transfers
-  name: Paystack Transfers API
-  tags:
-  - Payouts
-  - Transfers
-  - Bulk
-  humanURL: https://paystack.com/docs/api/transfer/
-  properties:
-  - url: https://paystack.com/docs/api/transfer/
-    type: Documentation
-  - url: https://paystack.com/docs/api/transfer-recipient/
-    type: Documentation
-  - url: https://paystack.com/docs/api/bulk-charge/
-    type: Documentation
-  - url: openapi/paystack-transfers-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-transfer-schema.json
-    type: JSONSchema
-  - url: json-structure/paystack-transfer-structure.json
-    type: JSONStructure
-  - url: examples/paystack-initiate-transfer-example.json
-    type: Examples
-  description: Send money out of your Paystack balance to bank accounts and mobile
-    money wallets across supported markets. Covers transfer recipients, single and
-    bulk transfers, OTP workflows, and bulk charges against stored authorizations.
-- aid: paystack:paystack-splits-subaccounts
-  name: Paystack Splits and Subaccounts API
-  tags:
-  - Marketplaces
-  - Splits
-  - Subaccounts
-  humanURL: https://paystack.com/docs/api/split/
-  properties:
-  - url: https://paystack.com/docs/api/split/
-    type: Documentation
-  - url: https://paystack.com/docs/api/subaccount/
-    type: Documentation
-  - url: openapi/paystack-splits-subaccounts-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-split-schema.json
-    type: JSONSchema
-  - url: json-schema/paystack-subaccount-schema.json
-    type: JSONSchema
-  - url: json-structure/paystack-split-structure.json
-    type: JSONStructure
-  - url: examples/paystack-create-split-example.json
-    type: Examples
-  description: Build marketplaces by automatically splitting a single payment between
-    the main account and multiple subaccounts. Configure percentage or flat splits,
-    set fee-bearers, and manage subaccount business profiles for vendor payouts.
-- aid: paystack:paystack-dedicated-virtual-accounts
-  name: Paystack Dedicated Virtual Accounts API
-  tags:
-  - Bank Transfer
-  - NUBAN
-  - Virtual Accounts
-  humanURL: https://paystack.com/docs/api/dedicated-virtual-account/
-  properties:
-  - url: https://paystack.com/docs/api/dedicated-virtual-account/
-    type: Documentation
-  - url: openapi/paystack-dedicated-virtual-accounts-openapi.yml
-    type: OpenAPI
-  - url: examples/paystack-create-dedicated-account-example.json
-    type: Examples
-  description: Provision dedicated NUBAN virtual bank accounts for individual customers
-    so they can pay by bank transfer with automatic reconciliation back to the customer
-    profile. Includes split routing on inbound transfers.
-- aid: paystack:paystack-products-pages
-  name: Paystack Products and Payment Pages API
-  tags:
-  - Hosted Checkout
-  - Products
-  - Pages
-  humanURL: https://paystack.com/docs/api/products/
-  properties:
-  - url: https://paystack.com/docs/api/products/
-    type: Documentation
-  - url: https://paystack.com/docs/api/page/
-    type: Documentation
-  - url: openapi/paystack-products-pages-openapi.yml
-    type: OpenAPI
-  description: Manage products in your Paystack inventory and assemble them into Paystack-hosted
-    Payment Pages so you can collect payments without operating your own checkout.
-- aid: paystack:paystack-payment-requests
-  name: Paystack Payment Requests API
-  tags:
-  - Invoices
-  - Payment Requests
-  humanURL: https://paystack.com/docs/api/payment-request/
-  properties:
-  - url: https://paystack.com/docs/api/payment-request/
-    type: Documentation
-  - url: openapi/paystack-payment-requests-openapi.yml
-    type: OpenAPI
-  description: Issue invoice-style payment requests to customers by email, with verification,
-    notification, finalization, and archival flows.
-- aid: paystack:paystack-refunds-disputes
-  name: Paystack Refunds and Disputes API
-  tags:
-  - Refunds
-  - Disputes
-  - Chargebacks
-  humanURL: https://paystack.com/docs/api/refund/
-  properties:
-  - url: https://paystack.com/docs/api/refund/
-    type: Documentation
-  - url: https://paystack.com/docs/api/dispute/
-    type: Documentation
-  - url: openapi/paystack-refunds-disputes-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paystack-refund-schema.json
-    type: JSONSchema
-  - url: json-schema/paystack-dispute-schema.json
-    type: JSONSchema
-  description: Process partial and full refunds against successful transactions and
-    respond to cardholder disputes — including evidence upload via signed URL, resolution
-    workflows, and exports.
-- aid: paystack:paystack-settlements
-  name: Paystack Settlements API
-  tags:
-  - Settlements
-  - Treasury
-  humanURL: https://paystack.com/docs/api/settlement/
-  properties:
-  - url: https://paystack.com/docs/api/settlement/
-    type: Documentation
-  - url: openapi/paystack-settlements-openapi.yml
-    type: OpenAPI
-  description: Fetch settlement records and the underlying transactions that comprise
-    each payout to your bank account.
-- aid: paystack:paystack-verification
-  name: Paystack Verification API
-  tags:
-  - Verification
-  - Identity
-  - BVN
-  - KYC
-  humanURL: https://paystack.com/docs/api/verification/
-  properties:
-  - url: https://paystack.com/docs/api/verification/
-    type: Documentation
-  - url: openapi/paystack-verification-openapi.yml
-    type: OpenAPI
-  description: Identity, BVN, bank account, card BIN, country, bank, and address-verification
-    lookups used to validate customers, beneficiary accounts, and cards before transacting.
-- aid: paystack:paystack-balance
-  name: Paystack Balance API
-  tags:
-  - Balance
-  - Ledger
-  - Treasury
-  humanURL: https://paystack.com/docs/api/balance/
-  properties:
-  - url: https://paystack.com/docs/api/balance/
-    type: Documentation
-  - url: openapi/paystack-balance-openapi.yml
-    type: OpenAPI
-  description: Fetch your Paystack balance per currency and read the balance ledger
-    for treasury operations and reconciliation.
-- aid: paystack:paystack-integration
-  name: Paystack Integration Settings API
-  tags:
-  - Integration
-  - Settings
-  humanURL: https://paystack.com/docs/api/integration/
-  properties:
-  - url: https://paystack.com/docs/api/integration/
-    type: Documentation
-  - url: openapi/paystack-integration-openapi.yml
-    type: OpenAPI
-  description: Read and update integration-wide settings such as the payment session
-    timeout for hosted checkout.
 - aid: paystack:paystack-webhooks
   name: Paystack Webhooks
   tags:
@@ -278,12 +47,1832 @@ apis:
     type: Documentation
   - url: asyncapi/paystack-webhooks-asyncapi.yml
     type: AsyncAPI
-  description: Outbound webhook surface that notifies a single merchant-configured
-    POST endpoint of transaction, dispute, refund, transfer, subscription, invoice,
-    payment request, customer identification, and dedicated virtual account events.
-    Every delivery is signed with an HMAC-SHA512 x-paystack-signature header keyed
-    by the merchant secret key, and Paystack retries non-200 responses for up to 72
-    hours.
+  description: >-
+    Outbound webhook surface that notifies a single merchant-configured POST endpoint of transaction,
+    dispute, refund, transfer, subscription, invoice, payment request, customer identification, and dedicated
+    virtual account events. Every delivery is signed with an HMAC-SHA512 x-paystack-signature header keyed
+    by the merchant secret key, and Paystack retries non-200 responses for up to 72 hours.
+- aid: paystack:paystack-balance-api
+  name: Paystack Balance API
+  description: The Balance API from Paystack — 2 operation(s) for balance.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Balance
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-balance-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-bulk-charge-api
+  name: Paystack Bulk Charge API
+  description: The Bulk Charge API from Paystack — 5 operation(s) for bulk charge.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Bulk Charge
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-bulk-charge-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-charge-api
+  name: Paystack Charge API
+  description: The Charge API from Paystack — 7 operation(s) for charge.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Charge
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-charge-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-customer-api
+  name: Paystack Customer API
+  description: The Customer API from Paystack — 5 operation(s) for customer.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Customer
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-customer-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-dedicated-virtual-account-api
+  name: Paystack Dedicated Virtual Account API
+  description: >-
+    The Dedicated Virtual Account API from Paystack — 4 operation(s) for dedicated virtual account.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Dedicated Virtual Account
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-dedicated-virtual-account-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-dispute-api
+  name: Paystack Dispute API
+  description: The Dispute API from Paystack — 7 operation(s) for dispute.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Dispute
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-dispute-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-integration-api
+  name: Paystack Integration API
+  description: The Integration API from Paystack — 1 operation(s) for integration.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-integration-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-page-api
+  name: Paystack Page API
+  description: The Page API from Paystack — 4 operation(s) for page.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Page
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-page-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-payment-request-api
+  name: Paystack Payment Request API
+  description: The Payment Request API from Paystack — 7 operation(s) for payment request.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Payment Request
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-payment-request-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-plan-api
+  name: Paystack Plan API
+  description: The Plan API from Paystack — 2 operation(s) for plan.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-plan-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-product-api
+  name: Paystack Product API
+  description: The Product API from Paystack — 2 operation(s) for product.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Product
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-product-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-refund-api
+  name: Paystack Refund API
+  description: The Refund API from Paystack — 2 operation(s) for refund.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Refund
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-refund-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-settlement-api
+  name: Paystack Settlement API
+  description: The Settlement API from Paystack — 2 operation(s) for settlement.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Settlement
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-settlement-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-split-api
+  name: Paystack Split API
+  description: The Split API from Paystack — 4 operation(s) for split.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Split
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-split-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-subaccount-api
+  name: Paystack Subaccount API
+  description: The Subaccount API from Paystack — 2 operation(s) for subaccount.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Subaccount
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-subaccount-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-subscription-api
+  name: Paystack Subscription API
+  description: The Subscription API from Paystack — 6 operation(s) for subscription.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Subscription
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-subscription-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-transaction-api
+  name: Paystack Transaction API
+  description: The Transaction API from Paystack — 12 operation(s) for transaction.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Transaction
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-transaction-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-transfer-api
+  name: Paystack Transfer API
+  description: The Transfer API from Paystack — 10 operation(s) for transfer.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Transfer
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-transfer-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-transfer-recipient-api
+  name: Paystack Transfer Recipient API
+  description: The Transfer Recipient API from Paystack — 3 operation(s) for transfer recipient.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Transfer Recipient
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-transfer-recipient-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
+- aid: paystack:paystack-verification-api
+  name: Paystack Verification API
+  description: The Verification API from Paystack — 7 operation(s) for verification.
+  humanURL: https://paystack.com/docs/api/transaction/
+  tags:
+  - Verification
+  properties:
+  - type: OpenAPI
+    url: openapi/paystack-verification-api-openapi.yml
+  - type: Documentation
+    url: https://paystack.com/docs/api/transaction/
+  - type: Documentation
+    url: https://paystack.com/docs/api/charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transaction-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transaction-structure.json
+  - type: Examples
+    url: examples/paystack-initialize-transaction-example.json
+  - type: Examples
+    url: examples/paystack-verify-transaction-example.json
+  - type: GraphQL
+    url: graphql/paystack-graphql.md
+  - type: Documentation
+    url: https://paystack.com/docs/api/subscription/
+  - type: Documentation
+    url: https://paystack.com/docs/api/plan/
+  - type: JSONSchema
+    url: json-schema/paystack-plan-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subscription-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-subscription-structure.json
+  - type: Examples
+    url: examples/paystack-create-subscription-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/customer/
+  - type: JSONSchema
+    url: json-schema/paystack-customer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-customer-structure.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer/
+  - type: Documentation
+    url: https://paystack.com/docs/api/transfer-recipient/
+  - type: Documentation
+    url: https://paystack.com/docs/api/bulk-charge/
+  - type: JSONSchema
+    url: json-schema/paystack-transfer-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-transfer-structure.json
+  - type: Examples
+    url: examples/paystack-initiate-transfer-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/split/
+  - type: Documentation
+    url: https://paystack.com/docs/api/subaccount/
+  - type: JSONSchema
+    url: json-schema/paystack-split-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-subaccount-schema.json
+  - type: JSONStructure
+    url: json-structure/paystack-split-structure.json
+  - type: Examples
+    url: examples/paystack-create-split-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/dedicated-virtual-account/
+  - type: Examples
+    url: examples/paystack-create-dedicated-account-example.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/products/
+  - type: Documentation
+    url: https://paystack.com/docs/api/page/
+  - type: Documentation
+    url: https://paystack.com/docs/api/payment-request/
+  - type: Documentation
+    url: https://paystack.com/docs/api/refund/
+  - type: Documentation
+    url: https://paystack.com/docs/api/dispute/
+  - type: JSONSchema
+    url: json-schema/paystack-refund-schema.json
+  - type: JSONSchema
+    url: json-schema/paystack-dispute-schema.json
+  - type: Documentation
+    url: https://paystack.com/docs/api/settlement/
+  - type: Documentation
+    url: https://paystack.com/docs/api/verification/
+  - type: Documentation
+    url: https://paystack.com/docs/api/balance/
+  - type: Documentation
+    url: https://paystack.com/docs/api/integration/
 common:
 - type: AgenticAccess
   url: agentic-access/paystack-agentic-access.yml
