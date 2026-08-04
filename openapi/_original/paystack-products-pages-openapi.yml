@@ -1,0 +1,478 @@
+openapi: 3.0.1
+info:
+  title: Paystack Products and Payment Pages API
+  description: Create and manage products in your inventory and Paystack-hosted Payment Pages so you can collect payments
+    without writing custom checkout code.
+  version: 1.0.0
+  contact:
+    name: Paystack Support
+    url: https://support.paystack.com
+    email: support@paystack.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.paystack.co
+  description: Base API endpoint
+tags:
+- name: Product
+- name: Page
+paths:
+  /product:
+    post:
+      tags:
+      - Product
+      summary: Create Product
+      operationId: product_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1product/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - description
+              - price
+              - currency
+              properties:
+                name:
+                  description: Name of product
+                  type: string
+                description:
+                  description: The description of the product
+                  type: string
+                price:
+                  description: Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                currency:
+                  description: 'Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD'
+                  type: string
+                limited:
+                  description: Set to true if the product has limited stock. Leave as false if the product has unlimited stock
+                  type: boolean
+                quantity:
+                  description: Number of products in stock. Use if limited is true
+                  type: integer
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Product
+      summary: List Products
+      operationId: product_list
+      parameters:
+      - name: perPage
+        in: query
+        schema:
+          type: integer
+      - name: page
+        in: query
+        schema:
+          type: integer
+      - name: active
+        in: query
+        schema:
+          type: boolean
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /product/{id}:
+    get:
+      tags:
+      - Product
+      summary: Fetch Product
+      operationId: product_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Product
+      summary: Update Product
+      operationId: product_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1product~1%7Bid%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Name of product
+                  type: string
+                description:
+                  description: The description of the product
+                  type: string
+                price:
+                  description: Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                currency:
+                  description: 'Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD'
+                  type: string
+                limited:
+                  description: Set to true if the product has limited stock. Leave as false if the product has unlimited stock
+                  type: boolean
+                quantity:
+                  description: Number of products in stock. Use if limited is true
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    delete:
+      tags:
+      - Product
+      summary: Delete Product
+      operationId: product_delete
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  /page:
+    post:
+      tags:
+      - Page
+      summary: Create Page
+      operationId: page_create
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1page/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  description: Name of page
+                  type: string
+                description:
+                  description: The description of the page
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                slug:
+                  description: URL slug you would like to be associated with this page. Page will be accessible at https://paystack.com/pay/[slug]
+                  type: string
+                metadata:
+                  description: Stringified JSON object of custom data
+                  type: string
+                redirect_url:
+                  description: If you would like Paystack to redirect to a URL upon successful payment, specify the URL here.
+                  type: string
+                custom_fields:
+                  description: If you would like to accept custom fields, specify them here.
+                  type: array
+                  items:
+                    type: object
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Page
+      summary: List Pages
+      operationId: page_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+  /page/{id}:
+    get:
+      tags:
+      - Page
+      summary: Fetch Page
+      operationId: page_fetch
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    put:
+      tags:
+      - Page
+      summary: Update Page
+      operationId: page_update
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1page~1%7Bid%7D/put/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: Name of page
+                  type: string
+                description:
+                  description: The description of the page
+                  type: string
+                amount:
+                  description: Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency
+                    is ZAR
+                  type: integer
+                active:
+                  description: Set to false to deactivate page url
+                  type: boolean
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+  /page/check_slug_availability/{slug}:
+    get:
+      tags:
+      - Page
+      summary: Check Slug Availability
+      operationId: page_checkSlugAvailability
+      responses:
+        '200':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        '404':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: slug
+      in: path
+      required: true
+      schema:
+        type: string
+  /page/{id}/product:
+    post:
+      tags:
+      - Page
+      summary: Add Products
+      operationId: page_addProducts
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/paths/~1page~1%7Bid%7D~1product/post/requestBody/content/application~1json/schema'
+          application/json:
+            schema:
+              type: object
+              required:
+              - product
+              properties:
+                product:
+                  description: IDs of all products to add to a page
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          $ref: '#/paths/~1plan/get/responses/200'
+        '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Customer:
+      allOf:
+      - type: object
+        required:
+        - email
+        properties:
+          email:
+            description: Customer's email address
+            type: string
+      - type: object
+        properties:
+          first_name:
+            description: Customer's first name
+            type: string
+          last_name:
+            description: Customer's last name
+            type: string
+          phone:
+            description: Customer's phone number
+            type: string
+          metadata:
+            description: Stringified JSON object of custom data
+            type: string
+      - type: object
+        required:
+        - authorization_code
+        properties:
+          authorization_code:
+            description: Customer's authorization code to be deactivated
+            type: string
+      - type: object
+        required:
+        - customer
+        properties:
+          customer:
+            description: Customer's code, or email address
+            type: string
+          risk_action:
+            description: "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist.\
+              \ Customers start with a default risk action.\n"
+            type: string
+            enum:
+            - default
+            - allow
+            - deny
+      - type: object
+        required:
+        - type
+        - country
+        - bvn
+        - bank_code
+        - account_number
+        properties:
+          type:
+            description: Predefined types of identification.
+            type: string
+            enum:
+            - bvn
+            - bank_account
+          country:
+            description: Two-letter country code of identification issuer
+            type: string
+          bvn:
+            description: Customer's Bank Verification Number
+            type: string
+          bank_code:
+            description: You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).
+            type: string
+          account_number:
+            description: Customer's bank account number.
+            type: string
+          value:
+            description: Customer's identification number. Required if type is bvn
+            type: string
+    Error:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+    Response:
+      type: object
+      properties:
+        status:
+          type: boolean
+        message:
+          type: string
+        data:
+          type: object
+security:
+- bearerAuth: []
