@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Plan API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/plan"
+          }
+        },
+        {
+          "info": {
+            "name": "Create Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/plan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Plan"
+        },
+        {
+          "info": {
+            "name": "Fetch Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/plan/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Plan"
+        },
+        {
+          "info": {
+            "name": "Update Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/plan/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Plan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

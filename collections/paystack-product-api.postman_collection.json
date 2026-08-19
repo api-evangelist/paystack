@@ -1,0 +1,1645 @@
+{
+  "item": [
+    {
+      "id": "3c38fd59-039d-46d1-b10e-923d00f1d8a6",
+      "name": "Product",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0cd5a006-f821-45d6-ae75-2c762adab042",
+          "name": "Create Product",
+          "request": {
+            "name": "Create Product",
+            "description": {},
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name of product"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "(Required) The description of the product"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<integer>",
+                  "description": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD"
+                },
+                {
+                  "disabled": false,
+                  "key": "limited",
+                  "value": "<boolean>",
+                  "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "<integer>",
+                  "description": "Number of products in stock. Use if limited is true"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d407dacc-ce27-4648-8dbc-0628bfd407d8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff498aa1-91b9-4601-9776-8cf65704c940",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "880581a8-337f-4e29-8e8b-83adece8fc1e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49cd21c5-c9f7-4c31-9b35-0ca8ee52f847",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {},
+            "url": {
+              "path": [
+                "product"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba8bc224-1ab0-4284-9a1d-cf65d8aeaac5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bacdd924-2bd2-4ccd-8f25-ffa40fe21d55",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "424114f8-154d-4317-83f1-5ad4ba72688d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15363813-45dc-4040-93c5-eb479b61c135",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9137ec10-8bf0-469b-bb66-b0448ad7ca7b",
+          "name": "Fetch Product",
+          "request": {
+            "name": "Fetch Product",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "272f5755-d096-4c3b-bd9c-aa4799990718",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a22c3574-fb13-476f-a9dc-b08ca4313cdd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd70de4e-1cf3-4722-82bc-c55cbe66919f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f436043-ce35-4a2a-9d9a-7aebc2301cfd",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa04e469-ec14-4b11-8f56-32fea2137325",
+          "name": "Update product",
+          "request": {
+            "name": "Update product",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of product"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "The description of the product"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<integer>",
+                  "description": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD"
+                },
+                {
+                  "disabled": false,
+                  "key": "limited",
+                  "value": "<boolean>",
+                  "description": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock"
+                },
+                {
+                  "disabled": false,
+                  "key": "quantity",
+                  "value": "<integer>",
+                  "description": "Number of products in stock. Use if limited is true"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9aad4b3-12fa-41d2-9d12-51a1e59aaeec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6fd584ff-7567-4bb6-b9ae-e44c5e6de018",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f74bf53-9784-4a17-af3b-efaf6d3b698d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56b1ae8d-72e9-4211-9548-95d437cb6fbc",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of product",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The description of the product",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Price should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "price",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which price is set. Allowed values are: NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to true if the product has limited stock. Leave as false if the product has unlimited stock",
+                        "type": "text/plain"
+                      },
+                      "key": "limited",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of products in stock. Use if limited is true",
+                        "type": "text/plain"
+                      },
+                      "key": "quantity",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a020ab3-8cf8-4c7a-921d-c339c4a92f2e",
+          "name": "Delete Product",
+          "request": {
+            "name": "Delete Product",
+            "description": {},
+            "url": {
+              "path": [
+                "product",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30a503ba-c0ec-4f3c-8263-7ea8f91b1d6a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2f0f569-8df2-45fd-92e4-a6193363ffb2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94203c88-5ce4-4d8a-8000-6bf025a34675",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f643121-d01c-46de-8c1a-45458d52a113",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "029ec80f-79cf-4594-a98d-1138eedcbd57",
+    "name": "Paystack Accept Payments Balance Product API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

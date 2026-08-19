@@ -1,0 +1,3837 @@
+{
+  "item": [
+    {
+      "id": "1d090992-757c-4bc2-ab80-d9c3961a7a37",
+      "name": "Transaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e359c8e-914b-45b7-9480-1f2fee85ee04",
+          "name": "Initialize Transaction",
+          "request": {
+            "name": "Initialize Transaction",
+            "description": {
+              "content": "Create a new transaction",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "transaction",
+                "initialize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) Customer's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "The transaction currency"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed."
+                },
+                {
+                  "disabled": false,
+                  "key": "callback_url",
+                  "value": "<string>",
+                  "description": "Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction"
+                },
+                {
+                  "disabled": false,
+                  "key": "plan",
+                  "value": "<string>",
+                  "description": "If transaction is to create a subscription to a predefined plan, provide plan code here. \nThis would invalidate the value provided in amount"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice_limit",
+                  "value": "<integer>",
+                  "description": "Number of times to charge customer during subscription to plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                },
+                {
+                  "disabled": false,
+                  "key": "channels",
+                  "value": "<string>",
+                  "description": "An array of payment channels to control what channels you want to make available to the user to make a payment with"
+                },
+                {
+                  "disabled": false,
+                  "key": "channels",
+                  "value": "<string>",
+                  "description": "An array of payment channels to control what channels you want to make available to the user to make a payment with"
+                },
+                {
+                  "disabled": false,
+                  "key": "split_code",
+                  "value": "<string>",
+                  "description": "The split code of the transaction split"
+                },
+                {
+                  "disabled": false,
+                  "key": "subaccount",
+                  "value": "<string>",
+                  "description": "The code for the subaccount that owns the payment"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_charge",
+                  "value": "<string>",
+                  "description": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer",
+                  "value": "<string>",
+                  "description": "The beare of the transaction charge"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7a4fcca-f8ec-4602-8345-4bf24beccde9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "initialize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "callback_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If transaction is to create a subscription to a predefined plan, provide plan code here. \nThis would invalidate the value provided in amount",
+                        "type": "text/plain"
+                      },
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of times to charge customer during subscription to plan",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd02eb9d-feed-4152-a400-f94d95d68b21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "initialize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "callback_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If transaction is to create a subscription to a predefined plan, provide plan code here. \nThis would invalidate the value provided in amount",
+                        "type": "text/plain"
+                      },
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of times to charge customer during subscription to plan",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12c90807-c8d8-4566-b61a-8ac97c63e39b",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "initialize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Fully qualified url, e.g. https://example.com/ . Use this to override the callback url provided on the dashboard for this transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "callback_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If transaction is to create a subscription to a predefined plan, provide plan code here. \nThis would invalidate the value provided in amount",
+                        "type": "text/plain"
+                      },
+                      "key": "plan",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of times to charge customer during subscription to plan",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An array of payment channels to control what channels you want to make available to the user to make a payment with",
+                        "type": "text/plain"
+                      },
+                      "key": "channels",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81c6162e-9775-47ce-a237-0ae81be84f7e",
+          "name": "Verify Transaction",
+          "request": {
+            "name": "Verify Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "verify",
+                ":reference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reference",
+                  "description": "(Required) The transaction reference to verify"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0bb00356-eb4f-4e98-92e5-57a2dd2183c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "verify",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) The transaction reference to verify"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eebe02db-c989-44fa-ab3b-a2e95f742f27",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "verify",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) The transaction reference to verify"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "922b32f3-d4ae-4143-96de-bef29d1da9aa",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "verify",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) The transaction reference to verify"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a312d19-ec52-4957-96bf-8e2634e45aab",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "verify",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) The transaction reference to verify"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbb68089-523c-4df4-b7b0-a8b6a49fb83b",
+          "name": "List Transactions",
+          "request": {
+            "name": "List Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of records to fetch per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The section to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "367299e6-9f51-46c5-9d2a-6107a1eb2bb3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50bed027-ebd9-4ac4-a249-cda3a5a83624",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c4864eb-0feb-4288-85dd-109303d024ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "afb77df9-cd1e-4204-978c-fa63730715e6",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d418d1d-c537-49b1-bd03-e66eb581b8ac",
+          "name": "Fetch Transaction",
+          "request": {
+            "name": "Fetch Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the transaction to fetch"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad48d0c0-a4db-45f4-8188-5091c20dd4ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe40fd76-5bd1-47a7-b57a-c44e9ad05054",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed8decfd-e01e-4cdc-9bbf-43df3952a038",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e7fa20f-d02a-4a2c-81f1-0d6364aba76f",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the transaction to fetch"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4f2a3ae-a696-4780-9f64-7818988befc0",
+          "name": "Fetch Transaction Timeline",
+          "request": {
+            "name": "Fetch Transaction Timeline",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "timeline",
+                ":id_or_reference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id_or_reference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e57534b5-0231-47cd-9d6d-d0638ecad726",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "timeline",
+                    ":id_or_reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9d3a4f7-c414-4626-9132-38bbbab9c600",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "timeline",
+                    ":id_or_reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93883905-b09e-40fc-a604-fead363c394e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "timeline",
+                    ":id_or_reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75127cad-9127-4ba7-9d78-587fd31d1344",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "timeline",
+                    ":id_or_reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id_or_reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "548a83db-f1e4-4758-b774-36c80d9fb4da",
+          "name": "Transaction Totals",
+          "request": {
+            "name": "Transaction Totals",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "totals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of records to fetch per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The section to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b4120b1-7724-494d-9f9e-f5e423b79699",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "873a256c-93db-4fdc-9d62-7c88656a0ae5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d2c6bbb-df85-4083-9014-4b90e5feeeda",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d02f815d-7142-44f1-9a25-e8691bc9cb12",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "738410ab-692e-4b92-a4ac-6078b245b9ef",
+          "name": "Export Transactions",
+          "request": {
+            "name": "Export Transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of records to fetch per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The section to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "257a2e6e-e326-489c-94da-11d55d617ba0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a37e0ba5-0830-41e7-89a0-0194d0fe042c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b38bad3-59b9-49f9-aed1-040118b2a492",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56b5598c-bbf3-4b65-92b1-265a21d9c6ba",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44249c81-98b0-4d17-8638-76edc8ca50c6",
+          "name": "Charge Authorization",
+          "request": {
+            "name": "Charge Authorization",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "charge_authorization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) Customer's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>",
+                  "description": "(Required) Valid authorization code to charge"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed."
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "The transaction currency"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                },
+                {
+                  "disabled": false,
+                  "key": "split_code",
+                  "value": "<string>",
+                  "description": "The split code of the transaction split"
+                },
+                {
+                  "disabled": false,
+                  "key": "subaccount",
+                  "value": "<string>",
+                  "description": "The code for the subaccount that owns the payment"
+                },
+                {
+                  "disabled": false,
+                  "key": "transaction_charge",
+                  "value": "<string>",
+                  "description": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer",
+                  "value": "<string>",
+                  "description": "The beare of the transaction charge"
+                },
+                {
+                  "disabled": false,
+                  "key": "queue",
+                  "value": "<boolean>",
+                  "description": "If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "98291e86-0325-44b7-938f-62dbabf65b89",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "charge_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors.",
+                        "type": "text/plain"
+                      },
+                      "key": "queue",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c46c9ddc-0c68-422f-b901-98a89051b309",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "charge_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors.",
+                        "type": "text/plain"
+                      },
+                      "key": "queue",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d33402c0-8aec-4725-b109-ef34ac94c230",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "charge_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The split code of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "split_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The code for the subaccount that owns the payment",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A flat fee to charge the subaccount for a transaction. \nThis overrides the split percentage set when the subaccount was created",
+                        "type": "text/plain"
+                      },
+                      "key": "transaction_charge",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The beare of the transaction charge",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "If you are making a scheduled charge call, it is a good idea to queue them so the processing system does not get overloaded causing transaction processing errors.",
+                        "type": "text/plain"
+                      },
+                      "key": "queue",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75dc8dfe-42e1-4128-b884-1defc0c8d3dd",
+          "name": "Check Authorization",
+          "request": {
+            "name": "Check Authorization",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "check_authorization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) Customer's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>",
+                  "description": "Valid authorization code to charge"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "The transaction currency"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f9acb2ca-74ff-4e9e-9d07-b4eccd56038b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "check_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "685f1592-b181-4047-8ba7-a62de28493dc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "check_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5f44658-b0d1-4133-a480-ac8dba467633",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "check_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6308ded-8a7d-47ad-834d-7d94de538cb4",
+          "name": "Partial Debit",
+          "request": {
+            "name": "Partial Debit",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                "partial_debit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) Customer's email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>",
+                  "description": "(Required) Valid authorization code to charge"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) The transaction currency"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed."
+                },
+                {
+                  "disabled": false,
+                  "key": "at_least",
+                  "value": "<string>",
+                  "description": "Minimum amount to charge"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "14656803-a388-4e11-bdb3-e7f1cb8bdc57",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "partial_debit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Minimum amount to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "at_least",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31ea79b6-1b5a-48e9-a56a-f6072bb64c21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "partial_debit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Minimum amount to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "at_least",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52862831-627c-4081-83eb-ecd67d0b3fcd",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    "partial_debit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Valid authorization code to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Unique transaction reference. Only -, ., = and alphanumeric characters allowed.",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Minimum amount to charge",
+                        "type": "text/plain"
+                      },
+                      "key": "at_least",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a84981b-5188-4613-a22e-dc15f2f55b58",
+          "name": "Get Transaction Event",
+          "request": {
+            "name": "Get Transaction Event",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                ":id",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ae7ef66-894d-4a50-9976-e7dfebb15744",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "541c8049-a96d-40dc-a883-571ed0d8a19d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "137de969-0bc0-4cbc-9086-9c1f54cd1ff0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03aee862-cf06-49aa-b6fd-2a44bad67c07",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a37607e2-77dc-4cd5-a3ec-0f71b8e9e8bd",
+          "name": "Get Transaction Session",
+          "request": {
+            "name": "Get Transaction Session",
+            "description": {},
+            "url": {
+              "path": [
+                "transaction",
+                ":id",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a2d5834-c2b8-4100-8e0d-ae350d30a91b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea905230-7ebe-4bd1-9e4e-3b58faeb44e2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2a4c80e-ec4c-4fe9-9c0d-dcc766c920eb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dec43593-1504-4012-af27-55e50b6bca42",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transaction",
+                    ":id",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b18db909-bf94-4878-8201-54226a4b28a2",
+    "name": "Paystack Accept Payments Balance Transaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

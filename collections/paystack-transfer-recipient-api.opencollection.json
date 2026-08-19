@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Transfer Recipient API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transfer Recipient",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Transfer Recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transferrecipient",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Transfer Recipients"
+        },
+        {
+          "info": {
+            "name": "Create Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transferrecipient",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Bulk Create Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/transferrecipient/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Create Transfer Recipient"
+        },
+        {
+          "info": {
+            "name": "Fetch Transfer recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ]
+          },
+          "docs": "Fetch Transfer recipient"
+        },
+        {
+          "info": {
+            "name": "Update Transfer recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Transfer recipient"
+        },
+        {
+          "info": {
+            "name": "Delete Transfer Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paystack.co/transferrecipient/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path",
+                "description": "Transfer recipient code"
+              }
+            ]
+          },
+          "docs": "Delete Transfer Recipient"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

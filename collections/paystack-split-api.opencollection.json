@@ -1,0 +1,171 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Split API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Split",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Splits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/split",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Splits"
+        },
+        {
+          "info": {
+            "name": "Create Split",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/split",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Split"
+        },
+        {
+          "info": {
+            "name": "Fetch Split",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/split/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Split"
+        },
+        {
+          "info": {
+            "name": "Update Split",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/split/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Split"
+        },
+        {
+          "info": {
+            "name": "Add Subaccount to Split",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/split/:id/subaccount/add",
+            "params": [
+              {
+                "name": "id",
+                "value": "application/json",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Subaccount to Split"
+        },
+        {
+          "info": {
+            "name": "Remove Subaccount from split",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/split/:id/subaccount/remove",
+            "params": [
+              {
+                "name": "id",
+                "value": "application/json",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove Subaccount from split"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

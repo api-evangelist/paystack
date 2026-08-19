@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Charge API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charge",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Charge"
+        },
+        {
+          "info": {
+            "name": "Submit PIN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge/submit_pin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit PIN"
+        },
+        {
+          "info": {
+            "name": "Submit OTP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge/submit_otp",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit OTP"
+        },
+        {
+          "info": {
+            "name": "Submit Phone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge/submit_phone",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Phone"
+        },
+        {
+          "info": {
+            "name": "Submit Birthday",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge/submit_birthday",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Birthday"
+        },
+        {
+          "info": {
+            "name": "Submit Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/charge/submit_address",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Address"
+        },
+        {
+          "info": {
+            "name": "Check Pending Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/charge/:reference",
+            "params": [
+              {
+                "name": "reference",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check Pending Charge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

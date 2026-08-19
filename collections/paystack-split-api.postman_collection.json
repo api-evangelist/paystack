@@ -1,0 +1,1958 @@
+{
+  "item": [
+    {
+      "id": "b4aaa4c7-e08b-43ee-915e-336ef3c8af8f",
+      "name": "Split",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6bdf56d6-cd17-4183-ba91-b73fef93d3c4",
+          "name": "Create Split",
+          "request": {
+            "name": "Create Split",
+            "description": {},
+            "url": {
+              "path": [
+                "split"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name of the transaction split"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) The type of transaction split you want to create."
+                },
+                {
+                  "disabled": false,
+                  "key": "subaccounts",
+                  "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}",
+                  "description": "(Required) A list of object containing subaccount code and number of shares"
+                },
+                {
+                  "disabled": false,
+                  "key": "subaccounts",
+                  "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}",
+                  "description": "(Required) A list of object containing subaccount code and number of shares"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "(Required) The transaction currency"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer_type",
+                  "value": "<string>",
+                  "description": "This allows you specify how the transaction charge should be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer_subaccount",
+                  "value": "<string>",
+                  "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "000bf868-a2d3-4851-8b79-c4d23a9eb0d6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The type of transaction split you want to create.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "91570078-6aa8-46ed-bf2c-f2a95f7cfd3d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The type of transaction split you want to create.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92fe29d2-d2a5-4aeb-ab65-5b7aff280190",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The type of transaction split you want to create.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of object containing subaccount code and number of shares",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccounts",
+                      "value": "{\"subaccount\":\"<string>\",\"share\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The transaction currency",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "459db13f-ca99-4db4-9a36-97a970001681",
+          "name": "List Splits",
+          "request": {
+            "name": "List Splits",
+            "description": {},
+            "url": {
+              "path": [
+                "split"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03e316de-5ad7-4941-a4af-44ab5fc27166",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3e4e081-47af-4573-ba4b-d83ff862dc4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "319d299a-8911-4338-abf6-b68c5737d62b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0ff3d8a-658b-4ae5-847f-197196a2303e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a144c621-1617-4ac2-a48b-5db2677fd72c",
+          "name": "Fetch Split",
+          "request": {
+            "name": "Fetch Split",
+            "description": {},
+            "url": {
+              "path": [
+                "split",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9481f5c5-cb75-446c-8f69-c92551e56eef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87f8a760-06b2-4096-9049-944d099244b1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "342b95c4-276a-4751-ac2c-e8a067cad850",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "54b6e8c2-c206-41c6-ba61-885f1cb54611",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da469c03-5b1b-4ae7-8b11-353eed3a43c4",
+          "name": "Update Split",
+          "request": {
+            "name": "Update Split",
+            "description": {},
+            "url": {
+              "path": [
+                "split",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the transaction split"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "Toggle status of split. When true, the split is active, else it's inactive"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer_type",
+                  "value": "<string>",
+                  "description": "This allows you specify how the transaction charge should be processed"
+                },
+                {
+                  "disabled": false,
+                  "key": "bearer_subaccount",
+                  "value": "<string>",
+                  "description": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "58356f57-8a74-4d9b-8d06-63f2c0798aa8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Toggle status of split. When true, the split is active, else it's inactive",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd35709b-d770-4abc-96e5-835b2f97f4f4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Toggle status of split. When true, the split is active, else it's inactive",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3acad926-9b03-40f7-b9ed-bd3aa2d27fdd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Toggle status of split. When true, the split is active, else it's inactive",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87b92cc1-3806-4bb6-b05e-9ccda7ac7e2a",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of the transaction split",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Toggle status of split. When true, the split is active, else it's inactive",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This allows you specify how the transaction charge should be processed",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "This is the subaccount code of the customer or partner that would bear the transaction charge if you specified subaccount as the bearer type",
+                        "type": "text/plain"
+                      },
+                      "key": "bearer_subaccount",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35802ba9-7625-405f-bdfa-1e2c1542010d",
+          "name": "Add Subaccount to Split",
+          "request": {
+            "name": "Add Subaccount to Split",
+            "description": {},
+            "url": {
+              "path": [
+                "split",
+                ":id",
+                "subaccount",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "subaccount",
+                  "value": "<string>",
+                  "description": "Subaccount code of the customer or partner"
+                },
+                {
+                  "disabled": false,
+                  "key": "share",
+                  "value": "<string>",
+                  "description": "The percentage or flat quota of the customer or partner"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dedb1b02-ebca-464e-834f-6b54b8d20c0a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "36239d31-a221-49b9-bb08-788ea0337bfd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "db4575c5-76a0-4865-81a8-5df57dd21f7e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e90b2c0-bd2e-4a2d-8a7d-f3ea22e0ded5",
+          "name": "Remove Subaccount from split",
+          "request": {
+            "name": "Remove Subaccount from split",
+            "description": {},
+            "url": {
+              "path": [
+                "split",
+                ":id",
+                "subaccount",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "subaccount",
+                  "value": "<string>",
+                  "description": "Subaccount code of the customer or partner"
+                },
+                {
+                  "disabled": false,
+                  "key": "share",
+                  "value": "<string>",
+                  "description": "The percentage or flat quota of the customer or partner"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "924f8bf6-9005-4ec5-87ea-139045cbb5c5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89e3871d-127a-403b-89e9-dedfc8d9fe79",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6651867-e891-4793-8aa4-0f6919655eb5",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "split",
+                    ":id",
+                    "subaccount",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Subaccount code of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "subaccount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The percentage or flat quota of the customer or partner",
+                        "type": "text/plain"
+                      },
+                      "key": "share",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "222a9a0e-e10a-43e2-a2b6-d70627b53813",
+    "name": "Paystack Accept Payments Balance Split API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

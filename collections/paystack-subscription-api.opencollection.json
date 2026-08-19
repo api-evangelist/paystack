@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Subscription API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscription",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/subscription",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "plan",
+                "value": "",
+                "type": "query",
+                "description": "Plan ID"
+              },
+              {
+                "name": "customer",
+                "value": "",
+                "type": "query",
+                "description": "Customer ID"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subscription",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Subscription"
+        },
+        {
+          "info": {
+            "name": "Fetch Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/subscription/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Subscription"
+        },
+        {
+          "info": {
+            "name": "Disable Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subscription/disable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disable Subscription"
+        },
+        {
+          "info": {
+            "name": "Enable Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subscription/enable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Enable Subscription"
+        },
+        {
+          "info": {
+            "name": "Generate Update Subscription Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subscription/:code/manage/link",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Generate Update Subscription Link"
+        },
+        {
+          "info": {
+            "name": "Send Update Subscription Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subscription/:code/manage/email",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Send Update Subscription Link"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

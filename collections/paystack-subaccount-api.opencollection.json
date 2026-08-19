@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Subaccount API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subaccount",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Subaccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/subaccount",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Subaccounts"
+        },
+        {
+          "info": {
+            "name": "Create Subaccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/subaccount",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Subaccount"
+        },
+        {
+          "info": {
+            "name": "Fetch Subaccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/subaccount/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Subaccount"
+        },
+        {
+          "info": {
+            "name": "Update Subaccount",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/subaccount/:code",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Subaccount"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

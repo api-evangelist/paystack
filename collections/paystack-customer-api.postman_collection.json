@@ -1,0 +1,2096 @@
+{
+  "item": [
+    {
+      "id": "d6501d6e-2dba-44e9-a53f-60faab17d04f",
+      "name": "Customer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0769d81f-b6de-47a4-9eda-5e2c38d37704",
+          "name": "Create Customer",
+          "request": {
+            "name": "Create Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "first_name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e96ed87d-13e0-4c70-ad3c-591ada5fab71",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41c1f68f-ff34-4076-9c1b-2fade67a6e78",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b82fea79-e2aa-4c6e-8be1-6001a42ac301",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ece36ac-374b-462c-8a34-103521ec251b",
+          "name": "List Customers",
+          "request": {
+            "name": "List Customers",
+            "description": {
+              "content": "List customers on your integration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "use_cursor",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "next",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "previous",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4f509f6-061c-447e-a142-515aa78f8f63",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b841954-015c-41c0-bb24-2d6ea207b9c3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f85217a-5c9d-4e6d-a7c8-eef434f2a271",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e38ede2c-44fe-4889-b2db-7c35d6a76330",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "use_cursor",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "next",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "previous",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1535261-6938-435e-8bbb-78ef3707a81b",
+          "name": "Fetch Customer",
+          "request": {
+            "name": "Fetch Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customer",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cbafa632-c9ae-4c80-9130-73ded27937d9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64de2fe3-1b23-4ab0-b989-a8d8bd473437",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9c467ac-15cb-4dec-89d7-7b4286fbabe0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ec1bd8f-1b6d-4e94-ae64-598e285a5842",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83f226af-9258-4f7f-a4a1-49f243a84174",
+          "name": "Update Customer",
+          "request": {
+            "name": "Update Customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customer",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "first_name",
+                  "value": "<string>",
+                  "description": "Customer's first name"
+                },
+                {
+                  "disabled": false,
+                  "key": "last_name",
+                  "value": "<string>",
+                  "description": "Customer's last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "Customer's phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6fe82394-ad60-4632-82ce-010cbd860165",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's first name",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's last name",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f617043-32e9-4d9a-9db3-ddfa44a2462b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's first name",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's last name",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "754ff67c-d5f7-42b6-99de-f74dd44b1d21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's first name",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's last name",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1f1b492b-75ee-43d8-8df7-66b8f4da1483",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's first name",
+                        "type": "text/plain"
+                      },
+                      "key": "first_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's last name",
+                        "type": "text/plain"
+                      },
+                      "key": "last_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e34f69c-81d3-4765-a7af-7f5b4deec854",
+          "name": "White/blacklist Customer",
+          "request": {
+            "name": "White/blacklist Customer",
+            "description": {
+              "content": "Set customer's risk action by whitelisting or blacklisting the customer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer",
+                "set_risk_action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "customer",
+                  "value": "<string>",
+                  "description": "(Required) Customer's code, or email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "risk_action",
+                  "value": "<string>",
+                  "description": "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist. Customers start with a default risk action.\n"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "99c5fb15-04f0-4bc9-b410-db7d02e06435",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "set_risk_action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's code, or email address",
+                        "type": "text/plain"
+                      },
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist. Customers start with a default risk action.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "risk_action",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "935f19e3-6447-470c-9562-07b23d34b77d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "set_risk_action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's code, or email address",
+                        "type": "text/plain"
+                      },
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist. Customers start with a default risk action.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "risk_action",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4ea3c560-e6d0-43b1-bd7c-9ebc84022d9e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "set_risk_action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's code, or email address",
+                        "type": "text/plain"
+                      },
+                      "key": "customer",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "One of the possible risk actions [ default, allow, deny ]. allow to whitelist. \ndeny to blacklist. Customers start with a default risk action.\n",
+                        "type": "text/plain"
+                      },
+                      "key": "risk_action",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57a3c946-e6f5-44f5-82b9-89a653f2f343",
+          "name": "Deactivate Authorization",
+          "request": {
+            "name": "Deactivate Authorization",
+            "description": {
+              "content": "Deactivate a customer's card",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer",
+                "deactivate_authorization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>",
+                  "description": "(Required) Customer's authorization code to be deactivated"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27643483-5972-4b35-af6d-79c9681c222f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "deactivate_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's authorization code to be deactivated",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32b3f028-8d73-431e-8ee7-d1f7453079b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "deactivate_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's authorization code to be deactivated",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15c12627-7ae6-4c2d-ab2e-95cc1abadc79",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    "deactivate_authorization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's authorization code to be deactivated",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91db7e42-0773-4ec3-bd06-36f1bdb87a37",
+          "name": "Validate Customer",
+          "request": {
+            "name": "Validate Customer",
+            "description": {
+              "content": "Validate a customer's identity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "customer",
+                ":code",
+                "identification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) Predefined types of identification."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "(Required) Two-letter country code of identification issuer"
+                },
+                {
+                  "disabled": false,
+                  "key": "bvn",
+                  "value": "<string>",
+                  "description": "(Required) Customer's Bank Verification Number"
+                },
+                {
+                  "disabled": false,
+                  "key": "bank_code",
+                  "value": "<string>",
+                  "description": "(Required) You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank)."
+                },
+                {
+                  "disabled": false,
+                  "key": "account_number",
+                  "value": "<string>",
+                  "description": "(Required) Customer's bank account number."
+                },
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<string>",
+                  "description": "Customer's identification number. Required if type is bvn"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b43ee6f8-2da6-4bf3-935f-4057e5fa57d9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code",
+                    "identification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Predefined types of identification.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Two-letter country code of identification issuer",
+                        "type": "text/plain"
+                      },
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's Bank Verification Number",
+                        "type": "text/plain"
+                      },
+                      "key": "bvn",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's bank account number.",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's identification number. Required if type is bvn",
+                        "type": "text/plain"
+                      },
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dbd7f009-b46d-4d72-a9c0-d248516aa994",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code",
+                    "identification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Predefined types of identification.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Two-letter country code of identification issuer",
+                        "type": "text/plain"
+                      },
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's Bank Verification Number",
+                        "type": "text/plain"
+                      },
+                      "key": "bvn",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's bank account number.",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's identification number. Required if type is bvn",
+                        "type": "text/plain"
+                      },
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d044e37-36a0-4c0a-827c-c8f1a1441a65",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer",
+                    ":code",
+                    "identification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Predefined types of identification.",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Two-letter country code of identification issuer",
+                        "type": "text/plain"
+                      },
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's Bank Verification Number",
+                        "type": "text/plain"
+                      },
+                      "key": "bvn",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) You can get the list of bank codes by calling the List Banks endpoint (https://api.paystack.co/bank).",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's bank account number.",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's identification number. Required if type is bvn",
+                        "type": "text/plain"
+                      },
+                      "key": "value",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3de72588-0681-424c-b636-d3ed43b77e4d",
+    "name": "Paystack Accept Payments Balance Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

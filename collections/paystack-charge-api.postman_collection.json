@@ -1,0 +1,1978 @@
+{
+  "item": [
+    {
+      "id": "60d165f5-7a21-4f1d-b857-a0f45ecd250f",
+      "name": "Charge",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8f7cf34-935f-4270-a053-781266f7dd7d",
+          "name": "Create Charge",
+          "request": {
+            "name": "Create Charge",
+            "description": {},
+            "url": {
+              "path": [
+                "charge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pin",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "birthday",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "device_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_number",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f2b9e48a-4b74-4e8d-a2ef-f4efd1a76e38",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "birthday",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3563fdfd-7baf-4191-a2a2-8212e1caa658",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "birthday",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06c1067d-cb1c-4afc-8811-47ab12121140",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "amount",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "birthday",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "device_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "metadata",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "provider",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90dcaa02-b9e9-47c1-abbb-24a10d279b8d",
+          "name": "Submit PIN",
+          "request": {
+            "name": "Submit PIN",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                "submit_pin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "pin",
+                  "value": "<string>",
+                  "description": "(Required) Customer's PIN"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "(Required) Transaction reference that requires the PIN"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f30fb9fa-793a-4a8b-826c-36e8bc1c58a1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_pin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction reference that requires the PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24e5024f-ddf4-4df1-b8a6-f4e343273329",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_pin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction reference that requires the PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e52399b-31f6-4729-9a9b-a5eae824dd15",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_pin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "pin",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Transaction reference that requires the PIN",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbc76bf7-cce0-49f4-ba8f-7c425a81ef66",
+          "name": "Submit OTP",
+          "request": {
+            "name": "Submit OTP",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                "submit_otp"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "otp",
+                  "value": "<string>",
+                  "description": "(Required) Customer's OTP"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "(Required) The reference of the ongoing transaction"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e79fc24a-b249-49d2-9be3-a930cfcfebf6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_otp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's OTP",
+                        "type": "text/plain"
+                      },
+                      "key": "otp",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e214722-6dc2-405d-9a7a-07b151eb206d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_otp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's OTP",
+                        "type": "text/plain"
+                      },
+                      "key": "otp",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20e7cb0e-c8bc-4942-8d2c-48aae665ff1a",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_otp"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's OTP",
+                        "type": "text/plain"
+                      },
+                      "key": "otp",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d09d19d-e878-4529-aea1-4ec17d050a55",
+          "name": "Submit Phone",
+          "request": {
+            "name": "Submit Phone",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                "submit_phone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "phone",
+                  "value": "<string>",
+                  "description": "(Required) Customer's mobile number"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "(Required) The reference of the ongoing transaction"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cc4db9f-9e29-4ae7-981c-35c3d66bf449",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_phone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's mobile number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dcbb2760-537b-41c7-a28d-de3bc72182f4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_phone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's mobile number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3aa91adf-3dfd-4916-a7b0-d489dd6f0def",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_phone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's mobile number",
+                        "type": "text/plain"
+                      },
+                      "key": "phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08ef2f05-4200-4e2a-97ee-4aa80c4884e2",
+          "name": "Submit Birthday",
+          "request": {
+            "name": "Submit Birthday",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                "submit_birthday"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "birthday",
+                  "value": "<string>",
+                  "description": "(Required) Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "(Required) The reference of the ongoing transaction"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7cbcb4f1-260a-42d5-97f2-b33436d9cc1e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_birthday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21",
+                        "type": "text/plain"
+                      },
+                      "key": "birthday",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b6882c6-607f-4688-93bb-77e896c4e697",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_birthday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21",
+                        "type": "text/plain"
+                      },
+                      "key": "birthday",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6190161b-f306-4aab-9451-a19717149029",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_birthday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's birthday in the format YYYY-MM-DD e.g 2016-09-21",
+                        "type": "text/plain"
+                      },
+                      "key": "birthday",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e807ca8-5365-422d-badf-10db0114370a",
+          "name": "Submit Address",
+          "request": {
+            "name": "Submit Address",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                "submit_address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) Customer's address"
+                },
+                {
+                  "disabled": false,
+                  "key": "reference",
+                  "value": "<string>",
+                  "description": "(Required) The reference of the ongoing transaction"
+                },
+                {
+                  "disabled": false,
+                  "key": "city",
+                  "value": "<string>",
+                  "description": "(Required) Customer's city"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) Customer's state"
+                },
+                {
+                  "disabled": false,
+                  "key": "zipcode",
+                  "value": "<string>",
+                  "description": "(Required) Customer's zipcode"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "848c496a-b956-4c49-9e04-c58cb2cb2501",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's address",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's city",
+                        "type": "text/plain"
+                      },
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's state",
+                        "type": "text/plain"
+                      },
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's zipcode",
+                        "type": "text/plain"
+                      },
+                      "key": "zipcode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "def74468-0c47-46cb-a323-0f02fafffb82",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's address",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's city",
+                        "type": "text/plain"
+                      },
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's state",
+                        "type": "text/plain"
+                      },
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's zipcode",
+                        "type": "text/plain"
+                      },
+                      "key": "zipcode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "842bb97b-c286-45b7-bc31-3cf206488ea3",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    "submit_address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's address",
+                        "type": "text/plain"
+                      },
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The reference of the ongoing transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "reference",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's city",
+                        "type": "text/plain"
+                      },
+                      "key": "city",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's state",
+                        "type": "text/plain"
+                      },
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's zipcode",
+                        "type": "text/plain"
+                      },
+                      "key": "zipcode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f21f1c4c-70ef-4f7a-9840-542ba88cfcab",
+          "name": "Check Pending Charge",
+          "request": {
+            "name": "Check Pending Charge",
+            "description": {},
+            "url": {
+              "path": [
+                "charge",
+                ":reference"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "reference",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9cbd2a3c-ed6f-4ce4-86d3-c3c0a2537b37",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d329f9ae-4f5f-41f0-9f49-627eb0d21ca5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "450d7b55-6830-44dd-9259-dc365c41e087",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48ab58e3-776a-4951-b6c6-8be4805492bc",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charge",
+                    ":reference"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "reference",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "11bff64d-797f-4770-a997-83a9d2ded68b",
+    "name": "Paystack Accept Payments Balance Charge API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1758 @@
+{
+  "item": [
+    {
+      "id": "6263425d-309b-4a2f-9c06-4ec43f9c2c42",
+      "name": "Transfer Recipient",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07772e65-0611-4e56-8fa9-deaa7b6960e8",
+          "name": "Create Transfer Recipient",
+          "request": {
+            "name": "Create Transfer Recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) Recipient Type (Only nuban at this time)"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Recipient's name"
+                },
+                {
+                  "disabled": false,
+                  "key": "account_number",
+                  "value": "<string>",
+                  "description": "(Required) Recipient's bank account number"
+                },
+                {
+                  "disabled": false,
+                  "key": "bank_code",
+                  "value": "<string>",
+                  "description": "(Required) Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "A description for this recipient"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency for the account receiving the transfer"
+                },
+                {
+                  "disabled": false,
+                  "key": "authorization_code",
+                  "value": "<string>",
+                  "description": "An authorization code from a previous transaction"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1099c196-bbe4-467b-a58a-337229612d1e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient Type (Only nuban at this time)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this recipient",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency for the account receiving the transfer",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An authorization code from a previous transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "06272bb3-7e5a-4996-a60b-3538e5d2c169",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient Type (Only nuban at this time)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this recipient",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency for the account receiving the transfer",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An authorization code from a previous transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aba765a2-6bcb-4686-a2b4-21ad39145848",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient Type (Only nuban at this time)",
+                        "type": "text/plain"
+                      },
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Recipient's bank code. You can get the list of Bank Codes by calling the List Banks endpoint",
+                        "type": "text/plain"
+                      },
+                      "key": "bank_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this recipient",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency for the account receiving the transfer",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An authorization code from a previous transaction",
+                        "type": "text/plain"
+                      },
+                      "key": "authorization_code",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ab9ba5b-793e-4afc-8a7a-29cb1920c17a",
+          "name": "List Transfer Recipients",
+          "request": {
+            "name": "List Transfer Recipients",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of records to fetch per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The section to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5060a1c0-ea61-4f35-ab4a-1b7b25781a93",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e6214d2-4926-48ef-a439-be3e8800e379",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dc7f82c-3a3b-45c9-9de1-cdf3e2836a8b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8506967-8da8-42fa-bf24-e146793dc327",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe64fd24-8f2c-4080-bb1a-2bd85056f94e",
+          "name": "Bulk Create Transfer Recipient",
+          "request": {
+            "name": "Bulk Create Transfer Recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "batch",
+                  "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}",
+                  "description": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed."
+                },
+                {
+                  "disabled": false,
+                  "key": "batch",
+                  "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}",
+                  "description": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c474c6a-20a8-4b64-9b6e-9769da94f925",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff0c4892-a7f2-4b02-a580-af43bd5b8e22",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8794123-2bc1-4279-b456-36521f861329",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) A list of transfer recipient object. Each object should contain type, name, and bank_code. \nAny Create Transfer Recipient param can also be passed.",
+                        "type": "text/plain"
+                      },
+                      "key": "batch",
+                      "value": "{\"type\":\"<string>\",\"name\":\"<string>\",\"account_number\":\"<string>\",\"bank_code\":\"<string>\",\"description\":\"<string>\",\"currency\":\"<string>\",\"authorization_code\":\"<string>\",\"metadata\":\"<string>\"}"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bd17e52-0754-4e50-a7ac-7b8d3e2758b4",
+          "name": "Fetch Transfer recipient",
+          "request": {
+            "name": "Fetch Transfer recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Transfer recipient code"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c8350ab-8f09-4865-9194-d378b1583d28",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e0fcb64-e5f5-4cf9-880a-aa31e1aee7e1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b346948-1ca0-49ed-9b96-3c935de7b32d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6c4aea1-db5d-428d-8adf-8cfa7ed2afe9",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "829ac2d6-54d2-432b-9a23-155ef662c7b9",
+          "name": "Update Transfer recipient",
+          "request": {
+            "name": "Update Transfer recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Transfer recipient code"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Recipient's name"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Recipient's email address"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6a68fe48-a864-4de8-9709-79a72a644c20",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6441ae23-2e7a-44e0-be56-cdda0b613a1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccddc3ed-5014-469e-846d-52f3cd34591c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c88fb12-d22d-4023-9569-00b457898f9f",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Recipient's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60943546-252d-4f03-8e60-76ae0f2397aa",
+          "name": "Delete Transfer Recipient",
+          "request": {
+            "name": "Delete Transfer Recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "transferrecipient",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) Transfer recipient code"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ab23d44-1a46-4538-becd-f8abb6b150c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23610540-1fa7-4bf1-b941-a4a8d24cc7d2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d12ead42-5e0b-4710-ad64-5831c86175c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "590610ca-3d70-4545-88c0-cf359045c205",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "transferrecipient",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) Transfer recipient code"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bfde1686-dc42-43ac-a705-0fc31ca468ad",
+    "name": "Paystack Accept Payments Balance Transfer Recipient API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

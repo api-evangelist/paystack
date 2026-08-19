@@ -1,0 +1,1669 @@
+{
+  "item": [
+    {
+      "id": "88007499-5f7d-4938-8c53-5116f4eb8666",
+      "name": "Subaccount",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e0b16a3c-c49d-44b9-8a34-aa2eca8d6049",
+          "name": "Create Subaccount",
+          "request": {
+            "name": "Create Subaccount",
+            "description": {},
+            "url": {
+              "path": [
+                "subaccount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "business_name",
+                  "value": "<string>",
+                  "description": "(Required) Name of business for subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlement_bank",
+                  "value": "<string>",
+                  "description": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "account_number",
+                  "value": "<string>",
+                  "description": "(Required) Bank account number"
+                },
+                {
+                  "disabled": false,
+                  "key": "percentage_charge",
+                  "value": "<float>",
+                  "description": "(Required) Customer's phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "A description for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_email",
+                  "value": "<string>",
+                  "description": "A contact email for the subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_name",
+                  "value": "<string>",
+                  "description": "The name of the contact person for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_phone",
+                  "value": "<string>",
+                  "description": "A phone number to call for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "825aae9f-e2e5-4348-ba35-c8a662713f4b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e5acd86-2da3-453a-9a5a-1936f241ebf4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d51eaf2-4066-4144-a6ce-aa4829295e4b",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3a0922e-a28f-4fd5-a469-0dff39fae285",
+          "name": "List Subaccounts",
+          "request": {
+            "name": "List Subaccounts",
+            "description": {},
+            "url": {
+              "path": [
+                "subaccount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "<integer>",
+                  "description": "Number of records to fetch per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "The section to retrieve"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "The start date"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "The end date"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dde37d8-6e41-4fb5-a0dd-a4d513e6fa6e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8007e048-b49f-4e94-b4f5-d64ed51277ee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4a53645-e724-4166-aed3-833e981d5fde",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "032bf05c-e7bd-45a8-89cd-2e38ef9b9f3f",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "perPage",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6302e00-6f85-4726-b798-7313a70639e3",
+          "name": "Fetch Subaccount",
+          "request": {
+            "name": "Fetch Subaccount",
+            "description": {},
+            "url": {
+              "path": [
+                "subaccount",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78655d23-ab50-467b-8892-628c12238298",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1e96586-d36f-4c2b-a003-13e3876ff0bd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "efa4eb39-69d7-4021-b8ad-e53238e1c743",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9c8f7ba-2f03-4fd4-90bb-e6ab2516a5ae",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f7c7f86-5296-498d-8f44-440172e020f7",
+          "name": "Update Subaccount",
+          "request": {
+            "name": "Update Subaccount",
+            "description": {},
+            "url": {
+              "path": [
+                "subaccount",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "business_name",
+                  "value": "<string>",
+                  "description": "Name of business for subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "settlement_bank",
+                  "value": "<string>",
+                  "description": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint."
+                },
+                {
+                  "disabled": false,
+                  "key": "account_number",
+                  "value": "<string>",
+                  "description": "Bank account number"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "Activate or deactivate a subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "percentage_charge",
+                  "value": "<float>",
+                  "description": "Customer's phone number"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<string>",
+                  "description": "A description for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_email",
+                  "value": "<string>",
+                  "description": "A contact email for the subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_name",
+                  "value": "<string>",
+                  "description": "The name of the contact person for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "primary_contact_phone",
+                  "value": "<string>",
+                  "description": "A phone number to call for this subaccount"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "<string>",
+                  "description": "Stringified JSON object of custom data"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "663db3a3-26a8-48fe-ae58-ccb7318a340c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Activate or deactivate a subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28279998-66bf-4428-8e88-21a6813c0811",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Activate or deactivate a subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04e5397a-6f3f-490f-9143-3390a67a8935",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Activate or deactivate a subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dc26dbd8-d9e8-48c9-bb20-c214f27e5ab7",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subaccount",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of business for subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "business_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank code for the bank. You can get the list of Bank Codes by calling the List Banks endpoint.",
+                        "type": "text/plain"
+                      },
+                      "key": "settlement_bank",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Bank account number",
+                        "type": "text/plain"
+                      },
+                      "key": "account_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Activate or deactivate a subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Customer's phone number",
+                        "type": "text/plain"
+                      },
+                      "key": "percentage_charge",
+                      "value": "<float>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A contact email for the subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_email",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The name of the contact person for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A phone number to call for this subaccount",
+                        "type": "text/plain"
+                      },
+                      "key": "primary_contact_phone",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Stringified JSON object of custom data",
+                        "type": "text/plain"
+                      },
+                      "key": "metadata",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "825178e8-c5a9-449f-a5ae-a0b0bcf6685d",
+    "name": "Paystack Accept Payments Balance Subaccount API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

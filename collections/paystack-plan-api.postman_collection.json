@@ -1,0 +1,1452 @@
+{
+  "item": [
+    {
+      "id": "84902f94-b6da-4820-9f85-d5777ec0ba58",
+      "name": "Plan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00d28fe5-b69f-4849-9d39-8075fa7317fe",
+          "name": "/plan",
+          "request": {
+            "name": "/plan",
+            "description": {},
+            "url": {
+              "path": [
+                "plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf6445c3-1365-4388-a160-2f078d9d05e9",
+              "name": "Resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e5bd51a-9028-4c4a-8919-ad1ded063aa1",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b8a9fff-3b7a-4304-827b-e928eb7af869",
+          "name": "Create Plan",
+          "request": {
+            "name": "Create Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "plan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) Name of plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<boolean>",
+                  "description": "A description for this plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "send_invoices",
+                  "value": "<boolean>",
+                  "description": "Set to false if you don't want invoices to be sent to your customers"
+                },
+                {
+                  "disabled": false,
+                  "key": "send_sms",
+                  "value": "<boolean>",
+                  "description": "Set to false if you don't want text messages to be sent to your customers"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice_limit",
+                  "value": "<integer>",
+                  "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "749106b7-9aa7-464a-9603-051447681672",
+              "name": "Resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39a61af9-9a1c-4e64-90fd-b4bd9412f60d",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbad7ed5-92c5-424f-a422-65bf7640b906",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "186e5d82-d2f6-4b53-b3fe-ae206934a8e6",
+          "name": "Fetch Plan",
+          "request": {
+            "name": "Fetch Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "plan",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00862558-dc00-444f-9db1-4c69b18f3fc2",
+              "name": "Resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60bf39fb-a9a6-400f-9de2-746c53d850fb",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "965792d8-28fb-4315-beb0-aceb28aaaa1e",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4df1769c-385f-4631-93ed-8c22aa80c0ce",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff32cdb1-9d1e-4759-803d-e907c903e289",
+          "name": "Update Plan",
+          "request": {
+            "name": "Update Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "plan",
+                ":code"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "amount",
+                  "value": "<integer>",
+                  "description": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR"
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually"
+                },
+                {
+                  "disabled": false,
+                  "key": "description",
+                  "value": "<boolean>",
+                  "description": "A description for this plan"
+                },
+                {
+                  "disabled": false,
+                  "key": "send_invoices",
+                  "value": "<boolean>",
+                  "description": "Set to false if you don't want invoices to be sent to your customers"
+                },
+                {
+                  "disabled": false,
+                  "key": "send_sms",
+                  "value": "<boolean>",
+                  "description": "Set to false if you don't want text messages to be sent to your customers"
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD"
+                },
+                {
+                  "disabled": false,
+                  "key": "invoice_limit",
+                  "value": "<integer>",
+                  "description": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c0c16e82-d87b-4535-9476-a1d52d6e3f24",
+              "name": "Resource created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ced14679-2a2e-4ef9-8911-20f4eb44efe6",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eef1d854-9a17-48f4-92b0-d5f76b1576e2",
+              "name": "Unauthorized operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": false,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "651ec6b6-9b8c-4298-91d1-5b5236cee631",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "plan",
+                    ":code"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Name of plan",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Amount should be in kobo if currency is NGN, pesewas, if currency is GHS, and cents, if currency is ZAR",
+                        "type": "text/plain"
+                      },
+                      "key": "amount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Interval in words. Valid intervals are daily, weekly, monthly,biannually, annually",
+                        "type": "text/plain"
+                      },
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A description for this plan",
+                        "type": "text/plain"
+                      },
+                      "key": "description",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want invoices to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_invoices",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Set to false if you don't want text messages to be sent to your customers",
+                        "type": "text/plain"
+                      },
+                      "key": "send_sms",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Currency in which amount is set. Allowed values are NGN, GHS, ZAR or USD",
+                        "type": "text/plain"
+                      },
+                      "key": "currency",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Number of invoices to raise during subscription to this plan. \nCan be overridden by specifying an invoice_limit while subscribing.",
+                        "type": "text/plain"
+                      },
+                      "key": "invoice_limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paystack.co",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "374acb43-c08a-4677-93c3-4295dae45531",
+    "name": "Paystack Accept Payments Balance Plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.\n\nContact Support:\n Name: Paystack Support\n Email: support@paystack.com",
+      "type": "text/plain"
+    }
+  }
+}

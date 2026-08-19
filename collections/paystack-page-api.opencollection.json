@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paystack Accept Payments Balance Page API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Page",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/page",
+            "params": [
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to fetch per page"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "The section to retrieve"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The start date"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "The end date"
+              }
+            ]
+          },
+          "docs": "List Pages"
+        },
+        {
+          "info": {
+            "name": "Create Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/page",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Page"
+        },
+        {
+          "info": {
+            "name": "Fetch Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/page/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch Page"
+        },
+        {
+          "info": {
+            "name": "Update Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.paystack.co/page/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Page"
+        },
+        {
+          "info": {
+            "name": "Check Slug Availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paystack.co/page/check_slug_availability/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check Slug Availability"
+        },
+        {
+          "info": {
+            "name": "Add Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paystack.co/page/:id/product",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add Products"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
