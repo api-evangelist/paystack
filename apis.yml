@@ -37,6 +37,11 @@ apis:
 - aid: paystack:paystack-webhooks
   name: Paystack Webhooks
   tags:
+  - Webhook
+  - Event
+  - AsyncAPI
+  - HMAC
+  tags_raw:
   - Webhooks
   - Events
   - AsyncAPI
@@ -57,6 +62,8 @@ apis:
   description: The Balance API from Paystack — 2 operation(s) for balance.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
+  - Balances
+  tags_raw:
   - Balance
   properties:
   - type: OpenAPI
@@ -330,6 +337,8 @@ apis:
   description: The Customer API from Paystack — 5 operation(s) for customer.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -1332,6 +1341,8 @@ apis:
   description: The Subaccount API from Paystack — 2 operation(s) for subaccount.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
+  - Sub-Account
+  tags_raw:
   - Subaccount
   properties:
   - type: OpenAPI
