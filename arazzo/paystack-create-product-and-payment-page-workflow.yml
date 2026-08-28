@@ -11,8 +11,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: productsPagesApi
-  url: ../openapi/paystack-products-pages-openapi.yml
+- name: pageApi
+  url: ../openapi/paystack-page-api-openapi.yml
+  type: openapi
+- name: productApi
+  url: ../openapi/paystack-product-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: create-product-and-payment-page

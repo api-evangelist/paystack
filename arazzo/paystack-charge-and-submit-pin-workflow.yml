@@ -12,8 +12,8 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: acceptPaymentsApi
-  url: ../openapi/paystack-accept-payments-openapi.yml
+- name: chargeApi
+  url: ../openapi/paystack-charge-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: charge-and-submit-pin

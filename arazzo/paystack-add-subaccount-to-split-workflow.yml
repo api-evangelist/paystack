@@ -10,8 +10,11 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: splitsSubaccountsApi
-  url: ../openapi/paystack-splits-subaccounts-openapi.yml
+- name: splitApi
+  url: ../openapi/paystack-split-api-openapi.yml
+  type: openapi
+- name: subaccountApi
+  url: ../openapi/paystack-subaccount-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: add-subaccount-to-split

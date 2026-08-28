@@ -10,8 +10,8 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: refundsApi
-  url: ../openapi/paystack-refunds-disputes-openapi.yml
+- name: disputeApi
+  url: ../openapi/paystack-dispute-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: dispute-evidence-and-resolve

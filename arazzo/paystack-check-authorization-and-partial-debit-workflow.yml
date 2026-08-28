@@ -12,8 +12,8 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: acceptPaymentsApi
-  url: ../openapi/paystack-accept-payments-openapi.yml
+- name: transactionApi
+  url: ../openapi/paystack-transaction-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: check-authorization-and-partial-debit

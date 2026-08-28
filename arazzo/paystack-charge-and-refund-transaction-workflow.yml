@@ -10,11 +10,11 @@ info:
     the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: acceptPaymentsApi
-  url: ../openapi/paystack-accept-payments-openapi.yml
+- name: refundApi
+  url: ../openapi/paystack-refund-api-openapi.yml
   type: openapi
-- name: refundsApi
-  url: ../openapi/paystack-refunds-disputes-openapi.yml
+- name: transactionApi
+  url: ../openapi/paystack-transaction-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: charge-and-refund-transaction

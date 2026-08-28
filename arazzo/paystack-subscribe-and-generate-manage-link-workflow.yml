@@ -11,8 +11,8 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: subscriptionsApi
-  url: ../openapi/paystack-subscriptions-openapi.yml
+- name: subscriptionApi
+  url: ../openapi/paystack-subscription-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: subscribe-and-generate-manage-link

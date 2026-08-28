@@ -10,11 +10,11 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: customersApi
-  url: ../openapi/paystack-customers-openapi.yml
+- name: customerApi
+  url: ../openapi/paystack-customer-api-openapi.yml
   type: openapi
 - name: verificationApi
-  url: ../openapi/paystack-verification-openapi.yml
+  url: ../openapi/paystack-verification-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: validate-customer-kyc

@@ -12,8 +12,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: settlementsApi
-  url: ../openapi/paystack-settlements-openapi.yml
+- name: settlementApi
+  url: ../openapi/paystack-settlement-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: settlement-reconciliation

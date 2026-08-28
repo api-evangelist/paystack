@@ -10,8 +10,8 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: subscriptionsApi
-  url: ../openapi/paystack-subscriptions-openapi.yml
+- name: subscriptionApi
+  url: ../openapi/paystack-subscription-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: disable-and-reenable-subscription

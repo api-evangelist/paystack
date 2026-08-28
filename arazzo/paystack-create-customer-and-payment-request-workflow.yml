@@ -11,11 +11,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: customersApi
-  url: ../openapi/paystack-customers-openapi.yml
+- name: customerApi
+  url: ../openapi/paystack-customer-api-openapi.yml
   type: openapi
-- name: paymentRequestsApi
-  url: ../openapi/paystack-payment-requests-openapi.yml
+- name: paymentRequestApi
+  url: ../openapi/paystack-payment-request-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: create-customer-and-payment-request

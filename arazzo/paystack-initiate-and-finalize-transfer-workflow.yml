@@ -10,8 +10,8 @@ info:
     without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: transfersApi
-  url: ../openapi/paystack-transfers-openapi.yml
+- name: transferApi
+  url: ../openapi/paystack-transfer-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: initiate-and-finalize-transfer

@@ -11,11 +11,11 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: refundsApi
-  url: ../openapi/paystack-refunds-disputes-openapi.yml
+- name: customerApi
+  url: ../openapi/paystack-customer-api-openapi.yml
   type: openapi
-- name: customersApi
-  url: ../openapi/paystack-customers-openapi.yml
+- name: disputeApi
+  url: ../openapi/paystack-dispute-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: blacklist-customer-after-dispute

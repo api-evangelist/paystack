@@ -11,11 +11,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: verificationApi
-  url: ../openapi/paystack-verification-openapi.yml
+- name: transferApi
+  url: ../openapi/paystack-transfer-api-openapi.yml
   type: openapi
-- name: transfersApi
-  url: ../openapi/paystack-transfers-openapi.yml
+- name: transferRecipientApi
+  url: ../openapi/paystack-transfer-recipient-api-openapi.yml
+  type: openapi
+- name: verificationApi
+  url: ../openapi/paystack-verification-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: resolve-account-and-create-recipient

@@ -10,11 +10,14 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: customersApi
-  url: ../openapi/paystack-customers-openapi.yml
+- name: customerApi
+  url: ../openapi/paystack-customer-api-openapi.yml
   type: openapi
-- name: subscriptionsApi
-  url: ../openapi/paystack-subscriptions-openapi.yml
+- name: planApi
+  url: ../openapi/paystack-plan-api-openapi.yml
+  type: openapi
+- name: subscriptionApi
+  url: ../openapi/paystack-subscription-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: create-customer-plan-and-subscription

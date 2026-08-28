@@ -11,8 +11,8 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: transfersApi
-  url: ../openapi/paystack-transfers-openapi.yml
+- name: bulkChargeApi
+  url: ../openapi/paystack-bulk-charge-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: initiate-and-monitor-bulk-charge
