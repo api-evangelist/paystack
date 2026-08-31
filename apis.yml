@@ -1353,7 +1353,7 @@ apis:
   description: The Subaccount API from Paystack — 2 operation(s) for subaccount.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
-  - Sub-Account
+  - Subaccount
   tags_raw:
   - Subaccount
   properties:
@@ -1897,6 +1897,11 @@ apis:
   - type: Documentation
     url: https://paystack.com/docs/api/integration/
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/stripe/
+  name: Stripe
+  x-relationship: acquired
+  x-evidence: "Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards, bank transfers, USSD, QR, EFT, and mobile money channe"
 - type: AgenticAccess
   url: agentic-access/paystack-agentic-access.yml
 - type: TrustCenter
