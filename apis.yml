@@ -1353,7 +1353,7 @@ apis:
   description: The Subaccount API from Paystack — 2 operation(s) for subaccount.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
-  - Subaccount
+  - Sub-Account
   tags_raw:
   - Subaccount
   properties:
