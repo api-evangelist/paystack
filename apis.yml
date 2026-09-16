@@ -39,13 +39,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paystack.png
 access: 3rd-Party
-description: Paystack is an African payment processor (acquired by Stripe in 2020)
-  that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte
-  d'Ivoire, and Egypt across cards, bank transfers, USSD, QR, EFT, and mobile money
-  channels. Its single REST API covers one-time charges, recurring subscriptions,
-  marketplace splits, dedicated virtual accounts, invoices, transfers (payouts), refunds,
-  disputes, settlements, and KYC/identity verification — all wrapped in a developer
-  experience that has made it one of the most respected public APIs on the continent.
+description: Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses
+  accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards, bank
+  transfers, USSD, QR, EFT, and mobile money channels. Its single REST API covers one-time charges, recurring
+  subscriptions, marketplace splits, dedicated virtual accounts, invoices, transfers (payouts), refunds,
+  disputes, settlements, and KYC/identity verification — all wrapped in a developer experience that has
+  made it one of the most respected public APIs on the continent.
 apis:
 - aid: paystack:paystack-webhooks
   name: Paystack Webhooks
@@ -65,8 +64,7 @@ apis:
     type: Documentation
   - url: asyncapi/paystack-webhooks-asyncapi.yml
     type: AsyncAPI
-  description: >-
-    Outbound webhook surface that notifies a single merchant-configured POST endpoint of transaction,
+  description: Outbound webhook surface that notifies a single merchant-configured POST endpoint of transaction,
     dispute, refund, transfer, subscription, invoice, payment request, customer identification, and dedicated
     virtual account events. Every delivery is signed with an HMAC-SHA512 x-paystack-signature header keyed
     by the merchant secret key, and Paystack retries non-200 responses for up to 72 hours.
@@ -440,8 +438,8 @@ apis:
     url: https://paystack.com/docs/api/integration/
 - aid: paystack:paystack-dedicated-virtual-account-api
   name: Paystack Dedicated Virtual Account API
-  description: >-
-    The Dedicated Virtual Account API from Paystack — 4 operation(s) for dedicated virtual account.
+  description: The Dedicated Virtual Account API from Paystack — 4 operation(s) for dedicated virtual
+    account.
   humanURL: https://paystack.com/docs/api/transaction/
   tags:
   - Dedicated Virtual Account
@@ -1898,11 +1896,15 @@ apis:
   - type: Documentation
     url: https://paystack.com/docs/api/integration/
 common:
+- type: Website
+  url: https://paystack.com
 - type: ParentCompany
   url: https://apis.io/providers/stripe/
   name: Stripe
   x-relationship: acquired
-  x-evidence: "Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards, bank transfers, USSD, QR, EFT, and mobile money channe"
+  x-evidence: Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses
+    accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards, bank
+    transfers, USSD, QR, EFT, and mobile money channe
 - type: AgenticAccess
   url: agentic-access/paystack-agentic-access.yml
 - type: TrustCenter
@@ -2113,84 +2115,74 @@ common:
 - type: Features
   data:
   - name: Hosted Checkout
-    description: Paystack-hosted authorization URL that handles PCI, SCA, OTP, USSD,
-      QR, and 3DS flows for you.
+    description: Paystack-hosted authorization URL that handles PCI, SCA, OTP, USSD, QR, and 3DS flows
+      for you.
   - name: Direct Charge API
-    description: Initiate charges programmatically with structured PIN, OTP, phone,
-      birthday, and address challenge steps.
+    description: Initiate charges programmatically with structured PIN, OTP, phone, birthday, and address
+      challenge steps.
   - name: Recurring Subscriptions
-    description: Plans plus subscriptions with self-service customer management and
-      email/SMS invoice notifications.
+    description: Plans plus subscriptions with self-service customer management and email/SMS invoice
+      notifications.
   - name: Transaction Splits
-    description: Route a single payment to multiple subaccounts on a percentage or
-      flat basis for marketplaces.
+    description: Route a single payment to multiple subaccounts on a percentage or flat basis for marketplaces.
   - name: Subaccounts
-    description: Vendor or merchant profiles with their own settlement bank and percentage
-      charge.
+    description: Vendor or merchant profiles with their own settlement bank and percentage charge.
   - name: Dedicated Virtual Accounts
-    description: NUBAN virtual accounts assigned to individual customers for bank-transfer-based
-      payments with auto-reconciliation.
+    description: NUBAN virtual accounts assigned to individual customers for bank-transfer-based payments
+      with auto-reconciliation.
   - name: Payment Pages
     description: No-code Paystack-hosted pages for selling products or accepting donations.
   - name: Payment Requests
-    description: Email-based invoices with verification, notification, finalization,
-      and archive flows.
+    description: Email-based invoices with verification, notification, finalization, and archive flows.
   - name: Single and Bulk Transfers
-    description: Pay out from balance to bank accounts and mobile money wallets, one
-      at a time or as batches.
+    description: Pay out from balance to bank accounts and mobile money wallets, one at a time or as batches.
   - name: Bulk Charge
-    description: Charge many stored authorizations in a single batch with pause and
-      resume controls.
+    description: Charge many stored authorizations in a single batch with pause and resume controls.
   - name: Refunds
     description: Partial or full refunds with merchant and customer notes.
   - name: Disputes and Chargebacks
-    description: Programmatic dispute response with signed evidence-upload URLs and
-      resolution workflow.
+    description: Programmatic dispute response with signed evidence-upload URLs and resolution workflow.
   - name: Settlements
-    description: Read net settlement payouts and drill down into the transactions
-      that composed each batch.
+    description: Read net settlement payouts and drill down into the transactions that composed each batch.
   - name: Identity Verification
-    description: BVN match, BVN resolution, account number resolution, card BIN lookup,
-      country/bank lookup, and AVS state lists.
+    description: BVN match, BVN resolution, account number resolution, card BIN lookup, country/bank lookup,
+      and AVS state lists.
   - name: Multi-Currency
     description: Accept NGN, GHS, ZAR, KES, XOF, EGP, and USD across supported markets.
   - name: Multi-Channel
-    description: Card, bank transfer, USSD, QR, mobile money (M-Pesa, MTN MoMo, Orange
-      Money, Wave), EFT, Apple Pay, Visa QR.
+    description: Card, bank transfer, USSD, QR, mobile money (M-Pesa, MTN MoMo, Orange Money, Wave), EFT,
+      Apple Pay, Visa QR.
   - name: Webhooks
-    description: Signed webhook deliveries for transaction, dispute, refund, transfer,
-      subscription, and invoice events with 72-hour retries.
+    description: Signed webhook deliveries for transaction, dispute, refund, transfer, subscription, and
+      invoice events with 72-hour retries.
   - name: Test Mode
-    description: A complete test environment with test cards covering success, decline,
-      OTP, PIN, and 3DS flows.
+    description: A complete test environment with test cards covering success, decline, OTP, PIN, and
+      3DS flows.
   - name: Dashboard
-    description: First-class merchant dashboard for transactions, customers, subscriptions,
-      transfers, settlements, and disputes.
+    description: First-class merchant dashboard for transactions, customers, subscriptions, transfers,
+      settlements, and disputes.
 - type: UseCases
   data:
   - name: E-commerce Checkout
-    description: Drop-in checkout for online stores accepting cards, USSD, bank transfer,
-      and mobile money across Africa.
+    description: Drop-in checkout for online stores accepting cards, USSD, bank transfer, and mobile money
+      across Africa.
   - name: SaaS Recurring Billing
-    description: Subscription-based revenue with plans, automatic renewal, self-service
-      updates, and dunning.
+    description: Subscription-based revenue with plans, automatic renewal, self-service updates, and dunning.
   - name: Marketplaces and Multi-Vendor Platforms
     description: Split-payment routing to vendor subaccounts with platform fee retention.
   - name: Cross-Border Payments
     description: Accept cards from international customers while settling locally.
   - name: Mobile Money Acceptance
-    description: M-Pesa, MTN, Orange Money, Wave acceptance in Ghana, Kenya, Côte
-      d'Ivoire.
+    description: M-Pesa, MTN, Orange Money, Wave acceptance in Ghana, Kenya, Côte d'Ivoire.
   - name: Bank Transfer Acceptance
     description: Dedicated virtual accounts auto-reconcile inbound NUBAN transfers.
   - name: Payouts and Vendor Disbursement
-    description: Single and bulk transfers to bank or mobile money for gig platforms
-      and payroll-light apps.
+    description: Single and bulk transfers to bank or mobile money for gig platforms and payroll-light
+      apps.
   - name: Invoicing and B2B Collections
     description: Issue payment requests by email with verification and reminders.
   - name: Donations and Crowdfunding
-    description: Payment Pages for one-off donations or product sales without writing
-      checkout code.
+    description: Payment Pages for one-off donations or product sales without writing checkout code.
 - type: Integrations
   data:
   - name: WooCommerce
@@ -2212,8 +2204,8 @@ common:
   - name: Joomla, Drupal, Ghost, Wordpress
     description: Community and official plugins across major CMS platforms.
   - name: Stripe
-    description: Paystack is a Stripe subsidiary; merchants can operate in Stripe-aligned
-      multi-region setups.
+    description: Paystack is a Stripe subsidiary; merchants can operate in Stripe-aligned multi-region
+      setups.
 - type: Solutions
   data:
   - name: Online Businesses
@@ -2223,12 +2215,12 @@ common:
   - name: Subscription Businesses
     description: Plans, subscriptions, and dunning for recurring revenue.
   - name: Platforms and Apps
-    description: Transfers, dedicated virtual accounts, and identity verification
-      for fintech and platform builds.
+    description: Transfers, dedicated virtual accounts, and identity verification for fintech and platform
+      builds.
   - name: Education and Nonprofits
     description: Payment Pages and Payment Requests for donations and tuition collection.
 created: '2026-05-24'
-modified: '2026-05-30'
+modified: '2026-09-16'
 position: Consuming
 maintainers:
 - FN: Kin Lane
