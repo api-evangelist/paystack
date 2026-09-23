@@ -1,15 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paystack Accept Payments Balance Subscription API
-  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  title: Paystack Subscription API
+  description: The OpenAPI specification of the Paystack API that merchants and developers can harness to build financial solutions in Africa.
   version: 1.0.0
-  contact:
-    name: Paystack Support
-    url: https://support.paystack.com
-    email: support@paystack.com
-  license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
 - url: https://api.paystack.co
   description: Base API endpoint
@@ -216,6 +209,20 @@ paths:
         default:
           description: Server error
 components:
+  responses:
+    Ok:
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              message:
+                type: string
+              data:
+                type: object
   securitySchemes:
     bearerAuth:
       type: http

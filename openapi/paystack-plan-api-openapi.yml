@@ -1,15 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paystack Accept Payments Balance Plan API
-  description: Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, and QR payments. The core API for accepting payments through Paystack across Africa.
+  title: Paystack Plan API
+  description: The OpenAPI specification of the Paystack API that merchants and developers can harness to build financial solutions in Africa.
   version: 1.0.0
-  contact:
-    name: Paystack Support
-    url: https://support.paystack.com
-    email: support@paystack.com
-  license:
-    name: Apache 2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
 servers:
 - url: https://api.paystack.co
   description: Base API endpoint
@@ -19,27 +12,6 @@ tags:
 - name: Plan
 paths:
   /plan:
-    get:
-      responses:
-        '200':
-          description: Resource created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/Ok/content/application~1json/schema'
-        '401':
-          description: Unauthorized operation
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: boolean
-                  message:
-                    type: string
-      tags:
-      - Plan
     post:
       tags:
       - Plan
@@ -86,6 +58,66 @@ paths:
         '201':
           $ref: '#/paths/~1plan/get/responses/200'
         '401':
+          $ref: '#/paths/~1plan/get/responses/401'
+        default:
+          description: Server error
+    get:
+      tags:
+      - Plan
+      summary: List Plans
+      operationId: plan_list
+      parameters:
+      - in: query
+        name: perPage
+        schema:
+          type: integer
+        description: Number of records to fetch per page
+      - in: query
+        name: page
+        schema:
+          type: integer
+        description: The section to retrieve
+      - in: query
+        name: interval
+        schema:
+          type: string
+        description: Specify interval of the plan
+      - in: query
+        name: amount
+        schema:
+          type: integer
+        description: The amount on the plans to retrieve
+      - in: query
+        name: from
+        schema:
+          type: string
+          format: date-time
+        description: The start date
+      - in: query
+        name: to
+        schema:
+          type: string
+          format: date-time
+        description: The end date
+      responses:
+        '200':
+          description: Resource created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/Ok/content/application~1json/schema'
+        '401':
+          description: Unauthorized operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: boolean
+                  message:
+                    type: string
+        '404':
           $ref: '#/paths/~1plan/get/responses/401'
         default:
           description: Server error
@@ -160,6 +192,7 @@ paths:
 components:
   responses:
     Ok:
+      description: Successful operation
       content:
         application/json:
           schema:
