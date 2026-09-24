@@ -101,8 +101,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -192,8 +190,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -283,8 +279,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -376,8 +370,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -468,8 +460,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -559,8 +549,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -650,8 +638,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -741,8 +727,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -832,8 +816,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -923,8 +905,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1014,8 +994,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1105,8 +1083,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1196,8 +1172,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1287,8 +1261,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1378,8 +1350,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1469,8 +1439,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1560,8 +1528,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1651,8 +1617,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1742,8 +1706,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
@@ -1833,8 +1795,6 @@ apis:
     url: examples/paystack-initialize-transaction-example.json
   - type: Examples
     url: examples/paystack-verify-transaction-example.json
-  - type: GraphQL
-    url: graphql/paystack-graphql.md
   - type: Documentation
     url: https://paystack.com/docs/api/subscription/
   - type: Documentation
