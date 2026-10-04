@@ -1864,6 +1864,9 @@ apis:
   - type: Documentation
     url: https://paystack.com/docs/api/integration/
 common:
+- type: CapabilityMap
+  url: capabilities/paystack-capability-edges.yml
+  name: Paystack Business Capability Map
 - type: Website
   url: https://paystack.com
 - type: ParentCompany

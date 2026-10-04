@@ -1,0 +1,38 @@
+slug: paystack
+provider: Paystack
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Customer
+  spec_file: paystack-customer-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: POST /customer  customer_create  Create Customer; PUT /customer/{code}  customer_update  Update
+    Customer; POST /customer/{code}/identification  customer_validatte  Validate Customer
+  reason: CRUD over customer records plus identity validation and risk-flagging on a 'Customer' schema
+    — maintenance of the customer master record. Some ambiguity because risk-action and identification
+    endpoints lean toward KYC/screening rather than pure master data.
+- tag: Subscription
+  spec_file: paystack-subscription-api-openapi.yml
+  capability_id: BC-4240
+  capability_id_l1: BC-4240
+  capability_name: Subscription Lifecycle Management
+  confidence: 0.75
+  evidence: POST /subscription/disable subscription_disable Disable Subscription; POST /subscription/{code}/manage/link
+    Generate Update Subscription Link
+  reason: Operations create, enable, disable and let the customer update a recurring subscription — i.e.
+    the commercial subscription lifecycle (provisioning, modification, cancellation). Spans several L2s
+    so only the L1 is asserted; it is a payment-rail implementation of recurring billing rather than a
+    full SaaS entitlement platform, hence 0.75.
