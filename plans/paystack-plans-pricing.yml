@@ -266,3 +266,80 @@ notes:
   - Paystack publishes effective pricing on per-country pricing pages — confirm the latest rates
     against paystack.com/{country-iso}/pricing before invoicing.
   - Settlement schedules are T+1 for most local channels in Nigeria; varies elsewhere.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units:
+  - data
+  - money
+  - transaction
+  plans:
+  - name: Paystack Nigeria — Local Transactions
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - money
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack Nigeria — International Cards
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - money
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack Nigeria — Transfers (Payouts)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - data
+    periods:
+    - per-use
+  - name: Paystack Ghana — Local Transactions
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack South Africa — Local Cards and EFT
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack Kenya — Local M-Pesa and Cards
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack Côte d'Ivoire — Mobile Money and Cards
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
+  - name: Paystack Egypt — Local Cards and Wallets
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
