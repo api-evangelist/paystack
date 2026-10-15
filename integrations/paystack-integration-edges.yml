@@ -2,6 +2,7 @@ generated: '2026-10-15'
 method: searched
 checked:
 - woocommerce/integrations/woocommerce-integration-edges.yml
+- wordpress/integrations/wordpress-integration-edges.yml
 source:
 - woocommerce/integrations/woocommerce-integration-edges.yml
 edges:
@@ -24,3 +25,20 @@ edges:
   category: extension
   publisher_verified:
   - Woo quality badge
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/woo-paystack/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Paystack WooCommerce Payment Gateway
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
