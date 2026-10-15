@@ -1,0 +1,26 @@
+generated: '2026-10-15'
+method: searched
+checked:
+- woocommerce/integrations/woocommerce-integration-edges.yml
+source:
+- woocommerce/integrations/woocommerce-integration-edges.yml
+edges:
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/paystack/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Paystack
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
+  publisher_verified:
+  - Woo quality badge
