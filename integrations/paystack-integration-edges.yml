@@ -1,5 +1,9 @@
-generated: '2026-10-15'
+generated: '2026-10-20'
 method: searched
+source:
+- woocommerce/integrations/woocommerce-integration-edges.yml
+- https://zapier.com/apps/paystack/integrations
+- https://composio.dev/toolkits/paystack
 checked:
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
@@ -9,8 +13,203 @@ checked:
 - https://zapier.com/api/v4/apps/
 - woocommerce/integrations/woocommerce-integration-edges.yml
 - wordpress/integrations/wordpress-integration-edges.yml
-source:
-- woocommerce/integrations/woocommerce-integration-edges.yml
+- https://composio.dev/toolkits/paystack
+- https://monid.ai/tools/paystack
+- https://n8n.io/integrations/paystack/
+- https://zapier.com/apps/paystack/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: paystack
+  url: https://zapier.com/apps/paystack/integrations
+  external_url: https://paystack.com/
+  partner_tier: SILVER
+  triggers:
+  - key: getabandonedtransaction
+    label: Abandoned Transaction
+  - key: getcancelledsubscription
+    label: Cancelled Subscription
+  - key: getcustomer
+    label: New Customer
+  - key: getdispute
+    label: New Chargeback
+  - key: getinvoice
+    label: New Invoice
+  - key: getorder
+    label: New Order
+  - key: getpaymentpagetransaction
+    label: New Payment Page  Transaction
+  - key: getrefund
+    label: New Refund
+  - key: getrenewal
+    label: Subsciption Renewal
+  - key: getsubscription
+    label: New Subscription
+  - key: gettransaction
+    label: New Transaction
+  - key: gettransfer
+    label: New Transfer
+  actions:
+  - key: addProduct
+    label: Add Product
+  - key: addvirtualterminalphonenumber
+    label: Add Phone Number to Virtual Terminal
+  - key: cancelSubscription
+    label: Cancel Subscription
+  - key: createdirectdebitlink
+    label: Initiate a Direct Debit Request
+  - key: createrefund
+    label: Create Refund
+  - key: createsubscription
+    label: Create Subscription
+  - key: createvirtualterminal
+    label: Create Virtual Terminal
+  - key: initializeTransaction
+    label: Initialize Transaction
+  - key: pushinvoice
+    label: Push Invoice to Terminal
+  - key: removevirtualterminalphonenumber
+    label: Remove Phone Number From Virtual Terminal
+  - key: sendsimpleinvoice
+    label: Send Simple Invoice
+  - key: sendsubscriptioncardupdatelink
+    label: Share Link for Updating Subscription Card
+  - key: updateorder
+    label: Update Order
+  searches:
+  - key: checkterminal
+    label: Check Terminal Status
+  - key: findcustomer
+    label: Find Customer
+  - key: findorder
+    label: Find Order
+  - key: findtransaction
+    label: Find Transaction
+  - key: findtransfer
+    label: Find Transfer
+  - key: getcustomertotals
+    label: Get Customer Totals
+  - key: resolvebank
+    label: Resolve Account Number
+- marketplace: composio
+  channel: agent-gateway
+  app: paystack
+  url: https://composio.dev/toolkits/paystack
+  identity: action-prefix
+  actions:
+  - key: PAYSTACK_ADD_PRODUCTS_TO_PAGE
+  - key: PAYSTACK_ADD_PRODUCTS_TO_STOREFRONT
+  - key: PAYSTACK_ADD_SPLIT_CODE_TO_VIRTUAL_TERMINAL
+  - key: PAYSTACK_ADD_SUBACCOUNT_TO_SPLIT
+  - key: PAYSTACK_ARCHIVE_PAYMENT_REQUEST
+  - key: PAYSTACK_ASSIGN_DESTINATION_TO_VIRTUAL_TERMINAL
+  - key: PAYSTACK_CHECK_PENDING_CHARGE
+  - key: PAYSTACK_CHECK_SLUG_AVAILABILITY
+  - key: PAYSTACK_CREATE_BULK_TRANSFER_RECIPIENT
+  - key: PAYSTACK_CREATE_CHARGE
+  - key: PAYSTACK_CREATE_CUSTOMER
+  - key: PAYSTACK_CREATE_PAYMENT_PAGE
+  - key: PAYSTACK_CREATE_PAYMENT_REQUEST
+  - key: PAYSTACK_CREATE_PLAN
+  - key: PAYSTACK_CREATE_REFUND
+  - key: PAYSTACK_CREATE_SPLIT
+  - key: PAYSTACK_CREATE_STOREFRONT
+  - key: PAYSTACK_CREATE_SUBACCOUNT
+  - key: PAYSTACK_CREATE_TRANSFER_RECIPIENT
+  - key: PAYSTACK_CREATE_VIRTUAL_TERMINAL
+  - key: PAYSTACK_DEACTIVATE_AUTHORIZATION
+  - key: PAYSTACK_DEACTIVATE_VIRTUAL_TERMINAL
+  - key: PAYSTACK_DELETE_PRODUCT
+  - key: PAYSTACK_DELETE_STOREFRONT
+  - key: PAYSTACK_DELETE_TRANSFER_RECIPIENT
+  - key: PAYSTACK_DISABLE_OTP_FOR_TRANSFERS
+  - key: PAYSTACK_DISABLE_SUBSCRIPTION
+  - key: PAYSTACK_DUPLICATE_STOREFRONT
+  - key: PAYSTACK_ENABLE_OTP_REQUIREMENT_FOR_TRANSFERS
+  - key: PAYSTACK_EXPORT_TRANSACTIONS
+  - key: PAYSTACK_FETCH_BALANCE
+  - key: PAYSTACK_FETCH_BALANCE_LEDGER
+  - key: PAYSTACK_FETCH_BULK_CHARGE_BATCH
+  - key: PAYSTACK_FETCH_CUSTOMER
+  - key: PAYSTACK_FETCH_MANDATE_AUTHORIZATIONS
+  - key: PAYSTACK_FETCH_PAYMENT_PAGE
+  - key: PAYSTACK_FETCH_PAYMENT_REQUEST
+  - key: PAYSTACK_FETCH_PAYMENT_SESSION_TIMEOUT
+  - key: PAYSTACK_FETCH_PLAN
+  - key: PAYSTACK_FETCH_PRODUCT
+  - key: PAYSTACK_FETCH_PRODUCT_ORDERS
+  - key: PAYSTACK_FETCH_REFUND
+  - key: PAYSTACK_FETCH_SPLIT
+  - key: PAYSTACK_FETCH_STOREFRONT
+  - key: PAYSTACK_FETCH_STOREFRONT_ORDERS
+  - key: PAYSTACK_FETCH_SUBACCOUNT
+  - key: PAYSTACK_FETCH_SUBSCRIPTION
+  - key: PAYSTACK_FETCH_TRANSACTION
+  - key: PAYSTACK_FETCH_TRANSACTION_TIMELINE
+  - key: PAYSTACK_FETCH_TRANSFER_RECIPIENT
+  - key: PAYSTACK_FETCH_VIRTUAL_TERMINAL
+  - key: PAYSTACK_FINALIZE_PAYMENT_REQUEST
+  - key: PAYSTACK_GENERATE_UPDATE_SUBSCRIPTION_LINK
+  - key: PAYSTACK_GET_PAYMENT_REQUEST_TOTALS
+  - key: PAYSTACK_GET_TRANSACTION_TOTALS
+  - key: PAYSTACK_INITIALIZE_AUTHORIZATION
+  - key: PAYSTACK_INITIALIZE_TRANSACTION
+  - key: PAYSTACK_INITIATE_BULK_CHARGE
+  - key: PAYSTACK_LIST_BANKS
+  - key: PAYSTACK_LIST_BULK_CHARGE_BATCHES
+  - key: PAYSTACK_LIST_CHARGES_IN_BATCH
+  - key: PAYSTACK_LIST_COUNTRIES
+  - key: PAYSTACK_LIST_CUSTOMERS
+  - key: PAYSTACK_LIST_DISPUTES
+  - key: PAYSTACK_LIST_DOMAINS
+  - key: PAYSTACK_LIST_MANDATE_AUTHORIZATIONS
+  - key: PAYSTACK_LIST_ORDERS
+  - key: PAYSTACK_LIST_PAYMENT_PAGES
+  - key: PAYSTACK_LIST_PAYMENT_REQUESTS
+  - key: PAYSTACK_LIST_PLANS
+  - key: PAYSTACK_LIST_PRODUCTS
+  - key: PAYSTACK_LIST_REFUNDS
+  - key: PAYSTACK_LIST_SETTLEMENTS
+  - key: PAYSTACK_LIST_SPLITS
+  - key: PAYSTACK_LIST_STATES_AVS
+  - key: PAYSTACK_LIST_STOREFRONTS
+  - key: PAYSTACK_LIST_STOREFRONT_PRODUCTS
+  - key: PAYSTACK_LIST_SUBACCOUNTS
+  - key: PAYSTACK_LIST_SUBSCRIPTIONS
+  - key: PAYSTACK_LIST_TRANSACTIONS
+  - key: PAYSTACK_LIST_TRANSFERS
+  - key: PAYSTACK_LIST_TRANSFER_RECIPIENTS
+  - key: PAYSTACK_LIST_VIRTUAL_TERMINALS
+  - key: PAYSTACK_PAUSE_BULK_CHARGE
+  - key: PAYSTACK_PUBLISH_STOREFRONT
+  - key: PAYSTACK_REMOVE_SUBACCOUNT_FROM_SPLIT
+  - key: PAYSTACK_RESEND_OTP_FOR_TRANSFER
+  - key: PAYSTACK_RESOLVE_CARD_BIN
+  - key: PAYSTACK_RESUME_BULK_CHARGE_BATCH
+  - key: PAYSTACK_SEND_PAYMENT_REQUEST_NOTIFICATION
+  - key: PAYSTACK_SEND_SUBSCRIPTION_UPDATE_LINK
+  - key: PAYSTACK_SET_RISK_ACTION
+  - key: PAYSTACK_SUBMIT_PHONE
+  - key: PAYSTACK_TRIGGER_DIRECT_DEBIT_ACTIVATION_CHARGE
+  - key: PAYSTACK_UNASSIGN_DESTINATION_FROM_VIRTUAL_TERMINAL
+  - key: PAYSTACK_UNREGISTER_APPLE_PAY_DOMAIN
+  - key: PAYSTACK_UPDATE_CUSTOMER
+  - key: PAYSTACK_UPDATE_PAYMENT_PAGE
+  - key: PAYSTACK_UPDATE_PAYMENT_REQUEST
+  - key: PAYSTACK_UPDATE_PAYMENT_SESSION_TIMEOUT
+  - key: PAYSTACK_UPDATE_PLAN
+  - key: PAYSTACK_UPDATE_PRODUCT
+  - key: PAYSTACK_UPDATE_SPLIT
+  - key: PAYSTACK_UPDATE_STOREFRONT
+  - key: PAYSTACK_UPDATE_SUBACCOUNT
+  - key: PAYSTACK_UPDATE_TRANSFER_RECIPIENT
+  - key: PAYSTACK_VALIDATE_BANK_ACCOUNT
+  - key: PAYSTACK_VALIDATE_CUSTOMER
+  - key: PAYSTACK_VALIDATE_ORDER
+  - key: PAYSTACK_VERIFY_PAYMENT_REQUEST
+  - key: PAYSTACK_VERIFY_STOREFRONT_SLUG
+  - key: PAYSTACK_VERIFY_TRANSACTION
 edges:
 - partner_name: WooCommerce (own)
   partner: woocommerce
@@ -158,3 +357,425 @@ edges:
     builder: Pipedream repo (component)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Teachable
+  partner: teachable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/teachable
+  direction: third-party
+  category: Online Courses
+  partner_url: https://teachable.com/
+- partner_name: Zenler
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/zenler
+  direction: third-party
+  category: Website Builders
+  partner_url: https://newzenler.com/
+- partner_name: Kajabi
+  partner: kajabi
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/kajabi
+  direction: third-party
+  category: eCommerce
+  partner_url: http://kajabi.com/
+- partner_name: Adalo
+  partner: adalo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/adalo
+  direction: third-party
+  category: App Builder
+  partner_url: https://www.adalo.com/?utm_campaign=zapier_profile
+- partner_name: systeme.io
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/systemeio
+  direction: third-party
+  category: Marketing
+  partner_url: https://systeme.io/
+- partner_name: Zoho Mail
+  partner: zoho-mail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/zoho-mail
+  direction: third-party
+  category: Email
+  partner_url: https://go.zoho.com/v0i
+- partner_name: Circle
+  partner: circle-community
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/circle
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://circle.so/
+- partner_name: Kartra
+  partner: kartra
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/kartra
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://home.kartra.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: GetResponse
+  partner: getresponse
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/getresponse
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.getresponse.com/
+- partner_name: AWeber
+  partner: aweber
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/aweber
+  direction: third-party
+  category: Email Newsletters
+  partner_url: http://zpr.io/6S2qW
+- partner_name: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/microsoft-outlook
+  direction: third-party
+  category: Calendar
+  partner_url: https://outlook.live.com/
+- partner_name: Facebook Conversions
+  partner: facebook
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/facebook-conversions
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://developers.facebook.com/docs/marketing-api/server-side-api/guides/zapier-integration
+- partner_name: Xero
+  partner: xero
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/xero
+  direction: third-party
+  category: Accounting
+  partner_url: https://xero5440.partnerlinks.io/uvwuuwrxyoi8
+- partner_name: Google Forms (Legacy)
+  partner: google-forms
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/google-forms-legacy
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: MailerLite
+  partner: mailerlite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/mailerlite
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.mailerlite.com/?utm_source=zapier&utm_medium=partner&utm_campaign=profile&utm_term=learn_more&utm_content=integrations
+- partner_name: CodeREADr
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/codereadr
+  direction: third-party
+  category: Event Management
+  partner_url: https://www.codereadr.com/?linkback=zapier
+- partner_name: Firebase / Firestore
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/firebase
+  direction: third-party
+  category: Databases
+  partner_url: http://www.firebase.com/
+- partner_name: LearnDash
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/learndash
+  direction: third-party
+  category: Online Courses
+  partner_url: https://www.learndash.com/
+- partner_name: QuickBooks Online
+  partner: quickbooks
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/quickbooks
+  direction: third-party
+  category: Accounting
+  partner_url: http://intuit.com/
+- partner_name: WPForms
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/wpforms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://wpforms.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Wave
+  partner: wave-financial
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/wave
+  direction: third-party
+  category: Accounting
+  partner_url: https://www.waveapps.com/
+- partner_name: Thinkific
+  partner: thinkific
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/thinkific
+  direction: third-party
+  category: Online Courses
+  partner_url: http://www.thinkific.com/
+- partner_name: WhatsApp Notifications
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/paystack/integrations/whatsapp-notifications
+  direction: third-party
+  category: Communication
+  partner_url: null
+templates:
+- title: Add new Paystack customers as contacts on Hubspot
+  url: https://zapier.com/apps/hubspot/integrations/paystack/60112/add-new-paystack-customers-as-contacts-on-hubspot
+  apps:
+  - paystack
+  - hubspot
+- title: Add new customers from Paystack to your Mailchimp mailing list
+  url: https://zapier.com/apps/mailchimp/integrations/paystack/96743/add-new-customers-from-paystack-to-your-mailchimp-mailing-list
+  apps:
+  - paystack
+  - mailchimp
+- title: Initialize transactions in Paystack for new submissions in Jotform
+  url: https://zapier.com/apps/jotform/integrations/paystack/255666366/initialize-transactions-in-paystack-for-new-submissions-in-jotform
+  apps:
+  - jotform
+  - paystack
+- title: Update Adalo records and send simple invoices with Paystack
+  url: https://zapier.com/apps/adalo/integrations/paystack/1271526/update-adalo-records-and-send-simple-invoices-with-paystack
+  apps:
+  - adalo
+  - paystack
+- title: Create invoices in Paystack for new Jotform submissions
+  url: https://zapier.com/apps/jotform/integrations/paystack/1405429/create-invoices-in-paystack-for-new-jotform-submissions
+  apps:
+  - jotform
+  - paystack
+- title: Unlock courses in Skool when new payment page transactions are made in Paystack
+  url: https://zapier.com/apps/paystack/integrations/skool/1786740/unlock-courses-in-skool-when-new-payment-page-transactions-are-made-in-paystack
+  apps:
+  - paystack
+  - skool
+- title: Send simple invoices in Paystack for new orders in Thinkific
+  url: https://zapier.com/apps/paystack/integrations/thinkific/1684467/send-simple-invoices-in-paystack-for-new-orders-in-thinkific
+  apps:
+  - thinkific
+  - paystack
+- title: Create GetResponse contacts from new Paystack customers
+  url: https://zapier.com/apps/getresponse/integrations/paystack/1621530/create-getresponse-contacts-from-new-paystack-customers
+  apps:
+  - paystack
+  - getresponse
+- title: Send emails when Paystack transactions fail
+  url: https://zapier.com/apps/email/integrations/paystack/60113/send-emails-when-paystack-transactions-fail
+  apps:
+  - paystack
+  - email
+- title: Update Adalo records when new Paystack payment page transactions occur
+  url: https://zapier.com/apps/adalo/integrations/paystack/1668220/update-adalo-records-when-new-paystack-payment-page-transactions-occur
+  apps:
+  - paystack
+  - adalo
+- title: Record new Paystack transactions as sales on Wave
+  url: https://zapier.com/apps/paystack/integrations/wave/96812/record-new-paystack-transactions-as-sales-on-wave
+  apps:
+  - paystack
+  - wave
+- title: Send Slack notifications for successful Paystack transactions
+  url: https://zapier.com/apps/paystack/integrations/slack/96813/send-slack-notifications-for-successful-paystack-transactions
+  apps:
+  - paystack
+  - slack
+template_total: 316
