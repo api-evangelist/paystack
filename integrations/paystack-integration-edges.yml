@@ -26,6 +26,11 @@ checked:
 - https://www.cbn.gov.ng/PaymentsSystem/PSPs.html
 - https://www.centralbank.go.ke/wp-content/uploads/2026/09/Directory-of-Authorized-Payment-Service-Providers-August-10-2026.pdf
 - https://www.centralbank.go.ke/wp-content/uploads/2026/10/Directory-of-Licenced-Money-Remittance-Providers-as-at-September-30-2026.pdf
+- https://500.co/api/startups
+- https://500.co/companies
+- https://www.antler.co/portfolio
+- https://www.techstars.com/portfolio
+- https://www.ycombinator.com/companies
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -780,6 +785,34 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-africa-payments.py
   first_seen: '2026-10-20'
+- partner_name: Y Combinator
+  partner: y-combinator
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.ycombinator.com/companies/paystack
+  category: accelerator portfolio participation
+  contract_reference:
+    register: Y Combinator company directory (ycombinator.com/companies/<slug>)
+    standard: null
+    spec_file: null
+    role: accelerator-portfolio-company
+    registered_name: Paystack
+    register_id: https://www.ycombinator.com/companies/paystack
+    register_country: NG
+    register_website: https://www.paystack.com
+    matched_domain: paystack.com
+    matched_by: domain
+    signal_note: 'participation only: the accelerator''s own portfolio register lists the company (cohort / investment);
+      an ownership and participation record, not conformance or certification'
+    detected_by: sweep-accelerator-portfolios.py
+    detected: '2026-10-21'
+    batch: Winter 2016
+    status: Acquired
+  detected_by: sweep-accelerator-portfolios.py
+  first_seen: '2026-10-21'
 templates:
 - title: Add new Paystack customers as contacts on Hubspot
   url: https://zapier.com/apps/hubspot/integrations/paystack/60112/add-new-paystack-customers-as-contacts-on-hubspot
