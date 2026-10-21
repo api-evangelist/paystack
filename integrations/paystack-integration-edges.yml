@@ -17,6 +17,15 @@ checked:
 - https://monid.ai/tools/paystack
 - https://n8n.io/integrations/paystack/
 - https://zapier.com/apps/paystack/integrations
+- https://authorisation.pasa.org.za/so-and-tppp/documents/
+- https://authorisation.pasa.org.za/wp-content/uploads/2026/07/Public-list-SO-July-2026.pdf
+- https://authorisation.pasa.org.za/wp-content/uploads/2026/07/Public-list-TPPP-July-2026.pdf
+- https://www.bceao.int/fr/content/etablissements-de-monnaie-electronique
+- https://www.bog.gov.gh/fintech-innovation/approved-institutions/
+- https://www.cbn.gov.ng/PaymentsSystem/InternationalMoneyTransferOperators.html
+- https://www.cbn.gov.ng/PaymentsSystem/PSPs.html
+- https://www.centralbank.go.ke/wp-content/uploads/2026/09/Directory-of-Authorized-Payment-Service-Providers-August-10-2026.pdf
+- https://www.centralbank.go.ke/wp-content/uploads/2026/10/Directory-of-Licenced-Money-Remittance-Providers-as-at-September-30-2026.pdf
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -717,6 +726,60 @@ edges:
   direction: third-party
   category: Communication
   partner_url: null
+- partner_name: Bank of Ghana approved payment institutions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bog.gov.gh/fintech-innovation/approved-institutions/
+  category: Ghanaian payment-service licence
+  contract_reference:
+    register: Bank of Ghana approved payment institutions
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: Paystack Ghana LTD
+      licences:
+      - PSP Enhanced
+      register_country: GH
+      matched_domain: paystack.com
+      matched_by: domain
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-africa-payments.py
+    detected: '2026-10-20'
+  detected_by: sweep-africa-payments.py
+  first_seen: '2026-10-20'
+- partner_name: Central Bank of Kenya authorized Payment Service Providers
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.centralbank.go.ke/wp-content/uploads/2026/09/Directory-of-Authorized-Payment-Service-Providers-August-10-2026.pdf
+  category: Kenyan payment-service authorisation
+  contract_reference:
+    register: Central Bank of Kenya authorized Payment Service Providers
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: Paystack Payments Kenya Limited
+      licences:
+      - payment platform / merchant processing
+      register_country: KE
+      matched_domain: paystack.com
+      matched_by: domain
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-africa-payments.py
+    detected: '2026-10-20'
+  detected_by: sweep-africa-payments.py
+  first_seen: '2026-10-20'
 templates:
 - title: Add new Paystack customers as contacts on Hubspot
   url: https://zapier.com/apps/hubspot/integrations/paystack/60112/add-new-paystack-customers-as-contacts-on-hubspot

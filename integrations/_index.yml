@@ -564,3 +564,57 @@
   relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
+- slug: paystack-bank-of-ghana-approved-payment-institutions
+  label: Bank of Ghana approved payment institutions
+  partner_name: Bank of Ghana approved payment institutions
+  category: Ghanaian payment-service licence
+  type: register
+  channel: regulator-register
+  evidence: https://www.bog.gov.gh/fintech-innovation/approved-institutions/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Bank of Ghana approved payment institutions
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: Paystack Ghana LTD
+      licences:
+      - PSP Enhanced
+      register_country: GH
+      matched_domain: paystack.com
+      matched_by: domain
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-africa-payments.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-central-bank-of-kenya-authorized-payment-service-providers
+  label: Central Bank of Kenya authorized Payment Service Providers
+  partner_name: Central Bank of Kenya authorized Payment Service Providers
+  category: Kenyan payment-service authorisation
+  type: register
+  channel: regulator-register
+  evidence: https://www.centralbank.go.ke/wp-content/uploads/2026/09/Directory-of-Authorized-Payment-Service-Providers-August-10-2026.pdf
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Central Bank of Kenya authorized Payment Service Providers
+    spec_file: null
+    standard: null
+    role: licensed-participant
+    registrations:
+    - registered_name: Paystack Payments Kenya Limited
+      licences:
+      - payment platform / merchant processing
+      register_country: KE
+      matched_domain: paystack.com
+      matched_by: domain
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-africa-payments.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
