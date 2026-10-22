@@ -123,32 +123,6 @@
   relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
-- slug: paystack-woocommerce-own
-  label: WooCommerce (own)
-  partner: woocommerce
-  partner_name: WooCommerce (own)
-  category: extension
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://woocommerce.com/products/paystack/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: paystack-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/woo-paystack/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: paystack-airbyte
   label: Airbyte
   partner: airbyte
@@ -645,5 +619,44 @@
     detected: '2026-10-21'
     batch: Winter 2016
     status: Acquired
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/paystack/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/woo-paystack/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-adobe-commerce-own
+  label: Adobe Commerce (own)
+  partner: adobe-commerce
+  partner_name: Adobe Commerce (own)
+  category: Adobe Commerce Marketplace extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://commercemarketplace.adobe.com/pstk-paystack-magento2-module.html
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null

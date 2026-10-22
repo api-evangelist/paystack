@@ -31,6 +31,7 @@ checked:
 - https://www.antler.co/portfolio
 - https://www.techstars.com/portfolio
 - https://www.ycombinator.com/companies
+- adobe-commerce/integrations/adobe-commerce-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -225,42 +226,6 @@ marketplace_apps:
   - key: PAYSTACK_VERIFY_STOREFRONT_SLUG
   - key: PAYSTACK_VERIFY_TRANSACTION
 edges:
-- partner_name: WooCommerce (own)
-  partner: woocommerce
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://woocommerce.com/products/paystack/
-  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
-  apps:
-  - Paystack
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: extension
-  publisher_verified:
-  - Woo quality badge
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/woo-paystack/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Paystack WooCommerce Payment Gateway
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
 - partner_name: Airbyte
   partner: airbyte
   partner_match: aggregator
@@ -813,6 +778,59 @@ edges:
     status: Acquired
   detected_by: sweep-accelerator-portfolios.py
   first_seen: '2026-10-21'
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/paystack/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Paystack
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
+  publisher_verified:
+  - Woo quality badge
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/woo-paystack/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Paystack WooCommerce Payment Gateway
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
+- partner_name: Adobe Commerce (own)
+  partner: adobe-commerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://commercemarketplace.adobe.com/pstk-paystack-magento2-module.html
+  mirror_of: adobe-commerce/integrations/adobe-commerce-integration-edges.yml
+  apps:
+  - Paystack Payments
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Adobe Commerce Marketplace extension
 templates:
 - title: Add new Paystack customers as contacts on Hubspot
   url: https://zapier.com/apps/hubspot/integrations/paystack/60112/add-new-paystack-customers-as-contacts-on-hubspot
