@@ -32,6 +32,8 @@ checked:
 - https://www.techstars.com/portfolio
 - https://www.ycombinator.com/companies
 - adobe-commerce/integrations/adobe-commerce-integration-edges.yml
+- https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions
+- https://www.raycast.com/api/v1/store_listings
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -831,6 +833,54 @@ edges:
   detected: '2026-10-22'
   detected_by: mirror-platform-listings.py
   category: Adobe Commerce Marketplace extension
+- partner_name: Raycast
+  partner: raycast
+  partner_match: domain
+  partner_url: https://www.raycast.com
+  partner_domain: raycast.com
+  type: marketplace
+  marketplace: raycast-store
+  channel: connector-listing
+  relationship: connector-coverage
+  evidence: https://www.raycast.com/dominuskelvin/paystack
+  app: Paystack
+  category: Raycast Store extension (community wrapper)
+  listing_count: 1
+  contract_reference:
+    register: Raycast Store (raycast/extensions monorepo + store_listings JSON)
+    spec_file: null
+    role: raycast-community-wrapper
+    builder: community
+    authors:
+    - dominuskelvin
+    matched_domain: paystack.com
+    matched_by: domain
+    monorepo_commit: 84f9ac51336a8c69f70974a75bc067c0feae3658
+    listings:
+    - title: Paystack
+      store_url: https://www.raycast.com/dominuskelvin/paystack
+      installs: 29
+      categories:
+      - Developer Tools
+      - Finance
+      - Productivity
+      - Documentation
+      source: https://github.com/raycast/extensions/tree/84f9ac51336a8c69f70974a75bc067c0feae3658/extensions/paystack/
+      author: dominuskelvin
+    categories:
+    - Developer Tools
+    - Documentation
+    - Finance
+    - Productivity
+    identity_note: the extension's own source calls a host on the product's domain AND its title / package name
+      passes partner_link's name check; built by Raycast community developers, not the vendor
+    signal_note: 'coverage: Raycast''s store reaches the product through community-built extensions; one edge per
+      (product, store); install / listing counts are context, never counted'
+    detected_by: sweep-raycast-store-extensions.py
+    detected: '2026-10-22'
+  detected_by: sweep-raycast-store-extensions.py
+  first_seen: '2026-10-22'
+  direction: partner-built
 templates:
 - title: Add new Paystack customers as contacts on Hubspot
   url: https://zapier.com/apps/hubspot/integrations/paystack/60112/add-new-paystack-customers-as-contacts-on-hubspot
