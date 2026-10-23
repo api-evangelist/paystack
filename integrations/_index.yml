@@ -621,45 +621,6 @@
     status: Acquired
   status: not-a-workflow
   arazzo: null
-- slug: paystack-woocommerce-own
-  label: WooCommerce (own)
-  partner: woocommerce
-  partner_name: WooCommerce (own)
-  category: extension
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://woocommerce.com/products/paystack/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: paystack-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/woo-paystack/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
-- slug: paystack-adobe-commerce-own
-  label: Adobe Commerce (own)
-  partner: adobe-commerce
-  partner_name: Adobe Commerce (own)
-  category: Adobe Commerce Marketplace extension
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://commercemarketplace.adobe.com/pstk-paystack-magento2-module.html
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: paystack-raycast
   label: Raycast
   partner: raycast
@@ -703,5 +664,57 @@
       (product, store); install / listing counts are context, never counted'
     detected_by: sweep-raycast-store-extensions.py
     detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/paystack/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/woo-paystack/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-adobe-commerce-own
+  label: Adobe Commerce (own)
+  partner: adobe-commerce
+  partner_name: Adobe Commerce (own)
+  category: Adobe Commerce Marketplace extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://commercemarketplace.adobe.com/pstk-paystack-magento2-module.html
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: paystack-bubble-own
+  label: Bubble (own)
+  partner: bubble
+  partner_name: Bubble (own)
+  category: Api
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://bubble.io/plugin/paystack-1658230089548x320199458797125600
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
