@@ -1,4 +1,4 @@
-# Paystack (paystack)
+# Paystack
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,403 +66,275 @@
 
 Paystack is an African payment processor (acquired by Stripe in 2020) that lets businesses accept payments in Nigeria, Ghana, South Africa, Kenya, Côte d'Ivoire, and Egypt across cards, bank transfers, USSD, QR, EFT, and mobile money channels. Its single REST API covers one-time charges, recurring subscriptions, marketplace splits, dedicated virtual accounts, invoices, transfers (payouts), refunds, disputes, settlements, and KYC/identity verification — all wrapped in a developer experience that has made it one of the most respected public APIs on the continent.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/paystack/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/paystack/main/apis.yml)
+**Areas:** Payments · Africa · Fintech · Recurring Billing · Marketplace · Payouts · Mobile Money · Stripe
+
+## Paystack on APIs.io
+
+Everything profiled for Paystack is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/paystack/](https://apis.io/providers/paystack/)** — or go straight to one of the APIs or properties below.
+
+### APIs (21)
 
-## Scope
+- [Paystack Webhooks](https://apis.io/apis/paystack/paystack-webhooks/) — Outbound webhook surface that notifies a single merchant-configured POST endpoint of transaction, dispute, refund, transfer, subscription, invoice, payment…
+- [Paystack Balance API](https://apis.io/apis/paystack/paystack-balance-api/) — The Balance API from Paystack — 2 operation(s) for balance.
+- [Paystack Bulk Charge API](https://apis.io/apis/paystack/paystack-bulk-charge-api/) — The Bulk Charge API from Paystack — 5 operation(s) for bulk charge.
+- [Paystack Charge API](https://apis.io/apis/paystack/paystack-charge-api/) — The Charge API from Paystack — 7 operation(s) for charge.
+- [Paystack Customer API](https://apis.io/apis/paystack/paystack-customer-api/) — The Customer API from Paystack — 5 operation(s) for customer.
+- [Paystack Dedicated Virtual Account API](https://apis.io/apis/paystack/paystack-dedicated-virtual-account-api/) — The Dedicated Virtual Account API from Paystack — 4 operation(s) for dedicated virtual account.
+- [Paystack Dispute API](https://apis.io/apis/paystack/paystack-dispute-api/) — The Dispute API from Paystack — 7 operation(s) for dispute.
+- [Paystack Integration API](https://apis.io/apis/paystack/paystack-integration-api/) — The Integration API from Paystack — 1 operation(s) for integration.
+- [Paystack Page API](https://apis.io/apis/paystack/paystack-page-api/) — The Page API from Paystack — 4 operation(s) for page.
+- [Paystack Payment Request API](https://apis.io/apis/paystack/paystack-payment-request-api/) — The Payment Request API from Paystack — 7 operation(s) for payment request.
+- [Paystack Plan API](https://apis.io/apis/paystack/paystack-plan-api/) — The Plan API from Paystack — 2 operation(s) for plan.
+- [Paystack Product API](https://apis.io/apis/paystack/paystack-product-api/) — The Product API from Paystack — 2 operation(s) for product.
+- [Paystack Refund API](https://apis.io/apis/paystack/paystack-refund-api/) — The Refund API from Paystack — 2 operation(s) for refund.
+- [Paystack Settlement API](https://apis.io/apis/paystack/paystack-settlement-api/) — The Settlement API from Paystack — 2 operation(s) for settlement.
+- [Paystack Split API](https://apis.io/apis/paystack/paystack-split-api/) — The Split API from Paystack — 4 operation(s) for split.
+- [Paystack Subscription API](https://apis.io/apis/paystack/paystack-subscription-api/) — The Subscription API from Paystack — 6 operation(s) for subscription.
+- [Paystack Transaction API](https://apis.io/apis/paystack/paystack-transaction-api/) — The Transaction API from Paystack — 12 operation(s) for transaction.
+- [Paystack Transfer API](https://apis.io/apis/paystack/paystack-transfer-api/) — The Transfer API from Paystack — 10 operation(s) for transfer.
+- [Paystack Transfer Recipient API](https://apis.io/apis/paystack/paystack-transfer-recipient-api/) — The Transfer Recipient API from Paystack — 3 operation(s) for transfer recipient.
+- [Paystack Verification API](https://apis.io/apis/paystack/paystack-verification-api/) — The Verification API from Paystack — 7 operation(s) for verification.
+- [Paystack Sub Account API](https://apis.io/apis/paystack/paystack-sub-account-api/) — The Sub Account API from Paystack — 2 operation(s) for sub account.
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Payments
-- Africa
-- Fintech
-- Recurring Billing
-- Marketplaces
-- Payouts
-- Mobile Money
-- Stripe
+#### Arazzo workflows (25)
 
-## Timestamps
+Multi-step workflows that chain operations into a business task.
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-30
+- [Paystack Add a Subaccount to an Existing Split](https://apis.io/arazzos/paystack/paystack-add-subaccount-to-split-workflow/)
+- [Paystack Blacklist a Customer After a Dispute](https://apis.io/arazzos/paystack/paystack-blacklist-customer-after-dispute-workflow/)
+- [Paystack Bulk Recipients and Bulk Transfer](https://apis.io/arazzos/paystack/paystack-bulk-recipients-and-bulk-transfer-workflow/)
+- [Paystack Charge and Refund a Transaction](https://apis.io/arazzos/paystack/paystack-charge-and-refund-transaction-workflow/)
+- [Paystack Create Charge and Submit OTP](https://apis.io/arazzos/paystack/paystack-charge-and-submit-otp-workflow/)
+- [Paystack Create Charge and Submit PIN](https://apis.io/arazzos/paystack/paystack-charge-and-submit-pin-workflow/)
+- [Paystack Check Authorization and Partial Debit](https://apis.io/arazzos/paystack/paystack-check-authorization-and-partial-debit-workflow/)
+- [Paystack Create Customer and Charge Authorization](https://apis.io/arazzos/paystack/paystack-create-customer-and-charge-authorization-workflow/)
+- [Paystack Create Customer and Send Payment Request](https://apis.io/arazzos/paystack/paystack-create-customer-and-payment-request-workflow/)
+- [Paystack Provision a Dedicated Virtual Account](https://apis.io/arazzos/paystack/paystack-create-customer-dedicated-virtual-account-workflow/)
+- [Paystack Create Customer, Plan and Subscription](https://apis.io/arazzos/paystack/paystack-create-customer-plan-and-subscription-workflow/)
+- [Paystack Create Product and Payment Page](https://apis.io/arazzos/paystack/paystack-create-product-and-payment-page-workflow/)
+- [Paystack Create Recipient and Initiate Transfer](https://apis.io/arazzos/paystack/paystack-create-recipient-and-initiate-transfer-workflow/)
+- [Paystack Create Subaccount and Transaction Split](https://apis.io/arazzos/paystack/paystack-create-subaccount-and-split-workflow/)
+- [Paystack Disable and Re-enable a Subscription](https://apis.io/arazzos/paystack/paystack-disable-and-reenable-subscription-workflow/)
+- [Paystack Submit Dispute Evidence and Resolve](https://apis.io/arazzos/paystack/paystack-dispute-evidence-and-resolve-workflow/)
+- [Paystack Finalize and Archive a Draft Payment Request](https://apis.io/arazzos/paystack/paystack-finalize-and-archive-payment-request-workflow/)
+- [Paystack Initialize and Verify Transaction](https://apis.io/arazzos/paystack/paystack-initialize-and-verify-transaction-workflow/)
+- [Paystack Initiate and Finalize Transfer with OTP](https://apis.io/arazzos/paystack/paystack-initiate-and-finalize-transfer-workflow/)
+- [Paystack Initiate and Monitor a Bulk Charge](https://apis.io/arazzos/paystack/paystack-initiate-and-monitor-bulk-charge-workflow/)
+- [Paystack Resolve Account and Create Transfer Recipient](https://apis.io/arazzos/paystack/paystack-resolve-account-and-create-recipient-workflow/)
+- [Paystack Resolve Card BIN and Charge Authorization](https://apis.io/arazzos/paystack/paystack-resolve-card-bin-and-charge-workflow/)
+- [Paystack Settlement Reconciliation](https://apis.io/arazzos/paystack/paystack-settlement-reconciliation-workflow/)
+- [Paystack Subscribe and Generate a Management Link](https://apis.io/arazzos/paystack/paystack-subscribe-and-generate-manage-link-workflow/)
+- [Paystack Create and Validate Customer (KYC)](https://apis.io/arazzos/paystack/paystack-validate-customer-kyc-workflow/)
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Paystack Webhooks](https://apis.io/asyncapis/paystack/paystack-webhooks-asyncapi/)
+
+#### Event channels (1)
+
+Individual events and webhooks the provider emits.
+
+- [paystack/events](https://apis.io/channels/paystack/paystack-events/)
+
+#### GraphQL (1)
+
+GraphQL schemas.
 
-## APIs
+- [Moved to /providers/paystack/](https://apis.io/graphqls/paystack/paystack-graphql/)
+
+#### Agentic access (1)
 
-### Paystack Accept Payments API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Initialize, verify, charge, and manage one-time card, bank, USSD, mobile money, QR, and bank transfer payments. The Transaction and Charge resources are the core of Paystack — a hosted checkout flow (initialize + verify) and a direct charge flow that drives the customer through PIN, OTP, phone, birthday, and address challenges as required.
+- [Paystack Agentic Access](https://apis.io/agentic-access/paystack/paystack-agentic-access/)
 
-- **Human URL:** [https://paystack.com/docs/api/transaction/](https://paystack.com/docs/api/transaction/)
+#### JSON Schema (9)
 
-#### Tags
+The data models the API reads and writes.
 
-- Payments
-- Transactions
-- Charge
+- [Paystack Customer](https://apis.io/schemas/paystack/paystack-customer/)
+- [Paystack Dispute](https://apis.io/schemas/paystack/paystack-dispute/)
+- [Paystack Plan](https://apis.io/schemas/paystack/paystack-plan/)
+- [Paystack Refund](https://apis.io/schemas/paystack/paystack-refund/)
+- [Paystack Transaction Split](https://apis.io/schemas/paystack/paystack-split/)
+- [Paystack Subaccount](https://apis.io/schemas/paystack/paystack-subaccount/)
+- [Paystack Subscription](https://apis.io/schemas/paystack/paystack-subscription/)
+- [Paystack Transaction](https://apis.io/schemas/paystack/paystack-transaction/)
+- [Paystack Transfer](https://apis.io/schemas/paystack/paystack-transfer/)
 
-#### Properties
+#### JSON Structure (5)
 
-- [Documentation](https://paystack.com/docs/api/transaction/)
-- [Documentation](https://paystack.com/docs/api/charge/)
-- [OpenAPI](openapi/paystack-accept-payments-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-accept-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-accept-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-transaction-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paystack-transaction-structure.json)
-- [Example](examples/paystack-initialize-transaction-example.json)
-- [Example](examples/paystack-verify-transaction-example.json)
+Data models expressed in JSON Structure.
 
-### Paystack Subscriptions API
+- [Paystack Customer Structure](https://apis.io/json-structure/paystack/paystack-customer-structure/)
+- [Paystack Split Structure](https://apis.io/json-structure/paystack/paystack-split-structure/)
+- [Paystack Subscription Structure](https://apis.io/json-structure/paystack/paystack-subscription-structure/)
+- [Paystack Transaction Structure](https://apis.io/json-structure/paystack/paystack-transaction-structure/)
+- [Paystack Transfer Structure](https://apis.io/json-structure/paystack/paystack-transfer-structure/)
 
-Create plans and run recurring subscriptions against stored card authorizations. Includes plan management, subscription lifecycle (create / disable / enable), customer self-service update links, and automatic invoice notifications.
+#### JSON-LD (1)
 
-- **Human URL:** [https://paystack.com/docs/api/subscription/](https://paystack.com/docs/api/subscription/)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Paystack Context](https://apis.io/jsonld/paystack/paystack-context/)
 
-- Recurring Billing
-- Subscriptions
-- Plans
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://paystack.com/docs/api/subscription/)
-- [Documentation](https://paystack.com/docs/api/plan/)
-- [OpenAPI](openapi/paystack-subscriptions-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-subscriptions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-subscriptions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-plan-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/paystack-subscription-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paystack-subscription-structure.json)
-- [Example](examples/paystack-create-subscription-example.json)
+- [Paystack Vocabulary](https://apis.io/vocabularies/paystack/paystack-vocabulary/)
 
-### Paystack Customers API
+#### Examples (6)
 
-Create, list, and update customer profiles; whitelist or blacklist customers via risk_action; deactivate stored authorizations; and run KYC validation against customer identities.
+Example requests and responses.
 
-- **Human URL:** [https://paystack.com/docs/api/customer/](https://paystack.com/docs/api/customer/)
+- [Paystack Create Dedicated Account Example](https://apis.io/examples/paystack/paystack-create-dedicated-account-example/)
+- [Paystack Create Split Example](https://apis.io/examples/paystack/paystack-create-split-example/)
+- [Paystack Create Subscription Example](https://apis.io/examples/paystack/paystack-create-subscription-example/)
+- [Paystack Initialize Transaction Example](https://apis.io/examples/paystack/paystack-initialize-transaction-example/)
+- [Paystack Initiate Transfer Example](https://apis.io/examples/paystack/paystack-initiate-transfer-example/)
+- [Paystack Verify Transaction Example](https://apis.io/examples/paystack/paystack-verify-transaction-example/)
 
-#### Tags
+#### Collections (46)
 
-- Customers
-- KYC
+Postman and Open Collection request collections.
 
-#### Properties
+- [Paystack Accept Payments API](https://apis.io/collections/paystack/open-paystack-accept-payments/)
+- [Paystack Balance API](https://apis.io/collections/paystack/open-paystack-balance/)
+- [Paystack Accept Payments Balance API](https://apis.io/collections/paystack/open-paystack-balance-api/)
+- [Paystack Accept Payments Balance Bulk Charge API](https://apis.io/collections/paystack/open-paystack-bulk-charge-api/)
+- [Paystack Accept Payments Balance Charge API](https://apis.io/collections/paystack/open-paystack-charge-api/)
+- [Paystack Accept Payments Balance Customer API](https://apis.io/collections/paystack/open-paystack-customer-api/)
+- [Paystack Customers API](https://apis.io/collections/paystack/open-paystack-customers/)
+- [Paystack Accept Payments Balance Dedicated Virtual Account API](https://apis.io/collections/paystack/open-paystack-dedicated-virtual-account-api/)
+- [Paystack Dedicated Virtual Accounts API](https://apis.io/collections/paystack/open-paystack-dedicated-virtual-accounts/)
+- [Paystack Accept Payments Balance Dispute API](https://apis.io/collections/paystack/open-paystack-dispute-api/)
+- [Paystack Integration Settings API](https://apis.io/collections/paystack/open-paystack-integration/)
+- [Paystack Accept Payments Balance Integration API](https://apis.io/collections/paystack/open-paystack-integration-api/)
+- [Paystack Accept Payments Balance Page API](https://apis.io/collections/paystack/open-paystack-page-api/)
+- [Paystack Accept Payments Balance Payment Request API](https://apis.io/collections/paystack/open-paystack-payment-request-api/)
+- [Paystack Payment Requests API](https://apis.io/collections/paystack/open-paystack-payment-requests/)
+- [Paystack Accept Payments Balance Plan API](https://apis.io/collections/paystack/open-paystack-plan-api/)
+- [Paystack Accept Payments Balance Product API](https://apis.io/collections/paystack/open-paystack-product-api/)
+- [Paystack Products and Payment Pages API](https://apis.io/collections/paystack/open-paystack-products-pages/)
+- [Paystack Accept Payments Balance Refund API](https://apis.io/collections/paystack/open-paystack-refund-api/)
+- [Paystack Refunds and Disputes API](https://apis.io/collections/paystack/open-paystack-refunds-disputes/)
+- [Paystack Accept Payments Balance Settlement API](https://apis.io/collections/paystack/open-paystack-settlement-api/)
+- [Paystack Settlements API](https://apis.io/collections/paystack/open-paystack-settlements/)
+- [Paystack Accept Payments Balance Split API](https://apis.io/collections/paystack/open-paystack-split-api/)
+- [Paystack Splits and Subaccounts API](https://apis.io/collections/paystack/open-paystack-splits-subaccounts/)
+- [Paystack Accept Payments Balance Subaccount API](https://apis.io/collections/paystack/open-paystack-subaccount-api/)
+- …and 21 more published on APIs.io
 
-- [Documentation](https://paystack.com/docs/api/customer/)
-- [OpenAPI](openapi/paystack-customers-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-customers.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-customers.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-customer-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paystack-customer-structure.json)
+#### Governance rules (3)
 
-### Paystack Transfers API
+Spectral rulesets for the provider's contracts.
 
-Send money out of your Paystack balance to bank accounts and mobile money wallets across supported markets. Covers transfer recipients, single and bulk transfers, OTP workflows, and bulk charges against stored authorizations.
+- [Paystack — asyncapi rules](https://apis.io/rules/paystack/paystack-asyncapi-spectral-rules/)
+- [Paystack — jsonschema rules](https://apis.io/rules/paystack/paystack-jsonschema-spectral-rules/)
+- [Paystack API Rules](https://apis.io/rules/paystack/paystack-rules/)
 
-- **Human URL:** [https://paystack.com/docs/api/transfer/](https://paystack.com/docs/api/transfer/)
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Payouts
-- Transfers
-- Bulk
+- [Paystack Authentication](https://apis.io/security/paystack/paystack-authentication/)
+- [Paystack Domain Security](https://apis.io/security/paystack/paystack-domain-security/)
+- [Paystack Trust Center](https://apis.io/security/paystack/paystack-trust-center/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://paystack.com/docs/api/transfer/)
-- [Documentation](https://paystack.com/docs/api/transfer-recipient/)
-- [Documentation](https://paystack.com/docs/api/bulk-charge/)
-- [OpenAPI](openapi/paystack-transfers-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-transfers.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-transfers.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-transfer-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paystack-transfer-structure.json)
-- [Example](examples/paystack-initiate-transfer-example.json)
+Published plans, tiers and prices.
 
-### Paystack Splits and Subaccounts API
+- [Paystack Plans Pricing](https://apis.io/plans/paystack/paystack-plans-pricing/)
 
-Build marketplaces by automatically splitting a single payment between the main account and multiple subaccounts. Configure percentage or flat splits, set fee-bearers, and manage subaccount business profiles for vendor payouts.
+#### Rate limits (1)
 
-- **Human URL:** [https://paystack.com/docs/api/split/](https://paystack.com/docs/api/split/)
+Published request limits.
 
-#### Tags
+- [Paystack Rate Limits](https://apis.io/rate-limits/paystack/paystack-rate-limits/)
 
-- Marketplaces
-- Splits
-- Subaccounts
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://paystack.com/docs/api/split/)
-- [Documentation](https://paystack.com/docs/api/subaccount/)
-- [OpenAPI](openapi/paystack-splits-subaccounts-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-splits-subaccounts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-splits-subaccounts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-split-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/paystack-subaccount-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/paystack-split-structure.json)
-- [Example](examples/paystack-create-split-example.json)
+- [Paystack Finops](https://apis.io/finops/paystack/paystack-finops/)
 
-### Paystack Dedicated Virtual Accounts API
+## Where to find this API
 
-Provision dedicated NUBAN virtual bank accounts for individual customers so they can pay by bank transfer with automatic reconciliation back to the customer profile. Includes split routing on inbound transfers.
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- **Human URL:** [https://paystack.com/docs/api/dedicated-virtual-account/](https://paystack.com/docs/api/dedicated-virtual-account/)
-
-#### Tags
-
-- Bank Transfer
-- NUBAN
-- Virtual Accounts
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/dedicated-virtual-account/)
-- [OpenAPI](openapi/paystack-dedicated-virtual-accounts-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-dedicated-virtual-accounts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-dedicated-virtual-accounts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Example](examples/paystack-create-dedicated-account-example.json)
-
-### Paystack Products and Payment Pages API
-
-Manage products in your Paystack inventory and assemble them into Paystack-hosted Payment Pages so you can collect payments without operating your own checkout.
-
-- **Human URL:** [https://paystack.com/docs/api/products/](https://paystack.com/docs/api/products/)
-
-#### Tags
-
-- Hosted Checkout
-- Products
-- Pages
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/products/)
-- [Documentation](https://paystack.com/docs/api/page/)
-- [OpenAPI](openapi/paystack-products-pages-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-products-pages.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-products-pages.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Payment Requests API
-
-Issue invoice-style payment requests to customers by email, with verification, notification, finalization, and archival flows.
-
-- **Human URL:** [https://paystack.com/docs/api/payment-request/](https://paystack.com/docs/api/payment-request/)
-
-#### Tags
-
-- Invoices
-- Payment Requests
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/payment-request/)
-- [OpenAPI](openapi/paystack-payment-requests-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-payment-requests.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-payment-requests.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Refunds and Disputes API
-
-Process partial and full refunds against successful transactions and respond to cardholder disputes — including evidence upload via signed URL, resolution workflows, and exports.
-
-- **Human URL:** [https://paystack.com/docs/api/refund/](https://paystack.com/docs/api/refund/)
-
-#### Tags
-
-- Refunds
-- Disputes
-- Chargebacks
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/refund/)
-- [Documentation](https://paystack.com/docs/api/dispute/)
-- [OpenAPI](openapi/paystack-refunds-disputes-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-refunds-disputes.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-refunds-disputes.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paystack-refund-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/paystack-dispute-schema.json) — [JSON Schema](https://json-schema.org/specification)
-
-### Paystack Settlements API
-
-Fetch settlement records and the underlying transactions that comprise each payout to your bank account.
-
-- **Human URL:** [https://paystack.com/docs/api/settlement/](https://paystack.com/docs/api/settlement/)
-
-#### Tags
-
-- Settlements
-- Treasury
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/settlement/)
-- [OpenAPI](openapi/paystack-settlements-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-settlements.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-settlements.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Verification API
-
-Identity, BVN, bank account, card BIN, country, bank, and address-verification lookups used to validate customers, beneficiary accounts, and cards before transacting.
-
-- **Human URL:** [https://paystack.com/docs/api/verification/](https://paystack.com/docs/api/verification/)
-
-#### Tags
-
-- Verification
-- Identity
-- BVN
-- KYC
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/verification/)
-- [OpenAPI](openapi/paystack-verification-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-verification.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-verification.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Balance API
-
-Fetch your Paystack balance per currency and read the balance ledger for treasury operations and reconciliation.
-
-- **Human URL:** [https://paystack.com/docs/api/balance/](https://paystack.com/docs/api/balance/)
-
-#### Tags
-
-- Balance
-- Ledger
-- Treasury
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/balance/)
-- [OpenAPI](openapi/paystack-balance-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-balance.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-balance.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Integration Settings API
-
-Read and update integration-wide settings such as the payment session timeout for hosted checkout.
-
-- **Human URL:** [https://paystack.com/docs/api/integration/](https://paystack.com/docs/api/integration/)
-
-#### Tags
-
-- Integration
-- Settings
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/api/integration/)
-- [OpenAPI](openapi/paystack-integration-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paystack-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paystack Webhooks
-
-Outbound webhook surface that notifies a single merchant-configured POST endpoint of transaction, dispute, refund, transfer, subscription, invoice, payment request, customer identification, and dedicated virtual account events. Every delivery is signed with an HMAC-SHA512 x-paystack-signature header keyed by the merchant secret key, and Paystack retries non-200 responses for up to 72 hours.
-
-- **Human URL:** [https://paystack.com/docs/payments/webhooks/](https://paystack.com/docs/payments/webhooks/)
-
-#### Tags
-
-- Webhooks
-- Events
-- AsyncAPI
-- HMAC
-
-#### Properties
-
-- [Documentation](https://paystack.com/docs/payments/webhooks/)
-- [AsyncAPI](asyncapi/paystack-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Postman Collection](collections/paystack-accept-payments.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-accept-payments.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-balance.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-balance.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-customers.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-customers.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-dedicated-virtual-accounts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-dedicated-virtual-accounts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-integration.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-integration.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-payment-requests.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-payment-requests.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-products-pages.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-products-pages.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-refunds-disputes.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-refunds-disputes.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-settlements.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-settlements.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-splits-subaccounts.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-splits-subaccounts.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-subscriptions.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-subscriptions.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-transfers.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-transfers.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Postman Collection](collections/paystack-verification.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paystack-verification.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Arazzo Workflows](arazzo/) — [Arazzo Specification](https://spec.openapis.org/arazzo/latest.html)
-- [Portal](https://paystack.com/)
+- [Website](https://paystack.com)
 - [Documentation](https://paystack.com/docs/)
-- [API Reference](https://paystack.com/docs/api/)
-- [Documentation](https://github.com/PaystackHQ/openapi)
-- [Getting Started](https://paystack.com/docs/payments/accept-payments/)
-- [Sign Up](https://dashboard.paystack.com/#/signup)
-- [Documentation](https://dashboard.paystack.com/)
-- [Authentication](https://paystack.com/docs/api/#authentication)
-- [Documentation](https://dashboard.paystack.com/#/settings/developers)
-- [Documentation](https://paystack.com/docs/payments/webhooks/)
-- [Documentation](https://paystack.com/docs/payments/test-payments/)
-- [Documentation](https://paystack.com/docs/api/errors/)
+- [Getting started](https://paystack.com/docs/payments/accept-payments/)
+- [API reference](https://paystack.com/docs/api/)
+- [Pricing](https://paystack.com/ng/pricing)
+- [Support](https://support.paystack.com/)
 - [Changelog](https://paystack.com/docs/changelog/api/)
 - [Blog](https://paystack.com/blog/)
-- [Blog](https://medium.com/paystack-engineering)
-- [Status Page](https://status.paystack.com/)
-- [Support](https://support.paystack.com/)
-- [Pricing](https://paystack.com/ng/pricing)
-- [Pricing](https://paystack.com/gh/pricing)
-- [Pricing](https://paystack.com/za/pricing)
-- [Pricing](https://paystack.com/ke/pricing)
-- [Pricing](https://paystack.com/ci/pricing)
-- [Pricing](https://paystack.com/eg/pricing)
-- [Terms of Service](https://paystack.com/terms)
-- [Privacy Policy](https://paystack.com/privacy)
-- [Trust Center](https://paystack.com/security)
-- [GitHub Organization](https://github.com/PaystackHQ)
-- [SDK](https://github.com/PaystackHQ/paystack-php)
-- [SDK](https://github.com/PaystackHQ/paystack-android)
-- [SDK](https://github.com/PaystackHQ/paystack-ios)
-- [SDK](https://github.com/PaystackHQ/paystack-sdk-ios)
-- [SDK](https://github.com/PaystackHQ/omnipay-paystack)
-- [Plugins](https://github.com/PaystackHQ/plugin-woocommerce)
-- [Plugins](https://github.com/PaystackHQ/plugin-magento-2)
-- [Plugins](https://github.com/PaystackHQ/plugin-prestashop-1.7)
-- [Plugins](https://github.com/PaystackHQ/plugin-opencart)
-- [Plugins](https://github.com/PaystackHQ/plugin-whmcs)
-- [Plugins](https://github.com/PaystackHQ/moodle-enrol_paystack)
-- [Plugins](https://github.com/PaystackHQ/plugin-odoo)
-- [Code Examples](https://github.com/PaystackHQ/PaystackJS-Sample-code)
-- [Code Examples](https://github.com/PaystackHQ/sample-charge-card-backend)
-- [Spectral Rules](rules/paystack-rules.yml)
-- [Vocabulary](vocabulary/paystack-vocabulary.yml)
-- [JSON-LD](json-ld/paystack-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/paystack-plans-pricing.yml)
-- [Rate Limits](rate-limits/paystack-rate-limits.yml)
-- [Fin Ops](finops/paystack-finops.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
+- [Trust centre](https://paystack.com/security)
+- [Terms of service](https://paystack.com/terms)
+- [Privacy policy](https://paystack.com/privacy)
+- [GitHub](https://github.com/PaystackHQ)
+- [Status](https://status.paystack.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 59.7** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 64.6 |
+| Contract governance | 27.3 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 75.0 |
+| Access clarity | 68.4 |
+
+**Agent readiness 24.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | derived (partial credit) |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 30.4** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/paystack/](https://apis.io/providers/paystack/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Paystack: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/paystack/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
